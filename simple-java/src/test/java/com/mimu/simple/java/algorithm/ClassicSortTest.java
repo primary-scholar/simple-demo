@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 
 public class ClassicSortTest {
+    public int loop = (int) (Math.random() * 99999) + 1;
 
     public ClassicSort sort = new ClassicSort();
 
@@ -25,7 +26,6 @@ public class ClassicSortTest {
 
     @Test
     public void bubbleSortTest() {
-        int loop = (int) (Math.random() * 499) + 1;
         for (int l = 0; l < loop; l++) {
             Integer[] array = initArray();
             Integer[] copy = copyArray(array);
@@ -40,7 +40,6 @@ public class ClassicSortTest {
 
     @Test
     public void selectSortTest() {
-        int loop = (int) (Math.random() * 499) + 1;
         for (int l = 0; l < loop; l++) {
             Integer[] array = initArray();
             Integer[] copy = copyArray(array);
@@ -55,7 +54,6 @@ public class ClassicSortTest {
 
     @Test
     public void insertSortTest() {
-        int loop = (int) (Math.random() * 499) + 1;
         for (int l = 0; l < loop; l++) {
             Integer[] array = initArray();
             Integer[] copy = copyArray(array);
