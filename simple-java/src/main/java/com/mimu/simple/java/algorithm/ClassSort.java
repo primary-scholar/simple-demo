@@ -16,6 +16,13 @@ public class ClassSort {
         array[j] = tmp;
     }
 
+    /**
+     * 冒泡排序 O(N^2)
+     * 第 0~n-1 次循环
+     * 相邻两个元素交换(如果有必要)
+     *
+     * @param array
+     */
     public void bubbleSort(Integer[] array) {
         if (Objects.isNull(array) || array.length < 1) {
             return;
@@ -29,6 +36,26 @@ public class ClassSort {
                     swap(array, j, j + 1);
                 }
             }
+        }
+    }
+
+    /**
+     * 选择排序 O(N^2)
+     *
+     * @param array
+     */
+    public void selectSort(Integer[] array) {
+        if (Objects.isNull(array) || array.length < 1) {
+            return;
+        }
+        for (int i = 0; i < array.length; i++) {
+            int index = i;
+            for (int j = i; j < array.length; j++) {
+                if (array[j] < array[index]) {
+                    index = j;
+                }
+            }
+            swap(array, i, index);
         }
     }
 }
