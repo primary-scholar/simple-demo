@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * 几种经典算法
  */
-public class ClassSort {
+public class ClassicSort {
 
     private void swap(Integer[] array, int i, int j) {
         if (Objects.isNull(array) || array.length <= 1) {

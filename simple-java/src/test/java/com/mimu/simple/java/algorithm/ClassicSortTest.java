@@ -6,9 +6,9 @@ import org.junit.Test;
 import java.util.Arrays;
 
 
-public class ClassSortTest {
+public class ClassicSortTest {
 
-    public ClassSort sort = new ClassSort();
+    public ClassicSort sort = new ClassicSort();
 
     public Integer[] initArray() {
         int arrayLength = (int) (Math.random() * 19) + 1;
