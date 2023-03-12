@@ -13,7 +13,7 @@ public class ClassicNodeRelevant {
      * @param node
      * @return
      */
-    public OneLinkNode oneLinkNodeRevert(OneLinkNode node) {
+    public OneLinkNode<Integer> oneLinkNodeRevert(OneLinkNode<Integer> node) {
         return null;
     }
 
@@ -25,7 +25,7 @@ public class ClassicNodeRelevant {
      * @param delete
      * @return
      */
-    public OneLinkNode oneLinkNodeDelete(OneLinkNode node, Integer delete) {
+    public OneLinkNode<Integer> oneLinkNodeDelete(OneLinkNode<Integer> node, Integer delete) {
         return null;
     }
 
@@ -35,7 +35,7 @@ public class ClassicNodeRelevant {
      * @param node
      * @return
      */
-    public TwoLinkNode twoLinkNodeRevert(TwoLinkNode node) {
+    public TwoLinkNode<Integer> twoLinkNodeRevert(TwoLinkNode<Integer> node) {
         return null;
     }
 
@@ -46,7 +46,7 @@ public class ClassicNodeRelevant {
      * @param delete
      * @return
      */
-    public TwoLinkNode twoLinkNodeDelete(TwoLinkNode node, Integer delete) {
+    public TwoLinkNode<Integer> twoLinkNodeDelete(TwoLinkNode<Integer> node, Integer delete) {
         return null;
     }
 
@@ -54,17 +54,17 @@ public class ClassicNodeRelevant {
     /**
      * 单链表
      */
-    public static class OneLinkNode {
-        private Integer data;
-        private OneLinkNode next;
+    public static class OneLinkNode<T> {
+        private T data;
+        private OneLinkNode<T> next;
     }
 
     /**
      * 双链表
      */
-    public static class TwoLinkNode {
-        private Integer data;
-        private TwoLinkNode pre;
-        private TwoLinkNode next;
+    public static class TwoLinkNode<T> {
+        private T data;
+        private TwoLinkNode<T> pre;
+        private TwoLinkNode<T> next;
     }
 }
