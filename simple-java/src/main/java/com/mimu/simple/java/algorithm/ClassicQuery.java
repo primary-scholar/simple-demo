@@ -60,19 +60,23 @@ public class ClassicQuery extends ClassicSort {
         int left = 0, right = array.length - 1, index = -1;
         while (left <= right) {
             int mid = left + ((right - left) >>> 1);
+            // 如果 当前索引的数组值 >= 待查询的值 则 可舍弃 > 当前索引值的 数组的那部分，在<的那部分无限逼近
+            // 即 right=mid-1;
             if (array[mid] >= searchIng) {
                 index = mid;
-                left = mid + 1;
-            }
-            if (array[mid] < searchIng) {
                 right = mid - 1;
+            }
+            // 如果 当前索引的数组值 < 待查询的值 则 可舍弃 < 当前索引值的 数组的那部分 在>的那部分无限逼近
+            // 即 left = mid+1;
+            if (array[mid] < searchIng) {
+                left = mid + 1;
             }
         }
         return index;
     }
 
     /**
-     * >= 某个元素最左侧的位置 O(logN)
+     * <= 某个元素最右侧的位置 O(logN)
      *
      * @param array
      * @param searchIng
@@ -85,10 +89,14 @@ public class ClassicQuery extends ClassicSort {
         int left = 0, right = array.length - 1, index = -1;
         while (left <= right) {
             int mid = left + ((right - left) >>> 1);
+            // 如果 当前索引的数组值 <= 待查询的值 则 可舍弃 < 当前索引值的 数组的那部分，在> 的那部分无限逼近
+            // 即 left = mid+1;
             if (array[mid] <= searchIng) {
                 index = mid;
                 left = mid + 1;
             }
+            // 如果 当前索引的数组值 > 待查询的值 则 可舍弃 > 当前索引值的 数组的那部分，在< 的那部分无限逼近
+            // 即 right = mid-1;
             if (array[mid] > searchIng) {
                 right = mid - 1;
             }
