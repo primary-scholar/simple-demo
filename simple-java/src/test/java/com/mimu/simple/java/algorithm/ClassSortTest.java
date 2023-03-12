@@ -52,4 +52,19 @@ public class ClassSortTest {
             }
         }
     }
+
+    @Test
+    public void insertSortTest() {
+        int loop = (int) (Math.random() * 499) + 1;
+        for (int l = 0; l < loop; l++) {
+            Integer[] array = initArray();
+            Integer[] copy = copyArray(array);
+            sort.insertSort(array);
+            Arrays.sort(copy);
+            if (!Arrays.equals(array, copy)) {
+                System.out.println(JSONObject.toJSONString(array));
+                System.out.println(JSONObject.toJSONString(copy));
+            }
+        }
+    }
 }
