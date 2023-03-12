@@ -7,7 +7,7 @@ package com.mimu.simple.java.algorithm;
  * O(N)
  * O(N*logN)
  * O(N^2)  O(N^3) ... O(N^)
- * O(2^N)
+ * O(2^N) O(3^N)
  */
 public class AlgorithmRelevant {
 }
