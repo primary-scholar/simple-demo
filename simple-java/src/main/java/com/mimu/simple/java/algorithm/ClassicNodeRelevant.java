@@ -11,28 +11,61 @@ import java.util.Objects;
  */
 public class ClassicNodeRelevant {
 
-
     /**
      * 单链表 倒序
+     * 整体思路：在反转过程中 取 pre，head，next(临时节点-head的后继节点) 三个节点
+     * 分别表示 单链表 头节点的 前驱节点，头节点和 头节点的后继节点 初始时 pre 和 next 都为 null 即可
+     * 头节点非空 开始循环
+     * <p>
+     * 首先 给 next 即 head 的后继节点赋值，
+     * 然后 头节点 的 next 赋值为 前驱 pre 节点，
+     * pre 节点后移即当前的 head 节点 ，
+     * head 头节点继续后移 即当前的 next 节点
+     * <p>
+     * 然后 无限循环知道 头节点为空；
      *
      * @param head
      * @return
      */
-    public OneLinkNode<Integer> oneLinkNodeRevert(OneLinkNode<Integer> head) {
-        if (Objects.isNull(head)) {
-            return null;
+    public SingleNodeList<Integer> revertSingleNodeList(SingleNodeList<Integer> head) {
+        SingleNodeList<Integer> pre = null;
+        SingleNodeList<Integer> next;
+        while (Objects.nonNull(head)) {
+            next = head.getNext();
+            head.setNext(pre);
+            pre = head;
+            head = next;
         }
-        OneLinkNode<Integer> curr = head;
-        OneLinkNode<Integer> next = head.getNext();
-        while (Objects.nonNull(next)) {
-            OneLinkNode<Integer> temp = next.getNext();
-            next.setNext(curr);
-            curr = next;
-            next = temp;
+        return pre;
+    }
 
+    /**
+     * 双链表 倒序  和单链表类似
+     * 整体思路：在反转过程中 取 pre，head，next(临时节点-head的后继节点) 三个节点
+     * 分别表示 单链表 头节点的 前驱节点，头节点和 头节点的后继节点 初始时 pre 和 next 都为 null 即可
+     * 头节点非空 开始循环
+     * <p>
+     * 首先 给 next 即 head 的后继节点赋值，
+     * 然后 头节点 的 next 赋值为 前驱 pre 节点， 头节点的 pre 赋值为 后继 next 节点
+     * pre 节点后移即当前的 head 节点 ，
+     * head 节点继续后即当前的 next 节点
+     * <p>
+     * 然后 无限循环知道 头节点为空；
+     *
+     * @param head
+     * @return
+     */
+    public DoubleNodeList<Integer> revertDoubleNodeList(DoubleNodeList<Integer> head) {
+        DoubleNodeList<Integer> pre = null;
+        DoubleNodeList<Integer> next;
+        while (Objects.nonNull(head)) {
+            next = head.getNext();
+            head.setNext(pre);
+            head.setPre(next);
+            pre = head;
+            head = next;
         }
-        head.setNext(null);
-        return curr;
+        return pre;
     }
 
 
@@ -43,30 +76,29 @@ public class ClassicNodeRelevant {
      * @param delete
      * @return
      */
-    public OneLinkNode<Integer> oneLinkNodeDelete(OneLinkNode<Integer> head, Integer delete) {
+    public SingleNodeList<Integer> deleteSingleNodeList(SingleNodeList<Integer> head, Integer delete) {
         if (Objects.isNull(head)) {
             return null;
         }
-        OneLinkNode<Integer> curr = head;
-        while (Objects.nonNull(curr) && curr.getData().equals(delete)) {
-            OneLinkNode<Integer> tmp = curr.getNext();
-            curr.setNext(null);
-            curr = tmp;
+        while (Objects.nonNull(head) && head.getData().equals(delete)) {
+            SingleNodeList<Integer> next = head.getNext();
+            head.setNext(null);
+            head = next;
         }
-        if (Objects.isNull(curr)) {
-            return null;
-        }
-        head = curr;
-        OneLinkNode<Integer> next = curr.getNext();
-        while (Objects.nonNull(next)) {
-            OneLinkNode<Integer> tmp = next.getNext();
-            if (next.getData().equals(delete)) {
-                next.setNext(null);
-                curr.setNext(tmp);
-            } else {
-                curr = next;
+        if (Objects.nonNull(head)) {
+            SingleNodeList<Integer> curr = head;
+            SingleNodeList<Integer> next = curr.getNext();
+            while (Objects.nonNull(next)) {
+                if (next.getData().equals(delete)) {
+                    SingleNodeList<Integer> tmp = next;
+                    next = next.getNext();
+                    curr.setNext(next);
+                    tmp.setNext(null);
+                } else {
+                    curr = next;
+                    next = next.getNext();
+                }
             }
-            next = tmp;
         }
         return head;
     }
@@ -77,7 +109,7 @@ public class ClassicNodeRelevant {
      * @param node
      * @return
      */
-    public TwoLinkNode<Integer> twoLinkNodeRevert(TwoLinkNode<Integer> node) {
+    public DoubleNodeList<Integer> twoLinkNodeRevert(DoubleNodeList<Integer> node) {
         return null;
     }
 
@@ -88,7 +120,7 @@ public class ClassicNodeRelevant {
      * @param delete
      * @return
      */
-    public TwoLinkNode<Integer> twoLinkNodeDelete(TwoLinkNode<Integer> node, Integer delete) {
+    public DoubleNodeList<Integer> twoLinkNodeDelete(DoubleNodeList<Integer> node, Integer delete) {
         return null;
     }
 
@@ -98,9 +130,9 @@ public class ClassicNodeRelevant {
      */
     @Setter
     @Getter
-    public static class OneLinkNode<T> {
+    public static class SingleNodeList<T> {
         private T data;
-        private OneLinkNode<T> next;
+        private SingleNodeList<T> next;
     }
 
     /**
@@ -108,9 +140,9 @@ public class ClassicNodeRelevant {
      */
     @Setter
     @Getter
-    public static class TwoLinkNode<T> {
+    public static class DoubleNodeList<T> {
         private T data;
-        private TwoLinkNode<T> pre;
-        private TwoLinkNode<T> next;
+        private DoubleNodeList<T> pre;
+        private DoubleNodeList<T> next;
     }
 }
