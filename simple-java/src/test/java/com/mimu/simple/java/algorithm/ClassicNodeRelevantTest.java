@@ -11,7 +11,6 @@ public class ClassicNodeRelevantTest {
     ClassicNodeRelevant nodeRelevant = new ClassicNodeRelevant();
 
     public ClassicNodeRelevant.SingleNodeList<Integer> initSingleNodeLink() {
-
         ClassicNodeRelevant.SingleNodeList<Integer> head = null;
         ClassicNodeRelevant.SingleNodeList<Integer> curr = null;
         for (int i = 0; i < nodeLinkLength; i++) {
@@ -78,18 +77,22 @@ public class ClassicNodeRelevantTest {
         if (Objects.isNull(head)) {
             return Boolean.FALSE;
         }
-        if (head.getData().equals(data)) {
-            return Boolean.TRUE;
+        ClassicNodeRelevant.SingleNodeList<Integer> curr = head;
+        while (Objects.nonNull(curr) && !curr.getData().equals(data)) {
+            curr = curr.getNext();
         }
-        ClassicNodeRelevant.SingleNodeList<Integer> next = head.getNext();
-        while (Objects.nonNull(next)) {
-            if (next.getData().equals(data)) {
-                return Boolean.TRUE;
-            } else {
-                next = next.getNext();
-            }
+        return Objects.nonNull(curr) ? Boolean.TRUE : Boolean.FALSE;
+    }
+
+    public Boolean isExistDataInDoubleNodeList(ClassicNodeRelevant.DoubleNodeList<Integer> head, Integer data) {
+        if (Objects.isNull(head)) {
+            return Boolean.FALSE;
         }
-        return Boolean.FALSE;
+        ClassicNodeRelevant.DoubleNodeList<Integer> curr = head;
+        while (Objects.nonNull(curr) && !curr.getData().equals(data)) {
+            curr = curr.getNext();
+        }
+        return Objects.nonNull(curr) ? Boolean.TRUE : Boolean.FALSE;
     }
 
     public String dataToStringWithSingleNodeList(ClassicNodeRelevant.SingleNodeList<Integer> head) {
@@ -110,6 +113,32 @@ public class ClassicNodeRelevantTest {
             curr = curr.getNext();
         }
         return builder.toString();
+    }
+
+    public Integer countSingleNodeNum(ClassicNodeRelevant.SingleNodeList<Integer> head) {
+        int num = 0;
+        if (Objects.isNull(head)) {
+            return num;
+        }
+        ClassicNodeRelevant.SingleNodeList<Integer> curr = head;
+        while (Objects.nonNull(curr)) {
+            curr = curr.getNext();
+            num++;
+        }
+        return num;
+    }
+
+    public Integer countDoubleNodeNum(ClassicNodeRelevant.DoubleNodeList<Integer> head) {
+        int num = 0;
+        if (Objects.isNull(head)) {
+            return num;
+        }
+        ClassicNodeRelevant.DoubleNodeList<Integer> curr = head;
+        while (Objects.nonNull(curr)) {
+            curr = curr.getNext();
+            num++;
+        }
+        return num;
     }
 
 
@@ -139,13 +168,33 @@ public class ClassicNodeRelevantTest {
     }
 
     @Test
-    public void oneLinkNodeDelete() {
+    public void deleteSingleNodeList() {
         for (int i = 0; i < loop; i++) {
             ClassicNodeRelevant.SingleNodeList<Integer> head = initSingleNodeLink();
             int data = (int) (Math.random() * 100);
             ClassicNodeRelevant.SingleNodeList<Integer> singleNodeList = nodeRelevant.deleteSingleNodeList(head, data);
-            if (isExistDataInSingleNodeList(singleNodeList, data)) {
+            Integer singleNodeNum = countSingleNodeNum(singleNodeList);
+            ClassicNodeRelevant.SingleNodeList<Integer> revertSingleNodeList = nodeRelevant.revertSingleNodeList(singleNodeList);
+            Integer revertSingleNodeNum = countSingleNodeNum(revertSingleNodeList);
+            if (isExistDataInSingleNodeList(singleNodeList, data) || !singleNodeNum.equals(revertSingleNodeNum)) {
                 printSingleNodeLink(singleNodeList);
+                System.out.println(data);
+                return;
+            }
+        }
+    }
+
+    @Test
+    public void deleteDoubleNodeList() {
+        for (int i = 0; i < loop; i++) {
+            ClassicNodeRelevant.DoubleNodeList<Integer> head = initDoubleNodeList();
+            int data = (int) (Math.random() * 100);
+            ClassicNodeRelevant.DoubleNodeList<Integer> doubleNodeList = nodeRelevant.deleteDoubleNodeLink(head, data);
+            Integer doubleNodeNum = countDoubleNodeNum(doubleNodeList);
+            ClassicNodeRelevant.DoubleNodeList<Integer> revertDoubleNodeList = nodeRelevant.revertDoubleNodeList(doubleNodeList);
+            Integer revertDoubleNodeNum = countDoubleNodeNum(revertDoubleNodeList);
+            if (isExistDataInDoubleNodeList(doubleNodeList, data) || !doubleNodeNum.equals(revertDoubleNodeNum)) {
+                printDoubleNodeList(doubleNodeList);
                 System.out.println(data);
                 return;
             }
