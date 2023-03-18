@@ -118,20 +118,20 @@ public class ClassicStackQueue {
             if (num <= 0) {
                 return null;
             }
+            T data;
             if (num == 1) {
-                T data = tail.getData();
+                data = (T) tail.getData();
                 head = null;
                 tail = null;
-                num--;
-                return data;
+            } else {
+                Node<T> pre = tail.getPre();
+                pre.setNext(null);
+                data = (T) tail.getData();
+                tail.setPre(null);
+                tail = pre;
             }
-            Node<T> pre = tail.getPre();
-            pre.setNext(null);
-            T data = (T) tail.getData();
-            tail.setPre(null);
-            tail = pre;
             num--;
-            return (T) data;
+            return data;
         }
 
     }
@@ -215,6 +215,7 @@ public class ClassicStackQueue {
                 element.setNext(head);
                 head = element;
             }
+            num++;
             return Boolean.TRUE;
         }
 
@@ -222,10 +223,16 @@ public class ClassicStackQueue {
             if (num <= 0) {
                 return null;
             }
+            T data;
             if (num == 1) {
-
+                data = head.getData();
+                head = null;
+            } else {
+                Node<T> next = head.getNext();
+                data = head.getData();
+                head.setNext(null);
+                head = next;
             }
-            T data = head.getData();
             num--;
             return data;
         }

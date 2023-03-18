@@ -11,6 +11,7 @@ public class ClassicStackQueueTest {
     ClassicStackQueue.LinkQueue<Integer> linkQueue = new ClassicStackQueue.LinkQueue<>(capacity);
 
     ClassicStackQueue.ArrayStack<Integer> arrayStack = new ClassicStackQueue.ArrayStack<>(capacity);
+    ClassicStackQueue.LinkStack<Integer> linkStack = new ClassicStackQueue.LinkStack<>(capacity);
 
     @Test
     public void arrayQueueTest() {
@@ -57,6 +58,22 @@ public class ClassicStackQueueTest {
             assert Objects.nonNull(integer);
         }
         Integer integer = arrayStack.pop();
+        assert Objects.isNull(integer);
+    }
+
+    @Test
+    public void linkStackTest(){
+        for (int i = 0; i < capacity; i++) {
+            Boolean put = linkStack.put((int) (Math.random() * 100) + i);
+            assert put.equals(Boolean.TRUE);
+        }
+        Boolean put = linkStack.put(10);
+        assert Boolean.FALSE.equals(put);
+        for (int i = 0; i < capacity; i++) {
+            Integer integer = linkStack.pop();
+            assert Objects.nonNull(integer);
+        }
+        Integer integer = linkStack.pop();
         assert Objects.isNull(integer);
     }
 
