@@ -37,7 +37,7 @@ public class ClassicStackQueue {
 
         public Boolean enQueue(T data) {
             if (num > capacity) {
-                throw new IllegalArgumentException();
+                return Boolean.FALSE;
             }
             array[(putIdx++) % capacity] = data;
             num++;
@@ -46,7 +46,7 @@ public class ClassicStackQueue {
 
         public T deQueue() {
             if (num < 0) {
-                throw new IllegalArgumentException();
+                return null;
             }
             return (T) array[(popIdx++) % capacity];
         }
@@ -71,7 +71,7 @@ public class ClassicStackQueue {
 
         public Boolean enQueue(T data) {
             if (num > capacity) {
-                throw new IllegalArgumentException();
+                return Boolean.FALSE;
             }
             Node<T> element = new Node<>(data);
             if (Objects.isNull(head)) {
@@ -88,7 +88,7 @@ public class ClassicStackQueue {
 
         public T deQueue() {
             if (num <= 0) {
-                throw new IllegalArgumentException();
+                return null;
             }
             T data = null;
             if (Objects.nonNull(tail)) {
@@ -118,7 +118,7 @@ public class ClassicStackQueue {
 
         public Boolean put(T data) {
             if (num > capacity) {
-                throw new IllegalArgumentException();
+                return Boolean.FALSE;
             }
             array[index++] = data;
             num++;
@@ -127,7 +127,7 @@ public class ClassicStackQueue {
 
         public T pop() {
             if (num < 0) {
-                throw new IllegalArgumentException();
+                return null;
             }
             T data = (T) array[index--];
             num--;
@@ -152,7 +152,7 @@ public class ClassicStackQueue {
 
         public Boolean put(T data) {
             if (num > capacity) {
-                throw new IllegalArgumentException();
+                return Boolean.FALSE;
             }
             Node<T> element = new Node<>(data);
             if (!Objects.isNull(head)) {
@@ -165,7 +165,7 @@ public class ClassicStackQueue {
 
         public T pop() {
             if (num < 0) {
-                throw new IllegalArgumentException();
+                return null;
             }
             T data = head.getData();
             num--;
