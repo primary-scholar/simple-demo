@@ -9,7 +9,13 @@ public class ClassicStackQueueTest {
 
     @Test
     public void arrayQueueEnQueue() {
-        Boolean enQueue = arrayQueue.enQueue(5);
+        for (Integer i = 0; i < capacity; i++) {
+            Boolean enQueue = arrayQueue.enQueue((int) (Math.random() * 100) + i);
+            if (!enQueue) {
+                System.out.println("error");
+            }
+        }
+        Boolean enQueue = arrayQueue.enQueue(10);
         System.out.println(enQueue);
     }
 

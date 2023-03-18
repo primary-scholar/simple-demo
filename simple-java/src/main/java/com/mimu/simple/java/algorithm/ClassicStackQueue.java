@@ -36,7 +36,7 @@ public class ClassicStackQueue {
         }
 
         public Boolean enQueue(T data) {
-            if (num > capacity) {
+            if (num >= capacity) {
                 return Boolean.FALSE;
             }
             array[(putIdx++) % capacity] = data;
