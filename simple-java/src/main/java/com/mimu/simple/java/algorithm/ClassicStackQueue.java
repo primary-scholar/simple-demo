@@ -140,7 +140,7 @@ public class ClassicStackQueue {
             if (num <= 0) {
                 return null;
             }
-            T data = (T) array[index--];
+            T data = (T) array[--index];
             num--;
             return data;
         }
