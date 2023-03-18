@@ -27,10 +27,10 @@ public class ClassicNodeRelevant {
      * @param head
      * @return
      */
-    public SingleNodeLink<Integer> revertSingleNodeList(SingleNodeLink<Integer> head) {
+    public SingleNode<Integer> revertSingleNodeList(SingleNode<Integer> head) {
         // 给 pre next 节点赋值
-        SingleNodeLink<Integer> pre = null;
-        SingleNodeLink<Integer> next;
+        SingleNode<Integer> pre = null;
+        SingleNode<Integer> next;
         while (Objects.nonNull(head)) {     // head 节点非空 开始循环
             next = head.getNext();      // 首先为 head 的后继节点 next 赋值
             head.setNext(pre);      // head 的后继节点 置为前驱节点
@@ -56,10 +56,10 @@ public class ClassicNodeRelevant {
      * @param head
      * @return
      */
-    public DoubleNodeLink<Integer> revertDoubleNodeList(DoubleNodeLink<Integer> head) {
+    public DoubleNode<Integer> revertDoubleNodeList(DoubleNode<Integer> head) {
         // 给 pre next 节点赋值
-        DoubleNodeLink<Integer> pre = null;
-        DoubleNodeLink<Integer> next;
+        DoubleNode<Integer> pre = null;
+        DoubleNode<Integer> next;
         while (Objects.nonNull(head)) {     // head 节点非空 开始循环
             next = head.getNext();      // 首先为 head 的后继节点 next 赋值
             head.setNext(pre);      // head 的后继节点 置为pre节点
@@ -95,23 +95,23 @@ public class ClassicNodeRelevant {
      * @param delete
      * @return
      */
-    public SingleNodeLink<Integer> deleteSingleNodeList(SingleNodeLink<Integer> head, Integer delete) {
+    public SingleNode<Integer> deleteSingleNodeList(SingleNode<Integer> head, Integer delete) {
         if (Objects.isNull(head)) {
             return null;
         }
         // head 节点非空 且为待删除节点
         while (Objects.nonNull(head) && head.getData().equals(delete)) {
-            SingleNodeLink<Integer> next = head.getNext();      // 首先为 head 的后继节点 next 赋值
+            SingleNode<Integer> next = head.getNext();      // 首先为 head 的后继节点 next 赋值
             head.setNext(null);     // head 后继节点置空
             head = next;        // head 节点后移
         }
         // 给 pre next 节点赋值
-        SingleNodeLink<Integer> curr = head;
-        SingleNodeLink<Integer> next = head;
+        SingleNode<Integer> curr = head;
+        SingleNode<Integer> next = head;
         while (Objects.nonNull(next)) {
             // 首次进入到该循环时 这里 next 一定为非待删除节点(否则 在 case1 中就被删除了)，if中为 待删除的 数据节点
             if (next.getData().equals(delete)) {
-                SingleNodeLink<Integer> tmp = next;     // 临时节点tmp 暂存每一个待删除的 节点 (便于后续该节点的 后继节点置空)
+                SingleNode<Integer> tmp = next;     // 临时节点tmp 暂存每一个待删除的 节点 (便于后续该节点的 后继节点置空)
                 next = next.getNext();      // next 节点后移
                 curr.setNext(next);     // curr 节点的 后继节点为 next 节点
                 tmp.setNext(null);      // 待删除的临时节点 后继置空
@@ -132,25 +132,25 @@ public class ClassicNodeRelevant {
      * @param delete
      * @return
      */
-    public DoubleNodeLink<Integer> deleteDoubleNodeLink(DoubleNodeLink<Integer> head, Integer delete) {
+    public DoubleNode<Integer> deleteDoubleNodeLink(DoubleNode<Integer> head, Integer delete) {
         if (Objects.isNull(head)) {
             return null;
         }
         // 整体与单链表删除类似
         while (Objects.nonNull(head) && head.getData().equals(delete)) {
-            DoubleNodeLink<Integer> next = head.getNext();
+            DoubleNode<Integer> next = head.getNext();
             head.setPre(null);      // head 前后继节点置空
             head.setNext(null);     // head 前后继节点置空
             head = next;
         }
-        DoubleNodeLink<Integer> curr = head;
-        DoubleNodeLink<Integer> next = head;
+        DoubleNode<Integer> curr = head;
+        DoubleNode<Integer> next = head;
         while (Objects.nonNull(next)) {
             if (!next.getData().equals(delete)) {
                 curr = next;
                 next = next.getNext();
             } else {
-                DoubleNodeLink<Integer> tmp = next;
+                DoubleNode<Integer> tmp = next;
                 next = next.getNext();
                 tmp.setPre(null);       // 待删除的临时节点 前后继置空
                 tmp.setNext(null);      // 待删除的临时节点 前后继置空
@@ -167,13 +167,13 @@ public class ClassicNodeRelevant {
      */
     @Setter
     @Getter
-    public static class SingleNodeLink<T> {
-        public SingleNodeLink(T data) {
+    public static class SingleNode<T> {
+        public SingleNode(T data) {
             this.data = data;
         }
 
         private T data;
-        private SingleNodeLink<T> next;
+        private SingleNode<T> next;
     }
 
     /**
@@ -181,13 +181,13 @@ public class ClassicNodeRelevant {
      */
     @Setter
     @Getter
-    public static class DoubleNodeLink<T> {
-        public DoubleNodeLink(T data) {
+    public static class DoubleNode<T> {
+        public DoubleNode(T data) {
             this.data = data;
         }
 
         private T data;
-        private DoubleNodeLink<T> pre;
-        private DoubleNodeLink<T> next;
+        private DoubleNode<T> pre;
+        private DoubleNode<T> next;
     }
 }
