@@ -15,14 +15,14 @@ public class ClassicStackQueue {
     /**
      * 数组实现队列
      * 整体思路： 数组实现的队列可 使用 object[] 数组保存数据，初始时 给定容量 capacity 使用 num 记录当前数据中的 数据个数，这样就简化了
-     * 入队和出对的 比较问题，由于入队和出对和交替操作，则 数组地位出 还可以继续放置元素，所以 放置元素时 使用 循环数组 来放置或取 元素；
+     * 入队和出队的 比较问题，由于入队和出队和交替操作，则 数组低位处 还可以继续放置元素，所以 元素操作时 使用 循环数组 来放置或取 元素；
      * <p>
      * 首先初始化 时 为 capacity，array，num，enIdx,deIdx 赋值
      * <p>
-     * 入队操作：首先判断 数组元素的个数 num >= capacity 如果true 则表示 队列已满，否则可在 数组 (enIdx++)%capacity 出放置元素
+     * 入队操作：首先判断 数组元素的个数 num >= capacity 如果true 则表示 队列已满，否则可在 数组 (enIdx++)%capacity 处放置元素
      * 同时 num++
      * <p>
-     * 出对操作：首先判断 num<=0 如果 true 则队列已空 否则 取 (deIdx++)%capacity 位置的元素 返回
+     * 出队操作：首先判断 num<=0 如果 true 则队列已空 否则 取 (deIdx++)%capacity 位置的元素 返回
      * 同时 num--
      *
      * @param <T>
@@ -75,9 +75,9 @@ public class ClassicStackQueue {
      * 创建的 节点上 (这里注意 双向链表的 pre，next 的赋值操作)
      * 同时 num++
      * <p>
-     * 出对操作：首先判断 num<=0 如果 true 则队列已空 ，如果 num=1 则除了取值外 还要为 head tail 节点置空
+     * 出队操作：首先判断 num<=0 如果 true 则队列已空 ，如果 num=1 则除了取值外 还要为 head tail 节点置空
      * 同时 num--
-     * 若 num>1 则 tail 节点迁移 并删除 tail 节点即可 同时 num--；
+     * 若 num>1 则 tail 节点前移 并删除 tail 节点即可 同时 num--；
      *
      * @param <T>
      */
@@ -140,12 +140,12 @@ public class ClassicStackQueue {
      * 数组实现 栈结构
      * 数组实现的栈 可使用 object[] 数组保存数据，初始时 给定容量 capacity 使用 num 记录当前数据中的 数据个数
      * <p>
-     * 首先初始化 时 为 capacity，array，num，index 赋值
+     * 首先初始化时 为 capacity，array，num，index 赋值
      * <p>
-     * 入队操作：首先判断 数组元素的个数 num >= capacity 如果true 则表示 队列已满，否则可在 数组 (index++) 处放置元素
+     * 入栈操作：首先判断 数组元素的个数 num >= capacity 如果true 则表示 栈已满，否则可在 数组 (index++) 处放置元素
      * 同时 num++
      * <p>
-     * 出对操作：首先判断 num<=0 如果 true 则队列已空 否则 取 (--index) 位置的元素 返回 这里一定是 --index 否则数组会越界
+     * 出栈操作：首先判断 num<=0 如果 true 则栈已空 否则 取 (--index) 位置的元素 返回 这里一定是 --index 否则数组会越界
      * 同时 num--
      *
      * @param <T>
@@ -187,6 +187,19 @@ public class ClassicStackQueue {
     }
 
     /**
+     * 链表实现栈结构
+     * 链表实现的栈 可使用 双链表保存数据，初始时 给定容量 capacity 使用 num 记录当前数据中的 数据个数
+     * <p>
+     * 首先初始化 时 为 capacity，head，num 赋值
+     * <p>
+     * 入栈操作：首先判断 数组元素的个数 num >= capacity 如果true 则表示 栈已满，否则 创建一个双向链表 节点 并把该节点 放在 head的 pre 方向，然后向前移动head 到新
+     * 创建的 节点上 (这里注意 双向链表的 pre，next 的赋值操作)
+     * 同时 num++
+     * <p>
+     * 出栈操作：首先判断 num<=0 如果 true 则栈已空 ，如果 num=1 则除了取值外 还要为 head 节点置空
+     * 同时 num--
+     * 若 num>1 则 head 节点后移 并删除 head 节点即可 同时 num--；
+     *
      * @param <T>
      */
     public static class LinkStack<T> {
