@@ -102,12 +102,13 @@ public class ClassicNodeOperation {
         @Setter
         @Getter
         public static class SingleNode<T> {
-            public SingleNode(T data) {
-                this.data = data;
-            }
-
             private T data;
             private SingleNode<T> next;
+
+            public SingleNode(T data) {
+                this.data = data;
+                this.next = null;
+            }
         }
 
     }
@@ -190,13 +191,16 @@ public class ClassicNodeOperation {
         @Setter
         @Getter
         public static class DoubleNode<T> {
-            public DoubleNode(T data) {
-                this.data = data;
-            }
-
             private T data;
             private DoubleNode<T> pre;
             private DoubleNode<T> next;
+
+            public DoubleNode(T data) {
+                this.data = data;
+                this.pre = null;
+                this.next = null;
+            }
+
         }
     }
 

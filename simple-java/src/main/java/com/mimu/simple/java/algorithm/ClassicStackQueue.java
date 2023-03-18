@@ -15,7 +15,7 @@ public class ClassicStackQueue {
     public static class ArrayQueue<T> {
         private Integer capacity;
         private Object[] array;
-        private Integer index = 0;
+        private Integer index;
 
         public ArrayQueue(Integer capacity) {
             if (Objects.isNull(capacity) || capacity <= 0) {
@@ -23,6 +23,7 @@ public class ClassicStackQueue {
             }
             this.capacity = capacity;
             this.array = new Object[capacity];
+            this.index = 0;
         }
 
         public Boolean enQueue(T data) {
@@ -46,10 +47,13 @@ public class ClassicStackQueue {
         private Integer capacity;
         private Node<T> head;
         private Node<T> tail;
-        private Integer num = 0;
+        private Integer num;
 
         public LinkQueue(Integer capacity) {
             this.capacity = capacity;
+            this.head = null;
+            this.tail = null;
+            this.num = 0;
         }
 
         public Boolean enQueue(T data) {
