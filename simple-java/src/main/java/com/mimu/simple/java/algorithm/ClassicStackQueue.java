@@ -3,6 +3,7 @@ package com.mimu.simple.java.algorithm;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.tools.ant.taskdefs.Tar;
 
 import java.util.Objects;
 
@@ -45,10 +46,12 @@ public class ClassicStackQueue {
         }
 
         public T deQueue() {
-            if (num < 0) {
+            if (num <= 0) {
                 return null;
             }
-            return (T) array[(popIdx++) % capacity];
+            T data = (T) array[(popIdx++) % capacity];
+            num--;
+            return data;
         }
 
     }
@@ -70,7 +73,7 @@ public class ClassicStackQueue {
         }
 
         public Boolean enQueue(T data) {
-            if (num > capacity) {
+            if (num >= capacity) {
                 return Boolean.FALSE;
             }
             Node<T> element = new Node<>(data);
@@ -90,10 +93,18 @@ public class ClassicStackQueue {
             if (num <= 0) {
                 return null;
             }
-            T data = null;
-            if (Objects.nonNull(tail)) {
-                data = (T) tail.getData();
+            if (num == 1) {
+                T data = tail.getData();
+                num--;
+                head = null;
+                tail = null;
+                return data;
             }
+            Node<T> pre = tail.getPre();
+            pre.setNext(null);
+            T data = (T) tail.getData();
+            tail.setPre(null);
+            tail = pre;
             num--;
             return (T) data;
         }
@@ -117,7 +128,7 @@ public class ClassicStackQueue {
         }
 
         public Boolean put(T data) {
-            if (num > capacity) {
+            if (num >= capacity) {
                 return Boolean.FALSE;
             }
             array[index++] = data;
@@ -126,7 +137,7 @@ public class ClassicStackQueue {
         }
 
         public T pop() {
-            if (num < 0) {
+            if (num <= 0) {
                 return null;
             }
             T data = (T) array[index--];
@@ -151,7 +162,7 @@ public class ClassicStackQueue {
         }
 
         public Boolean put(T data) {
-            if (num > capacity) {
+            if (num >= capacity) {
                 return Boolean.FALSE;
             }
             Node<T> element = new Node<>(data);
@@ -164,7 +175,7 @@ public class ClassicStackQueue {
         }
 
         public T pop() {
-            if (num < 0) {
+            if (num <= 0) {
                 return null;
             }
             T data = head.getData();
