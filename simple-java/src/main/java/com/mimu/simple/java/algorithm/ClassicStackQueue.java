@@ -12,10 +12,17 @@ import java.util.Objects;
 public class ClassicStackQueue {
 
 
+    /**
+     * 数组队列 记得使用 循环 队列的思想来循环使用数组
+     *
+     * @param <T>
+     */
     public static class ArrayQueue<T> {
         private Integer capacity;
         private Object[] array;
-        private Integer index;
+        private Integer num;
+        private Integer putIdx;
+        private Integer popIdx;
 
         public ArrayQueue(Integer capacity) {
             if (Objects.isNull(capacity) || capacity <= 0) {
@@ -23,22 +30,25 @@ public class ClassicStackQueue {
             }
             this.capacity = capacity;
             this.array = new Object[capacity];
-            this.index = 0;
+            this.num = 0;
+            this.putIdx = 0;
+            this.popIdx = 0;
         }
 
         public Boolean enQueue(T data) {
-            if (index > capacity) {
+            if (num > capacity) {
                 throw new IllegalArgumentException();
             }
-            array[index++] = data;
+            array[(putIdx++) % capacity] = data;
+            num++;
             return Boolean.TRUE;
         }
 
         public T deQueue() {
-            if (index < 0) {
+            if (num < 0) {
                 throw new IllegalArgumentException();
             }
-            return (T) array[index--];
+            return (T) array[(popIdx++) % capacity];
         }
 
     }
@@ -50,6 +60,9 @@ public class ClassicStackQueue {
         private Integer num;
 
         public LinkQueue(Integer capacity) {
+            if (Objects.isNull(capacity) || capacity <= 0) {
+                throw new IllegalArgumentException();
+            }
             this.capacity = capacity;
             this.head = null;
             this.tail = null;
@@ -91,22 +104,23 @@ public class ClassicStackQueue {
         private Integer capacity;
         private Object[] array;
         private Integer num;
-        private Integer putIx;
-        private Integer popIx;
+        private Integer index;
 
         public ArrayStack(Integer capacity) {
+            if (Objects.isNull(capacity) || capacity <= 0) {
+                throw new IllegalArgumentException();
+            }
             this.capacity = capacity;
             this.array = new Object[capacity];
             this.num = 0;
-            this.putIx = 0;
-            this.popIx = 0;
+            this.index = 0;
         }
 
         public Boolean put(T data) {
             if (num > capacity) {
                 throw new IllegalArgumentException();
             }
-            array[putIx++] = data;
+            array[index++] = data;
             num++;
             return Boolean.TRUE;
         }
@@ -115,7 +129,7 @@ public class ClassicStackQueue {
             if (num < 0) {
                 throw new IllegalArgumentException();
             }
-            T data = (T) array[popIx++];
+            T data = (T) array[index--];
             num--;
             return data;
         }
@@ -123,6 +137,41 @@ public class ClassicStackQueue {
     }
 
     public static class LinkStack<T> {
+        private Integer capacity;
+        private Node<T> head;
+        private Integer num;
+
+        public LinkStack(Integer capacity) {
+            if (Objects.isNull(capacity) || capacity <= 0) {
+                throw new IllegalArgumentException();
+            }
+            this.capacity = capacity;
+            this.head = null;
+            this.num = 0;
+        }
+
+        public Boolean put(T data) {
+            if (num > capacity) {
+                throw new IllegalArgumentException();
+            }
+            Node<T> element = new Node<>(data);
+            if (!Objects.isNull(head)) {
+                element.setNext(head);
+                head.setPre(element);
+            }
+            head = element;
+            return Boolean.TRUE;
+        }
+
+        public T pop() {
+            if (num < 0) {
+                throw new IllegalArgumentException();
+            }
+            T data = head.getData();
+            num--;
+            return data;
+        }
+
     }
 
 
