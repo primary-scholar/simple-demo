@@ -6,10 +6,10 @@ import org.junit.Test;
 import java.util.Arrays;
 
 
-public class ClassicSortTest {
+public class ClassicSortOfNSquareTest {
     public int loop = (int) (Math.random() * 99999) + 1;
 
-    public ClassicSort sort = new ClassicSort();
+    public ClassicSortOfNSquare sort = new ClassicSortOfNSquare();
 
     public Integer[] initArray() {
         int arrayLength = (int) (Math.random() * 19) + 1;

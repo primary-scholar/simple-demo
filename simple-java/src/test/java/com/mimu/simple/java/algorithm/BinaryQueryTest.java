@@ -5,9 +5,9 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class BinaryQueryTest extends ClassicSortTest {
+public class BinaryQueryTest extends ClassicSortOfNSquareTest {
 
-    public ClassicQuery query = new ClassicQuery();
+    public ClassicQueryOfNSquare query = new ClassicQueryOfNSquare();
 
 
     @Test

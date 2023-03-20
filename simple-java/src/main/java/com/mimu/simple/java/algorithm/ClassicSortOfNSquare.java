@@ -3,9 +3,9 @@ package com.mimu.simple.java.algorithm;
 import java.util.Objects;
 
 /**
- * 几种经典算法
+ * 几种经典算法 复杂度为 O(N^2)
  */
-public class ClassicSort {
+public class ClassicSortOfNSquare {
 
     private void swap(Integer[] array, int i, int j) {
         if (Objects.isNull(array) || array.length <= 1) {

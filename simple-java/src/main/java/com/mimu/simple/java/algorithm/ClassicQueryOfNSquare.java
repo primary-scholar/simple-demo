@@ -7,12 +7,12 @@ import java.util.Objects;
  * 1.在一个有序数组中，查找某个元素是否存在
  * 2.在一个有序数组中，查找>=某个元素的最左侧的位置
  * 3.在一个有序数组中，查找<=某个元素的最右侧的位置
- * 4.查找局部最小值问题 ex 一个数组 不等切无序
+ * 4.查找局部最小值问题 ex 一个数组 不等且无序
  * <p>
  * 二分查找的思想 在于每次做决策时都可以明确的 抛弃全量数据中的 某一半的数据量 在剩余的数据中查询
  * 所以二分查找 适用于 有序数组，但 同时又不仅仅 仅适用于 有序数组
  */
-public class ClassicQuery extends ClassicSort {
+public class ClassicQueryOfNSquare extends ClassicSortOfNSquare {
 
     /**
      * 二分查找 O(logN)
