@@ -1,5 +1,7 @@
 package com.mimu.simple.java.algorithm;
 
+import java.util.Objects;
+
 /**
  * 递归操作
  * 1.任何递归操作都可以转换成迭代(循环)的操作方式来实现,因为递归操作都是利用了计算机的入栈出栈的操作来实现的，所以使用迭代替换时 可自己模仿入栈出栈的动作 来实现
@@ -17,6 +19,7 @@ public class ClassicRecursion {
 
     /**
      * 求数组中的最大值
+     * 复杂度因为 log(2^2)=1 > 0 所以  O（N^log(2^2)） = O(N)
      * **************  f(0,3)
      * *************  /      \
      * ************  /        \
@@ -38,6 +41,25 @@ public class ClassicRecursion {
         int leftProcess = process(array, left, mid);
         int rightProcess = process(array, mid, right);
         return Math.max(leftProcess, rightProcess);
+    }
+
+    /**
+     * 非递归操作
+     *
+     * @param array
+     * @param left
+     * @param right
+     * @return
+     */
+    public Integer processAgain(Integer[] array, int left, int right) {
+        if (Objects.isNull(array)) {
+            return null;
+        }
+        int num = array[0];
+        for (int i = left; i < right; i++) {
+            num = Math.max(num, array[i]);
+        }
+        return num;
     }
 
 }

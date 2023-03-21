@@ -10,8 +10,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 
 /**
- author: mimu
- date: 2019/11/2
+ * author: mimu
+ * date: 2019/11/2
  */
 
 /**
