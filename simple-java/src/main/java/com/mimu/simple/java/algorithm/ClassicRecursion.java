@@ -33,13 +33,13 @@ public class ClassicRecursion {
      * @param right
      * @return
      */
-    public int process(Integer[] array, int left, int right) {
+    public Integer process(Integer[] array, int left, int right) {
         if (left == right) {
             return array[left];
         }
         int mid = left + ((right - left) >> 1);
         int leftProcess = process(array, left, mid);
-        int rightProcess = process(array, mid, right);
+        int rightProcess = process(array, mid + 1, right);  // 右侧 mid 记得 +1
         return Math.max(leftProcess, rightProcess);
     }
 
@@ -56,7 +56,7 @@ public class ClassicRecursion {
             return null;
         }
         int num = array[0];
-        for (int i = left; i < right; i++) {
+        for (int i = left; i <= right; i++) {
             num = Math.max(num, array[i]);
         }
         return num;
