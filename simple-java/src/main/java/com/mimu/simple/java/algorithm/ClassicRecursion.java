@@ -34,13 +34,13 @@ public class ClassicRecursion {
      * @return
      */
     public Integer process(Integer[] array, int left, int right) {
-        if (left == right) { // 4. 左右两边的最大值何时可求出 即当左右两边的 数组中只有一个元素时 此时的 元素即为 各自的最大值；
+        if (left == right) { // 4. 左右子规模数组何时可以求出最大值？ 当左右子规模数组中只有一个元素时，此时的元素即为各自的最大值；
             return array[left];
         }
         int mid = left + ((right - left) >> 1);
-        int leftProcess = process(array, left, mid);  // 1. 求出左边的最大值
-        int rightProcess = process(array, mid + 1, right);  // 2. 求出右边的最大值  这里右侧 mid 记得 +1
-        return Math.max(leftProcess, rightProcess); // 3. 左右两边 求出一个最大值，即整体数组的最大值
+        int leftProcess = process(array, left, mid);  // 1. 左子规模数组的最大值
+        int rightProcess = process(array, mid + 1, right);  // 2. 右子规模数组的最大值，  这里右子规模的 mid 记得 +1
+        return Math.max(leftProcess, rightProcess); // 3. 通过 Math.max() 方法 求左右子规模的 最大值
     }
 
     /**
