@@ -8,4 +8,15 @@ package com.mimu.simple.java.algorithm;
  * 这里的排序有 归并排序、快排序、堆排序；
  */
 public class ClassicSortOfNumber {
+
+
+    /**
+     * 归并排序
+     * 整体思路：
+     *
+     * @param array
+     */
+    public void mergeSort(Integer[] array) {
+
+    }
 }
