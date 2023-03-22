@@ -81,6 +81,7 @@ public class ClassicSortOfNumber {
 
     /**
      * 归并排序 非递归算法
+     * 整体思路：
      *
      * @param array
      */
