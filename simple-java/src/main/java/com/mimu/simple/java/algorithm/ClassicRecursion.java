@@ -38,8 +38,8 @@ public class ClassicRecursion {
             return array[left];
         }
         int mid = left + ((right - left) >> 1);
-        int leftProcess = process(array, left, mid);  // 1. 左子规模数组的最大值
-        int rightProcess = process(array, mid + 1, right);  // 2. 右子规模数组的最大值，  这里右子规模的 mid 记得 +1
+        int leftProcess = process(array, left, mid);  // 1. 求左子规模数组的最大值
+        int rightProcess = process(array, mid + 1, right);  // 2. 求右子规模数组的最大值，  这里右子规模的 mid 记得 +1
         return Math.max(leftProcess, rightProcess); // 3. 通过 Math.max() 方法 求左右子规模的 最大值
     }
 
