@@ -34,6 +34,7 @@ public class ClassicSortOfNumber {
      * <p>
      * 这里 split 本身(除了 merge操作外) 仅仅时把大规模的数组 拆分成子规模的数组，直到子规模的数组中只有一个元素，这时这一个元素的数组就自然有序，
      * 此时 通过 merge 方法(有序数组合并) 合并成一个大的有序数组，即所有的排序都是通过 merge 合并操作得来
+     * T(N) = 2*T(N/2) + O(N^1) 所以复杂度为 O(N*log(N))
      *
      * @param array
      * @param left
@@ -53,6 +54,7 @@ public class ClassicSortOfNumber {
     }
 
     /**
+     * merge 的复杂度为 O(2N)~ O(N)
      * 有序数组 合并 初始的 数组 array 在 mid 下标的 分割下 很自然的就分成了 array[left...mid],和 array[mid+1,right] 两个部分
      * <p>
      * 合并时 若果左右两部分都非空 则 取左右侧最小的值 放到 copy 数组中；
@@ -85,6 +87,7 @@ public class ClassicSortOfNumber {
      * 归并步长 mergeSize 是 合并左右子有序数组的 数组长度的 变量 初始为 1 表示 1，2；3，4；5，6；...... 为左右长度为1的子有序数据 并对子有序数据进行 merge 合并操作
      * 每次循环结束后 归并步长 左移以为 mergeSize <<=1 继续进行 长度为 2 的 左右有序数组的归并，1 2，3 4；5 6，7 8； 进行 merge 归并操作
      * 直到 mergeSize >= array.length 是结束排序；
+     * 复杂度：外层循环log(N),内层循环 为 O(N) 所以整体复杂度 O(N*log(N))
      *
      * @param array
      */
