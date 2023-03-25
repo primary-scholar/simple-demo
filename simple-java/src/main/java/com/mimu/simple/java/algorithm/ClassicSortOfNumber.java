@@ -81,6 +81,10 @@ public class ClassicSortOfNumber {
 
     /**
      * 归并排序 非递归算法
+     * 整体思路：使用一个归并排序的步长字段 mergeSize 来判断数组循环的次数
+     * 归并步长 mergeSize 是 合并左右子有序数组的 数组长度的 变量 初始为 1 表示 1，2；3，4；5，6；...... 为左右长度为1的子有序数据 并对子有序数据进行 merge 合并操作
+     * 每次循环结束后 归并步长 左移以为 mergeSize <<=1 继续进行 长度为 2 的 左右有序数组的归并，1 2，3 4；5 6，7 8； 进行 merge 归并操作
+     * 直到 mergeSize >= array.length 是结束排序；
      *
      * @param array
      */
@@ -88,22 +92,22 @@ public class ClassicSortOfNumber {
         if (Objects.isNull(array)) {
             return;
         }
-        int length = array.length, mergeSize = 1;
-        while (mergeSize < length) {
+        int length = array.length, mergeSize = 1;  // 初始 mergeSize =1 即归并的左右子数据长度 为 1 ，
+        while (mergeSize < length) {  // mergeSize < length 是开始循环
             int left = 0;
-            while (left < length) {
-                int mid = left + mergeSize - 1;
+            while (left < length) {  // 每次都行数据 的 最左侧 array[0] 位置 开始 进行 分组 归并
+                int mid = left + mergeSize - 1;  // 初始化  mid 值 把 数据分成 array [left,mid],[mid+1,right] 两组进行归并
                 if (mid >= length) {
                     break;
                 }
-                int right = Math.min(mid + mergeSize, length - 1);
-                merge(array, left, right, mid);
-                left = right + 1;
+                int right = Math.min(mid + mergeSize, length - 1); // 初始化 right 值
+                merge(array, left, right, mid); //  进行归并
+                left = right + 1;       // 从左到右 依次进行归并 排序
             }
             if (mergeSize > length / 2) {
                 break;
             }
-            mergeSize <<= 1;
+            mergeSize <<= 1; // 归并步长 左移 进行下一轮的归并
         }
     }
 }
