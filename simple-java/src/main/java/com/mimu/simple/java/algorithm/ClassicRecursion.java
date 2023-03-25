@@ -51,7 +51,7 @@ public class ClassicRecursion {
      * @param right
      * @return
      */
-    public Integer processAgain(Integer[] array, int left, int right) {
+    public Integer processAnother(Integer[] array, int left, int right) {
         if (Objects.isNull(array)) {
             return null;
         }

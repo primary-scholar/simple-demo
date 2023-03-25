@@ -18,7 +18,7 @@ public class ClassicRecursionTest extends ClassicSortOfNSquareTest {
             Integer[] copy = copyArray(array);
             Arrays.sort(copy);
             assert process.equals(copy[copy.length - 1]);
-            Integer processAgain = recursion.processAgain(array, 0, array.length - 1);
+            Integer processAgain = recursion.processAnother(array, 0, array.length - 1);
             assert processAgain.equals(process);
         }
     }
