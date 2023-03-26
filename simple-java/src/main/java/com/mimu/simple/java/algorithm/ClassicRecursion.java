@@ -13,6 +13,12 @@ import java.util.Objects;
  * 如果： log(b^a)>d  O(N^log(b^a))
  * 如果： log(b^a)<d  O(N^d)
  * 如果： log(b^a)=d  O((N^d)*(log(N)))
+ *
+ *
+ *
+ *
+ * 归并排序的应用：
+ * 1. 最小和问题；
  */
 public class ClassicRecursion {
 

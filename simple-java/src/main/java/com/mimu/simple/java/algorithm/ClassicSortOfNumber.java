@@ -110,4 +110,70 @@ public class ClassicSortOfNumber {
             mergeSize <<= 1; // 归并步长 左移 进行下一轮的归并
         }
     }
+
+
+    /**
+     * 最小和问题: 在一个数组中，每个数左侧比该数小的数字的和 为最小和
+     * <p>
+     * [1 2 4 3 5] 1 的最下 0；2的最小 1；4的最小 1 2 ；3的最小1 2；5的最小 1 2 4 3； 所以最小和= 1+（1+2）+(1+2)+(1+2+4+3) = 17
+     * 最小和问题 等价于 1 的右侧 有几个 数比1 大的 1*4; 2的右侧有几个数比2 大 2*3，4的右侧有几个数比4大 4*1；3的右侧有几个数比3大 3*1；
+     * 所以最小和=(1*4)+(2*3)+(4*1)+(3*1)=17;
+     * 其规律符合 归并排序的思想，可以使用归并排序的思路来解题：
+     *
+     * @param array
+     * @return
+     */
+    public Integer smallSum(Integer[] array) {
+        return smallSumSplitMerge(array, 0, array.length - 1);
+    }
+
+    /**
+     * 最小和 只在归并过程中产生，但是为什么要加上 左子规模最小和和右子规模最小和呢
+     * 这是因为 只有无限分割 左右子数组规模到一个数字时 ；才会开始归并的过程，归并的过程会产生最小和
+     * 即 一次 smallSumSplitMerge 产生一次 最小和 要么 ==0 要么 array[li]
+     *
+     * @param array
+     * @param left
+     * @param right
+     * @return
+     */
+    private Integer smallSumSplitMerge(Integer[] array, Integer left, Integer right) {
+        if (Objects.isNull(array)) {
+            return 0;
+        }
+        if (left.equals(right)) {//4.左右子规模数组只有一个时 无最小和
+            return 0;
+        }
+        Integer mid = left + ((right - left) >> 1);
+        //子规模的最小和+又规模的最小和+归并过程的最小和；其实最小和 只在归并过程中产生
+        return smallSumSplitMerge(array, left, mid) + smallSumSplitMerge(array, mid + 1, right) + smallSumMerge(array, left, right, mid);
+    }
+
+    /**
+     * 整体过程和普通归并类型 只是这里多了一个产生最小和的 过程
+     *
+     * @param array
+     * @param left
+     * @param right
+     * @param mid
+     * @return
+     */
+    private Integer smallSumMerge(Integer[] array, Integer left, Integer right, Integer mid) {
+        Integer[] copy = new Integer[right - left + 1];
+        int i = 0, li = left, ri = mid + 1, result = 0;
+        while (li <= mid && ri <= right) {
+            //最小和的产生；即多少个 array[li]； 产生过程只有 左侧子规模和右侧子规模进行比对 且左子规模数<右侧子规模数时 才产生 个数为 右侧子规模的长度-当前比对的右侧下标的数字+1个
+            result += array[li] < array[ri] ? (right - ri + 1) * array[li] : 0;
+            //这里只有左侧子规模下标数字<右侧子规模下标数字时 才拷贝左侧数字，>= 时拷贝右侧子规模下标数字
+            copy[i++] = array[li] < array[ri] ? array[li++] : array[ri++];
+        }
+        while (li <= mid) {
+            copy[i++] = array[li++];
+        }
+        while (ri <= right) {
+            copy[i++] = array[ri++];
+        }
+        System.arraycopy(copy, 0, array, left, copy.length);
+        return result;
+    }
 }
