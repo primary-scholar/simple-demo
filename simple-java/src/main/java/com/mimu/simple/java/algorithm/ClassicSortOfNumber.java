@@ -84,7 +84,7 @@ public class ClassicSortOfNumber {
      * 整体思路：使用一个归并排序的步长字段 mergeSize 来判断数组循环的次数
      * 归并步长 mergeSize 是 合并左右子有序数组的 数组长度的 变量 初始为 1 表示 1，2；3，4；5，6；...... 为左右长度为1的子有序数据 并对子有序数据进行 merge 合并操作
      * 每次循环结束后 归并步长 左移以为 mergeSize <<=1 继续进行 长度为 2 的 左右有序数组的归并，1 2，3 4；5 6，7 8； 进行 merge 归并操作
-     * 直到 mergeSize >= array.length 是结束排序；
+     * 直到 mergeSize >= array.length 时结束排序；
      *
      * @param array
      */
