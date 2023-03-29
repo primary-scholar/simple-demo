@@ -15,7 +15,7 @@ public class BinaryQueryTest extends ClassicSortOfNSquareTest {
         for (int l = 0; l < loop; l++) {
             Integer[] array = initArray();
             Arrays.sort(array);
-            Integer index = ((int) (Math.random() * 100)) % array.length;
+            Integer index = getPRandom() % array.length;
             Integer searchIng = array[index];
             Integer queryIndex = query.binaryQuery(array, searchIng);
             if (!searchIng.equals(array[queryIndex])) {
@@ -32,7 +32,7 @@ public class BinaryQueryTest extends ClassicSortOfNSquareTest {
         for (int l = 0; l < loop; l++) {
             Integer[] array = initArray();
             Arrays.sort(array);
-            Integer index = ((int) (Math.random() * 100)) % array.length;
+            Integer index = getPRandom() % array.length;
             Integer searchIng = array[index];
             Integer queryIndex = query.bigThanOneMostLeftQuery(array, searchIng);
             if (queryIndex != -1 && array[queryIndex] < searchIng) {
@@ -49,7 +49,7 @@ public class BinaryQueryTest extends ClassicSortOfNSquareTest {
         for (int l = 0; l < loop; l++) {
             Integer[] array = initArray();
             Arrays.sort(array);
-            Integer index = ((int) (Math.random() * 100)) % array.length;
+            Integer index = getPRandom() % array.length;
             Integer searchIng = array[index];
             Integer queryIndex = query.smallThanOneMostRightQuery(array, searchIng);
             if (queryIndex != -1 && array[queryIndex] > searchIng) {
