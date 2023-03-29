@@ -13,12 +13,16 @@ import java.util.Objects;
  * 如果： log(b^a)>d  O(N^log(b^a))
  * 如果： log(b^a)<d  O(N^d)
  * 如果： log(b^a)=d  O((N^d)*(log(N)))
- *
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
+ * <p>
  * 归并排序的应用：
- * 1. 最小和问题；
+ * 1. 数组最小和问题；
+ * 2. 数组降序对 对数
+ * <p>
+ * 1。类问题 数组中某个数的右边 哪些数组比该数大，2。数组中 某个数的右边 哪些数字比该数小
+ * 这类问题时 可利用 合并排序算法的思想来解题
  */
 public class ClassicRecursion {
 

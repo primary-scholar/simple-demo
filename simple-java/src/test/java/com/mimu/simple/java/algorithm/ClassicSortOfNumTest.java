@@ -1,14 +1,13 @@
 package com.mimu.simple.java.algorithm;
 
-import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class ClassicSortOfNumberTest extends ClassicSortOfNSquareTest {
+public class ClassicSortOfNumTest extends ClassicSortOfNSquareTest {
 
-    ClassicSortOfNumber sortOfNumber = new ClassicSortOfNumber();
+    ClassicSortOfNum sortOfNumber = new ClassicSortOfNum();
 
     @Test
     public void mergeSort() {
@@ -39,12 +38,13 @@ public class ClassicSortOfNumberTest extends ClassicSortOfNSquareTest {
             Integer[] copy = copyArray(array);
             Integer sumAnother = smallSumAnother(array);
             Integer smallSum = sortOfNumber.smallSum(copy);
-            if (!sumAnother.equals(smallSum)) {
+            assert sumAnother.equals(smallSum);
+            /*if (!sumAnother.equals(smallSum)) {
                 System.out.println(JSONObject.toJSONString(array));
                 System.out.println(sumAnother);
                 System.out.println(smallSum);
                 return;
-            }
+            }*/
         }
 
     }

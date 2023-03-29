@@ -3,13 +3,25 @@ package com.mimu.simple.java.algorithm;
 import java.util.Objects;
 
 /**
- * 这里排序的 复杂度 都为 O((N^d)*log(N))
+ * 递归思想的排序其 复杂度 都为 O((N^d)*log(N))
  *
  * @see ClassicRecursion 中的说明
  * <p>
  * 这里的排序有 归并排序、快排序、堆排序；
+ * <p>
+ * <p>
+ * 归并排序的应用：
+ * 1. 数组最小和问题；
+ * 2. 数组降序对 对数
+ * ｜｜
+ * 1。某个数的 右子规模中有几个数比该数大()
+ * 2。某个数的 左子规模中有几个数比该数大(左子规模排序)
+ *
+ * <p>
+ *
+ *
  */
-public class ClassicSortOfNumber {
+public class ClassicSortOfNum extends ClassicRecursion {
 
 
     /**
@@ -117,6 +129,8 @@ public class ClassicSortOfNumber {
      * <p>
      * [1 2 4 3 5] 1 的最下 0；2的最小 1；4的最小 1 2 ；3的最小1 2；5的最小 1 2 4 3； 所以最小和= 1+（1+2）+(1+2)+(1+2+4+3) = 17
      * 最小和问题 等价于 1 的右侧 有几个 数比1 大的 1*4; 2的右侧有几个数比2 大 2*3，4的右侧有几个数比4大 4*1；3的右侧有几个数比3大 3*1；
+     * 即等价于 某个数的 右子规模中有几个数比该数大
+     * <p>
      * 所以最小和=(1*4)+(2*3)+(4*1)+(3*1)=17;
      * 其规律符合 归并排序的思想，可以使用归并排序的思路来解题：
      *
