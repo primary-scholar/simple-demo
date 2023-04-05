@@ -1,6 +1,5 @@
 package com.mimu.simple.java.algorithm;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -102,12 +101,28 @@ public class ClassicSortOfAnotherNum extends ClassicRecursion {
         quickPartition(array, 0, array.length - 1);
     }
 
+    /**
+     * 快排 递归算法
+     * 在待排序的数据中随机选择一个数字 然后进行 partition 操作 把 < 该数的 数字放在 该数的左侧，>该数的数据放在该数的 右侧
+     * 经过该操作后就把整体数据 分成了 两块
+     * 然后在 array[0] 和 随机选择的数据区域 继续进行 partition 操作,
+     * 同样在 随机选择的数据 和 array[array.length-1] 的区域 继续进行 partition 操作
+     * 直到 左右子规模的 长度 = 1 即可退出
+     *
+     * @param array
+     * @param left
+     * @param right
+     */
     public void quickPartition(Integer[] array, Integer left, Integer right) {
+        // 左右子规模何时可退出 即 子规模的长度 =1 时 可退出
         if (left >= right) {
             return;
         }
+        // 在待排序的数据中 进行 partition 操作 即 把数据 分成 两块
         Integer part = partition1Idx(array, left, right);
+        // 在左子规模区域 继续进行 partition 操作
         quickPartition(array, left, part - 1);
+        // 右子规模区域 进行 partition 操作
         quickPartition(array, part + 1, right);
     }
 
