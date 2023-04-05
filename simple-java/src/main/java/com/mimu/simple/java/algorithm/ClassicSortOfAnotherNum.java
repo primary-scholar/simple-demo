@@ -1,6 +1,5 @@
 package com.mimu.simple.java.algorithm;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
