@@ -11,4 +11,14 @@ package com.mimu.simple.java.algorithm;
  * O(N!)
  */
 public class AlgorithmRelevant {
+    /**
+     * 排序算法
+     * 指标           时间复杂度           空间复杂度           稳定性
+     * 选择排序        O(N^2)               O(1)               无
+     * 冒泡排序        O(N^2)               O(1)               有
+     * 插入排序        O(N^2)               O(1)               有
+     * 归并排序        O(N*logN)            O(N)               有
+     * 随机快排        O(N*logN)            O(logN)            无
+     * 堆排序          O(N*logN)            O(1)               无
+     */
 }
