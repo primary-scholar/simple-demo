@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Objects;
 
 
-public class ClassicStackQueueTest {
+public class ClassicStackQueueTest extends BaseTest {
     private Integer capacity = (int) (Math.random() * 10) + 1;
     ClassicStackQueue.ArrayQueue<Integer> arrayQueue = new ClassicStackQueue.ArrayQueue<>(capacity);
     ClassicStackQueue.LinkQueue<Integer> linkQueue = new ClassicStackQueue.LinkQueue<>(capacity);
@@ -100,8 +100,6 @@ public class ClassicStackQueueTest {
     @Test
     public void queueImplStack() {
     }
-
-
 
 
 }

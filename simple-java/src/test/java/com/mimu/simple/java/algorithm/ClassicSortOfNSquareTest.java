@@ -6,32 +6,10 @@ import org.junit.Test;
 import java.util.Arrays;
 
 
-public class ClassicSortOfNSquareTest {
-    public int loop = (int) (Math.random() * 999999) + 1;
+public class ClassicSortOfNSquareTest extends BaseTest {
+
 
     public ClassicSortOfNSquare sort = new ClassicSortOfNSquare();
-
-    public Integer getRandom() {
-        return (int) (Math.random() * 100) - (int) (Math.random() * 100);
-    }
-
-    public Integer getPRandom() {
-        Integer random = getRandom();
-        return random < 0 ? -random : random;
-    }
-
-    public Integer[] initArray() {
-        int arrayLength = (int) (Math.random() * 19) + 1;
-        Integer[] array = new Integer[arrayLength];
-        for (int i = 0; i < arrayLength; i++) {
-            array[i] = getRandom();
-        }
-        return array;
-    }
-
-    public Integer[] copyArray(Integer array[]) {
-        return Arrays.copyOf(array, array.length);
-    }
 
     @Test
     public void bubbleSortTest() {

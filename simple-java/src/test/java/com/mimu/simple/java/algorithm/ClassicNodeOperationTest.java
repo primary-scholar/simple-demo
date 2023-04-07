@@ -5,8 +5,7 @@ import org.junit.Test;
 import java.util.Objects;
 
 
-public class ClassicNodeOperationTest {
-    public int loop = (int) (Math.random() * 99999) + 1;
+public class ClassicNodeOperationTest extends BaseTest {
     public int nodeLinkLength = (int) (Math.random() * 20);
     ClassicNodeOperation.SingleNodeOP<Integer> singleNodeOP = new ClassicNodeOperation.SingleNodeOP<>();
 

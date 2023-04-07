@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 
-public class ClassicRecursionTest extends ClassicSortOfNSquareTest {
+public class ClassicRecursionTest extends BaseTest {
 
     ClassicRecursion recursion = new ClassicRecursion();
 

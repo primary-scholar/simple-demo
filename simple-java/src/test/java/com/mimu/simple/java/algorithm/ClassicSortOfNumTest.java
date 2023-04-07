@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class ClassicSortOfNumTest extends ClassicSortOfNSquareTest {
+public class ClassicSortOfNumTest extends BaseTest {
 
     ClassicSortOfNum sortOfNumber = new ClassicSortOfNum();
 
