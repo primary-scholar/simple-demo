@@ -59,7 +59,7 @@ public class ClassicHeapOperation {
          * 复杂度 O(N*logN)
          */
         for (int i = 0; i < data.length; i++) {//O(N)
-            heapInsert(data, i);//O(logN)
+            heapInsert(data, i);//O(logN) 从下向上(子节点和父节点比较-堆的节点越多(堆的高度越高)则比较交换的次数越多)
         }
 
         /**
@@ -67,7 +67,7 @@ public class ClassicHeapOperation {
          * 复杂度 O(N) 没错的
          */
         for (int i = data.length - 1; i >= 0; i--) {
-            heapFormat(data, i, data.length);
+            heapFormat(data, i, data.length);//从上往下(父节点和子节点进行比较-堆的节点越多(堆的高度越高)则比较交换的次数越少)
         }
     }
 
@@ -91,7 +91,7 @@ public class ClassicHeapOperation {
 
 
     /**
-     * 构建堆的过程 从下向上 逐渐堆化
+     * 构建堆的过程 从下向上(子节点和父节点比较-堆的节点越多(堆的高度越高)则比较交换的次数越多) 逐渐堆化
      * index 当前最新添加的元素 即堆的最后一个元素
      * 从当前元素开始 依次和父几点元素 进行比较 若 > 父节点 则 交换
      * 当前节点 上移 到父节点的位置 继续进行比较
@@ -112,7 +112,7 @@ public class ClassicHeapOperation {
 
     /**
      * 堆调整的过程 (某一个节点的调整) 全部堆的调整在 上层有个 for 循环
-     * 从上往下 依次堆化
+     * 从上往下(父节点和子节点进行比较-堆的节点越多(堆的高度越高)则比较交换的次数越少) 依次堆化
      * index 开始堆化的节点
      * 首先寻找 index 的左右子节点 并选择其中较大的一个 如果左右子节点的数字 > 当前节点 则交换
      * 当前 index 下移到 较大的子节点上 继续进行 寻找比对操作
