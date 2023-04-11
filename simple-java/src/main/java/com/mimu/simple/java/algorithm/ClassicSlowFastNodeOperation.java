@@ -7,6 +7,27 @@ import java.util.Objects;
  * 快慢节点
  * 慢节点一次走一个节点
  * 快节点一次走两个节点
+ * <p>
+ * <p>
+ * <p>
+ * 单链表是否是回文
+ * 1。使用栈结构可以实现
+ * 2。使用快慢节点找到中间节点(慢节点依次走一步，快节点依次走两步)后，把后半部分进行逆序操作
+ *
+ * @see SingleNodeOP#revertSingleNodeList(SingleNodeOP.SingleNode)
+ * 然后进行比对即可
+ * <p>
+ * <p>
+ * 单链表是否有环(若有则求第一个入环节点)
+ * 1。使用 hashSet 可以实现
+ * 2。使用快慢节点(慢节点依次走一步，快节点依次走两步) 如果有环 快慢节点一定会相遇；第一个
+ * 入环节点的求法：快慢节点相遇后，慢节点暂停，快节点回到head，然后快慢节点都变成慢节点并都开始走，再次相遇的节点即为第一个入环的头节点(已证明)
+ * <p>
+ * <p>
+ * 两个无环链表是否相交
+ * 1。使用hashSet 可以实现
+ * 2。使用快慢节点可以实现
+ * 2。1
  */
 public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
 
