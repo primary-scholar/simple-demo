@@ -2,11 +2,12 @@ package com.mimu.simple.java.algorithm;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.collections4.list.CursorableLinkedList;
 import org.apache.logging.log4j.core.jmx.RingBufferAdmin;
+import sun.jvm.hotspot.ui.tree.SimpleTreeNode;
 
 import java.sql.Statement;
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 任何递归都可以 改成非递归的方式
@@ -159,6 +160,70 @@ public class ClassicTreeOperation {
                 print(help.pop());
             }
         }
+    }
+
+    /**
+     * 水平访问
+     *
+     * @param treeNode
+     */
+    public void level(SimpleTreeNode<Integer> treeNode) {
+        if (Objects.isNull(treeNode)) {
+            return;
+        }
+        Queue<SimpleTreeNode<Integer>> queue = new LinkedList<>();
+        queue.add(treeNode);
+        while (!queue.isEmpty()) {
+            SimpleTreeNode<Integer> node = queue.poll();
+            print(node);
+            SimpleTreeNode<Integer> left = node.getLeft();
+            if (Objects.nonNull(left)) {
+                queue.add(left);
+            }
+            SimpleTreeNode<Integer> right = node.getRight();
+            if (Objects.nonNull(right)) {
+                queue.add(right);
+            }
+        }
+    }
+
+    /**
+     * 二叉树的 最宽层
+     *
+     * @param treeNode
+     */
+    public Integer maxWidthUseMap(SimpleTreeNode<Integer> treeNode) {
+        if (Objects.isNull(treeNode)) {
+            return 0;
+        }
+        Queue<SimpleTreeNode<Integer>> queue = new LinkedList<>();
+        queue.add(treeNode);
+        HashMap<SimpleTreeNode<Integer>, Integer> levelMap = new HashMap<>();
+        levelMap.put(treeNode, 1);
+        int currLevel = 1, currLevelNodes = 0, max = 0;
+        while (!queue.isEmpty()) {
+            SimpleTreeNode<Integer> curr = queue.poll();
+            Integer currNodeLevel = levelMap.get(curr);
+            SimpleTreeNode<Integer> left = curr.getLeft();
+            if (Objects.nonNull(left)) {
+                levelMap.put(left, currLevel + 1);
+                queue.add(left);
+            }
+            SimpleTreeNode<Integer> right = curr.getRight();
+            if (Objects.nonNull(right)) {
+                levelMap.put(right, currLevel + 1);
+                queue.add(right);
+            }
+            if (currLevel == currNodeLevel) {
+                currLevelNodes++;
+            } else {
+                max = Math.max(max, currLevelNodes);
+                currLevel++;
+                currLevelNodes = 1;
+            }
+        }
+        max = Math.max(max, currLevelNodes);
+        return max;
     }
 
 
