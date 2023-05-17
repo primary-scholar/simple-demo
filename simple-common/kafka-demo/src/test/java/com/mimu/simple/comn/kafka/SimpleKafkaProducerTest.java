@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * author: mimu
  * date: 2019/5/14
  */
-public class SimpleKafkaProducerTest extends CustomKafkaClientConfig {
+public class SimpleKafkaProducerTest extends SimpleKafkaClientConfig {
     private static final Logger logger = LoggerFactory.getLogger(SimpleKafkaProducerTest.class);
 
     @Test

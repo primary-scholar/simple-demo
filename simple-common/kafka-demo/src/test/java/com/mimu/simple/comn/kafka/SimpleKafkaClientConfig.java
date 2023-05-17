@@ -12,7 +12,7 @@ import java.util.Properties;
  * author: mimu
  * date: 2019/5/14
  */
-public class CustomKafkaClientConfig {
+public class SimpleKafkaClientConfig {
 
     public Properties getConsumePro() {
         Properties props = new Properties();

@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * author: mimu
  * date: 2019/5/14
  */
-public class SimpleKafkaKafkaClientConfigTest extends CustomKafkaClientConfig {
+public class SimpleKafkaKafkaClientConfigTest extends SimpleKafkaClientConfig {
 
     @Test
     public void consume() {

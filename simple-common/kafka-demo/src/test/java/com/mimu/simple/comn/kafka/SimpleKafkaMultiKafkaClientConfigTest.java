@@ -10,7 +10,7 @@ import java.util.Properties;
  * author: mimu
  * date: 2019/5/14
  */
-public class SimpleKafkaMultiKafkaClientConfigTest extends CustomKafkaClientConfig {
+public class SimpleKafkaMultiKafkaClientConfigTest extends SimpleKafkaClientConfig {
 
     @Test
     public void consume() {
