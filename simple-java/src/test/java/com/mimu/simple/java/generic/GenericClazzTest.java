@@ -23,6 +23,11 @@ public class GenericClazzTest {
             e.printStackTrace();
         }
         try {
+            System.out.println(clazz.getB(Person.class));
+        } catch (IllegalAccessException | InstantiationException e) {
+            e.printStackTrace();
+        }
+        try {
             System.out.println(clazz.getA(Person.class));
         } catch (IllegalAccessException | InstantiationException e) {
             e.printStackTrace();

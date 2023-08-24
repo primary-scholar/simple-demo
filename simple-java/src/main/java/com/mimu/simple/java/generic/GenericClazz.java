@@ -39,4 +39,8 @@ public class GenericClazz<T> {
     public T getA(Class<T> tClass) throws IllegalAccessException, InstantiationException {
         return tClass.newInstance();
     }
+
+    public T getFruitName(T aFruit) throws IllegalAccessException, InstantiationException {
+        return aFruit;
+    }
 }

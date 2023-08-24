@@ -1,84 +1,29 @@
 package com.mimu.simple.java.cm;
 
-import org.apache.commons.lang3.StringUtils;
+import com.mimu.simple.java.DEncrypt;
 import org.junit.Test;
 
-import javax.crypto.*;
-import javax.crypto.spec.SecretKeySpec;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * author: mimu
  * date: 2019/9/10
  */
 public class DEncryptTest {
-    private static String originCode = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static char[] CODEARRY = originCode.toCharArray();
-
-    @Test
-    public void getCode() {
-        long id = 6290494046431785001l;
-        StringBuilder codeBuilder = new StringBuilder();
-        while (id > 0) {
-            int mod = Math.toIntExact(id % 58);
-            id = (id - mod) / 58;
-            codeBuilder.append(CODEARRY[mod]);
-        }
-        System.out.println(codeBuilder.toString());
-    }
+    public static final String AES_ALGORITHM = "AES";
+    private static String encryptKey = "a";
+    private Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
     @Test
     public void deCode() {
-        String realCode = "7FAhqK3gQye";
-        char[] codeArry = realCode.toCharArray();
-        long result = 0;
-        for (int i = 0; i < realCode.length(); i++) {
-            result += originCode.indexOf(String.valueOf(codeArry[i])) * new Double(Math.pow(58.0, i)).longValue();
-        }
-        System.out.println(result);
+
+        DEncrypt dEncrypt = new DEncrypt();
+        String encrypt = dEncrypt.encryptByAES(DEncrypt.AES_KEY, "abc");
+        String decrypt = dEncrypt.decryptByAES(DEncrypt.AES_KEY, encrypt);
+        System.out.println(encrypt);
+        System.out.println(decrypt);
     }
 
-    public String getDecript(String key, String decMessage) {
-        if (StringUtils.isEmpty(decMessage) || StringUtils.isEmpty(key)) {
-            return "";
-        }
-        byte[] keyByte = key.substring(0, 16).getBytes();
-        SecretKey secretKey = new SecretKeySpec(keyByte, "AES");
-        try {
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(Cipher.DECRYPT_MODE, secretKey);
-            byte[] decode = Hex.decode(decMessage);
-            byte[] bytes = cipher.doFinal(decode);
-            return new String(bytes);
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException e) {
-        }
-        return "";
-    }
 
-    public String getEncript(String key, String originMessage) {
-        if (StringUtils.isEmpty(key) || StringUtils.isEmpty(originMessage)) {
-            return "";
-        }
-        byte[] keyByte = key.substring(0, 16).getBytes();
-        SecretKey secretKey = new SecretKeySpec(keyByte, "AES");
-        try {
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-            byte[] bytes = cipher.doFinal(originMessage.getBytes());
-            return Hex.encode2Str(bytes);
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException e) {
-        }
-        return null;
-    }
-
-    public static class Hex {
-        public static String encode2Str(byte[] bytes) {
-            return null;
-        }
-
-        public static byte[] decode(String message) {
-            return null;
-        }
-    }
 }
