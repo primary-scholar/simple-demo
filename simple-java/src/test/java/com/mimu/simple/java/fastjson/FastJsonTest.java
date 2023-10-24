@@ -7,6 +7,9 @@ import lombok.Setter;
 import org.junit.Test;
 import sun.jvm.hotspot.runtime.PerfDataPrologue;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,96 +39,19 @@ public class FastJsonTest {
 
     @Test
     public void info() {
-        People people = new People();
-        people.setId(10);
-        String peopleStr = JSONObject.toJSONString(people);
-        System.out.println(peopleStr);
-        People x = JSONObject.parseObject(peopleStr, People.class);
-        System.out.println(x.getId());
-        System.out.println(x.getName());
-
-        /*String peos = "{\"aName\":\"anamela\",\"id\":11}";
-        People people1 = JSONObject.toJavaObject(JSONObject.parseObject(peos), People.class);
-        System.out.println(JSONObject.toJSONString(people1));*/
-
-        /*String peos1 = "{\"name\":\"bnamela\",\"id\":12,\"role\":\"worker\"}";
-        People people2 = JSONObject.toJavaObject(JSONObject.parseObject(peos1), People.class);
-        System.out.println(JSONObject.toJSONString(people2));*/
-
-        /*String peos12 = "{\"name\":\"bnamela\",\"id\":12,\"role\":\"worker\"}";
-        People people121 = JSONObject.toJavaObject(JSONObject.parseObject(peos12), Worker.class);
-        System.out.println(JSONObject.toJSONString(people121));*/
-
+        Student student = new Student();
+        student.setStId(1L);
+        Grade grade = new Grade();
+        grade.setDegree(1);
+        grade.setDegreeDesc("so");
+        student.setGrade(grade);
+        System.out.println(JSONObject.toJSONString(student));
     }
 
     @Test
-    public void listInfo() {
-        ArrayList<People> list = new ArrayList<>();
-        People p1 = new People();
-        p1.setId(1);
-        p1.setName("name1");
-        People p2 = new People();
-        p2.setId(2);
-        p2.setName("name2");
-        list.add(p1);
-        list.add(p2);
-        Grade grade = new Grade();
-        grade.setGrade(1);
-        grade.setPeopleList(list);
-
-        Template<Grade> template = new Template<>();
-        template.setCode(200);
-        template.setMsg("success");
-        template.setData(grade);
-
-        System.out.println(JSONObject.toJSONString(template));
-    }
-
-    @Setter
-    @Getter
-    static class Template<T> {
-        private Integer code;
-        private String msg;
-        private T data;
-    }
-
-    @Setter
-    @Getter
-    static class Grade {
-        private Integer grade;
-        private List<People> peopleList;
-    }
-
-    static class People {
-        private int id;
-        private String name;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-    }
-
-    public static class Worker extends People {
-        private String role;
-
-        public String getRole() {
-            return role;
-        }
-
-        public void setRole(String role) {
-            this.role = role;
-        }
+    public void test(){
+        System.out.println(String.format("%03d",1));
+        OperatingSystemMXBean systemMXBean = ManagementFactory.getOperatingSystemMXBean();
+        System.out.println(systemMXBean.getName());
     }
 }
