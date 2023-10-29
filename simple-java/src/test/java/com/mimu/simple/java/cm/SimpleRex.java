@@ -129,4 +129,11 @@ public class SimpleRex {
         System.out.println();
     }
 
+    @Test
+    public void test(){
+        String reg = "^https?://([\\w-]+.)+[\\w-]+(/[\\w-./?&=]*)?$";
+        System.out.println(Pattern.matches(reg,"https://domain.path.com?id=07701020028"));
+        System.out.println(Pattern.matches(reg,"http://domain.path.com?id=07701020028"));
+    }
+
 }
