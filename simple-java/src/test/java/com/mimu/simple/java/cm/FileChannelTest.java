@@ -97,7 +97,7 @@ public class FileChannelTest {
 
     @Test
     public void info5() {
-        String fileName = "青行客技电池导入_result.txt";
+        String fileName = "测试导入_result.txt";
         try {
             String encode = URLEncoder.encode(fileName, Charset.defaultCharset().name());
             System.out.println(encode);
