@@ -6,10 +6,12 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.InetSocketAddress;
+import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -91,5 +93,18 @@ public class FileChannelTest {
         int height = read.getHeight();
         int width = read.getWidth();
         System.out.println("h:" + height + " w:" + width);
+    }
+
+    @Test
+    public void info5() {
+        String fileName = "青行客技电池导入_result.txt";
+        try {
+            String encode = URLEncoder.encode(fileName, Charset.defaultCharset().name());
+            System.out.println(encode);
+            String format = String.format("attachment;filename=%s;filename*=UTF-8''%s", encode, encode);
+            System.out.println(format);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 }

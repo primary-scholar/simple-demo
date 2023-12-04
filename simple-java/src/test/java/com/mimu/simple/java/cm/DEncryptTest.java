@@ -1,9 +1,16 @@
 package com.mimu.simple.java.cm;
 
 
+import org.junit.Test;
+import sun.tools.tree.ThisExpression;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.security.DigestInputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
@@ -16,8 +23,10 @@ import java.util.stream.Collectors;
  */
 public class DEncryptTest {
     private String aesKey = "a96223f2526f416f";
+
     /**
      * 这里是所有的参数
+     *
      * @param productKey
      * @param deviceId
      * @param bleLockVersion
@@ -47,6 +56,7 @@ public class DEncryptTest {
 
     /**
      * 对称加密 生产签名
+     *
      * @param key
      * @param plainText
      * @return
@@ -60,6 +70,25 @@ public class DEncryptTest {
             return Base64.getEncoder().encodeToString(cipherText);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    public void calculateMd5() {
+        try {
+            System.out.println(System.currentTimeMillis());
+            File file = new File("abc.eap");
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            DigestInputStream digestInputStream = new DigestInputStream(new BufferedInputStream(new FileInputStream(file)), md5);
+            byte[] buffer = new byte[4096];
+            while (digestInputStream.read(buffer) != -1) ;
+            byte[] digest = md5.digest();
+            System.out.println(System.currentTimeMillis());
+            System.out.println(String.valueOf(digest));
+            System.out.println(file.length());
+            System.out.println(System.currentTimeMillis());
+        } catch (NoSuchAlgorithmException | IOException e) {
+            e.printStackTrace();
         }
     }
 

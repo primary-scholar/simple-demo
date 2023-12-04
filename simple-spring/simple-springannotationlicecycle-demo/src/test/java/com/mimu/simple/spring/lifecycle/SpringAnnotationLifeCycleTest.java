@@ -17,9 +17,20 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class SpringAnnotationLifeCycleTest {
 
     @Test
-    public void info(){
+    public void info() {
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        Person person = annotationConfigApplicationContext.getBean("person",Person.class);
+        Person person = annotationConfigApplicationContext.getBean("person", Person.class);
         System.out.println(person.getName());
+    }
+
+    @Test
+    public void factoryBeanTest() {
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        CustomFactoryBean bean = annotationConfigApplicationContext.getBean(CustomFactoryBean.class);
+        try {
+            System.out.println(bean.getObject());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
