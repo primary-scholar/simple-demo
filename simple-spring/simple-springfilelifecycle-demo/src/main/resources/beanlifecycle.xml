@@ -35,7 +35,6 @@
           p:name="zhangsan" p:phone="456"/>
     <bean id="customInstantiationAwareBeanPostProcessor"
           class="com.mimu.simple.spring.file.lifecycle.l.CustomInstantiationAwareBeanPostProcessor"/>
-    <bean id="customBeanPostProcessor" class="com.mimu.simple.spring.file.lifecycle.l.CustomBeanPostProcessor"/>
     <bean id="customBeanFactoryPostProcessor"
           class="com.mimu.simple.spring.file.lifecycle.l.CustomBeanFactoryPostProcessor"/>
     <!-- lifecycle package init-->
