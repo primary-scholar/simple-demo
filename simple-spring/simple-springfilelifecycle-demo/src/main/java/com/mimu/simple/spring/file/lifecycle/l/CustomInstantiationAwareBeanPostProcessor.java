@@ -12,19 +12,22 @@ public class CustomInstantiationAwareBeanPostProcessor extends InstantiationAwar
 
     @Override
     public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
-        System.out.println("CustomInstantiationAwareBeanPostProcessor postProcessProperties() invoke...");
+        String format = String.format("CustomInstantiationAwareBeanPostProcessor postProcessProperties() invoke... pvs %s,bean %s,beanName %s", pvs, bean.getClass(), beanName);
+        System.out.println(format);
         return pvs;
     }
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("CustomInstantiationAwareBeanPostProcessor postProcessBeforeInitialization() invoke...");
+        String format = String.format("CustomInstantiationAwareBeanPostProcessor postProcessBeforeInitialization() invoke...,bean %s,beanName %s", bean.getClass(), beanName);
+        System.out.println(format);
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("CustomInstantiationAwareBeanPostProcessor postProcessAfterInitialization() invoke...");
+        String format = String.format("CustomInstantiationAwareBeanPostProcessor postProcessAfterInitialization() invoke...,bean %s,beanName %s", bean.getClass(), beanName);
+        System.out.println(format);
         return bean;
     }
 }

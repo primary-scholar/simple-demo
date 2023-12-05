@@ -5,6 +5,7 @@ import com.mimu.simple.spring.file.lifecycle.d.DomainC;
 import com.mimu.simple.spring.file.lifecycle.l.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringCycleDependenceTest {
@@ -18,9 +19,10 @@ public class SpringCycleDependenceTest {
 
     @Test
     public void info1() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beanlifecycle.xml");
+        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("beanlifecycle.xml");
         Person person = applicationContext.getBean("person", Person.class);
-        System.out.println(person.getName());
+        applicationContext.registerShutdownHook();
+        System.out.println(person);
     }
 
     /**
