@@ -2,18 +2,24 @@ package com.mimu.simple.spring.file.lifecycle.l;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.ResourceLoaderAware;
+import org.springframework.core.io.ResourceLoader;
 
 /**
  * author: mimu
  * date: 2019/1/14
  */
-public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean, DisposableBean {
+public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean, ResourceLoaderAware, ApplicationContextAware, DisposableBean {
 
     private String name;
     private int phone;
-
-    private BeanFactory beanFactory;
     private String beanName;
+
+    private ApplicationContext applicationContext;
+    private ResourceLoader resourceLoader;
+    private BeanFactory beanFactory;
 
     public Person() {
         System.out.println("Person constructor() invoke...");
@@ -57,6 +63,18 @@ public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("Person InitializingBean afterPropertiesSet() invoke...");
+    }
+
+    @Override
+    public void setResourceLoader(ResourceLoader resourceLoader) {
+        this.resourceLoader = resourceLoader;
+        System.out.println("Person ResourceLoaderAware setResourceLoader() invoke...");
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+        System.out.println("Person ApplicationContextAware setApplicationContext() invoke...");
     }
 
     public void customInit() {
