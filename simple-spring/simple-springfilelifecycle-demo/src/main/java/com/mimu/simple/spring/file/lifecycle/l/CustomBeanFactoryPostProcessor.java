@@ -5,6 +5,8 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
+import java.util.Objects;
+
 /**
  * author: mimu
  * date: 2019/1/14
@@ -19,6 +21,9 @@ public class CustomBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         System.out.println("CustomBeanFactoryPostProcessor postProcessBeanFactory() invoke...");
         BeanDefinition definition = beanFactory.getBeanDefinition("person");
-        definition.getPropertyValues().addPropertyValue("phone",123);
+        if (Objects.nonNull(definition)) {
+            System.out.println("CustomBeanFactoryPostProcessor postProcessBeanFactory() invoke... beanDefinition person");
+            definition.getPropertyValues().addPropertyValue("phone", 123);
+        }
     }
 }
