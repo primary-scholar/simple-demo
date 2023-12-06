@@ -1,9 +1,12 @@
 package com.mimu.simple.comn.rocketmq;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
+import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
+import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 public class SimpleRocketMqConsumer {
 
@@ -11,16 +14,25 @@ public class SimpleRocketMqConsumer {
 
     private DefaultMQPushConsumer mqPushConsumer;
 
-    public SimpleRocketMqConsumer(String topic, String consumerGroup) {
-        initConsumer(topic, consumerGroup, "*");
+    public SimpleRocketMqConsumer(String nameSrvAddr, String topic, String consumerGroup) {
+        initConsumer(nameSrvAddr, topic, consumerGroup, "*");
     }
 
-    public SimpleRocketMqConsumer(String topic, String consumerGroup, String subExpression) {
-        initConsumer(topic, consumerGroup, subExpression);
+    public SimpleRocketMqConsumer(String nameSrvAddr, String topic, String consumerGroup, String subExpression) {
+        initConsumer(nameSrvAddr, topic, consumerGroup, subExpression);
     }
 
-    void initConsumer(String topic, String consumerGroup, String subExpression) {
+    public void registerMessageListener(MessageListenerConcurrently concurrentlyListener) {
+        mqPushConsumer.registerMessageListener(concurrentlyListener);
+    }
+
+    public void registerMessageListener(MessageListenerOrderly orderlyListener) {
+        mqPushConsumer.registerMessageListener(orderlyListener);
+    }
+
+    private void initConsumer(String nameSrvAddr, String topic, String consumerGroup, String subExpression) {
         mqPushConsumer = new DefaultMQPushConsumer(consumerGroup);
+        mqPushConsumer.setNamesrvAddr(nameSrvAddr);
         try {
             mqPushConsumer.subscribe(topic, subExpression);
         } catch (MQClientException e) {
@@ -28,10 +40,12 @@ public class SimpleRocketMqConsumer {
         }
     }
 
-    public static void main(String[] args) {
-        SimpleRocketMqConsumer simpleRocketMqConsumer = new SimpleRocketMqConsumer("","");
-        simpleRocketMqConsumer.mqPushConsumer.setNamesrvAddr("");
-
+    public void start() {
+        try {
+            mqPushConsumer.start();
+        } catch (MQClientException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

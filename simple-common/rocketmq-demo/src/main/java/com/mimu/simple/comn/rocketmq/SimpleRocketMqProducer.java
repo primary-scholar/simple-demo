@@ -23,7 +23,7 @@ public class SimpleRocketMqProducer {
         initMqProducer(nameStrAddr, producerGroup);
     }
 
-    void initMqProducer(String nameStrAddr, String producerGroup) {
+    private void initMqProducer(String nameStrAddr, String producerGroup) {
         mqProducer = new DefaultMQProducer(producerGroup);
         mqProducer.setNamesrvAddr(nameStrAddr);
         try {
@@ -32,6 +32,11 @@ public class SimpleRocketMqProducer {
             logger.info("SimpleRocketMqProducer start error", e);
             throw new RuntimeException(e);
         }
+    }
+
+    public void setTimeOut(int ms) {
+        mqProducer.setMqClientApiTimeout(ms);
+        mqProducer.setSendMsgTimeout(ms);
     }
 
     public SendStatus send(String topic, String msg) {

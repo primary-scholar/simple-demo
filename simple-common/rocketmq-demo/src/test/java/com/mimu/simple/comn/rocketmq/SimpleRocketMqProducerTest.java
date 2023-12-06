@@ -12,6 +12,7 @@ public class SimpleRocketMqProducerTest extends SimpleRocketMQNote {
 
     @Test
     public void send() {
+        mqProducer.setTimeOut(100000*10);
         mqProducer.send(topic, "first message");
         mqProducer.send(topic, "test", "first tag message");
     }
