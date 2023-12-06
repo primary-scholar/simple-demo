@@ -454,7 +454,7 @@
         </pluginManagement>
     </build>
 
-    <distributionManagement>
+    <!--<distributionManagement>
         <repository>
             <id>maven-releases</id>
             <url>http://192.168.3.142:8081/repository/maven-releases/</url>
@@ -463,6 +463,6 @@
             <id>maven-snapshots</id>
             <url>http://192.168.3.142:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
-    </distributionManagement>
+    </distributionManagement>-->
 
 </project>
