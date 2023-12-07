@@ -4,13 +4,10 @@ import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
 import org.apache.rocketmq.client.exception.MQClientException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 public class SimpleRocketMqConsumer {
 
-    private static final Logger logger = LoggerFactory.getLogger(SimpleRocketMqConsumer.class);
 
     private DefaultMQPushConsumer mqPushConsumer;
 

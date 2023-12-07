@@ -24,19 +24,21 @@ public class SimpleRocketMqProducer {
     }
 
     private void initMqProducer(String nameStrAddr, String producerGroup) {
-        mqProducer = new DefaultMQProducer(producerGroup);
+        this.mqProducer = new DefaultMQProducer(producerGroup);
         mqProducer.setNamesrvAddr(nameStrAddr);
+        mqProducer.setMqClientApiTimeout(60000);
+        mqProducer.setSendMsgTimeout(60000);
         try {
             mqProducer.start();
         } catch (MQClientException e) {
             logger.info("SimpleRocketMqProducer start error", e);
             throw new RuntimeException(e);
         }
-    }
-
-    public void setTimeOut(int ms) {
-        mqProducer.setMqClientApiTimeout(ms);
-        mqProducer.setSendMsgTimeout(ms);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public SendStatus send(String topic, String msg) {
