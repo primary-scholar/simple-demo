@@ -1,4 +1,4 @@
-package com.mimu.simple.java.algorithm.linkorqueue;
+package com.mimu.simple.java.algorithm.linkstackqueue;
 
 import com.mimu.simple.java.algorithm.sort.ClassicSortOfNSquare;
 

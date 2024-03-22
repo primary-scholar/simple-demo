@@ -9,12 +9,12 @@ public class TreeTest extends BaseTest {
 
     private static Integer treeNodeNum = (int) (Math.random() * 20);
 
-    public ClassicTreeOperation.SimpleTreeNode<Integer> initTree() {
-        ClassicTreeOperation.SimpleTreeNode<Integer> root = null;
-        ClassicTreeOperation.SimpleTreeNode<Integer> curr = null;
+    public SimpleTreeNode<Integer> initTree() {
+        SimpleTreeNode<Integer> root = null;
+        SimpleTreeNode<Integer> curr = null;
         for (int i = 0; i < treeNodeNum; ) {
             if (Objects.isNull(root)) {
-                root = new ClassicTreeOperation.SimpleTreeNode<>();
+                root = new SimpleTreeNode<>();
                 root.setData(getRandom());
                 root.setLeft(null);
                 root.setRight(null);
@@ -22,7 +22,7 @@ public class TreeTest extends BaseTest {
                 i++;
             }
             if (i % 2 == 1) {
-                ClassicTreeOperation.SimpleTreeNode<Integer> left = new ClassicTreeOperation.SimpleTreeNode<Integer>();
+                SimpleTreeNode<Integer> left = new SimpleTreeNode<Integer>();
                 left.setData(getRandom());
                 left.setLeft(null);
                 left.setRight(null);
@@ -30,7 +30,7 @@ public class TreeTest extends BaseTest {
                 i++;
             }
             if (i % 2 == 0) {
-                ClassicTreeOperation.SimpleTreeNode<Integer> right = new ClassicTreeOperation.SimpleTreeNode<Integer>();
+                SimpleTreeNode<Integer> right = new SimpleTreeNode<Integer>();
                 right.setData(getRandom());
                 right.setLeft(null);
                 right.setRight(null);

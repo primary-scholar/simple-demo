@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class BaseTest {
 
     public int loop = (int) (Math.random() * 999999) + 1;
+    public Integer capacity = (int) (Math.random() * 10) + 1;
 
     public Integer getRandom() {
         return (int) (Math.random() * 100) - (int) (Math.random() * 100);

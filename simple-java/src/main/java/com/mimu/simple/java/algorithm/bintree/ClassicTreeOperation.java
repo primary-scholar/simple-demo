@@ -1,7 +1,6 @@
 package com.mimu.simple.java.algorithm.bintree;
 
-import lombok.Getter;
-import lombok.Setter;
+
 import java.util.*;
 
 /**
@@ -93,7 +92,7 @@ public class ClassicTreeOperation {
     }
 
     /**
-     * 1。整个数的左边界全部入栈-即根节点非空 则入栈 然后根节点向左孩子前移一直循环
+     * 1。整个树的左边界全部入栈-即根节点非空 则入栈 然后根节点向左孩子前移一直循环
      * 2。如果1无法继续执行，则弹出栈中的第一个节点并打印，然后向弹出节点的右孩子节点前移 继续执行1；
      *
      * @param treeNode
@@ -153,6 +152,30 @@ public class ClassicTreeOperation {
             //先序访问节点完毕后，辅助栈逐个出栈并打印即可
             while (!help.isEmpty()) {
                 print(help.pop());
+            }
+        }
+    }
+
+    /**
+     * 后续非递归遍历 另一个版本，这里只需一个临时辅助栈，这里和对比上一个非递归算法
+     *
+     * @param
+     */
+    public void posNoRecurAnother(SimpleTreeNode<Integer> rootNode) {
+        if (Objects.nonNull(rootNode)) {
+            Stack<SimpleTreeNode<Integer>> stack = new Stack<>();//辅助栈
+            stack.push(rootNode);
+            SimpleTreeNode<Integer> currentNode;
+            while (!stack.isEmpty()) {
+                currentNode = stack.peek();
+                if (currentNode.getLeft() != null && currentNode.getLeft() != rootNode && currentNode.getRight() != rootNode) {
+                    stack.push(currentNode.getLeft());
+                } else if (currentNode.getRight() != null && currentNode.getRight() != rootNode) {
+                    stack.push(currentNode.getRight());
+                } else {
+                    print(stack.pop());
+                    rootNode = currentNode;
+                }
             }
         }
     }
@@ -228,11 +251,4 @@ public class ClassicTreeOperation {
         }
     }
 
-    @Setter
-    @Getter
-    public static class SimpleTreeNode<T> {
-        private T data;
-        private SimpleTreeNode<T> left;
-        private SimpleTreeNode<T> right;
-    }
 }

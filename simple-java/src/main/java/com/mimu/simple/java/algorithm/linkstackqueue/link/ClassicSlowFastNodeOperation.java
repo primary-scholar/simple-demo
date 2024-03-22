@@ -1,4 +1,5 @@
-package com.mimu.simple.java.algorithm.linkorqueue;
+package com.mimu.simple.java.algorithm.linkstackqueue.link;
+
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -14,7 +15,7 @@ import java.util.Objects;
  * 1。使用栈结构可以实现
  * 2。使用快慢节点找到中间节点(慢节点依次走一步，快节点依次走两步)后，把后半部分进行逆序操作
  *
- * @see SingleNodeOP#revertSingleNodeList(SingleNodeOP.SingleNode)
+ * @see com.mimu.simple.java.algorithm.linkstackqueue.link.SingleNodeOperation#revertSingleNodeList(SingleNode)
  * 然后进行比对即可
  * <p>
  * <p>
@@ -29,7 +30,7 @@ import java.util.Objects;
  * 2。使用快慢节点可以实现
  * 2。1
  */
-public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
+public class ClassicSlowFastNodeOperation {
 
     /**
      * 单链表 中点或 上中点(偶数个节点时)
@@ -37,12 +38,12 @@ public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
      * @param head
      * @return
      */
-    public SingleNodeOP.SingleNode<Integer> midOrUpMidNode(SingleNodeOP.SingleNode<Integer> head) {
+    public SingleNode<Integer> midOrUpMidNode(SingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext()) || Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        SingleNodeOP.SingleNode<Integer> slow = head.getNext();
-        SingleNodeOP.SingleNode<Integer> fast = head.getNext().getNext();
+        SingleNode<Integer> slow = head.getNext();
+        SingleNode<Integer> fast = head.getNext().getNext();
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -50,11 +51,11 @@ public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
         return slow;
     }
 
-    public SingleNodeOP.SingleNode<Integer> midOrUpMidNodeAnother(SingleNodeOP.SingleNode<Integer> head) {
+    public SingleNode<Integer> midOrUpMidNodeAnother(SingleNode<Integer> head) {
         if (Objects.isNull(head)) {
             return null;
         }
-        ArrayList<SingleNodeOP.SingleNode<Integer>> list = new ArrayList<>();
+        ArrayList<SingleNode<Integer>> list = new ArrayList<>();
         while (Objects.nonNull(head)) {
             list.add(head);
             head = head.getNext();
@@ -62,12 +63,12 @@ public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
         return list.get((list.size() - 1) / 2);
     }
 
-    public SingleNodeOP.SingleNode<Integer> midOrDownMidNode(SingleNodeOP.SingleNode<Integer> head) {
+    public SingleNode<Integer> midOrDownMidNode(SingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext())) {
             return head;
         }
-        SingleNodeOP.SingleNode<Integer> slow = head.getNext();
-        SingleNodeOP.SingleNode<Integer> fast = head.getNext();
+        SingleNode<Integer> slow = head.getNext();
+        SingleNode<Integer> fast = head.getNext();
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -75,11 +76,11 @@ public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
         return slow;
     }
 
-    public SingleNodeOP.SingleNode<Integer> midOrDownMidNodeAnother(SingleNodeOP.SingleNode<Integer> head) {
+    public SingleNode<Integer> midOrDownMidNodeAnother(SingleNode<Integer> head) {
         if (Objects.isNull(head)) {
             return null;
         }
-        ArrayList<SingleNodeOP.SingleNode<Integer>> list = new ArrayList<>();
+        ArrayList<SingleNode<Integer>> list = new ArrayList<>();
         while (Objects.nonNull(head)) {
             list.add(head);
             head = head.getNext();
@@ -87,12 +88,12 @@ public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
         return list.get(list.size() / 2);
     }
 
-    public SingleNodeOP.SingleNode<Integer> midOrUpMidPrNode(SingleNodeOP.SingleNode<Integer> head) {
+    public SingleNode<Integer> midOrUpMidPrNode(SingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext()) || Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        SingleNodeOP.SingleNode<Integer> slow = head;
-        SingleNodeOP.SingleNode<Integer> fast = head.getNext().getNext();
+        SingleNode<Integer> slow = head;
+        SingleNode<Integer> fast = head.getNext().getNext();
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -100,11 +101,11 @@ public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
         return slow;
     }
 
-    public SingleNodeOP.SingleNode<Integer> midOrUpMidPrNodeAnother(SingleNodeOP.SingleNode<Integer> head) {
+    public SingleNode<Integer> midOrUpMidPrNodeAnother(SingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext()) || Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        ArrayList<SingleNodeOP.SingleNode<Integer>> list = new ArrayList<>();
+        ArrayList<SingleNode<Integer>> list = new ArrayList<>();
         while (Objects.nonNull(head)) {
             list.add(head);
             head = head.getNext();
@@ -112,15 +113,15 @@ public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
         return list.get((list.size() - 2) / 2);
     }
 
-    public SingleNodeOP.SingleNode<Integer> midOrDownMidPreNode(SingleNodeOP.SingleNode<Integer> head) {
+    public SingleNode<Integer> midOrDownMidPreNode(SingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext())) {
             return head;
         }
         if (Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        SingleNodeOP.SingleNode<Integer> slow = head;
-        SingleNodeOP.SingleNode<Integer> fast = head.getNext();
+        SingleNode<Integer> slow = head;
+        SingleNode<Integer> fast = head.getNext();
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -128,14 +129,14 @@ public class ClassicSlowFastNodeOperation extends ClassicNodeOperation {
         return slow;
     }
 
-    public SingleNodeOP.SingleNode<Integer> midOrDownMidPreNodeAnother(SingleNodeOP.SingleNode<Integer> head) {
+    public SingleNode<Integer> midOrDownMidPreNodeAnother(SingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext())) {
             return head;
         }
         if (Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        ArrayList<SingleNodeOP.SingleNode<Integer>> list = new ArrayList<>();
+        ArrayList<SingleNode<Integer>> list = new ArrayList<>();
         while (Objects.nonNull(head)) {
             list.add(head);
             head = head.getNext();

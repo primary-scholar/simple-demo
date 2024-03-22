@@ -1,16 +1,14 @@
-package com.mimu.simple.java.algorithm.linkorqueue;
+package com.mimu.simple.java.algorithm.linkstackqueue;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mimu.simple.java.algorithm.linkorqueue.ClassicQueryOfNSquare;
 import com.mimu.simple.java.algorithm.sort.ClassicSortOfNSquareTest;
 import org.junit.Test;
 
 import java.util.Arrays;
 
-public class BinaryQueryTest extends ClassicSortOfNSquareTest {
+public class ClassicQueryOfNSquareTest extends ClassicSortOfNSquareTest {
 
     public ClassicQueryOfNSquare query = new ClassicQueryOfNSquare();
-
 
     @Test
     public void binaryQueryTest() {
