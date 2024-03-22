@@ -1,8 +1,6 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.linkorqueue;
 
 import org.junit.Test;
-
-import java.util.Objects;
 
 
 public class ClassicNodeOperationTest extends NodeTest {

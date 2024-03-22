@@ -1,4 +1,4 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.sort;
 
 /**
  * 算法复杂度排序

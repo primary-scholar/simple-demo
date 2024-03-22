@@ -1,12 +1,11 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.sort;
 
 import com.alibaba.fastjson.JSONObject;
-import org.apache.tools.ant.types.Environment;
+import com.mimu.simple.java.algorithm.BaseTest;
+import com.mimu.simple.java.algorithm.sort.ClassicSortOfAnotherNum;
 import org.junit.Test;
 
 import java.util.Arrays;
-
-import static org.junit.Assert.*;
 
 public class ClassicSortOfAnotherNumTest extends BaseTest {
 

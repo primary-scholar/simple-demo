@@ -1,6 +1,8 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.sort;
 
 import com.alibaba.fastjson.JSONObject;
+import com.mimu.simple.java.algorithm.BaseTest;
+import com.mimu.simple.java.algorithm.sort.ClassicSortOfNSquare;
 import org.junit.Test;
 
 import java.util.Arrays;

@@ -1,4 +1,7 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.linkorqueue;
+
+import com.mimu.simple.java.algorithm.BaseTest;
+import com.mimu.simple.java.algorithm.linkorqueue.ClassicNodeOperation;
 
 import java.util.Objects;
 

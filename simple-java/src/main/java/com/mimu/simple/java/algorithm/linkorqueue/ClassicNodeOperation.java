@@ -1,4 +1,4 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.linkorqueue;
 
 import lombok.Getter;
 import lombok.Setter;

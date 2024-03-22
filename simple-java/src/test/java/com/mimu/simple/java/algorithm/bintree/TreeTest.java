@@ -1,5 +1,7 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.bintree;
 
+
+import com.mimu.simple.java.algorithm.BaseTest;
 
 import java.util.Objects;
 

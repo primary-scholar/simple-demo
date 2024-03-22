@@ -1,5 +1,7 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.sort;
 
+import com.mimu.simple.java.algorithm.BaseTest;
+import com.mimu.simple.java.algorithm.sort.ClassicHeapOperation;
 import org.junit.Test;
 
 

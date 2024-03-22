@@ -1,4 +1,4 @@
-package com.mimu.simple.java.algorithm;
+package com.mimu.simple.java.algorithm.sort;
 
 import java.util.Objects;
 
