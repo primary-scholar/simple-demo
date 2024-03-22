@@ -1,7 +1,8 @@
-package com.mimu.simple.java.algorithm.sort;
+package com.mimu.simple.java.algorithm.linkorqueue;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mimu.simple.java.algorithm.linkorqueue.ClassicQueryOfNSquare;
+import com.mimu.simple.java.algorithm.sort.ClassicSortOfNSquareTest;
 import org.junit.Test;
 
 import java.util.Arrays;

@@ -1,6 +1,7 @@
 package com.mimu.simple.java.algorithm.sort;
 
-import com.mimu.simple.java.algorithm.ClassicRecursion;
+
+import com.mimu.simple.java.algorithm.recursion.ClassicRecursion;
 
 import java.util.Objects;
 
