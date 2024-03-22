@@ -2,7 +2,6 @@ package com.mimu.simple.java.cm;
 
 
 import org.junit.Test;
-import sun.tools.tree.ThisExpression;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;

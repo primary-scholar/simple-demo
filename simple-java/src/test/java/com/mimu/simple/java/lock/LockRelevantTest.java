@@ -17,7 +17,7 @@ public class LockRelevantTest {
             while (true) {
                 innerLock2.printA();
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

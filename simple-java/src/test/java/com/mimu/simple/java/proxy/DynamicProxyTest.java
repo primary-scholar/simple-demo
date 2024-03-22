@@ -13,5 +13,8 @@ public class DynamicProxyTest {
         SubjectInterface subjectInterface = new DynamicProxy(new Subject()).getProxyObject();
         subjectInterface.printInfo();
         subjectInterface.printInfoAgain();
+        // jdk 动态代理必须实现接口
+        //SubjectNonInterface proxyObject = new DynamicProxy(new SubjectNonInterface()).getProxyObject();
+        //proxyObject.printSomething();
     }
 }

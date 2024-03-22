@@ -1,17 +1,10 @@
 package com.mimu.simple.java.fastjson;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mimu.simple.java.stream.StreamRelevantTest;
-import lombok.Getter;
-import lombok.Setter;
 import org.junit.Test;
-import sun.jvm.hotspot.runtime.PerfDataPrologue;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
-import java.net.SocketTimeoutException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * author: mimu

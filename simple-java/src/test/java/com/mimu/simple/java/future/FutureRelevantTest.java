@@ -37,12 +37,15 @@ public class FutureRelevantTest {
 
     private void performTask(String stage) {
         logger.info("start stage:{},thread:{}", stage, Thread.currentThread().getName());
+        System.out.println(String.format("start stage:%s,thread:%s", stage, Thread.currentThread().getName()));
         try {
             Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         logger.info("end stage:{},thread:{}", stage, Thread.currentThread().getName());
+        System.out.println(String.format("end stage:%s,thread:%s", stage, Thread.currentThread().getName()));
+
     }
 
     /**
@@ -66,7 +69,7 @@ public class FutureRelevantTest {
         Thread lalal = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     logger.info("traceing Info");
                     try {
                         Thread.sleep(1000);

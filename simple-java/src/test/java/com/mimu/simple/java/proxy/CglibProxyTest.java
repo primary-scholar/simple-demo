@@ -13,5 +13,7 @@ public class CglibProxyTest {
         Subject subject = new CglibProxy().getProxy(Subject.class);
         subject.printInfo();
         subject.printInfoAgain();
+        SubjectNonInterface proxy = new CglibProxy().getProxy(SubjectNonInterface.class);
+        proxy.printSomething();
     }
 }

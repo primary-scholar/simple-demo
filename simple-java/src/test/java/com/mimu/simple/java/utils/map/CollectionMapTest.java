@@ -30,6 +30,7 @@ public class CollectionMapTest {
      * final K key;
      * V value;
      * Node<K,V> next;
+     * }
      * <p>
      * Node(int hash, K key, V value, Node<K,V> next) {
      * this.hash = hash;
@@ -179,6 +180,7 @@ public class CollectionMapTest {
      * final K key;
      * volatile V val;
      * volatile Node<K,V> next;
+     * }
      * <p>
      * Node(int hash, K key, V val, Node<K,V> next) {
      * this.hash = hash;

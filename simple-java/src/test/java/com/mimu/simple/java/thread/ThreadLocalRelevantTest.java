@@ -8,25 +8,27 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadLocalRelevantTest {
 
-    private static ThreadLocal<AtomicInteger> sequencer = ThreadLocal.withInitial(() -> new AtomicInteger(0));
 
     static class TaskFirst implements Runnable {
+        private static final ThreadLocal<AtomicInteger> initValue = ThreadLocal.withInitial(() -> new AtomicInteger(0));
 
         @Override
         public void run() {
-            AtomicInteger s = sequencer.get();
+            AtomicInteger s = initValue.get();
             int initial = s.getAndIncrement();
             System.out.println(initial);
         }
     }
 
     static class TaskSecond implements Runnable {
+        private static final ThreadLocal<AtomicInteger> initValue = ThreadLocal.withInitial(() -> new AtomicInteger(0));
+
         @Override
         public void run() {
-            AtomicInteger s = sequencer.get();
+            AtomicInteger s = initValue.get();
             int initial = s.getAndIncrement();
             System.out.println(initial);
-            sequencer.remove();
+            initValue.remove();
         }
     }
 
@@ -63,11 +65,13 @@ public class ThreadLocalRelevantTest {
 
 
     @Test
-    public void info2(){
-        new TaskFirst().run();
-        new TaskFirst().run();
-        new TaskSecond().run();
-        new TaskSecond().run();
+    public void info2() {
+        new Thread(new TaskFirst()).start();
+        new Thread(new TaskFirst()).start();
+        new Thread(new TaskFirst()).start();
+        new Thread(new TaskSecond()).start();
+        new Thread(new TaskSecond()).start();
+        new Thread(new TaskSecond()).start();
     }
 
 }
