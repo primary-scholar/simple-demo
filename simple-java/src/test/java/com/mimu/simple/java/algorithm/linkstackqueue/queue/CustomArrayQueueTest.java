@@ -5,22 +5,22 @@ import org.junit.Test;
 
 import java.util.Objects;
 
-public class LinkQueueTest extends BaseTest {
-    LinkQueue<Integer> linkQueue = new LinkQueue<>(capacity);
+public class CustomArrayQueueTest extends BaseTest {
+    CustomArrayQueue<Integer> customArrayQueue = new CustomArrayQueue<>(capacity);
 
     @Test
-    public void linkQueueTest() {
+    public void arrayQueueTest() {
         for (int i = 0; i < capacity; i++) {
-            Boolean enQueue = linkQueue.enQueue((int) (Math.random() * 100) + i);
+            Boolean enQueue = customArrayQueue.enQueue((int) (Math.random() * 100) + i);
             assert enQueue.equals(Boolean.TRUE);
         }
-        Boolean enQueue = linkQueue.enQueue(10);
+        Boolean enQueue = customArrayQueue.enQueue(10);
         assert enQueue.equals(Boolean.FALSE);
         for (int i = 0; i < capacity; i++) {
-            Integer object = linkQueue.deQueue();
+            Integer object = customArrayQueue.deQueue();
             assert Objects.nonNull(object);
         }
-        Integer queue = linkQueue.deQueue();
+        Integer queue = customArrayQueue.deQueue();
         assert Objects.isNull(queue);
     }
 }

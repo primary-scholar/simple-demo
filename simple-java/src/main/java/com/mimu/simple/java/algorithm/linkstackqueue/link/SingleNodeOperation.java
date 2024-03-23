@@ -19,10 +19,10 @@ public class SingleNodeOperation<T> {
      * @param head
      * @return
      */
-    public SingleNode<T> revertSingleNodeList(SingleNode<T> head) {
+    public CustomSingleNode<T> revertSingleNodeList(CustomSingleNode<T> head) {
         // 给 pre next 节点赋值
-        SingleNode<T> pre = null;
-        SingleNode<T> next;
+        CustomSingleNode<T> pre = null;
+        CustomSingleNode<T> next;
         while (Objects.nonNull(head)) {     // head 节点非空 开始循环
             next = head.getNext();      // 首先为 head 的后继节点 next 赋值
             head.setNext(pre);      // head 的后继节点 置为前驱节点
@@ -57,23 +57,23 @@ public class SingleNodeOperation<T> {
      * @param delete
      * @return
      */
-    public SingleNode<T> deleteSingleNodeList(SingleNode<T> head, T delete) {
+    public CustomSingleNode<T> deleteSingleNodeList(CustomSingleNode<T> head, T delete) {
         if (Objects.isNull(head)) {
             return null;
         }
         // head 节点非空 且为待删除节点
         while (Objects.nonNull(head) && head.getData().equals(delete)) {
-            SingleNode<T> next = head.getNext();      // 首先为 head 的后继节点 next 赋值
+            CustomSingleNode<T> next = head.getNext();      // 首先为 head 的后继节点 next 赋值
             head.setNext(null);     // head 后继节点置空
             head = next;        // head 节点后移
         }
         // 给 pre next 节点赋值
-        SingleNode<T> curr = head;
-        SingleNode<T> next = head;
+        CustomSingleNode<T> curr = head;
+        CustomSingleNode<T> next = head;
         while (Objects.nonNull(next)) {
             // 首次进入到该循环时 这里 next 一定为非待删除节点(否则 在 case1 中就被删除了)，if中为 待删除的 数据节点
             if (next.getData().equals(delete)) {
-                SingleNode<T> tmp = next;     // 临时节点tmp 暂存每一个待删除的 节点 (便于后续该节点的 后继节点置空)
+                CustomSingleNode<T> tmp = next;     // 临时节点tmp 暂存每一个待删除的 节点 (便于后续该节点的 后继节点置空)
                 next = next.getNext();      // next 节点后移
                 curr.setNext(next);     // curr 节点的 后继节点为 next 节点
                 tmp.setNext(null);      // 待删除的临时节点 后继置空

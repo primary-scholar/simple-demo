@@ -15,7 +15,7 @@ import java.util.Objects;
  * 1。使用栈结构可以实现
  * 2。使用快慢节点找到中间节点(慢节点依次走一步，快节点依次走两步)后，把后半部分进行逆序操作
  *
- * @see com.mimu.simple.java.algorithm.linkstackqueue.link.SingleNodeOperation#revertSingleNodeList(SingleNode)
+ * @see com.mimu.simple.java.algorithm.linkstackqueue.link.SingleNodeOperation#revertSingleNodeList(CustomSingleNode)
  * 然后进行比对即可
  * <p>
  * <p>
@@ -38,12 +38,12 @@ public class ClassicSlowFastNodeOperation {
      * @param head
      * @return
      */
-    public SingleNode<Integer> midOrUpMidNode(SingleNode<Integer> head) {
+    public CustomSingleNode<Integer> midOrUpMidNode(CustomSingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext()) || Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        SingleNode<Integer> slow = head.getNext();
-        SingleNode<Integer> fast = head.getNext().getNext();
+        CustomSingleNode<Integer> slow = head.getNext();
+        CustomSingleNode<Integer> fast = head.getNext().getNext();
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -51,11 +51,11 @@ public class ClassicSlowFastNodeOperation {
         return slow;
     }
 
-    public SingleNode<Integer> midOrUpMidNodeAnother(SingleNode<Integer> head) {
+    public CustomSingleNode<Integer> midOrUpMidNodeAnother(CustomSingleNode<Integer> head) {
         if (Objects.isNull(head)) {
             return null;
         }
-        ArrayList<SingleNode<Integer>> list = new ArrayList<>();
+        ArrayList<CustomSingleNode<Integer>> list = new ArrayList<>();
         while (Objects.nonNull(head)) {
             list.add(head);
             head = head.getNext();
@@ -63,12 +63,12 @@ public class ClassicSlowFastNodeOperation {
         return list.get((list.size() - 1) / 2);
     }
 
-    public SingleNode<Integer> midOrDownMidNode(SingleNode<Integer> head) {
+    public CustomSingleNode<Integer> midOrDownMidNode(CustomSingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext())) {
             return head;
         }
-        SingleNode<Integer> slow = head.getNext();
-        SingleNode<Integer> fast = head.getNext();
+        CustomSingleNode<Integer> slow = head.getNext();
+        CustomSingleNode<Integer> fast = head.getNext();
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -76,11 +76,11 @@ public class ClassicSlowFastNodeOperation {
         return slow;
     }
 
-    public SingleNode<Integer> midOrDownMidNodeAnother(SingleNode<Integer> head) {
+    public CustomSingleNode<Integer> midOrDownMidNodeAnother(CustomSingleNode<Integer> head) {
         if (Objects.isNull(head)) {
             return null;
         }
-        ArrayList<SingleNode<Integer>> list = new ArrayList<>();
+        ArrayList<CustomSingleNode<Integer>> list = new ArrayList<>();
         while (Objects.nonNull(head)) {
             list.add(head);
             head = head.getNext();
@@ -88,12 +88,12 @@ public class ClassicSlowFastNodeOperation {
         return list.get(list.size() / 2);
     }
 
-    public SingleNode<Integer> midOrUpMidPrNode(SingleNode<Integer> head) {
+    public CustomSingleNode<Integer> midOrUpMidPrNode(CustomSingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext()) || Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        SingleNode<Integer> slow = head;
-        SingleNode<Integer> fast = head.getNext().getNext();
+        CustomSingleNode<Integer> slow = head;
+        CustomSingleNode<Integer> fast = head.getNext().getNext();
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -101,11 +101,11 @@ public class ClassicSlowFastNodeOperation {
         return slow;
     }
 
-    public SingleNode<Integer> midOrUpMidPrNodeAnother(SingleNode<Integer> head) {
+    public CustomSingleNode<Integer> midOrUpMidPrNodeAnother(CustomSingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext()) || Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        ArrayList<SingleNode<Integer>> list = new ArrayList<>();
+        ArrayList<CustomSingleNode<Integer>> list = new ArrayList<>();
         while (Objects.nonNull(head)) {
             list.add(head);
             head = head.getNext();
@@ -113,15 +113,15 @@ public class ClassicSlowFastNodeOperation {
         return list.get((list.size() - 2) / 2);
     }
 
-    public SingleNode<Integer> midOrDownMidPreNode(SingleNode<Integer> head) {
+    public CustomSingleNode<Integer> midOrDownMidPreNode(CustomSingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext())) {
             return head;
         }
         if (Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        SingleNode<Integer> slow = head;
-        SingleNode<Integer> fast = head.getNext();
+        CustomSingleNode<Integer> slow = head;
+        CustomSingleNode<Integer> fast = head.getNext();
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -129,14 +129,14 @@ public class ClassicSlowFastNodeOperation {
         return slow;
     }
 
-    public SingleNode<Integer> midOrDownMidPreNodeAnother(SingleNode<Integer> head) {
+    public CustomSingleNode<Integer> midOrDownMidPreNodeAnother(CustomSingleNode<Integer> head) {
         if (Objects.isNull(head) || Objects.isNull(head.getNext())) {
             return head;
         }
         if (Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        ArrayList<SingleNode<Integer>> list = new ArrayList<>();
+        ArrayList<CustomSingleNode<Integer>> list = new ArrayList<>();
         while (Objects.nonNull(head)) {
             list.add(head);
             head = head.getNext();

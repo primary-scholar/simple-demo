@@ -1,8 +1,6 @@
 package com.mimu.simple.java.algorithm.bintree;
 
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.*;
 
 /**
@@ -34,7 +32,7 @@ public class ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public void recurSeque(SimpleTreeNode<Integer> treeNode) {
+    public void recurSeque(CustomTreeNode<Integer> treeNode) {
         if (Objects.isNull(treeNode)) {
             return;
         }
@@ -46,7 +44,7 @@ public class ClassicTreeOperation {
     }
 
 
-    protected void print(SimpleTreeNode<Integer> treeNode) {
+    protected void print(CustomTreeNode<Integer> treeNode) {
         if (Objects.nonNull(treeNode)) {
             System.out.print(treeNode.getData().toString());
             System.out.print(" ");

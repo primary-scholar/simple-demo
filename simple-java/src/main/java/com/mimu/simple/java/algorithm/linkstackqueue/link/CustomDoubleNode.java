@@ -10,12 +10,12 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class DoubleNode<T> {
+public class CustomDoubleNode<T> {
     private T data;
-    private DoubleNode<T> pre;
-    private DoubleNode<T> next;
+    private CustomDoubleNode<T> pre;
+    private CustomDoubleNode<T> next;
 
-    public DoubleNode(T data) {
+    public CustomDoubleNode(T data) {
         this.data = data;
         this.pre = null;
         this.next = null;

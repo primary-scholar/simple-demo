@@ -9,40 +9,40 @@ public class ClassicSlowFastNodeOperationTest extends NodeTest {
     @Test
     public void midOrUpMidNode() {
         for (int i = 0; i < loop; i++) {
-            SingleNode<Integer> nodeLink = initSingleNodeLink();
-            SingleNode<Integer> singleNode = operation.midOrUpMidNodeAnother(nodeLink);
-            SingleNode<Integer> midNode = operation.midOrUpMidNode(nodeLink);
-            assert singleNode.equals(midNode);
+            CustomSingleNode<Integer> nodeLink = initSingleNodeLink();
+            CustomSingleNode<Integer> customSingleNode = operation.midOrUpMidNodeAnother(nodeLink);
+            CustomSingleNode<Integer> midNode = operation.midOrUpMidNode(nodeLink);
+            assert customSingleNode.equals(midNode);
         }
     }
 
     @Test
     public void midOrDownMidNode() {
         for (int i = 0; i < loop; i++) {
-            SingleNode<Integer> nodeLink = initSingleNodeLink();
-            SingleNode<Integer> singleNode = operation.midOrDownMidNodeAnother(nodeLink);
-            SingleNode<Integer> midNode = operation.midOrDownMidNode(nodeLink);
-            assert singleNode.equals(midNode);
+            CustomSingleNode<Integer> nodeLink = initSingleNodeLink();
+            CustomSingleNode<Integer> customSingleNode = operation.midOrDownMidNodeAnother(nodeLink);
+            CustomSingleNode<Integer> midNode = operation.midOrDownMidNode(nodeLink);
+            assert customSingleNode.equals(midNode);
         }
     }
 
     @Test
     public void midOrUpMidPreNode() {
         for (int i = 0; i < loop; i++) {
-            SingleNode<Integer> nodeLink = initSingleNodeLink();
-            SingleNode<Integer> singleNode = operation.midOrUpMidPrNodeAnother(nodeLink);
-            SingleNode<Integer> midPrNode = operation.midOrUpMidPrNode(nodeLink);
-            assert singleNode.equals(midPrNode);
+            CustomSingleNode<Integer> nodeLink = initSingleNodeLink();
+            CustomSingleNode<Integer> customSingleNode = operation.midOrUpMidPrNodeAnother(nodeLink);
+            CustomSingleNode<Integer> midPrNode = operation.midOrUpMidPrNode(nodeLink);
+            assert customSingleNode.equals(midPrNode);
         }
     }
 
     @Test
     public void midOrDownMidPreNode() {
         for (int i = 0; i < loop; i++) {
-            SingleNode<Integer> nodeLink = initSingleNodeLink();
-            SingleNode<Integer> singleNode = operation.midOrDownMidPreNodeAnother(nodeLink);
-            SingleNode<Integer> midPreNode = operation.midOrDownMidPreNode(nodeLink);
-            assert singleNode.equals(midPreNode);
+            CustomSingleNode<Integer> nodeLink = initSingleNodeLink();
+            CustomSingleNode<Integer> customSingleNode = operation.midOrDownMidPreNodeAnother(nodeLink);
+            CustomSingleNode<Integer> midPreNode = operation.midOrDownMidPreNode(nodeLink);
+            assert customSingleNode.equals(midPreNode);
         }
     }
 }

@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class ArrayStackTest extends BaseTest {
 
-    ArrayStack<Integer> arrayStack = new ArrayStack<>(capacity);
+    CustomArrayStack<Integer> arrayStack = new CustomArrayStack<>(capacity);
 
     @Test
     public void arrayStackTest() {

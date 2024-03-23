@@ -19,10 +19,10 @@ public class DoubleNodeOperation<T> {
      * @param head
      * @return
      */
-    public DoubleNode<Integer> revertDoubleNodeList(DoubleNode<Integer> head) {
+    public CustomDoubleNode<Integer> revertDoubleNodeList(CustomDoubleNode<Integer> head) {
         // 给 pre next 节点赋值
-        DoubleNode<Integer> pre = null;
-        DoubleNode<Integer> next;
+        CustomDoubleNode<Integer> pre = null;
+        CustomDoubleNode<Integer> next;
         while (Objects.nonNull(head)) {     // head 节点非空 开始循环
             next = head.getNext();      // 首先为 head 的后继节点 next 赋值
             head.setNext(pre);      // head 的后继节点 置为pre节点
@@ -42,25 +42,25 @@ public class DoubleNodeOperation<T> {
      * @param delete
      * @return
      */
-    public DoubleNode<Integer> deleteDoubleNodeLink(DoubleNode<Integer> head, Integer delete) {
+    public CustomDoubleNode<Integer> deleteDoubleNodeLink(CustomDoubleNode<Integer> head, Integer delete) {
         if (Objects.isNull(head)) {
             return null;
         }
         // 整体与单链表删除类似
         while (Objects.nonNull(head) && head.getData().equals(delete)) {
-            DoubleNode<Integer> next = head.getNext();
+            CustomDoubleNode<Integer> next = head.getNext();
             head.setPre(null);      // head 前后继节点置空
             head.setNext(null);     // head 前后继节点置空
             head = next;
         }
-        DoubleNode<Integer> curr = head;
-        DoubleNode<Integer> next = head;
+        CustomDoubleNode<Integer> curr = head;
+        CustomDoubleNode<Integer> next = head;
         while (Objects.nonNull(next)) {
             if (!next.getData().equals(delete)) {
                 curr = next;
                 next = next.getNext();
             } else {
-                DoubleNode<Integer> tmp = next;
+                CustomDoubleNode<Integer> tmp = next;
                 next = next.getNext();
                 tmp.setPre(null);       // 待删除的临时节点 前后继置空
                 tmp.setNext(null);      // 待删除的临时节点 前后继置空

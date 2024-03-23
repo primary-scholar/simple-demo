@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Objects;
 
 public class LinkStackTest extends BaseTest {
-    LinkStack<Integer> linkStack = new LinkStack<>(capacity);
+    CustomLinkStack<Integer> linkStack = new CustomLinkStack<>(capacity);
 
     @Test
     public void linkStackTest() {

@@ -17,14 +17,14 @@ import java.util.Objects;
  *
  * @param <T>
  */
-public class ArrayQueue<T> {
+public class CustomArrayQueue<T> {
     private Integer capacity;
     private Object[] array;
     private Integer num;
     private Integer enIdx;
     private Integer deIdx;
 
-    public ArrayQueue(Integer capacity) {
+    public CustomArrayQueue(Integer capacity) {
         if (Objects.isNull(capacity) || capacity <= 0) {
             throw new IllegalArgumentException();
         }

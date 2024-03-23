@@ -16,13 +16,13 @@ import java.util.Objects;
  *
  * @param <T>
  */
-public class ArrayStack<T> {
+public class CustomArrayStack<T> {
     private Integer capacity;
     private Object[] array;
     private Integer num;
     private Integer index;
 
-    public ArrayStack(Integer capacity) {
+    public CustomArrayStack(Integer capacity) {
         if (Objects.isNull(capacity) || capacity <= 0) {
             throw new IllegalArgumentException();
         }

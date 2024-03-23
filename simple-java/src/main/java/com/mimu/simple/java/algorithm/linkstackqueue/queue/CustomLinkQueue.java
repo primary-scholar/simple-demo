@@ -1,6 +1,6 @@
 package com.mimu.simple.java.algorithm.linkstackqueue.queue;
 
-import com.mimu.simple.java.algorithm.linkstackqueue.link.DoubleNode;
+import com.mimu.simple.java.algorithm.linkstackqueue.link.CustomDoubleNode;
 
 import java.util.Objects;
 
@@ -20,13 +20,13 @@ import java.util.Objects;
  *
  * @param <T>
  */
-public class LinkQueue<T> {
+public class CustomLinkQueue<T> {
     private Integer capacity;
-    private DoubleNode<T> head;
-    private DoubleNode<T> tail;
+    private CustomDoubleNode<T> head;
+    private CustomDoubleNode<T> tail;
     private Integer num;
 
-    public LinkQueue(Integer capacity) {
+    public CustomLinkQueue(Integer capacity) {
         if (Objects.isNull(capacity) || capacity <= 0) {
             throw new IllegalArgumentException();
         }
@@ -40,7 +40,7 @@ public class LinkQueue<T> {
         if (num >= capacity) {
             return Boolean.FALSE;
         }
-        DoubleNode<T> element = new DoubleNode<>(data);
+        CustomDoubleNode<T> element = new CustomDoubleNode<>(data);
         if (Objects.isNull(head)) {
             head = element;
             tail = element;
@@ -63,7 +63,7 @@ public class LinkQueue<T> {
             head = null;
             tail = null;
         } else {
-            DoubleNode<T> pre = tail.getPre();
+            CustomDoubleNode<T> pre = tail.getPre();
             pre.setNext(null);
             data = (T) tail.getData();
             tail.setPre(null);

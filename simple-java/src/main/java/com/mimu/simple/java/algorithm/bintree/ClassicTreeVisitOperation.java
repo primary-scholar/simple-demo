@@ -9,7 +9,7 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public void pre(SimpleTreeNode<Integer> treeNode) {
+    public void pre(CustomTreeNode<Integer> treeNode) {
         if (Objects.nonNull(treeNode)) {
             print(treeNode);
             pre(treeNode.getLeft());
@@ -25,13 +25,13 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public void preNonRecur(SimpleTreeNode<Integer> treeNode) {
+    public void preNonRecur(CustomTreeNode<Integer> treeNode) {
         if (Objects.nonNull(treeNode)) {
             //先把根节点入栈
-            Stack<SimpleTreeNode<Integer>> stack = new Stack<>();
+            Stack<CustomTreeNode<Integer>> stack = new Stack<>();
             stack.push(treeNode);
             while (!stack.isEmpty()) {//栈非空
-                SimpleTreeNode<Integer> node = stack.pop();
+                CustomTreeNode<Integer> node = stack.pop();
                 print(node);//出栈并打印
                 if (Objects.nonNull(node.getRight())) {
                     stack.push(node.getRight());//如果有右孩子，先入栈右孩子
@@ -48,7 +48,7 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public void in(SimpleTreeNode<Integer> treeNode) {
+    public void in(CustomTreeNode<Integer> treeNode) {
         if (Objects.nonNull(treeNode)) {
             in(treeNode.getLeft());
             print(treeNode);
@@ -62,9 +62,9 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public void inNonRecur(SimpleTreeNode<Integer> treeNode) {
+    public void inNonRecur(CustomTreeNode<Integer> treeNode) {
         if (Objects.nonNull(treeNode)) {
-            Stack<SimpleTreeNode<Integer>> stack = new Stack<>();
+            Stack<CustomTreeNode<Integer>> stack = new Stack<>();
             while (!stack.isEmpty() || Objects.nonNull(treeNode)) {//根节点非空
                 if (Objects.nonNull(treeNode)) {//根节点非空
                     stack.push(treeNode);//根节点入栈
@@ -83,7 +83,7 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public void pos(SimpleTreeNode<Integer> treeNode) {
+    public void pos(CustomTreeNode<Integer> treeNode) {
         if (Objects.nonNull(treeNode)) {
             pos(treeNode.getLeft());
             pos(treeNode.getRight());
@@ -100,14 +100,14 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public void posNonRecur(SimpleTreeNode<Integer> treeNode) {
+    public void posNonRecur(CustomTreeNode<Integer> treeNode) {
         if (Objects.nonNull(treeNode)) {
             //先把根节点入栈
-            Stack<SimpleTreeNode<Integer>> stack = new Stack<>();//先序栈
-            Stack<SimpleTreeNode<Integer>> help = new Stack<>();//辅助栈
+            Stack<CustomTreeNode<Integer>> stack = new Stack<>();//先序栈
+            Stack<CustomTreeNode<Integer>> help = new Stack<>();//辅助栈
             stack.push(treeNode);//先序栈入栈
             while (!stack.isEmpty()) {//栈非空
-                SimpleTreeNode<Integer> node = stack.pop();
+                CustomTreeNode<Integer> node = stack.pop();
                 help.push(node);//先序栈出栈放到 辅助栈中
                 if (Objects.nonNull(node.getLeft())) {
                     stack.push(node.getLeft());//先入栈左孩子
@@ -128,11 +128,11 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param
      */
-    public void posNoRecurAnother(SimpleTreeNode<Integer> rootNode) {
+    public void posNoRecurAnother(CustomTreeNode<Integer> rootNode) {
         if (Objects.nonNull(rootNode)) {
-            Stack<SimpleTreeNode<Integer>> stack = new Stack<>();//辅助栈
+            Stack<CustomTreeNode<Integer>> stack = new Stack<>();//辅助栈
             stack.push(rootNode);
-            SimpleTreeNode<Integer> currentNode;
+            CustomTreeNode<Integer> currentNode;
             while (!stack.isEmpty()) {
                 currentNode = stack.peek();
                 if (currentNode.getLeft() != null && currentNode.getLeft() != rootNode && currentNode.getRight() != rootNode) {
@@ -155,20 +155,20 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public void level(SimpleTreeNode<Integer> treeNode) {
+    public void level(CustomTreeNode<Integer> treeNode) {
         if (Objects.isNull(treeNode)) {
             return;
         }
-        Queue<SimpleTreeNode<Integer>> queue = new LinkedList<>();
+        Queue<CustomTreeNode<Integer>> queue = new LinkedList<>();
         queue.add(treeNode);//头结点入队
         while (!queue.isEmpty()) {//队列非空 循环
-            SimpleTreeNode<Integer> node = queue.poll();//弹出
+            CustomTreeNode<Integer> node = queue.poll();//弹出
             print(node);//并打印
-            SimpleTreeNode<Integer> left = node.getLeft();
+            CustomTreeNode<Integer> left = node.getLeft();
             if (Objects.nonNull(left)) {//左子结点非空入队
                 queue.add(left);
             }
-            SimpleTreeNode<Integer> right = node.getRight();
+            CustomTreeNode<Integer> right = node.getRight();
             if (Objects.nonNull(right)) {//右子节点非空入队
                 queue.add(right);
             }
@@ -180,24 +180,24 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      *
      * @param treeNode
      */
-    public Integer maxWidthUseMap(SimpleTreeNode<Integer> treeNode) {
+    public Integer maxWidthUseMap(CustomTreeNode<Integer> treeNode) {
         if (Objects.isNull(treeNode)) {
             return 0;
         }
-        Queue<SimpleTreeNode<Integer>> queue = new LinkedList<>();
+        Queue<CustomTreeNode<Integer>> queue = new LinkedList<>();
         queue.add(treeNode);
-        HashMap<SimpleTreeNode<Integer>, Integer> levelMap = new HashMap<>();
+        HashMap<CustomTreeNode<Integer>, Integer> levelMap = new HashMap<>();
         levelMap.put(treeNode, 1);
         int currLevel = 1, currLevelNodes = 0, max = 0;
         while (!queue.isEmpty()) {
-            SimpleTreeNode<Integer> curr = queue.poll();
+            CustomTreeNode<Integer> curr = queue.poll();
             Integer currNodeLevel = levelMap.get(curr);
-            SimpleTreeNode<Integer> left = curr.getLeft();
+            CustomTreeNode<Integer> left = curr.getLeft();
             if (Objects.nonNull(left)) {
                 levelMap.put(left, currNodeLevel + 1);
                 queue.add(left);
             }
-            SimpleTreeNode<Integer> right = curr.getRight();
+            CustomTreeNode<Integer> right = curr.getRight();
             if (Objects.nonNull(right)) {
                 levelMap.put(right, currNodeLevel + 1);
                 queue.add(right);

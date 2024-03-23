@@ -8,11 +8,11 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class SingleNode<T> {
+public class CustomSingleNode<T> {
     private T data;
-    private SingleNode<T> next;
+    private CustomSingleNode<T> next;
 
-    public SingleNode(T data) {
+    public CustomSingleNode(T data) {
         this.data = data;
         this.next = null;
     }

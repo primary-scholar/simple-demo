@@ -12,7 +12,7 @@ public class ClassicTreeVisitOperationTest extends ClassicTreeOperationTest {
     @Test
     public void visitTree() {
         Queue<Integer> treeQueue = initSimpleTree();
-        SimpleTreeNode<Integer> serTree = serializedOperation.preDecode(treeQueue);
+        CustomTreeNode<Integer> serTree = serializedOperation.preDecode(treeQueue);
         visitOperation.pre(serTree);
         System.out.print(" ");
         visitOperation.preNonRecur(serTree);
