@@ -49,9 +49,11 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      * @param treeNode
      */
     public void in(SimpleTreeNode<Integer> treeNode) {
-        pre(treeNode.getLeft());
-        print(treeNode);
-        pre(treeNode.getRight());
+        if (Objects.nonNull(treeNode)) {
+            in(treeNode.getLeft());
+            print(treeNode);
+            in(treeNode.getRight());
+        }
     }
 
     /**
@@ -82,9 +84,11 @@ public class ClassicTreeVisitOperation extends ClassicTreeOperation {
      * @param treeNode
      */
     public void pos(SimpleTreeNode<Integer> treeNode) {
-        pre(treeNode.getLeft());
-        pre(treeNode.getRight());
-        print(treeNode);
+        if (Objects.nonNull(treeNode)) {
+            pos(treeNode.getLeft());
+            pos(treeNode.getRight());
+            print(treeNode);
+        }
     }
 
     /**

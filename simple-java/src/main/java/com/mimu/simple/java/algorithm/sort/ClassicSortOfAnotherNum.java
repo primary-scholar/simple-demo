@@ -116,7 +116,7 @@ public class ClassicSortOfAnotherNum extends ClassicRecursion {
      * @param left
      * @param right
      */
-    public void quickPartition(Integer[] array, Integer left, Integer right) {
+    private void quickPartition(Integer[] array, Integer left, Integer right) {
         // 左右子规模何时可退出 即 子规模的长度 =1 时 可退出
         if (left >= right) {
             return;
