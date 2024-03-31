@@ -7,11 +7,13 @@ package com.mimu.simple.java.leetcode;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 
 /**
+ * 两数之和问题
  * Two Sum
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -22,56 +24,32 @@ import java.util.Map;
  */
 public class LC1Test {
 
-    @Test
-    public void deal() {
-        int[] origin = new int[]{2, 7, 11, 12};
-        int[] ints = caculate2Map(origin, 14);
-        int[] ints1 = caculateOBO(origin, 9);
-        for (int anInt : ints) {
-            System.out.print(anInt + " ");
-        }
-        System.out.println();
-        for (int i : ints1) {
-            System.out.print(i + " ");
-        }
-    }
-
-    /*
-    使用穷举法，遍历数据，复杂度O(n^2)
-     */
-    public int[] caculateOBO(int[] origin, int target) {
-        int[] result = new int[2];
-        if (origin == null || origin.length < 2) {
-            return result;
-        }
-        for (int start = 0; start < origin.length; start++) {
-            for (int end = origin.length - 1; end > start; end--) {
-                if (origin[start] + origin[end] == target) {
-                    result[0] = start;
-                    result[1] = end;
-                }
-            }
-        }
-        return result;
-    }
-
     /*
     把数组放到 map中遍历一遍数组，复杂度O(n)
      */
-    public int[] caculate2Map(int[] origin, int target) {
-        int[] result = new int[2];
-        if (origin == null || origin.length < 2) {
+    public int[] calculateWithMap(int[] nums, int target) {
+        int[] result = new int[2];//定义要返回的长度为2的数组
+        if (nums == null || nums.length < 2) {
             return result;
         }
-        Map<Integer, Integer> convet2Map = new HashMap<>();
-        for (int start = 0; start < origin.length; start++) {
-            convet2Map.put(origin[start], start);
-            int other = target - origin[start];
-            if (convet2Map.get(other) != null && convet2Map.get(other) != start) {
-                result[0] = convet2Map.get(other);
+        // 存放数组中当前元素的值和，该值在数组中的下标
+        Map<Integer, Integer> hash = new HashMap<>();
+        for (int start = 0; start < nums.length; start++) {
+            int other = target - nums[start];//计算当前元素和目标元素的差值
+            if (hash.get(other) != null && hash.get(other) != start) { // 如果差值在hashMap中并且不是当前下标则找到相关结果 可以返回
+                result[0] = hash.get(other);
                 result[1] = start;
             }
+            hash.put(nums[start], start);//把访问到元素值和该元素在数组中的下标存到到hashMap中
         }
         return result;
+    }
+
+    @Test
+    public void deal() {
+        int[] ints = calculateWithMap(new int[]{2, 7, 11, 12}, 14);
+        int[] ints1 = calculateWithMap(new int[]{3, 3}, 6);
+        assert Arrays.equals(ints, new int[]{0, 3});
+        assert Arrays.equals(ints1, new int[]{0, 1});
     }
 }

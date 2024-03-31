@@ -5,10 +5,14 @@ package com.mimu.simple.java.leetcode;
  * date: 2019/9/30
  */
 
-import org.junit.Test;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import org.junit.Test;
+import org.junit.validator.PublicClassValidator;
+
+import javax.crypto.Cipher;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
@@ -20,163 +24,77 @@ import java.util.NoSuchElementException;
  * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
  * Output: 7 -> 0 -> 8
  * Explanation: 342 + 465 = 807.
+ *
+ * Example 2:
+ *
+ * **Input:** l1 = [0], l2 = [0]
+ * **Output:** [0]
+ *
+ * Example 3:
+ *
+ * **Input:** l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+ * **Output:** [8,9,9,9,0,0,0,1]
  */
 public class LC2Test {
 
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode node = new ListNode(-1);// 构建一个头结点为-1的节点数据
+        ListNode cur = node;
+        int carry = 0;// 进位初始为0
+        while (Objects.nonNull(l1) || Objects.nonNull(l2)) {// 两个链表 只要一个非空就循环
+            int d1 = Objects.isNull(l1) ? 0 : l1.val;// 分别获取该节点的数字
+            int d2 = Objects.isNull(l2) ? 0 : l2.val;// 分别获取该节点的数字
+            int sum = d1 + d2 + carry;
+            carry = sum >= 10 ? 1 : 0;// 设置需要的进位
+            cur.next = new ListNode(sum % 10);// 设置个位数字的节点数据
+            cur = cur.next;// 当前节点后移
+            if (Objects.nonNull(l1)) l1 = l1.next;
+            if (Objects.nonNull(l2)) l2 = l2.next;
+        }
+        if (carry == 1) cur.next = new ListNode(1);
+        return node.next;// 返回头结点的下一个节点数据
+    }
+
+    class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
     @Test
-    public void info() {
-        ListNode<Integer> first = new ListNode<>();
-        first.addLast(2);
-        first.addLast(4);
-        first.addLast(3);
-        ListNode<Integer> second = new ListNode<>();
-        second.addLast(5);
-        second.addLast(6);
-        second.addLast(4);
-        second.addLast(3);
-        second.addLast(3);
-
-        ListNode<Integer> result = caculate(first, second);
-        ListNode<Integer>.ListNodeIterator iterator = result.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+    public void printResult() {
+        ListNode node = addTwoNumbers(prepare(Arrays.asList(2, 4, 3)), prepare(Arrays.asList(5, 6, 4)));
+        while (Objects.nonNull(node)) {
+            System.out.print(node.val);
+            node = node.next;
         }
-
-    }
-
-    /**
-     * 遍历两个 链表 分别计算 每个节点的 和
-     *
-     * @param first
-     * @param second
-     * @return
-     */
-    public ListNode<Integer> caculate(ListNode<Integer> first, ListNode<Integer> second) {
-        ListNode<Integer> result = new ListNode<>();
-        ListNode<Integer>.ListNodeIterator firstIterator = first.iterator();
-        ListNode<Integer>.ListNodeIterator secondIterator = second.iterator();
-        int adding = 0;
-        while (firstIterator.hasNext() && secondIterator.hasNext()) {
-            int firstValue = firstIterator.next();
-            int secondValue = secondIterator.next();
-            int mod = (firstValue + secondValue) % 10;
-            result.addFirst(mod + adding);
-            adding = (firstValue + secondValue) / 10;
-        }
-        while (firstIterator.hasNext()) {
-            int firstValue = firstIterator.next();
-            result.addFirst(firstValue + adding);
-            adding=0;
-        }
-        while (secondIterator.hasNext()) {
-            int secondValue = secondIterator.next();
-            result.addFirst(secondValue + adding);
-            adding=0;
-        }
-        return result;
-    }
-
-    private static class ListNode<E> {
-        transient Node<E> first;
-        transient Node<E> last;
-        transient int size;
-
-        public ListNode() {
-        }
-
-        public boolean addLast(E data) {
-            linkAfter(data);
-            return true;
-        }
-
-        public boolean addFirst(E data) {
-            linkBefore(data);
-            return true;
-        }
-
-        void linkAfter(E data) {
-            final Node<E> l = last;
-            final Node<E> newNode = new Node<>(data, l, null);
-            last = newNode;
-            if (l == null)
-                first = newNode;
-            else
-                l.next = newNode;
-            size++;
-        }
-
-        void linkBefore(E data) {
-            final Node<E> pred = first;
-            final Node<E> newNode = new Node<>(data, null, pred);
-            first = newNode;
-            if (pred == null)
-                last = newNode;
-            else
-                pred.pre = newNode;
-            size++;
-        }
-
-        private ListNodeIterator iterator() {
-            return new ListNodeIterator(0);
-        }
-
-        private class ListNodeIterator implements IListNodeIterator<E> {
-            private Node<E> lastReturned;
-            private Node<E> next;
-            private int nextIndex;
-
-            ListNodeIterator(int index) {
-                next = (index == size) ? null : node(index);
-                nextIndex = index;
-            }
-
-            public boolean hasNext() {
-                return nextIndex < size;
-            }
-
-            public E next() {
-                if (!hasNext())
-                    throw new NoSuchElementException();
-
-                lastReturned = next;
-                next = next.next;
-                nextIndex++;
-                return lastReturned.data;
-            }
-        }
-
-        private Node<E> node(int index) {
-            if (index < (size >> 1)) {
-                Node<E> x = first;
-                for (int i = 0; i < index; i++)
-                    x = x.next;
-                return x;
-            } else {
-                Node<E> x = last;
-                for (int i = size - 1; i > index; i--)
-                    x = x.pre;
-                return x;
-            }
-        }
-
-        private interface IListNodeIterator<E> extends Iterator<E> {
-            boolean hasNext();
-
-            E next();
-        }
-
-        private class Node<E> {
-            private E data;
-            private Node<E> pre;
-            private Node<E> next;
-
-            Node(E data, Node<E> pre, Node<E> next) {
-                this.data = data;
-                this.pre = pre;
-                this.next = next;
-            }
+        System.out.println();
+        ListNode node1 = addTwoNumbers(prepare(Arrays.asList(9, 9, 9, 9, 9, 9, 9)), prepare(Arrays.asList(9, 9, 9, 9)));
+        while (Objects.nonNull(node1)) {
+            System.out.print(node1.val);
+            node1 = node1.next;
         }
     }
 
+    public ListNode prepare(List<Integer> number) {
+        ListNode head = new ListNode(-1);
+        ListNode curr = head;
+        for (Integer i : number) {
+            curr.next = new ListNode(i);
+            curr = curr.next;
+        }
+        return head.next;
+    }
 
 }
