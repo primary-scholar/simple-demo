@@ -26,11 +26,13 @@ package com.mimu.simple.java.utils;
  * 1.2.2.1 LinkedHashSet(有序不可重复输出顺序等于插入顺序);
  * 1.2.2.2 HashSet(无序不可重复)
  * <p>
- * 1.3 Queue在jdk1.5 后添加 常用结构 1.3.1 ArrayBlockingQueue; 1.3.2 LinkedBlockingQueue; 1.3.3 SynchronousQueue; 1.3.4 ConcurrentLinkedQueue;
+ * 1.3 Queue在jdk1.5 后添加 常用结构 1.3.1 ArrayBlockingQueue; 1.3.2 LinkedBlockingQueue;
+ * 1.3.3 SynchronousQueue; 1.3.4 ConcurrentLinkedQueue; 1.3.5 PriorityQueue
  * 1.3.1 ArrayBlockingQueue(有界有序可重复)
  * 1.3.2 LinkedBlockingQueue(有界有序可重复)
  * 1.3.3 SynchronousQueue(无容量仅支持数据转移)
  * 1.3.4 ConcurrentLinkedQueue(无界有序可重复不支持阻塞)
+ * 1.3.5 PriorityQueue(无界堆排序序列)
  * <p>
  * 1.4 Deque(双端队列) 常用结构有 1.4.1 ArrayQueue;1.4.2 LinkedList;
  * 1.4.1 ArrayQueue (有界有序可重复)

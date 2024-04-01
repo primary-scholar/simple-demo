@@ -11,9 +11,9 @@ import java.util.Stack;
  * Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
  * Output: 6
  */
-public class LC42Test {
+public class LC42Test__Trap {
 
-        public int collect(int[] height) {
+        public int trap(int[] height) {
             Stack<Integer> s = new Stack<>();
             int i = 0, n = height.length, res = 0;
             while (i < n) {

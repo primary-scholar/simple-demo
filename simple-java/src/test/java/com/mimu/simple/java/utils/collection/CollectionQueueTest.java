@@ -3,7 +3,10 @@ package com.mimu.simple.java.utils.collection;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
+import java.util.PriorityQueue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -187,6 +190,16 @@ public class CollectionQueueTest {
             }
         }).start();
         System.in.read();
+    }
+
+    @Test
+    public void priorityQueueInfo(){
+        List<Integer> list = Arrays.asList(3, 2, 3, 1, 2, 4, 5, 5, 6);
+        PriorityQueue<Integer> heapQueue = new PriorityQueue<>();
+        for (Integer i : list) {
+            heapQueue.offer(i);
+        }
+        System.out.println(heapQueue);
     }
 
 }

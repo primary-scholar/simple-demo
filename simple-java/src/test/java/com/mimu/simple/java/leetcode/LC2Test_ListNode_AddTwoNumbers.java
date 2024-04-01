@@ -7,11 +7,8 @@ package com.mimu.simple.java.leetcode;
 
 
 import org.junit.Test;
-import org.junit.validator.PublicClassValidator;
 
-import javax.crypto.Cipher;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -24,18 +21,18 @@ import java.util.Objects;
  * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
  * Output: 7 -> 0 -> 8
  * Explanation: 342 + 465 = 807.
- *
+ * <p>
  * Example 2:
- *
+ * <p>
  * **Input:** l1 = [0], l2 = [0]
  * **Output:** [0]
- *
+ * <p>
  * Example 3:
- *
+ * <p>
  * **Input:** l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
  * **Output:** [8,9,9,9,0,0,0,1]
  */
-public class LC2Test {
+public class LC2Test_ListNode_AddTwoNumbers extends LC_ListNode {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode node = new ListNode(-1);// 构建一个头结点为-1的节点数据
@@ -55,46 +52,14 @@ public class LC2Test {
         return node.next;// 返回头结点的下一个节点数据
     }
 
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     @Test
     public void printResult() {
-        ListNode node = addTwoNumbers(prepare(Arrays.asList(2, 4, 3)), prepare(Arrays.asList(5, 6, 4)));
-        while (Objects.nonNull(node)) {
-            System.out.print(node.val);
-            node = node.next;
-        }
-        System.out.println();
-        ListNode node1 = addTwoNumbers(prepare(Arrays.asList(9, 9, 9, 9, 9, 9, 9)), prepare(Arrays.asList(9, 9, 9, 9)));
-        while (Objects.nonNull(node1)) {
-            System.out.print(node1.val);
-            node1 = node1.next;
-        }
-    }
-
-    public ListNode prepare(List<Integer> number) {
-        ListNode head = new ListNode(-1);
-        ListNode curr = head;
-        for (Integer i : number) {
-            curr.next = new ListNode(i);
-            curr = curr.next;
-        }
-        return head.next;
+        ListNode node = addTwoNumbers(list2ListNode(Arrays.asList(2, 4, 3)), list2ListNode(Arrays.asList(5, 6, 4)));
+        ListNode convert = list2ListNode(Arrays.asList(7, 0, 8));
+        assert listNode2List(node).equals(listNode2List(convert));
+        ListNode node1 = addTwoNumbers(list2ListNode(Arrays.asList(9, 9, 9, 9, 9, 9, 9)), list2ListNode(Arrays.asList(9, 9, 9, 9)));
+        ListNode convert1 = list2ListNode(Arrays.asList(8, 9, 9, 9, 0, 0, 0, 1));
+        assert listNode2List(node1).equals(listNode2List(convert1));
     }
 
 }

@@ -21,7 +21,7 @@ import java.util.Objects;
  * <p>
  * Could you do both operations in O(1) time complexity?
  */
-public class LC4Test {
+public class LC4Test__LRUCache {
 
     /**
      * 使用双向链表和HashMap 可以实现复杂度都为O(1)的 get()和put() 方法
@@ -61,13 +61,13 @@ public class LC4Test {
 
         public void put(int key, int value) {
             LinkNode linkNode = this.data.get(key);
-            if (Objects.isNull(linkNode)) { // 如果数据不存在
-                if (size >= capacity) {// 判断是否超过容量，如果超过则删除尾节点
+            if (Objects.isNull(linkNode)) {
+                if (size >= capacity) {
                     removeTail();
                 }
-                addHead(new LinkNode(key, value));// 如果不超过，则直接添加头结点
-            } else {// 如果数据存在
-                linkNode.setData(value);//则删除该节点在链表中的原有位置，并添加到头结点
+                addHead(new LinkNode(key, value));
+            } else {
+                linkNode.setData(value);
                 move2Head(linkNode);
             }
         }

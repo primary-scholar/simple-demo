@@ -22,12 +22,12 @@ import java.util.Map;
  * Because nums[0] + nums[1] = 2 + 7 = 9,
  * return [0, 1].
  */
-public class LC1Test {
+public class LC1Test__AddTwoNumbers {
 
     /*
     把数组放到 map中遍历一遍数组，复杂度O(n)
      */
-    public int[] calculateWithMap(int[] nums, int target) {
+    public int[] addTwoNumbers(int[] nums, int target) {
         int[] result = new int[2];//定义要返回的长度为2的数组
         if (nums == null || nums.length < 2) {
             return result;
@@ -47,8 +47,8 @@ public class LC1Test {
 
     @Test
     public void deal() {
-        int[] ints = calculateWithMap(new int[]{2, 7, 11, 12}, 14);
-        int[] ints1 = calculateWithMap(new int[]{3, 3}, 6);
+        int[] ints = addTwoNumbers(new int[]{2, 7, 11, 12}, 14);
+        int[] ints1 = addTwoNumbers(new int[]{3, 3}, 6);
         assert Arrays.equals(ints, new int[]{0, 3});
         assert Arrays.equals(ints1, new int[]{0, 1});
     }

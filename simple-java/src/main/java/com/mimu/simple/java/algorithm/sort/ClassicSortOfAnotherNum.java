@@ -21,7 +21,8 @@ public class ClassicSortOfAnotherNum extends ClassicRecursion {
      * p1 返回 <= 区的 右边界
      * 以 array[right] 作为候选数据
      * > 候选数 的数排在 右侧 <=array[right] 的排在左侧
-     * 整体思想：初始时 把数组分成两部分，array[left-1],array[left,right] 两部分 即 <=区 在左边，>区 在右边
+     * 整体思想：初始时 把数组分成两部分，<=区为 (array[0],array[left-1]),>区为 (array[left],array[right])两部分 即 <=区 在左边，>区 在右边
+     * 初始时 left=0即初始时把数组分为两部分array[-1],arry[0,right]两部分，即<=区，在数组之外
      * 在 < 区域的右边界的下一个 和 数组的 right 边界内循环
      * 如果 array[idx]<= 候选数 即该元素应该在左侧 则把当前元素和 <= 区的 下一个元素交换，即 <= 区 不停的向右移
      * idx++
@@ -39,13 +40,13 @@ public class ClassicSortOfAnotherNum extends ClassicRecursion {
         if (left.equals(right)) {
             return left;
         }
-        //初始 把数组分成两块 <= 区 array[left-1],array[left,right] 并从 left 开始循环
+        //初始 把数组分成两块 <= 区和>区，<=区为 (array[0],array[left-1]),>区为 (array[left],array[right])两部分 并从 left 开始循环
         int le = left - 1, idx = left;
         // 从 left 到 right 开始循环
         while (idx < right) {
             // 如果当前元素 <= 候选数 则  把当前元素和 <=区的下一个元素进行交换
             if (array[idx] <= array[right]) {
-                swap(array, idx, ++le);
+                swap(array, idx, ++le);//++le 即<=区 不断右扩
             }
             idx++; // 当前 下标 ++
         }

@@ -1,5 +1,8 @@
 package com.mimu.simple.java.leetcode;
 
+import org.junit.Test;
+
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -10,7 +13,7 @@ import java.util.Objects;
  * Input: 1->2->3->4->5->NULL
  * Output: 5->4->3->2->1->NULL
  */
-public class LC206Test {
+public class LC206Test_listNode_ReverseList extends LC_ListNode {
 
     /**
      * 使用 pre，current，next 三个节点来进行单链表的翻转；
@@ -36,20 +39,11 @@ public class LC206Test {
         return current;
     }
 
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
+    @Test
+    public void reverseListResult(){
+        ListNode listNode = list2ListNode(Arrays.asList(8, 9, 9, 9, 0, 0, 0, 1));
+        ListNode reverseList = reverseList(listNode);
+        assert listNode2List(reverseList).equals(Arrays.asList(1,0,0,0,9,9,9,8));
     }
+
 }

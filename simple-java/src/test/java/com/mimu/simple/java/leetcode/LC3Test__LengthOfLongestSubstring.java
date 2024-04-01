@@ -13,7 +13,7 @@ import java.util.HashSet;
  * **Input:** s = "abcabcbb"
  * **Output:** 3
  */
-public class LC3Test {
+public class LC3Test__LengthOfLongestSubstring {
 
     public int lengthOfLongestSubstring(String s) {
         int result = 0, left = 0, index = 0;
@@ -32,7 +32,7 @@ public class LC3Test {
 
     @Test
     public void printResult() {
-        LC3Test lc3Test = new LC3Test();
+        LC3Test__LengthOfLongestSubstring lc3Test = new LC3Test__LengthOfLongestSubstring();
         assert lc3Test.lengthOfLongestSubstring("abcabcbb") == 3;
         assert lc3Test.lengthOfLongestSubstring("pwwkew") == 3;
     }
