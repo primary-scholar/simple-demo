@@ -1,4 +1,4 @@
-package com.mimu.simple.java.algorithm.linkstackqueue;
+package com.mimu.simple.java.algorithm;
 
 import com.mimu.simple.java.algorithm.sort.ClassicSortOfNSquare;
 
@@ -108,11 +108,15 @@ public class ClassicQueryOfNSquare extends ClassicSortOfNSquare {
 
     /**
      * 局部最小
+     * <p>
+     * 思路 寻找 局部最小 可能存在的区域，
+     * 如果当前位置的 数字 比它左边的数字大 则局部最小 的数字 应该出现在 该位置左侧
+     * 如果当前位置的 数字 比它右边的数字大 则局部最小 的数字 应该出现在 该位置右侧
      *
      * @param array
      * @return
      */
-    public Integer latestQuery(Integer[] array) {
+    public Integer leastQuery(Integer[] array) {
         if (Objects.isNull(array) || array.length < 1) {
             return -1;
         }
@@ -125,9 +129,43 @@ public class ClassicQueryOfNSquare extends ClassicSortOfNSquare {
         int left = 1, right = array.length - 2;
         while (left <= right) {
             int mid = left + ((right - left) >>> 1);
-            if (array[mid] > array[mid - 1]) {
+            if (array[mid] > array[mid - 1]) { // 当前 mid 位置的数字 比左边的数字大 则说明 局部最小值 在该位置 左侧
                 right = mid - 1;
-            } else if (array[mid] > array[mid + 1]) {
+            } else if (array[mid] > array[mid + 1]) { // 当前 mid 位置的数字 比右边的数字大 则说明 局部最小值 在该位置 右侧
+                left = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return left;
+    }
+
+    /**
+     * 局部最大
+     * <p>
+     * 思路 寻找局部最大 可能存在的区域
+     * 如果当前位置的 数字 比它左边的数字小 则局部最大 的数字 应该出现在 该位置左侧
+     * 如果当前位置的 数字 比它右边的数字小 则局部最大 的数字 应该出现在 该位置右侧
+     *
+     * @param array
+     * @return
+     */
+    public Integer maxQuery(Integer[] array) {
+        if (Objects.isNull(array) || array.length < 1) {
+            return -1;
+        }
+        if (array.length == 1 || array[0].equals(array[1])) {
+            return 0;
+        }
+        if (array[array.length - 1] < array[array.length - 2]) {
+            return array.length - 2;
+        }
+        int left = 1, right = array.length - 2;
+        while (left <= right) {
+            int mid = left + ((right - left) >>> 1);
+            if (array[mid] < array[mid - 1]) { // 当前 mid 位置的数字 比左边的数字小 则说明 局部最大值 在该位置 左侧
+                right = mid - 1;
+            } else if (array[mid] < array[mid + 1]) { // 当前 mid 位置的数字 比右边的数字小 则说明 局部最大值 在该位置 右侧
                 left = mid + 1;
             } else {
                 return mid;

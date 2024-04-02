@@ -1,6 +1,7 @@
 package com.mimu.simple.java.algorithm.linkstackqueue;
 
 import com.alibaba.fastjson.JSONObject;
+import com.mimu.simple.java.algorithm.ClassicQueryOfNSquare;
 import com.mimu.simple.java.algorithm.sort.ClassicSortOfNSquareTest;
 import org.junit.Test;
 
@@ -59,6 +60,15 @@ public class ClassicQueryOfNSquareTest extends ClassicSortOfNSquareTest {
                 return;
             }
         }
+    }
+
+    @Test
+    public void leastQueryTest() {
+        Integer i = query.leastQuery(new Integer[]{35, -8, -2});
+        System.out.println(i);
+        System.out.println(query.maxQuery(new Integer[]{1, 2, 3, 1}));
+        System.out.println(query.maxQuery(new Integer[]{1, 2, 1, 3, 5, 6, 4}));
+
     }
 
 

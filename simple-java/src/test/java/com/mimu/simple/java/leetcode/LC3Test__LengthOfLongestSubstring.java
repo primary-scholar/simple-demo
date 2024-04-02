@@ -15,6 +15,12 @@ import java.util.HashSet;
  */
 public class LC3Test__LengthOfLongestSubstring {
 
+    /**
+     * 使用滑动窗口 进行 数据的 存储判断
+     *
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstring(String s) {
         int result = 0, left = 0, index = 0;
         // set 中保存字符串中当前元素
