@@ -22,7 +22,7 @@ import java.util.Map;
  * Because nums[0] + nums[1] = 2 + 7 = 9,
  * return [0, 1].
  */
-public class LC1Test__AddTwoNumbers {
+public class LCTest_Map_AddTwoNumbers_1 {
 
     /*
     把数组放到 map中遍历一遍数组，复杂度O(n)

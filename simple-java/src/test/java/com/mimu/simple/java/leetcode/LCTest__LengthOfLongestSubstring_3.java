@@ -13,7 +13,7 @@ import java.util.HashSet;
  * **Input:** s = "abcabcbb"
  * **Output:** 3
  */
-public class LC3Test__LengthOfLongestSubstring {
+public class LCTest__LengthOfLongestSubstring_3 {
 
     /**
      * 使用滑动窗口 进行 数据的 存储判断
@@ -38,7 +38,7 @@ public class LC3Test__LengthOfLongestSubstring {
 
     @Test
     public void printResult() {
-        LC3Test__LengthOfLongestSubstring lc3Test = new LC3Test__LengthOfLongestSubstring();
+        LCTest__LengthOfLongestSubstring_3 lc3Test = new LCTest__LengthOfLongestSubstring_3();
         assert lc3Test.lengthOfLongestSubstring("abcabcbb") == 3;
         assert lc3Test.lengthOfLongestSubstring("pwwkew") == 3;
     }

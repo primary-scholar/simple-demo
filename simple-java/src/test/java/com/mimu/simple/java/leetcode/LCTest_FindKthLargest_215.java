@@ -20,7 +20,7 @@ import java.util.PriorityQueue;
  * Input: [3,2,3,1,2,4,5,5,6] and k = 4
  * Output: 4
  */
-public class LC215Test_FindKthLargest {
+public class LCTest_FindKthLargest_215 {
 
     public int findKthLargest(int[] nums, int k) {
         int left = 0, right = nums.length - 1;

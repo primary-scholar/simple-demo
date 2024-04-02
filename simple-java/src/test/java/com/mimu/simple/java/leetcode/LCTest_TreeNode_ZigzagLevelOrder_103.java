@@ -28,7 +28,7 @@ import java.util.Queue;
  * ]
  */
 
-public class LC103Test_TreeNode_ZigzagLevelOrder extends LC_TreeNode {
+public class LCTest_TreeNode_ZigzagLevelOrder_103 extends LC_TreeNode {
     /**
      * 使用一个队列和一个双端队列进行数据转化，一个用于访问二叉树的层级节点，另一个双端队列根据层的奇偶来
      * 前插和后插数据

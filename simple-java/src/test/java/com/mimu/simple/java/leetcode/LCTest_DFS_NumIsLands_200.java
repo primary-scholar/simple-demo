@@ -29,7 +29,7 @@ import org.junit.Test;
  * <p>
  * Output: 3
  */
-public class LC200Test_NumIsLands {
+public class LCTest_DFS_NumIsLands_200 {
 
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) {

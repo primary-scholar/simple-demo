@@ -21,7 +21,7 @@ import java.util.Objects;
  * Output: 5 or 1
  * Explanation: Your function can return either index number 1 where the peak element i
  */
-public class LC162Test__FindPeakElement {
+public class LCTest_BinQuery_FindPeakElement_162 {
 
     public int findPeakElement(int[] nums) {
         if (nums.length == 1) return 0;

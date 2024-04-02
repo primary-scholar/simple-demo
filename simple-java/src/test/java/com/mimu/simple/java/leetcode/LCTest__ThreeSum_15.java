@@ -32,7 +32,7 @@ import java.util.List;
  * The distinct triplets are [-1,0,1] and [-1,-1,2].
  * Notice that the order of the output and the order of the triplets does not matter.
  */
-public class LC15Test__ThreeSum {
+public class LCTest__ThreeSum_15 {
 
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
