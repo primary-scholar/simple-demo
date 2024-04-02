@@ -8,7 +8,7 @@ import java.util.*;
  * 二叉树按层遍历
  * 使用队列让节点入队，
  */
-public class LCTest_TreeNode_LevelOrder_102 extends LC_TreeNode {
+public class LCTest_BinTreeNode_LevelOrder_102 extends LC_TreeNode {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         if (Objects.isNull(root)) {
