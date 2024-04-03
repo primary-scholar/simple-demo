@@ -21,7 +21,7 @@ import java.util.Objects;
  * <p>
  * Could you do both operations in O(1) time complexity?
  */
-public class LCTest_Map_LRUCache_4 {
+public class LCTest_Map_4_LRUCache {
 
     /**
      * 使用双向链表和HashMap 可以实现复杂度都为O(1)的 get()和put() 方法

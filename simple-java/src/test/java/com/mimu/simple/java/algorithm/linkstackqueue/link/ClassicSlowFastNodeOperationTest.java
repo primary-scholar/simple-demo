@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class ClassicSlowFastNodeOperationTest extends NodeTest {
 
-    ClassicSlowFastNodeOperation operation = new ClassicSlowFastNodeOperation();
+    ClassicLinkNodeSlowFastNodeOperation operation = new ClassicLinkNodeSlowFastNodeOperation();
 
     @Test
     public void midOrUpMidNode() {

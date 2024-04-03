@@ -26,7 +26,7 @@ package com.mimu.simple.java.leetcode;
  * Output: 5
  * Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA defi
  */
-public class LCTest_BinTreeNode_LowestCommonAncestor_236 extends LC_TreeNode {
+public class LCTest_BinTreeNode_236_LowestCommonAncestor extends LC_TreeNode {
 
     /**
      * 递归解析：

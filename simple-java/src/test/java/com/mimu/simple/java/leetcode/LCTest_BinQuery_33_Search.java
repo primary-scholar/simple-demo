@@ -33,7 +33,7 @@ import java.util.Objects;
  * **Input:** nums = [1], target = 0
  * **Output:** -1
  */
-public class LCTest_BinQuery_Search_33 {
+public class LCTest_BinQuery_33_Search {
 
     /**
      * 将数组一分为二，其中一个一定是有序的，另一个可能是有序的，也可能是部分有序的。此时有序部分用二分法查找。其中一个一定有序，另一个可能有序，可能无序。就这样循环.

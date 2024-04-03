@@ -34,7 +34,7 @@ import java.util.List;
  * 再次向左 访问 num[4][-1](10左边的元素) 因为越界 返回
  * 再次向上 访问 7 可以访问 这里访问到7后 会再次按照 右，下，左，上的规则 进行访问，所以这里就不符合螺旋访问的 顺序了；
  */
-public class LCTest__SpiralOrder_54 {
+public class LCTest__54_SpiralOrder {
 
     public List<Integer> spiralOrder(int[][] matrix) {
         int row = matrix.length;

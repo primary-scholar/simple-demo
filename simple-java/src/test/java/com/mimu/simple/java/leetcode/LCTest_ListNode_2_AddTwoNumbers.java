@@ -28,7 +28,7 @@ import java.util.Objects;
  * **Input:** l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
  * **Output:** [8,9,9,9,0,0,0,1]
  */
-public class LCTest_ListNode_AddTwoNumbers_2 extends LC_ListNode {
+public class LCTest_ListNode_2_AddTwoNumbers extends LC_ListNode {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode node = new ListNode(-1);// 构建一个头结点为-1的节点数据

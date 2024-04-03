@@ -15,7 +15,7 @@ import java.util.Objects;
  * Input: 1->2->3->4->5->NULL
  * Output: 5->4->3->2->1->NULL
  */
-public class LCTest_listNode_ReverseList_206 extends LC_ListNode {
+public class LCTest_listNode_206_ReverseList extends LC_ListNode {
 
     /**
      * 使用 pre，current，next 三个节点来进行单链表的翻转；

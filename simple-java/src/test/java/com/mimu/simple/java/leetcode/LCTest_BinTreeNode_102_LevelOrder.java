@@ -26,7 +26,7 @@ import java.util.*;
  * *   [15,7]
  * * ]
  */
-public class LCTest_BinTreeNode_LevelOrder_102 extends LC_TreeNode {
+public class LCTest_BinTreeNode_102_LevelOrder extends LC_TreeNode {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         if (Objects.isNull(root)) {

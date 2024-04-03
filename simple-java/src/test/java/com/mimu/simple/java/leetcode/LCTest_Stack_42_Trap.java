@@ -20,7 +20,7 @@ import java.util.Stack;
  * Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
  * Output: 6
  */
-public class LCTest_Stack_Trap_42 {
+public class LCTest_Stack_42_Trap {
 
     /**
      * 思路
