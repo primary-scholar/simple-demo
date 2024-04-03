@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
+ * 单链表翻转
+ * <p>
  * Reverse a singly linked list.
  * <p>
  * Example:
@@ -40,10 +42,10 @@ public class LCTest_listNode_ReverseList_206 extends LC_ListNode {
     }
 
     @Test
-    public void reverseListResult(){
+    public void reverseListResult() {
         ListNode listNode = list2ListNode(Arrays.asList(8, 9, 9, 9, 0, 0, 0, 1));
         ListNode reverseList = reverseList(listNode);
-        assert listNode2List(reverseList).equals(Arrays.asList(1,0,0,0,9,9,9,8));
+        assert listNode2List(reverseList).equals(Arrays.asList(1, 0, 0, 0, 9, 9, 9, 8));
     }
 
 }
