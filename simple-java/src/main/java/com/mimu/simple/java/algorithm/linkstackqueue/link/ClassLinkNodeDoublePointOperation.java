@@ -1,17 +1,15 @@
 package com.mimu.simple.java.algorithm.linkstackqueue.link;
 
-import jdk.tools.jlink.internal.plugins.LegalNoticeFilePlugin;
-
 import java.util.Objects;
 
 /**
- * * 1.获取链表倒数第k个元素
+ * * 1.获取链表倒数第k个元素，使用快 k 个节点的快节点和慢节点
  * * 2.判断单链表是否回文，或获取单链表中间节点 这里可参考
  *
  * @see ClassicLinkNodeSlowFastNodeOperation
  * <p>
- * * 3.判断单链表是否有环以及环的长度
- * * 4.判断两个无环单链表是否相交
+ * * 3.判断单链表是否有环以及环的长度，使用 快慢节点
+ * * 4.判断两个无环单链表是否相交，使用 双节点即可，无所谓快慢
  * * 以上可以使用双指针来实现
  */
 public class ClassLinkNodeDoublePointOperation {

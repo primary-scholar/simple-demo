@@ -17,4 +17,12 @@ public class ClassLinkNodeDoublePointOperationTest extends NodeTest {
         System.out.println(min);
         printSingleNodeLink(kthFromEnd);
     }
+
+    @Test
+    public void hasCycle() {
+        CustomSingleNode<Integer> nodeLink = initSingleNodeLink();
+        printSingleNodeLink(nodeLink);
+        Boolean b = operation.hasCycle(nodeLink);
+        System.out.println(b);
+    }
 }
