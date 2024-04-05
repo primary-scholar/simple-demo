@@ -12,7 +12,7 @@ import org.junit.Test;
  * If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock),
  * design an algorithm to find the maximum profit.
  */
-public class LCTest__121_MaxProfit {
+public class LCTest_Array_121_MaxProfit {
 
     /**
      * 遍历数组 同时记录访问到的最小值，然后用当前数值 减去 最小值 的到 当前日期的 收益，在当前收益 和结果之间去最大值；
