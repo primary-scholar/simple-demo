@@ -27,9 +27,9 @@ public class LCTest_DP_5_LongestPalindrome {
         int start = 0;//最长回文子串的起始位置
         int end = 0;//最长会问子串的结束位置
         for (int i = 0; i < s.length(); i++) {
-            int len1 = expandAroundCenter(s, i, i);//以单个字符为中心的回文长度,这里的数值一定是基数，且 i 在中心位置，左右长度相等
-            int len2 = expandAroundCenter(s, i, i + 1);//以两个字符之间为中心的回文长度 这里的数值一定是 偶数，且 i 在中心 靠左的位置
-            int len = Math.max(len1, len2);//当前找到的最长回文长度
+            int singleLetterCenter = expandAroundCenter(s, i, i);//以单个字符为中心的回文长度,这里的数值一定是基数，且 i 在中心位置，左右长度相等
+            int doubleLetterCenter = expandAroundCenter(s, i, i + 1);//以两个字符之间为中心的回文长度 这里的数值一定是 偶数，且 i 在中心 靠左的位置
+            int len = Math.max(singleLetterCenter, doubleLetterCenter);//当前找到的最长回文长度
             if (len > end - start) {
                 /**
                  * 更新最长回文子串的位置，因为这里的回文串是以 i 为中心，向两端扩展的 字串 所以
