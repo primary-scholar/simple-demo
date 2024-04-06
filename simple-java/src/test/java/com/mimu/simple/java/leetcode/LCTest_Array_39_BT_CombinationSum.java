@@ -94,6 +94,35 @@ public class LCTest_Array_39_BT_CombinationSum {
         }
     }
 
+    /**
+     * 这里每次递归 没有计算 path 数组的 和，而是每次把剩余的 target 传到 递归里面
+     *
+     * @param candidates
+     * @param res
+     * @param path
+     * @param begin
+     * @param target
+     */
+    public void backTraceAnother(int[] candidates, List<List<Integer>> res, List<Integer> path, int begin, int target) {
+        /**
+         * 递归终止条件是：path 列表中的和 和 target 是否相等
+         * 它决定了 递归的深度
+         */
+        if (target < 0) {
+            return;
+        }
+        if (target == 0) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = begin; i < candidates.length; i++) {
+            path.add(candidates[i]);// 回溯模板 第一步
+            //这里递归 一定要从当前位置开始，到结束的位置
+            backTraceAnother(candidates, res, path, i, target - candidates[i]);// 回溯模板 第二步
+            path.removeLast();
+        }
+    }
+
     public Integer listSum(List<Integer> list) {
         if (Objects.isNull(list) || list.isEmpty()) {
             return 0;
