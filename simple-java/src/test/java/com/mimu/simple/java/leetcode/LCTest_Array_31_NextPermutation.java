@@ -48,23 +48,27 @@ public class LCTest_Array_31_NextPermutation {
         if (Objects.isNull(nums) || nums.length <= 1) {
             return;
         }
-        int i = nums.length - 2, j = nums.length - 1, k = nums.length - 1;
-        while (i >= 0 && nums[i] >= nums[j]) { // 从后向前 寻找 第一个 nums[i]<nums[j] 的位置
+        int i = nums.length - 2;
+        while (i >= 0 && nums[i] >= nums[i + 1]) { // 从右向左寻找 第一个 正序的位置 即nums[i]<nums[i+1] 的位置
             i--;
-            j--;
         }
-        if (i >= 0) { // 如果这里 i>=0 说明 i 的位置 并不是最高位的 那个数字，这里需要从后 寻找 第一个大于 nums[i]的数的位置，并进行交换
-            while (nums[k] <= nums[i]) {
-                k--;
+        // 如果i>=0 说明 i的位置 并不是 第一个，这里需要再次寻找 右侧第一个大于 该位置的数，并进行交换
+        if (i >= 0) {
+            int j = nums.length - 1;
+            while (j >= 0 && nums[i] >= nums[j]) { // 从右向左寻找 第一个 大于 nums[i] 位置的数
+                j--;
             }
-            swap(nums, i, k); // 交换
+            swap(nums, i, j); // 并进行交换
         }
-        i = j;
-        j = nums.length - 1;
-        while (i < j) { // 这里是 把i后面位置的数，进行翻转
-            swap(nums, i, j);
-            i++;
-            j--;
+        reverse(nums, i + 1); // 把 i+1 后面的数 进行 翻转，即使得 i+1 后面的数 升序排列
+    }
+
+    public void reverse(int[] nums, int start) {
+        int left = start, right = nums.length - 1;
+        while (left < right) {
+            swap(nums, left, right);
+            left++;
+            right--;
         }
     }
 
