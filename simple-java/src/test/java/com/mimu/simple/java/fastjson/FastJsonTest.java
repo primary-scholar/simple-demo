@@ -1,6 +1,8 @@
 package com.mimu.simple.java.fastjson;
 
 import com.alibaba.fastjson.JSONObject;
+import com.mimu.simple.java.abase.Grade;
+import com.mimu.simple.java.abase.Student;
 import org.junit.Test;
 
 import java.lang.management.ManagementFactory;

@@ -1,4 +1,4 @@
-package com.mimu.simple.java.fastjson;
+package com.mimu.simple.java.abase;
 
 import lombok.Getter;
 import lombok.Setter;

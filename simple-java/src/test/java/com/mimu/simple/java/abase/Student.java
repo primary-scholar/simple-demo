@@ -1,5 +1,6 @@
-package com.mimu.simple.java.fastjson;
+package com.mimu.simple.java.abase;
 
+import com.mimu.simple.java.abase.Grade;
 import lombok.Getter;
 import lombok.Setter;
 
