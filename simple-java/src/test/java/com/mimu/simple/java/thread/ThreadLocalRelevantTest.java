@@ -23,6 +23,8 @@ public class ThreadLocalRelevantTest {
      * <p>
      * ThreadLocal 线程本地变量，同一个线程，对于执行过程中的 任何地方 都可以 从 threadLocal 中查询或存放数据，即对于当前线程
      * 它随时 可以获取 之前某个操作中 放入到 threadLocal 中的数据：典型应用场景 1；
+     *
+     * ThreadLocal并不是为了解决线程安全问题，而是提供了一种将变量绑定到当前线程的机制，类似于隔离的效果
      */
     static class ThreadLocalClassicScence {
         private static final ThreadLocal<AtomicInteger> threadLocal = ThreadLocal.withInitial(() -> new AtomicInteger(0));
