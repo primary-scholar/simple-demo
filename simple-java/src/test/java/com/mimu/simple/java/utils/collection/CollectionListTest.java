@@ -24,7 +24,7 @@ public class CollectionListTest {
      * 容量不固定，随着容量的增加而动态扩容(1.5倍)（阈值基本不会达到）
      * 有序集合（插入的顺序==输出的顺序）和 iterator 遍历顺序相同  iterator 返回的是 Object[] elementData 的转换
      * 插入的元素可以为null,可以重复
-     * 增删改查效率更高（相对于LinkedList来说）
+     * 增查效率更高（相对于LinkedList来说）
      * 线程不安全
      */
     @Test
@@ -38,6 +38,7 @@ public class CollectionListTest {
         arrayList.set(3, 11);
         arrayList.add(13);
         arrayList.add(null);
+        arrayList.get(0);
         for (Integer anArrayList : arrayList) {
             System.out.print(anArrayList + " ");
         }

@@ -1,6 +1,5 @@
 package com.mimu.simple.java.utils.map;
 
-import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
 import java.util.*;
@@ -18,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class CollectionMapTest {
 
     /**
-     * HashMap 内部使用 Node<K,V>[] table 或 TreeNode<k,v>[] table 来进行数据的存储
+     * HashMap 内部使用单链表 Node<K,V>[] table 或 TreeNode<k,v>[] table 来进行数据的存储
      * 节点数>=8 转化为 TreeNode<k,v>[] table 红黑树数组 节点数 <=6 转化为Node<K,V>[] table 单链表数组
      * 并提供 map.keySet() Set 结构;map.values() Collections 结构; map.entrySet();  三种数据的 访问方式,
      * 增 put()
@@ -92,7 +91,7 @@ public class CollectionMapTest {
      * 2.确定下一次表的扩容量, 将新表赋予当前表
      * 3.通过for循环将老表中数据存入扩容后的新表中
      * 3.1 获取旧表中指定索引下的Node对象 赋予e 并将旧表中的索引位置数据置空
-     * 3.2 若e的下面没有其他节点则将e直接赋到新表中的索引位置
+     * 3.2 若e的下面没有其他节点则将e重新hash放到新表中的新索引位置
      * 3.3 若e的类型为TreeNode红黑树类型
      * 3.3.1 分割树，将新表和旧表分割成两个树，并判断索引处节点的长度是否需要转换成红黑树放入新表存储
      * 3.3.2 通过Do循环 不断获取新旧索引的节点
