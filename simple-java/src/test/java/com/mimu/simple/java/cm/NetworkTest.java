@@ -1,7 +1,7 @@
 package com.mimu.simple.java.cm;
 
 
-import com.mimu.simple.java.fastjson.Student;
+import com.mimu.simple.java.abase.Student;
 import org.junit.Before;
 import org.junit.Test;
 
