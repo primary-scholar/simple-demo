@@ -278,25 +278,40 @@ public class CollectionMapTest {
         treeMap.put(7, "7");
         treeMap.put(4, "4");
         treeMap.put(13, "13");
-        System.out.println(treeMap.ceilingEntry(4));
+        // ceilingEntry 获取map中 >= 给定参数值的 最小值；可为 null
+        System.out.printf("ceilingEntry result %s", treeMap.ceilingEntry(3));
         System.out.println();
-        System.out.println(treeMap.ceilingEntry(5));
+        System.out.printf("ceilingEntry result %s", treeMap.ceilingEntry(5));
         System.out.println();
-        System.out.println(treeMap.floorEntry(12));
+        System.out.printf("ceilingEntry result %s", treeMap.ceilingEntry(14));
         System.out.println();
-        System.out.println(treeMap.floorEntry(13));
+        // floorEntry 获取 map 中 <= 给定参数值 的最大值 可为 null
+        System.out.printf("floorEntry result %s", treeMap.floorEntry(0));
         System.out.println();
-        System.out.println(treeMap.firstKey());
+        System.out.printf("floorEntry result %s", treeMap.floorEntry(12));
         System.out.println();
-        System.out.println(treeMap.higherEntry(4));
+        System.out.printf("floorEntry result %s", treeMap.floorEntry(15));
         System.out.println();
-        System.out.println(treeMap.higherEntry(5));
+        // 返回 map 中 排序 序列 的第一个元素
+        System.out.printf("firstKey result %s", treeMap.firstKey());
         System.out.println();
-        System.out.println(treeMap.lowerEntry(4));
+        // higherEntry 返回 map 中 > 给定参数值 的 最小值 可为 null
+        System.out.printf("higherEntry result %s", treeMap.higherEntry(2));
         System.out.println();
-        System.out.println(treeMap.lowerEntry(5));
+        System.out.printf("higherEntry result %s", treeMap.higherEntry(5));
         System.out.println();
-        System.out.println(treeMap);
+        System.out.printf("higherEntry result %s", treeMap.higherEntry(14));
+        System.out.println();
+        // lowerEntry 返回 map 中 < 给定参数值 的 最大值 可为 null
+        System.out.printf("lowerEntry result %s", treeMap.lowerEntry(1));
+        System.out.println();
+        System.out.printf("lowerEntry result %s", treeMap.lowerEntry(5));
+        System.out.println();
+        System.out.printf("lowerKey result %s", treeMap.lowerKey(5));
+        System.out.println();
+        System.out.printf("higherKey result %s", treeMap.higherKey(5));
+        System.out.println();
+        System.out.printf("all result %s", treeMap);
     }
 
 }
