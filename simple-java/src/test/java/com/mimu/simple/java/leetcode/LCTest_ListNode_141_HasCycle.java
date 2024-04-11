@@ -3,11 +3,6 @@ package com.mimu.simple.java.leetcode;
 import java.util.Objects;
 
 /**
- * 单链表是否存在环
- * 使用快慢节点 策略进行判断
- * <p>
- * 两个节点都从head 出发，慢节点每次循环走一步 slow.next,快节点每次走两步 fast.next.next；如果快慢节点不相遇 则无环
- * <p>
  * Given a linked list, determine if it has a cycle in it.
  * <p>
  * To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
@@ -26,6 +21,10 @@ import java.util.Objects;
  * Input: head = [1], pos = -1
  * Output: false
  * Explanation: There is no cycle in the linked list.
+ * <p>
+ * 单链表是否存在环
+ * 使用快慢节点 策略进行判断
+ * 两个节点都从head 出发，慢节点每次循环走一步 slow.next,快节点每次走两步 fast.next.next；如果快慢节点不相遇 则无环
  */
 public class LCTest_ListNode_141_HasCycle extends LC_ListNode {
 

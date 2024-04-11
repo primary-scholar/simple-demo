@@ -7,19 +7,16 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 /**
- * 寻找数组中第 k 大的元素
- *
  * Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order,
  * not the kth distinct element.
- * <p>
  * Example 1:
- * <p>
  * Input: [3,2,1,5,6,4] and k = 2
  * Output: 5
  * Example 2:
- * <p>
  * Input: [3,2,3,1,2,4,5,5,6] and k = 4
  * Output: 4
+ * <p>
+ * 寻找数组中第 k 大的元素
  */
 public class LCTest_215_FindKthLargest {
 

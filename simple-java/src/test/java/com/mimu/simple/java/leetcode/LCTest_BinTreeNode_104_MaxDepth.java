@@ -3,8 +3,6 @@ package com.mimu.simple.java.leetcode;
 import java.util.*;
 
 /**
- * 求二叉树 的最大深度
- * <p>
  * Given a binary tree, find its maximum depth.
  * The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
  * Note: A leaf is a node with no children.
@@ -18,6 +16,8 @@ import java.util.*;
  * *     /  \
  * *    15   7
  * return its depth = 3.
+ * <p>
+ * 求二叉树 的最大深度
  */
 public class LCTest_BinTreeNode_104_MaxDepth extends LC_TreeNode {
 

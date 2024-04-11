@@ -5,10 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 数组全排列 重复无重复数字 全排列
- * 1.重复无重复数字 全排列 的思想是一致的，只不过对于 对于重复数字的全排列 在 进行递归之前 把数组排下序 后续 对数字进行选择的时候
- * 进行判断即可(根据有序数组，和是否被访问过) 具体可参考 下面的实现
- * <p>
  * Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
  * <p>
  * Example 1:
@@ -28,16 +24,16 @@ import java.util.List;
  * -10 <= nums[i] <= 10
  * All the integers of nums are unique.
  * <p>
+ * 数组全排列 重复无重复数字 全排列
+ * 1.重复无重复数字 全排列 的思想是一致的，只不过对于 对于重复数字的全排列 在 进行递归之前 把数组排下序 后续 对数字进行选择的时候
+ * 进行判断即可(根据有序数组，和是否被访问过) 具体可参考 下面的实现
  * 以num=[1，2，3]为例
- * <p>
  * 方法1 回溯法
  * 回溯法的模板是
  * 选择
  * 递归
  * 回溯
- * <p>
  * 所有的回溯法都可以抽象为 一个树形结构
- * <p>
  * 使用深度或广度优先遍历算法 通过以下分析可以看出 递归的结构体的存在
  * 以 1 开头的全排列为 [1,2,3],[1,3,2] 即 1 加上 [2,3] 的全排列
  * 以 2 开头的全排列为 [2,1,3],[2,3,1] 即 2 加上 [1,3] 的全排列
@@ -62,7 +58,6 @@ public class LCTest_Array_47_BT_PermuteUnique {
 
     /**
      * 重复数组全排列
-     * <p>
      * 重复数组全排列 整体和 不重复数组全排列 一致
      * 不过 需要 加一个规则，即 保证在填第 idx个数的时候重复数字只会被填入一次
      *

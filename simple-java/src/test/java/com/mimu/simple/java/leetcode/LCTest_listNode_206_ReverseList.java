@@ -6,14 +6,13 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * 单链表翻转
- * <p>
  * Reverse a singly linked list.
- * <p>
  * Example:
  * <p>
  * Input: 1->2->3->4->5->NULL
  * Output: 5->4->3->2->1->NULL
+ * <p>
+ * 单链表翻转
  */
 public class LCTest_listNode_206_ReverseList extends LC_ListNode {
 
@@ -28,8 +27,8 @@ public class LCTest_listNode_206_ReverseList extends LC_ListNode {
             return head;
         }
         ListNode pre = head;
-        ListNode current = head.next;
-        head.next = null;
+        ListNode current = pre.next;
+        head.next = null;  // 头结点的 next 先置空
         ListNode next = current.next;
         while (Objects.nonNull(next)) {
             current.next = pre;

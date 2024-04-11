@@ -3,19 +3,6 @@ package com.mimu.simple.java.leetcode;
 import java.util.Objects;
 
 /**
- * 循环右移有序数组的 搜索
- * <p>
- * 将数组一分为二，其中一个一定是有序的，另一个可能是有序的，也可能是部分有序的；如果此时目标值在 有序部分内，则可使用二分查找无限收缩 查找目标值位置
- * <p>
- * <p>
- * <p>
- * 整体使用二分查找 算法思想
- * <p>
- * 整数数组 nums 按升序排列，数组中的值 互不相同 。
- * 在传递给函数之前，nums 在预先未知的某个下标 k（0 <= k < nums.length）上进行了 旋转，使数组变为 [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,5,6,7] 在下标 3 处经旋转后可能变为 [4,5,6,7,0,1,2] 。
- * 给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。
- * 你必须设计一个时间复杂度为 O(log n) 的算法解决此问题。
- * <p>
  * There is an integer array nums sorted in ascending order (with distinct values).
  * Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] ( 0-indexed ). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
  * Given the array nums after the possible rotation and an integer target, return the index oftarget if it is innums , or-1 if it is not innums.
@@ -32,6 +19,14 @@ import java.util.Objects;
  * Example 3:
  * **Input:** nums = [1], target = 0
  * **Output:** -1
+ * <p>
+ * 循环右移有序数组的 搜索
+ * 将数组一分为二，其中一个一定是有序的，另一个可能是有序的，也可能是部分有序的；如果此时目标值在 有序部分内，则可使用二分查找无限收缩 查找目标值位置
+ * 整体使用二分查找 算法思想
+ * 整数数组 nums 按升序排列，数组中的值 互不相同 。
+ * 在传递给函数之前，nums 在预先未知的某个下标 k（0 <= k < nums.length）上进行了 旋转，使数组变为 [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,5,6,7] 在下标 3 处经旋转后可能变为 [4,5,6,7,0,1,2] 。
+ * 给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。
+ * 你必须设计一个时间复杂度为 O(log n) 的算法解决此问题。
  */
 public class LCTest_BinQuery_33_Search {
 

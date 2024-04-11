@@ -1,10 +1,6 @@
 package com.mimu.simple.java.leetcode;
 
 /**
- * 两个无环链表 求相交的首节点
- * <p>
- * 因为是单链表 每个节点只有一个直接后继，所以 如果两个 单链表相交，则必然 是从某个节点开始，其余后继结点 都一样
- * <p>
  * Write a program to find the node at which the intersection of two singly linked lists begins.
  * <p>
  * For example, the following two linked lists:
@@ -23,8 +19,8 @@ package com.mimu.simple.java.leetcode;
  * You may assume there are no cycles anywhere in the entire linked structure.
  * Your code should preferably run in O(n) time and use only O(1) memory.、
  * <p>
- * 要求 内存空间 O(1) 所以 只能在原链表上 进行查找
- * <p>
+ * 两个无环链表 求相交的首节点 要求 内存空间 O(1) 所以 只能在原链表上 进行查找
+ * 因为是单链表 每个节点只有一个直接后继，所以 如果两个 单链表相交，则必然 是从某个节点开始，其余后继结点 都一样
  * * * A:       a1 → a2
  * * *                   ↘                       a1 -> a2 -> c1 -> c2 -> c3 -> null -> b1 -> b2 -> b3 -> c1;
  * * *                     c1 → c2 → c3  ---->                                                          相交点

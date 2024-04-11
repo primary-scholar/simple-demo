@@ -5,17 +5,16 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * 最长连续序列
- * 要求 O(N)
- * <p>
  * Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
  * <p>
  * Your algorithm should run in O( n ) complexity.
- * <p>
  * Example:
  * Input: [100, 4, 200, 1, 3, 2]
  * Output: 4
  * Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+ * <p>
+ * 最长连续序列
+ * 要求 O(N)
  */
 public class LCTest_Array_128_LongestConsecutive {
     public int longestConsecutive(int[] nums) {
@@ -56,7 +55,7 @@ public class LCTest_Array_128_LongestConsecutive {
         if (Objects.isNull(nums)) {
             return result;
         }
-        Set<Integer> numSet = new HashSet<Integer>();
+        Set<Integer> numSet = new HashSet<>();
         // 初始时 把 数组元素 存放到 set 中
         for (int num : nums) {
             numSet.add(num);

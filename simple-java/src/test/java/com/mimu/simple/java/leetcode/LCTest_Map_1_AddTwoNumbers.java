@@ -11,9 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
- * 两数之和问题
  * Two Sum
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -21,6 +19,8 @@ import java.util.Map;
  * Given nums = [2, 7, 11, 15], target = 9,
  * Because nums[0] + nums[1] = 2 + 7 = 9,
  * return [0, 1].
+ * <p>
+ * 两数之和问题
  */
 public class LCTest_Map_1_AddTwoNumbers {
 
@@ -32,7 +32,7 @@ public class LCTest_Map_1_AddTwoNumbers {
         if (nums == null || nums.length < 2) {
             return result;
         }
-        // 存放数组中当前元素的值和，该值在数组中的下标
+        // 存放数组中当前元素的值和该值在数组中的下标
         Map<Integer, Integer> hash = new HashMap<>();
         for (int start = 0; start < nums.length; start++) {
             int other = target - nums[start];//计算当前元素和目标元素的差值
@@ -40,6 +40,7 @@ public class LCTest_Map_1_AddTwoNumbers {
                 result[0] = hash.get(other);
                 result[1] = start;
             }
+            // 这一行 应该在 上面的 判断之后 即先判断 差值是否在 hashMap 中 然后再把 当前值和下标放入 hashMap 类似于 缓存的操作
             hash.put(nums[start], start);//把访问到元素值和该元素在数组中的下标存到到hashMap中
         }
         return result;

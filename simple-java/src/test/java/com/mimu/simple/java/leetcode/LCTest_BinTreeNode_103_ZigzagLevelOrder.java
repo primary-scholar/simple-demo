@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * 二叉树锯齿形访问
- * 二叉树的 按层遍历 不过每层的遍历顺序要相反
  * Given a binary tree, return the  zigzag level order  traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
  * <p>
  * For example:
@@ -18,7 +16,6 @@ import java.util.Queue;
  * *  9  20
  * *    /  \
  * *   15   7
- * <p>
  * return its zigzag level order traversal as:
  * <p>
  * [
@@ -26,6 +23,9 @@ import java.util.Queue;
  * [20,9],
  * [15,7]
  * ]
+ * <p>
+ * 二叉树锯齿形访问
+ * 二叉树的 按层遍历 不过每层的遍历顺序要相反
  */
 
 public class LCTest_BinTreeNode_103_ZigzagLevelOrder extends LC_TreeNode {
@@ -55,16 +55,16 @@ public class LCTest_BinTreeNode_103_ZigzagLevelOrder extends LC_TreeNode {
                 TreeNode curNode = queue.poll();
                 // 根据层数来判断添加到队头还是队尾
                 if (sign) {
-                    res.offerLast(curNode.val);
+                    res.offerLast(curNode.val); // 从双端队列的 尾部依次插入数据
                 } else {
-                    res.offerFirst(curNode.val);
+                    res.offerFirst(curNode.val); // 从双端队列的 头部依次插入数据
                 }
                 // 更新结点队列
                 if (curNode.left != null) {
-                    queue.offer(curNode.left);
+                    queue.add(curNode.left);
                 }
                 if (curNode.right != null) {
-                    queue.offer(curNode.right);
+                    queue.add(curNode.right);
                 }
             }
             // 添加到结果集里面

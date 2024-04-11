@@ -5,12 +5,6 @@ import org.junit.Test;
 import java.util.Stack;
 
 /**
- * 接雨水问题
- * <p>
- * 使用堆栈寻找 坑(位置和坑大小)的存在，当前元素小于栈顶元素 则把 当前元素的数组索引 入栈 这里说明可能存在坑
- * <p>
- * 使用堆栈 当堆栈为空 或者 当前元素的值 小于 栈顶值 则当前元素的数组索引； 如果当前元素大于栈顶元素且堆栈非空则存在坑，
- * 此时 堆栈非空则 计算 容量； 计算方法
  * <p>
  * <p>
  * Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
@@ -19,6 +13,11 @@ import java.util.Stack;
  * <p>
  * Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
  * Output: 6
+ * <p>
+ * 接雨水问题
+ * 使用堆栈寻找 坑(位置和坑大小)的存在，当前元素小于栈顶元素 则把 当前元素的数组索引 入栈 这里说明可能存在坑
+ * 使用堆栈 当堆栈为空 或者 当前元素的值 小于 栈顶值 则当前元素的数组索引； 如果当前元素大于栈顶元素且堆栈非空则存在坑，
+ * 此时 堆栈非空则 计算 容量； 计算方法
  */
 public class LCTest_Stack_42_Trap {
 

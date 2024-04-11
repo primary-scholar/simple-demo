@@ -5,14 +5,6 @@ import java.util.HashMap;
 import java.util.Objects;
 
 /**
- * 最近最少使用
- * 实现一个 LRU 缓存器，LRU 是 Least Recently Used 的简写，并实现两种操作 get,put
- * <p>
- * get() 返回缓存器中的数据如果不存在，则返回-1
- * put() 向缓存器中添加数据，如果不存在，则直接添加，如果超过容量则需要把最不常用的那个元素删除；
- * 要求：
- * 每一个操作时间复杂度都是 O(1)
- * <p>
  * Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
  * <p>
  * get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
@@ -20,11 +12,19 @@ import java.util.Objects;
  * should invalidate the least recently used item before inserting a new item.
  * <p>
  * Could you do both operations in O(1) time complexity?
+ * <p>
+ * 最近最少使用
+ * 实现一个 LRU 缓存器，LRU 是 Least Recently Used 的简写，并实现两种操作 get,put
+ * get() 返回缓存器中的数据如果不存在，则返回-1
+ * put() 向缓存器中添加数据，如果不存在，则直接添加，如果超过容量则需要把最不常用的那个元素删除；
+ * 要求：
+ * 每一个操作时间复杂度都是 O(1)
  */
 public class LCTest_Map_4_LRUCache {
 
     /**
      * 使用双向链表和HashMap 可以实现复杂度都为O(1)的 get()和put() 方法
+     * 双向链表 头尾都使用 哨兵节点
      */
     class LRUCache {
         private Integer size;
@@ -81,7 +81,7 @@ public class LCTest_Map_4_LRUCache {
             remove(pre);
         }
 
-        public void remove(LinkNode node) {
+        private void remove(LinkNode node) {
             if (Objects.isNull(node)) {
                 return;
             }

@@ -6,8 +6,6 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * 单链表两数之和
- * <p>
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
  * <p>
  * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
@@ -27,12 +25,14 @@ import java.util.Objects;
  * <p>
  * **Input:** l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
  * **Output:** [8,9,9,9,0,0,0,1]
+ * <p>
+ * 单链表两数之和
  */
 public class LCTest_ListNode_2_AddTwoNumbers extends LC_ListNode {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode node = new ListNode(-1);// 构建一个头结点为-1的节点数据
-        ListNode cur = node;
+        ListNode head = new ListNode(-1);// 构建一个 哨兵头结点
+        ListNode cur = head;
         int carry = 0;// 进位初始为0
         while (Objects.nonNull(l1) || Objects.nonNull(l2)) {// 两个链表 只要一个非空就循环
             int d1 = Objects.isNull(l1) ? 0 : l1.val;// 分别获取该节点的数字
@@ -45,7 +45,7 @@ public class LCTest_ListNode_2_AddTwoNumbers extends LC_ListNode {
             if (Objects.nonNull(l2)) l2 = l2.next;
         }
         if (carry == 1) cur.next = new ListNode(1);
-        return node.next;// 返回头结点的下一个节点数据
+        return head.next;// 返回头结点的下一个节点数据
     }
 
     @Test

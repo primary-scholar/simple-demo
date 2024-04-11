@@ -6,10 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 矩阵的螺旋访问
- * <p>
  * Given an m x n matrix, return all elements of the matrix in spiral order.
- * <p>
  * Example 1:
  * * 1->2->3
  * *       |
@@ -20,6 +17,7 @@ import java.util.List;
  * Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
  * Output: [1,2,3,6,9,8,7,4,5]
  * <p>
+ * 矩阵的螺旋访问
  * 注意：
  * 这里不能使用 dfs 因为如果要套用 dfs的话，那我们定义的规则就是 右，下，左，上；这里对于 4*3的矩阵
  * 如  1**2**3
