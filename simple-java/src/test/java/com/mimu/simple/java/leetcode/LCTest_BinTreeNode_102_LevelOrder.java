@@ -1,7 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
 import java.util.*;
 
 /**
@@ -53,9 +51,4 @@ public class LCTest_BinTreeNode_102_LevelOrder extends LC_TreeNode {
         return result;
     }
 
-
-    @Test
-    public void levelOrder() {
-
-    }
 }

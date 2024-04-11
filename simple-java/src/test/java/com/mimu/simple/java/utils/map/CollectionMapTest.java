@@ -97,6 +97,9 @@ public class CollectionMapTest {
      * 3.3.2 通过Do循环 不断获取新旧索引的节点
      * 3.3.3 通过判定将旧数据和新数据存储到新表指定的位置
      * 4.最后返回值为 扩容后的新表。
+     *
+     * 1.8后 节点数据的迁移做了优化，巧⽤的运⽤了2次幂的扩展(指⻓度扩为原来2倍)之后，元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置这个特点，
+     * 避免了rehash的过程，⽽是直接将key的hash值和oldCap相与，如果为0，则保持原位，如果为1，则放⼊到原位+oldCap的位置
      */
     @Test
     public void hashMapInfo() {
@@ -278,25 +281,40 @@ public class CollectionMapTest {
         treeMap.put(7, "7");
         treeMap.put(4, "4");
         treeMap.put(13, "13");
-        System.out.println(treeMap.ceilingEntry(4));
+        // ceilingEntry 获取map中 >= 给定参数值的 最小值；可为 null
+        System.out.printf("ceilingEntry result %s", treeMap.ceilingEntry(3));
         System.out.println();
-        System.out.println(treeMap.ceilingEntry(5));
+        System.out.printf("ceilingEntry result %s", treeMap.ceilingEntry(5));
         System.out.println();
-        System.out.println(treeMap.floorEntry(12));
+        System.out.printf("ceilingEntry result %s", treeMap.ceilingEntry(14));
         System.out.println();
-        System.out.println(treeMap.floorEntry(13));
+        // floorEntry 获取 map 中 <= 给定参数值 的最大值 可为 null
+        System.out.printf("floorEntry result %s", treeMap.floorEntry(0));
         System.out.println();
-        System.out.println(treeMap.firstKey());
+        System.out.printf("floorEntry result %s", treeMap.floorEntry(12));
         System.out.println();
-        System.out.println(treeMap.higherEntry(4));
+        System.out.printf("floorEntry result %s", treeMap.floorEntry(15));
         System.out.println();
-        System.out.println(treeMap.higherEntry(5));
+        // 返回 map 中 排序 序列 的第一个元素
+        System.out.printf("firstKey result %s", treeMap.firstKey());
         System.out.println();
-        System.out.println(treeMap.lowerEntry(4));
+        // higherEntry 返回 map 中 > 给定参数值 的 最小值 可为 null
+        System.out.printf("higherEntry result %s", treeMap.higherEntry(2));
         System.out.println();
-        System.out.println(treeMap.lowerEntry(5));
+        System.out.printf("higherEntry result %s", treeMap.higherEntry(5));
         System.out.println();
-        System.out.println(treeMap);
+        System.out.printf("higherEntry result %s", treeMap.higherEntry(14));
+        System.out.println();
+        // lowerEntry 返回 map 中 < 给定参数值 的 最大值 可为 null
+        System.out.printf("lowerEntry result %s", treeMap.lowerEntry(1));
+        System.out.println();
+        System.out.printf("lowerEntry result %s", treeMap.lowerEntry(5));
+        System.out.println();
+        System.out.printf("lowerKey result %s", treeMap.lowerKey(5));
+        System.out.println();
+        System.out.printf("higherKey result %s", treeMap.higherKey(5));
+        System.out.println();
+        System.out.printf("all result %s", treeMap);
     }
 
 }
