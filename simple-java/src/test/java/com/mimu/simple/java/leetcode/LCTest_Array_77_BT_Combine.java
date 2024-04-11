@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 数组组合 同样使用回溯 算法进行操作
- * <p>
  * Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
  * You may return the answer in any order.
  * <p>
@@ -24,6 +22,7 @@ import java.util.List;
  * 1 <= n <= 20
  * 1 <= k <= n
  * <p>
+ * 数组组合 同样使用回溯 算法进行操作
  * 对于 回溯类型的问题，需要先画出 树形图
  * 如题：n=4,k=2
  * 初始时为 空，

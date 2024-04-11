@@ -30,12 +30,11 @@ public class LCTest_BinTreeNode_199_RightSideView extends LC_TreeNode {
         }
         LinkedList<TreeNode> levelQueue = new LinkedList<>();
         levelQueue.add(root);  // 首先头节点入队
-        while (!levelQueue.isEmpty()) {
+        while (!levelQueue.isEmpty()) {  // 先添加头结点，队列非空循环，初始队列一定非空，头结点为空的情况提前返回了
             ArrayList<Integer> level = new ArrayList<>();
             int size = levelQueue.size(); // 根据队列中元素的个数，即每层的元素个数 进行 循环
             for (int i = 0; i < size; i++) {
                 TreeNode node = levelQueue.pop();
-                level = new ArrayList<>();
                 level.add(node.val); //收集 每一层的数据节点
                 if (Objects.nonNull(node.left)) { // 当前节点的左子树 节点入队
                     levelQueue.add(node.left);
@@ -45,7 +44,7 @@ public class LCTest_BinTreeNode_199_RightSideView extends LC_TreeNode {
                 }
             }
             /**
-             * 结果收集时 ，只收集 每层最后一个元素 ，因为时按照 左、右子树的顺序 入得队列，所以每层最后一个元素一定是 最右边的那个节点数据
+             * 结果收集时 ，只收集 每层最后一个元素 ，因为是按照 左、右子树的顺序 入得队列，所以每层最后一个元素一定是 最右边的那个节点数据
              */
             result.add(level.get(level.size() - 1));
         }

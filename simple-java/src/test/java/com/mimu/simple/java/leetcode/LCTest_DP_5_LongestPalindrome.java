@@ -5,9 +5,6 @@ import org.junit.Test;
 import java.util.Objects;
 
 /**
- * 最长回文子串
- *
- * <p>
  * Given a string s, return the longest palindromic substring in s.
  * <p>
  * Example 1:
@@ -18,6 +15,8 @@ import java.util.Objects;
  * Example 2:
  * **Input:** s = "cbbd"
  * **Output:** "bb"
+ * <p>
+ * 最长回文子串
  */
 public class LCTest_DP_5_LongestPalindrome {
 
@@ -45,7 +44,6 @@ public class LCTest_DP_5_LongestPalindrome {
 
     /**
      * 中心扩展策略
-     * <p>
      * 从每个可能的中心开始，尽可能向两边扩展，当两个方向的字母不再相同时，我们就找到了以该中心为起点的最长回文串
      *
      * @param s

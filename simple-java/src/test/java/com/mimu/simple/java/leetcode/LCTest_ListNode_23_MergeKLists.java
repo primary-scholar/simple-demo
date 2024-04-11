@@ -4,8 +4,6 @@ package com.mimu.simple.java.leetcode;
 import java.util.Objects;
 
 /**
- * 合并k个升序链表
- * <p>
  * You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
  * Merge all the linked-lists into one sorted linked-list and return it.
  * <p>
@@ -28,6 +26,12 @@ import java.util.Objects;
  * Example 3:
  * **Input:** lists = [[]]
  * **Output:** []
+ * <p>
+ * 合并k个升序链表
+ * <p>
+ * 思路：整体按照 两个有序链表的合并方法，进行合并
+ * 不过初始时 是 使用 空 链表和 数组中的 第一个进行合并，得到一个合并的结果，然后把该结果在和 后续的链表合并
+ * 即不断地把合并后的结果，当做参数 继续后数组内的后续链表合并，直到数组全部合并完
  */
 public class LCTest_ListNode_23_MergeKLists extends LC_ListNode {
 

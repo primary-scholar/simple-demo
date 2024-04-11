@@ -3,9 +3,6 @@ package com.mimu.simple.java.leetcode;
 import java.util.*;
 
 /**
- * 二叉树按层遍历
- * 使用队列让节点入队，
- * <p>
  * Given a binary tree, return the  level order  traversal of its nodes' values. (ie, from left to right, level by level).
  * <p>
  * For example:
@@ -23,6 +20,9 @@ import java.util.*;
  * *   [9,20],
  * *   [15,7]
  * * ]
+ * <p>
+ * 二叉树按层遍历
+ * 使用队列让节点入队，
  */
 public class LCTest_BinTreeNode_102_LevelOrder extends LC_TreeNode {
 

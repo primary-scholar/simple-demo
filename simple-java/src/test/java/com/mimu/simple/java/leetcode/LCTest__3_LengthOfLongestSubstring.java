@@ -5,13 +5,12 @@ import org.junit.Test;
 import java.util.HashSet;
 
 /**
- * 无重复最长子串
  * Given a string s, find the length of the longest substring without repeating characters.
- * <p>
  * Example 1:
- * <p>
  * **Input:** s = "abcabcbb"
  * **Output:** 3
+ * <p>
+ * 无重复最长子串
  */
 public class LCTest__3_LengthOfLongestSubstring {
 

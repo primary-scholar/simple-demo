@@ -5,12 +5,9 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * 求 组合的总和
- * <p>
  * Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations ofcandidates where the chosen numbers sum totarget . You may return the combinations in any order.
  * The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
  * The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
- * <p>
  * Example 1:
  * Input: candidates = [2,3,6,7], target = 7
  * Output: [[2,2,3],[7]]
@@ -18,21 +15,19 @@ import java.util.Objects;
  * 2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
  * 7 is a candidate, and 7 = 7.
  * These are the only two combinations.
- * <p>
  * Example 2:
  * Input: candidates = [2,3,5], target = 8
  * Output: [[2,2,2,2],[2,3,3],[3,5]]
- * <p>
  * Example 3:
  * Input: candidates = [2], target = 1
  * Output: []
- * <p>
  * Constraints:
  * 1 <= candidates.length <= 30
  * 2 <= candidates[i] <= 40
  * All elements of candidates are distinct.
  * 1 <= target <= 40
  * <p>
+ * 求 组合的总和
  * * 如题：[2,3,6,7] target=7
  * * 初始时 和为0，
  * * 第一层 可选择的数字 有 4个                2；3；6；7；

@@ -3,23 +3,20 @@ package com.mimu.simple.java.leetcode;
 import java.util.*;
 
 /**
- * 字母异位词分组 - 字母异位词 即 字母相同，位置不同的 单词；如：eat，aet，tea ；
- * <p>
  * Given an array of strings strs, group the anagrams together. You can return the answer in any order.
  * An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
  * <p>
  * Example 1:
  * Input: strs = ["eat","tea","tan","ate","nat","bat"]
  * Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
- * <p>
  * Example 2:
  * Input: strs = [""]
  * Output: [[""]]
- * <p>
  * Example 3:
  * Input: strs = ["a"]
  * Output: [["a"]]
  * <p>
+ * 字母异位词分组 - 字母异位词 即 字母相同，位置不同的 单词；如：eat，aet，tea ；
  * 由于字母异位词的 单词 中 出现的字母 都是一样的，所以这里有两个思路
  * 1.把字母异位词 按照字典序 排列，那么是字母异位词的 单词 其排序后的序列 都是一致的；
  * 2.把字母异位词 按照字母拆分，然后把字母iin行全排列，然后再 分别从数组里寻找；

@@ -7,7 +7,6 @@ import java.util.Objects;
 import java.util.Stack;
 
 /**
- * 二叉树中序遍历
  * Given a binary tree, return the  inorder  traversal of its nodes' values.
  * <p>
  * Example:
@@ -20,6 +19,8 @@ import java.util.Stack;
  * <p>
  * Output: [1,3,2]
  * Follow up: Recursive solution is trivial, could you do it iteratively?
+ * <p>
+ * 二叉树中序遍历
  */
 public class LCTest_BinTreeNode_94_InorderTraversal extends LC_TreeNode {
     public List<Integer> inorderTraversal(TreeNode root) {

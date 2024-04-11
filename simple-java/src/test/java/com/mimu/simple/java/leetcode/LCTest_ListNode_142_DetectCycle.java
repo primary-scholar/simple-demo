@@ -4,15 +4,6 @@ package com.mimu.simple.java.leetcode;
 import java.util.Objects;
 
 /**
- * 单链表是否存在环
- * 使用快慢节点 策略进行判断
- * <p>
- * 两个节点都从head 出发，慢节点每次循环走一步 slow.next,快节点每次走两步 fast.next.next；如果快慢节点不相遇 则无环
- * 如果相遇则有环 ，有环时则
- * 快节点回到head，然后快慢节点都变成慢节点并都开始走，再次相遇的节点即为第一个入环的头节点
- * <p>
- * 这里要求不让使用额外的空间，所以 set，map 就都不可使用
- * <p>
  * Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
  * <p>
  * To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
@@ -35,6 +26,13 @@ import java.util.Objects;
  * <p>
  * Follow up:
  * Can you solve it without using extra space?
+ * <p>
+ * 单链表是否存在环 如无环返回空
+ * 要求不让使用额外的空间，所以 set，map 就都不可使用
+ * <p>
+ * 使用快慢节点策略进行判断
+ * 两个节点都从head 出发，慢节点每次循环走一步 slow.next,快节点每次走两步 fast.next.next；如果快慢节点不相遇 则无环
+ * 如果相遇则有环 ，有环时 则快节点回到head，然后快慢节点都变成慢节点并都开始走，再次相遇的节点即为第一个入环的头节点
  */
 public class LCTest_ListNode_142_DetectCycle extends LC_ListNode {
 
@@ -54,6 +52,7 @@ public class LCTest_ListNode_142_DetectCycle extends LC_ListNode {
                 break;
             }
         }
+        // 有环时 则快节点回到head，然后快慢节点都变成慢节点并都开始走，再次相遇的节点即为第一个入环的头节点
         if (hasCycle) {
             fast = head;
             while (!slow.equals(fast)) {
