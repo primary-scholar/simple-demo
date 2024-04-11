@@ -17,6 +17,8 @@ import java.util.Objects;
  * 有效字母异位词
  * 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
  * 注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
+ * <p>
+ * 对于排序方法，如果字符串长度较短，则性能较好，否则下面的那个性能较好
  */
 public class LCTest__242_IsAnagram {
 
@@ -42,7 +44,7 @@ public class LCTest__242_IsAnagram {
     }
 
     /**
-     * 使用长度为 26 的 数组
+     * 使用长度为 26 的 数组来标记
      *
      * @param s
      * @param t
