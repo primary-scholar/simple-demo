@@ -54,8 +54,7 @@ public class LCTest_Map_4_LRUCache {
             if (Objects.isNull(linkNode)) {// 如果数据不存在，则返回-1；
                 return -1;
             }
-            remove(linkNode);//如果数据存在，则需要把该数据删除，同时在头结点后添加该节点；
-            addHead(linkNode);//在链表中头结点之后 添加该数据节点
+            move2Head(linkNode);
             return linkNode.getData();
         }
 
