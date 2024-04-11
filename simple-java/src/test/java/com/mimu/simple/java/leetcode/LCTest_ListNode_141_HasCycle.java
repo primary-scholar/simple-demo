@@ -22,7 +22,8 @@ import java.util.Objects;
  * Output: false
  * Explanation: There is no cycle in the linked list.
  * <p>
- * 单链表是否存在环
+ * 给你一个链表的头节点 head ，判断链表中是否有环。如果链表中存在环 ，则返回 true 。 否则，返回 false
+ * <p>
  * 使用快慢节点 策略进行判断
  * 两个节点都从head 出发，慢节点每次循环走一步 slow.next,快节点每次走两步 fast.next.next；如果快慢节点不相遇 则无环
  */

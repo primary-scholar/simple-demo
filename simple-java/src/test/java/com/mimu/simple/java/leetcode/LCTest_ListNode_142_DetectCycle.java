@@ -27,8 +27,10 @@ import java.util.Objects;
  * Follow up:
  * Can you solve it without using extra space?
  * <p>
- * 单链表是否存在环 这里要求不让使用额外的空间，所以 set，map 就都不可使用
- * 使用快慢节点 策略进行判断
+ * 单链表是否存在环 如无环返回空
+ * 要求不让使用额外的空间，所以 set，map 就都不可使用
+ * <p>
+ * 使用快慢节点策略进行判断
  * 两个节点都从head 出发，慢节点每次循环走一步 slow.next,快节点每次走两步 fast.next.next；如果快慢节点不相遇 则无环
  * 如果相遇则有环 ，有环时 则快节点回到head，然后快慢节点都变成慢节点并都开始走，再次相遇的节点即为第一个入环的头节点
  */
