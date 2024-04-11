@@ -51,8 +51,8 @@ public class ClassicLinkNodeSlowFastNodeOperation {
         if (Objects.isNull(head) || Objects.isNull(head.getNext()) || Objects.isNull(head.getNext().getNext())) {
             return head;
         }
-        CustomSingleNode<Integer> slow = head.getNext();
-        CustomSingleNode<Integer> fast = head.getNext().getNext();
+        CustomSingleNode<Integer> slow = head;
+        CustomSingleNode<Integer> fast = head;
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
@@ -76,9 +76,9 @@ public class ClassicLinkNodeSlowFastNodeOperation {
         if (Objects.isNull(head) || Objects.isNull(head.getNext())) {
             return head;
         }
-        CustomSingleNode<Integer> slow = head.getNext();
-        CustomSingleNode<Integer> fast = head.getNext();
-        while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
+        CustomSingleNode<Integer> slow = head;
+        CustomSingleNode<Integer> fast = head;
+        while (Objects.nonNull(fast) && Objects.nonNull(fast.getNext())) {
             slow = slow.getNext();
             fast = fast.getNext().getNext();
         }
