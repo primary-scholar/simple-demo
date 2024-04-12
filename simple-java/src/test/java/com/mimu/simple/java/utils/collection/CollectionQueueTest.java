@@ -192,6 +192,9 @@ public class CollectionQueueTest {
         System.in.read();
     }
 
+    /**
+     *
+     */
     @Test
     public void priorityQueueInfo(){
         List<Integer> list = Arrays.asList(3, 2, 3, 1, 2, 4, 5, 5, 6);

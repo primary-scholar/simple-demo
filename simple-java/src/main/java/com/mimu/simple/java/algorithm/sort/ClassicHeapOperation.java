@@ -4,7 +4,9 @@ package com.mimu.simple.java.algorithm.sort;
 import java.util.Objects;
 
 /**
- * 堆排序的思想：利用完全二叉树 堆数据进行排序 其过程分成两部分1.构建大根堆2.大根堆调整
+ * 堆整体是一个完全二叉树 是 (完全) 二叉树；
+ * 大根堆是：任何一个子树的 根 都是最大值；小根堆：任何一个子树的 根 都是最小值；
+ * 堆排序的思想：利用完全二叉树 对数据进行排序
  * ***************  T(1)
  * *************  /      \
  * ************  /        \
@@ -24,10 +26,9 @@ public class ClassicHeapOperation {
     /**
      * 堆排序
      * 空间复杂度 为 O(1)
-     * 堆排序的过程 分为两个阶段
-     * 1.构建大根堆；有两种方式1 一个元素一个元素的添加方式进行构建(向堆中添加一个元素是添加后的数据在整体上依然是一个堆)；
-     * 2，一次给定一个数组 即多个元素的方式进行构建
-     * 2.大根堆的调整；调整过程是把根元素和最有一个元素交换 然后在 heap[0]~heap[--heapSize]的范围内继续构建大根堆
+     * 堆排序的过程 包括两个阶段
+     * 1.构建大根堆；
+     * 2.大根堆的调整;
      *
      * @param data
      */
@@ -38,7 +39,13 @@ public class ClassicHeapOperation {
         /**
          * 堆构建
          */
-        convert2Head(data);
+        /**
+         * 数组转换为 大根堆 方式 1 一次一个元素进行构建
+         * 复杂度 O(N*logN)
+         */
+        for (int i = 0; i < data.length; i++) {//O(N)
+            heapInsert(data, i);//O(logN) 从下向上(子节点和父节点比较-堆的节点越多(堆的高度越高)则比较交换的次数越多)
+        }
         /**
          * 堆调整(排序)
          */
@@ -91,6 +98,7 @@ public class ClassicHeapOperation {
 
 
     /**
+     * 向堆中 逐渐添加元素 构建堆的过程
      * 构建堆的过程 从下向上(子节点和父节点比较-堆的节点越多(堆的高度越高)则比较交换的次数越多) 逐渐堆化
      * index 当前最新添加的元素 即堆的最后一个元素
      * 从当前元素开始 依次和父几点元素 进行比较 若 > 父节点 则 交换
@@ -99,7 +107,7 @@ public class ClassicHeapOperation {
      * @param data
      * @param index
      */
-    private void heapInsert(Integer[] data, Integer index) {
+    private static void heapInsert(Integer[] data, Integer index) {
         if (Objects.isNull(data)) {
             return;
         }
@@ -111,6 +119,7 @@ public class ClassicHeapOperation {
     }
 
     /**
+     * 向堆中 逐渐减少元素 堆调整的过程
      * 堆调整的过程 (某一个节点的调整) 全部堆的调整在 上层有个 for 循环
      * 从上往下(父节点和子节点进行比较-堆的节点越多(堆的高度越高)则比较交换的次数越少) 依次堆化
      * index 开始堆化的节点
@@ -122,7 +131,7 @@ public class ClassicHeapOperation {
      * @param index
      * @param heapSize
      */
-    private void heapFormat(Integer[] data, Integer index, Integer heapSize) {
+    private static void heapFormat(Integer[] data, Integer index, Integer heapSize) {
         int left = index * 2 + 1;//获取当前节点的 左子节点
         while (left < heapSize) {//在 左节点 < 堆栈大小内循环
             //在左右子节点中选择一个较大的 下标 进行交换
@@ -138,7 +147,7 @@ public class ClassicHeapOperation {
         }
     }
 
-    private void swap(Integer[] array, int i, int j) {
+    private static void swap(Integer[] array, int i, int j) {
         if (Objects.isNull(array) || array.length <= 1) {
             return;
         }
@@ -150,7 +159,7 @@ public class ClassicHeapOperation {
     /**
      * 堆模型
      */
-    public class CustomHeap {
+    public static class CustomHeap {
         private Integer limit;
         private Integer heapSize;
         private Integer[] heap;
@@ -161,6 +170,9 @@ public class ClassicHeapOperation {
             heap = new Integer[limit];
         }
 
+        public Integer[] getHeap() {
+            return heap;
+        }
 
         /**
          * 入堆 每添加一个元素 整个数组heap[0]~heap[heapSize]上依然符合堆的性质
