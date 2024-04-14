@@ -51,6 +51,12 @@ public class ClassicLinkNodeSlowFastNodeOperation {
         if (Objects.isNull(head) || Objects.isNull(head.getNext()) || Objects.isNull(head.getNext().getNext())) {
             return head;
         }
+        /**
+         * CustomSingleNode<Integer> slow = head.getNext();
+         * CustomSingleNode<Integer> fast = head.getNext().getNext();
+         * 这里 对于 slow 和fast 的赋值 操作 和下面赋值 同一个节点 head 是等效的；
+         * 上面的 slow 和fast 的赋值 可以看做 都是从 head 出发，进行一次循环后的 结果；
+         */
         CustomSingleNode<Integer> slow = head;
         CustomSingleNode<Integer> fast = head;
         while (Objects.nonNull(fast.getNext()) && Objects.nonNull(fast.getNext().getNext())) {
