@@ -30,7 +30,7 @@ import java.util.Stack;
  * 左括号必须以正确的顺序闭合。
  * 每个右括号都有一个对应的相同类型的左括号。
  */
-public class LCTest__20_IsValid {
+public class LCTest_Stack_20_IsValid {
     /**
      * 使用堆栈 进行 字符串的入栈 比较操作
      *

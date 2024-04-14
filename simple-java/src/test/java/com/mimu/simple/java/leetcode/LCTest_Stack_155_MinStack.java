@@ -12,11 +12,11 @@ import java.util.Stack;
  * 最小栈 支持常数级获取 最小元素
  *
  */
-public class LCTest__155_MinStack {
+public class LCTest_Stack_155_MinStack {
     private Stack<Integer> data;
     private Stack<Integer> leastData;
 
-    public LCTest__155_MinStack() {
+    public LCTest_Stack_155_MinStack() {
         data = new Stack<>();
         leastData = new Stack<>();
         leastData.push(Integer.MAX_VALUE);
