@@ -17,19 +17,59 @@ package com.mimu.simple.java.leetcode;
  * Constraints:
  * 1 <= m, n <= 100
  * <p>
+ * 不同路径
  * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
  * 问总共有多少条不同的路径
  */
 public class LCTest_DP_62_UniquePaths {
 
+    /**
+     * 动态规划
+     * 状态定义：
+     * 设 dp 为大小 m×n矩阵，其中 dp[i][j] 的值代表直到走到 (i,j) 的路径和
+     * 转移方程 即走到 当前位置的路径和 是走到当前位置上侧位置的 路径和 + 走到当前位置 左侧位置的路径和；
+     * dp[i][j] = dp[i-1][j]+dp[i][j-1]
+     * 对于转移方程 细分为4中情况
+     * 1.当左边和上边都不是矩阵边界时： 即当i≠0i，j≠0j时 dp[i][j] = dp[i-1][j]+dp[i][j-1]
+     * 2.当只有左边是矩阵边界时： 只能从上面来，即当i=0,j≠0时， dp[i][j]=1
+     * 3.当只有上边是矩阵边界时： 只能从左面来，即当i≠0,j=0时， dp[i][j]=1
+     * 4.当左边和上边都是矩阵边界时： 即当i=0,j=0时，其实就是起点， dp[i][j]=1
+     *
+     * @param m
+     * @param n
+     * @return
+     */
     public int uniquePaths(int m, int n) {
-        int result = 0;
-        if (m <= 0 || n <= 0) {
-            return result;
+        int[][] dp = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == 0 && j == 0) {
+                    dp[i][j] = 1;
+                } else if (i == 0) {
+                    dp[i][j] = 1;
+                } else if (j == 0) {
+                    dp[i][j] = 1;
+                } else {
+                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+                }
+            }
         }
+        return dp[m - 1][n - 1];
+    }
 
-        return result;
+    public int uniquePaths_op(int m, int n) {
+        int[][] dp = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 1;
+                } else {
+                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+                }
+            }
+        }
+        return dp[m - 1][n - 1];
     }
 
 }

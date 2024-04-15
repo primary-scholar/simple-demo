@@ -27,7 +27,7 @@ package com.mimu.simple.java.leetcode;
  * <p>
  * 斐波那契数字
  */
-public class LCTest__509_Fib {
+public class LCTest_DP_509_Fib {
     /**
      * 递归算法
      *

@@ -38,7 +38,7 @@ public class LCTest__11_MaxArea {
      * @return
      */
     public int maxArea(int[] height) {
-        if (Objects.isNull(height) || height.length <= 0) {
+        if (Objects.isNull(height) || height.length <= 1) {
             return 0;
         }
         int result = Integer.MIN_VALUE, f = 0, l = height.length - 1;
@@ -57,7 +57,7 @@ public class LCTest__11_MaxArea {
      * @return
      */
     public int maxArea_double_pointer(int[] height) {
-        if (Objects.isNull(height) || height.length <= 0) {
+        if (Objects.isNull(height) || height.length <= 1) {
             return 0;
         }
         int result = Integer.MIN_VALUE, f = 0, l = height.length - 1;
@@ -79,7 +79,7 @@ public class LCTest__11_MaxArea {
      * @return
      */
     public int maxArea_force(int[] height) {
-        if (Objects.isNull(height) || height.length <= 0) {
+        if (Objects.isNull(height) || height.length <= 1) {
             return 0;
         }
         int result = Integer.MIN_VALUE;
