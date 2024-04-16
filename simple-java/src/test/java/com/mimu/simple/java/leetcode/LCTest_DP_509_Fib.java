@@ -30,6 +30,7 @@ package com.mimu.simple.java.leetcode;
 public class LCTest_DP_509_Fib {
     /**
      * 递归算法
+     * F(N) = F(N - 1) + F(N - 2)
      *
      * @param n
      * @return
@@ -47,6 +48,7 @@ public class LCTest_DP_509_Fib {
     /**
      * 根据定义，计算当前数值时，只需要其 前两个 数字 并相加 即可；
      * 因此 我们可以使用 三个 数 来记录 前两个 数字 和当前的 和，并同时 后--> 前；和-->后 即可
+     * F(N) = F(N - 1) + F(N - 2)
      *
      * @param n
      * @return

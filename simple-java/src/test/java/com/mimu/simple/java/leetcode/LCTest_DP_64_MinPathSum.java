@@ -45,7 +45,7 @@ public class LCTest_DP_64_MinPathSum {
                     grid[i][j] = grid[i][j - 1] + grid[i][j];
                 } else if (j == 0) { // 左边界 情况 只能从上边来
                     grid[i][j] = grid[i - 1][j] + grid[i][j];
-                } else { // 飞边界情况 取左侧和上侧的最小值 加上当前位置；
+                } else { // 非边界情况 取左侧和上侧的最小值 加上当前位置；
                     grid[i][j] = Math.min(grid[i - 1][j], grid[i][j - 1]) + grid[i][j];
                 }
             }
