@@ -59,10 +59,10 @@ public class LCTest_BinTreeNode_104_MaxDepth extends LC_TreeNode {
     public int maxDepthAnother(TreeNode root) {
         if (root == null) {
             return 0;
-        } else {
-            int leftHeight = maxDepthAnother(root.left);
-            int rightHeight = maxDepthAnother(root.right);
-            return Math.max(leftHeight, rightHeight) + 1;
         }
+        int leftHeight = maxDepthAnother(root.left);
+        int rightHeight = maxDepthAnother(root.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+
     }
 }
