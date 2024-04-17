@@ -46,6 +46,30 @@ public class LCTest_DP_70_ClimbStairs {
     }
 
     /**
+     * 动态规划
+     * 1.定义 int[] dp 数组：dp[i] 表示 爬第i阶楼梯 的方法数
+     * 2.明确递推公式：dp[i] = dp[i - 1] + dp[i - 2];
+     * 3.初始化 对于 n>2 的 情形：dp[0] = 1;dp[1] = 2;
+     * 4.循环递推：从i=2 开始递推：
+     * 5.明确返回结果：dp[n - 1] 即为结果
+     *
+     * @param n
+     * @return
+     */
+    public int climbStairs_dp(int n) {
+        if (n <= 2) {
+            return n;
+        }
+        int[] dp = new int[n];
+        dp[0] = 1;
+        dp[1] = 2;
+        for (int i = 2; i < n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n - 1];
+    }
+
+    /**
      * 递归方法
      * F(N) = F(N - 1) + F(N - 2),
      *

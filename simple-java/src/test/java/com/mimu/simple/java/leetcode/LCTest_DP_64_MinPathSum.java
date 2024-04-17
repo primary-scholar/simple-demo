@@ -33,6 +33,12 @@ public class LCTest_DP_64_MinPathSum {
      * 2.当只有左边是矩阵边界时： 只能从上面来，即当i=0,j≠0时， dp[i][j]=dp[i][j−1]+grid[i][j]
      * 3.当只有上边是矩阵边界时： 只能从左面来，即当i≠0,j=0时， dp[i][j]=dp[i−1][j]+grid[i][j]
      * 4.当左边和上边都是矩阵边界时： 即当i=0,j=0时，其实就是起点， dp[i][j]=grid[i][j]
+     * <p>
+     * 1.定义dp数组：dp[m][n],dp[i][j] 的值代表直到走到 (i,j) 的最小路径和
+     * 2.确定递推公式 dp[i][j] = Math.min(dp[i-1][j],dp[i][j-1])+dp[i,j]
+     * 3.初始化：
+     * 4.循环递推：
+     * 5.确认结果：grid[grid.length - 1][grid[0].length - 1] 即为结果；
      *
      * @param grid
      * @return

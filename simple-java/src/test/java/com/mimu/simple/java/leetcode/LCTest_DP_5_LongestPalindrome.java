@@ -17,6 +17,12 @@ import java.util.Objects;
  * **Output:** "bb"
  * <p>
  * 最长回文子串
+ * 动态规划 模板
+ * 1.定义 dp[][] 一维或二维数组，并明确 dp[i][j] 表示的含义
+ * 2.明确 递推函数
+ * 3.初始化 dp[][] 数组 (有时候初始化 和 循环递推 需要再同一个 循环中 进行)；
+ * 4.循环 递推
+ * 5.明确输出返回结果
  */
 public class LCTest_DP_5_LongestPalindrome {
 
@@ -63,6 +69,12 @@ public class LCTest_DP_5_LongestPalindrome {
 
     /**
      * 动态规划 策略
+     * 1.定义dp数组： boolean[length][length] dp 数组 dp[i][j] 表示 s[i,j] 是否是回文,长度是字符串的长度
+     * 2.明确递推公式：dp(i,j)=dp(i+1,j−1)&&(Si==Sj)
+     * 3.初始化dp：对于单个字符的字符串一定是回文，所以 dp[i][j]=true (i==j)
+     * 4.循环递推：外层循环 表示子串的长度 从 2 开始, 到 length 结束 也在填充 dp数组
+     * *         内层循环 判断 长度为 外层 的子串 是否是 回文来填充 dp
+     * 5.明确结果：对于 dp[lb][rb]=true && rb - lb + 1 > maxLen 的情况 可以 确定左边界 和 长度；
      * <p>
      * 对于一个子串而言，如果它是回文串，并且长度大于 2，那么将它首尾的两个字母去除之后，它仍然是个回文串。例如对于字符串 “ababa”,如果我们已经知道 “bab” 是回文串，那么 “ababa” 一定是回文串，这是因为它的首尾两个字母都是 “a”。
      * 根据这样的思路，我们就可以用动态规划的方法解决本题。我们用 P(i,j) 表示字符串 s 的第 i 到 j 个字母组成的串（下文表示成 s[i:j]）是否为回文串：
@@ -99,39 +111,31 @@ public class LCTest_DP_5_LongestPalindrome {
         if (length < 2) {
             return s;
         }
-        int maxLen = 1;
-        int begin = 0;
-        // dp[i][j] 表示 s[i..j] 是否是回文串
-        boolean[][] dp = new boolean[length][length];
-        // 初始化：所有长度为 1 的子串都是回文串
-        for (int i = 0; i < length; i++) {
+        int maxLen = 1, begin = 0;
+        boolean[][] dp = new boolean[length][length]; // dp[i][j] 表示 s[i..j] 是否是回文串
+        for (int i = 0; i < length; i++) { // 初始化：所有长度为 1 的子串都是回文串
             dp[i][i] = true;
         }
         char[] charArray = s.toCharArray();
         // 递推开始
-        // 从子串长度为 2 开始 判断 长度为2，3，一直到 length 的子串
-        for (int len = 2; len <= length; len++) {
-            // 枚举左边界，左边界的上限设置可以宽松一些
-            for (int l = 0; l < len; l++) {
-                // 由 len 和 l 可以确定右边界，即 r - l + 1 = len
-                int r = len + l - 1;
-                // 如果右边界越界，就可以退出当前循环
-                if (r >= len) {
+        for (int subLen = 2; subLen <= length; subLen++) { // 从子串长度为 2 开始 判断 长度为2，3，一直到 length 的子串
+            for (int lb = 0; lb < length; lb++) { // 枚举左边界，左边界的上限设置可以宽松一些
+                int rb = subLen + lb - 1; // 由 len 和 l 可以确定右边界，即 r - l + 1 = len
+                if (rb >= length) { // 如果右边界越界，就可以退出当前循环
                     break;
                 }
-                if (charArray[l] != charArray[r]) {
-                    dp[l][r] = false;
+                if (charArray[lb] != charArray[rb]) {
+                    dp[lb][rb] = false;
                 } else {
-                    if (r - l < 3) {
-                        dp[l][r] = true;
+                    if (rb - lb < 3) {
+                        dp[lb][rb] = true;
                     } else {
-                        dp[l][r] = dp[l + 1][r - 1];
+                        dp[lb][rb] = dp[lb + 1][rb - 1];
                     }
                 }
-                // 只要 dp[i][L] == true 成立，就表示子串 s[i..L] 是回文，此时记录回文长度和起始位置
-                if (dp[l][r] && r - l + 1 > maxLen) {
-                    maxLen = r - l + 1;
-                    begin = l;
+                if (dp[lb][rb] && rb - lb + 1 > maxLen) { // 只要 dp[i][L] == true 成立，就表示子串 s[i..L] 是回文，此时记录回文长度和起始位置
+                    maxLen = rb - lb + 1;
+                    begin = lb;
                 }
             }
         }

@@ -57,6 +57,12 @@ public class LCTest_DP_198_Rob {
      * dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1])
      * * 这里如果要偷 第 nums[i] 间房子的金额，则此时 最大金额为 dp[i-2]+nums[i] 因为相邻房子不能偷，
      * *    如果不偷 第 nums[i] 间房子的金额，则此时 最大金额为 dp[i-1]  所以选两者最大的即可
+     * <p>
+     * 1.定义dp数组：int[] dp，dp[i] 表示前 i 间房子可以偷到的最高金额
+     * 2.明确递推公式：dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1])
+     * 3.初始化：dp[0] = nums[0];dp[1] = Math.max(nums[0], nums[1]);
+     * 4.循环递推：从i=2 开始，dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+     * 5.确认结果：dp[roomNum - 1] 即为结果
      *
      * @param nums
      * @return
