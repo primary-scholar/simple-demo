@@ -34,6 +34,11 @@ public class LCTest_BinTreeNode_543_DiameterOfBinaryTree extends LC_TreeNode {
         return diameter;
     }
 
+    public int diameterOfBinaryTree_another(TreeNode root) {
+        NodeInfo process = NodeInfo.process(root);
+        return process.distance - 1;
+    }
+
     /**
      * step1,step2,step3 这里是 典型的求一棵树的 最大深度的递归算法；
      * 而这里，我们需要分别计算一个树，左子树的最大深度，和右子树的最大深度 然后求和；
@@ -49,5 +54,38 @@ public class LCTest_BinTreeNode_543_DiameterOfBinaryTree extends LC_TreeNode {
         int rightDepth = maxDepth(node.right); // step2: 当前节点 右子树 深度
         diameter = Math.max(leftDepth + rightDepth, diameter);
         return Math.max(leftDepth, rightDepth) + 1; // step3: 当前节点 深度
+    }
+
+    static class NodeInfo {
+        private Integer distance;
+        private Integer height;
+
+        NodeInfo(Integer dis, Integer hei) {
+            this.distance = dis;
+            this.height = hei;
+        }
+
+        /**
+         * 二叉树的 递归套路
+         * 当前节点的 最大直径 分为两种情况
+         * 1.当前节点 在最大直径的路径上，即最大路径在 当前节点的 左子树和右子树上
+         * 2.当前节点 不在最大直径的路径上，即最大路径在 当前节点的 左子树或右子树上
+         *
+         * @param node
+         * @return
+         */
+        public static NodeInfo process(TreeNode node) {
+            if (Objects.isNull(node)) {
+                return new NodeInfo(0, 0);
+            }
+            NodeInfo leftNode = process(node.left);
+            NodeInfo rightNode = process(node.right);
+            // 当前节点的 最大高度 是左右子树最大高度 +1
+            int height = Math.max(leftNode.height, rightNode.height) + 1;
+            // 当前节点的 最大距离 左右子树最大距离，和当前节点 左右高度+1 中的最大值
+            int distance = Math.max(Math.max(leftNode.distance, rightNode.distance),
+                    leftNode.height + rightNode.height + 1);
+            return new NodeInfo(distance, height);
+        }
     }
 }

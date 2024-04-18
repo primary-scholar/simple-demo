@@ -28,7 +28,7 @@ import java.util.Objects;
  * 给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。
  * 你必须设计一个时间复杂度为 O(log n) 的算法解决此问题。
  */
-public class LCTest_BinQuery_33_Search {
+public class LCTest_BinQry_33_Search {
 
     /**
      * 将数组一分为二，其中一个一定是有序的，另一个可能是有序的，也可能是部分有序的。此时有序部分用二分法查找。其中一个一定有序，另一个可能有序，可能无序。就这样循环.
