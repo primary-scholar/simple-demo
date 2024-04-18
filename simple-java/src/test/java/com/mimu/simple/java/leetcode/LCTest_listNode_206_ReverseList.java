@@ -28,6 +28,21 @@ public class LCTest_listNode_206_ReverseList extends LC_ListNode {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {// 如果是空或者是单节点链表 直接返回；
             return head;
         }
+        ListNode pre = null;
+        ListNode current = head;
+        while (Objects.nonNull(current)) {
+            ListNode next = current.next;
+            current.next = pre;
+            pre = current;
+            current = next;
+        }
+        return pre;
+    }
+
+    public ListNode reverseList_another(ListNode head) {
+        if (Objects.isNull(head) || Objects.isNull(head.next)) {// 如果是空或者是单节点链表 直接返回；
+            return head;
+        }
         ListNode pre = head;
         ListNode current = pre.next;
         head.next = null;  // 头结点的 next 先置空
@@ -36,7 +51,6 @@ public class LCTest_listNode_206_ReverseList extends LC_ListNode {
             current.next = pre;
             pre = current;
             current = next;
-            next = next.next;
         }
         current.next = pre;
         return current;

@@ -1,13 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
 import com.mimu.simple.java.algorithm.bintree.ClassicTreeSerializedOperation;
-import com.sun.source.tree.Tree;
-
-import javax.naming.ldap.LdapReferralException;
-import java.lang.foreign.AddressLayout;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 
 /**
