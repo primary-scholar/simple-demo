@@ -20,13 +20,13 @@ import java.util.Objects;
  * 要求：
  * 每一个操作时间复杂度都是 O(1)
  */
-public class LCTest_Map_4_LRUCache {
+public class LC_Map_146_LRUCache {
 
     /**
      * 使用双向链表和HashMap 可以实现复杂度都为O(1)的 get()和put() 方法
      * 双向链表 头尾都使用 哨兵节点
      */
-    class LRUCache {
+    static class LRUCache {
         private Integer size;
         private Integer capacity;
         private HashMap<Integer, LinkNode> data;
@@ -42,10 +42,10 @@ public class LCTest_Map_4_LRUCache {
             this.size = 0;
             this.head = new LinkNode();
             this.tail = new LinkNode();
-            this.head.setNext(tail);
-            this.head.setPre(null);
-            this.tail.setPre(head);
-            this.tail.setNext(null);
+            this.head.next = tail;
+            this.head.pre = null;
+            this.tail.pre = head;
+            this.tail.next = null;
             this.data = new HashMap<>();
         }
 
@@ -55,7 +55,7 @@ public class LCTest_Map_4_LRUCache {
                 return -1;
             }
             move2Head(linkNode);
-            return linkNode.getData();
+            return linkNode.data;
         }
 
         public void put(int key, int value) {
@@ -66,7 +66,7 @@ public class LCTest_Map_4_LRUCache {
                 }
                 addHead(new LinkNode(key, value));
             } else {
-                linkNode.setData(value);
+                linkNode.data = value;
                 move2Head(linkNode);
             }
         }
@@ -77,7 +77,7 @@ public class LCTest_Map_4_LRUCache {
         }
 
         public void removeTail() {
-            LinkNode pre = this.tail.getPre();
+            LinkNode pre = this.tail.pre;
             remove(pre);
         }
 
@@ -86,9 +86,9 @@ public class LCTest_Map_4_LRUCache {
                 return;
             }
             this.size--;
-            this.data.remove(node.getKey());
-            node.getPre().setNext(node.getNext());
-            node.getNext().setPre(node.getPre());
+            this.data.remove(node.key);
+            node.pre.next = node.next;
+            node.next.pre = node.pre;
         }
 
         public void addHead(LinkNode node) {
@@ -96,11 +96,11 @@ public class LCTest_Map_4_LRUCache {
                 return;
             }
             this.size++;
-            this.data.put(node.getKey(), node);
-            head.getNext().setPre(node);
-            node.setNext(head.getNext());
-            head.setNext(node);
-            node.setPre(head);
+            this.data.put(node.key, node);
+            head.next.pre = node;
+            node.next = head.next;
+            head.next = node;
+            node.pre = head;
         }
 
         /**
@@ -118,45 +118,12 @@ public class LCTest_Map_4_LRUCache {
             }
 
             public LinkNode(Integer key, Integer data) {
-                this.setKey(key);
-                this.setData(data);
-                this.setPre(null);
-                this.setNext(null);
-            }
-
-            public Integer getKey() {
-                return key;
-            }
-
-            public void setKey(Integer key) {
                 this.key = key;
-            }
-
-            public Integer getData() {
-                return data;
-            }
-
-            public void setData(Integer data) {
                 this.data = data;
-            }
-
-            public LinkNode getPre() {
-                return pre;
-            }
-
-            public void setPre(LinkNode pre) {
-                this.pre = pre;
-            }
-
-            public LinkNode getNext() {
-                return next;
-            }
-
-            public void setNext(LinkNode next) {
-                this.next = next;
+                this.pre = null;
+                this.next = null;
             }
         }
-
     }
 
 }

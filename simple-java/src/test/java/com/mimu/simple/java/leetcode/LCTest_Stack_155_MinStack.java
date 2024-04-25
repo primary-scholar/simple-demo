@@ -1,6 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
-import java.util.Stack;
+import org.junit.Test;
+
 
 /**
  * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
@@ -10,33 +11,19 @@ import java.util.Stack;
  * getMin() -- Retrieve the minimum element in the stack.
  * <p>
  * 最小栈 支持常数级获取 最小元素
- *
  */
 public class LCTest_Stack_155_MinStack {
-    private Stack<Integer> data;
-    private Stack<Integer> leastData;
 
-    public LCTest_Stack_155_MinStack() {
-        data = new Stack<>();
-        leastData = new Stack<>();
-        leastData.push(Integer.MAX_VALUE);
-    }
+    private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
 
-    public void push(int val) {
-        data.push(val);
-        leastData.push(Math.min(leastData.peek(), val));
-    }
-
-    public void pop() {
-        data.pop();
-        leastData.pop();
-    }
-
-    public int top() {
-        return data.peek();
-    }
-
-    public int getMin() {
-        return leastData.peek();
+    @Test
+    public void stackInfo() {
+        minStack.push(3);
+        minStack.push(1);
+        minStack.push(5);
+        System.out.println(minStack.getMin());
+        System.out.println(minStack.top());
+        minStack.pop();
+        System.out.println(minStack.top());
     }
 }
