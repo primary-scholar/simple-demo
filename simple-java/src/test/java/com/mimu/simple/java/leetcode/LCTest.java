@@ -1,8 +1,12 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
+import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
+import javax.swing.*;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -17,6 +21,7 @@ import java.util.List;
  */
 public class LCTest {
 
+    private LC_Map_1_AddTwoNumbers addTwoNumbers = new LC_Map_1_AddTwoNumbers();
     private LC__3_LengthOfLongestSubstring lengthOfLongestSubstring = new LC__3_LengthOfLongestSubstring();
     private LC__15_ThreeSum threeSum = new LC__15_ThreeSum();
     private LC_Stack_20_IsValid isValid = new LC_Stack_20_IsValid();
@@ -28,7 +33,17 @@ public class LCTest {
     private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
     private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
     private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
+    private LC_ListNode_234_IsPalindrome isPalindrome = new LC_ListNode_234_IsPalindrome();
+    private LC_ListNode_206_ReverseList reverseList = new LC_ListNode_206_ReverseList();
 
+
+    @Test
+    public void addTwoNumbersTest() {
+        int[] ints = addTwoNumbers.addTwoNumbers(new int[]{2, 7, 11, 12}, 14);
+        int[] ints1 = addTwoNumbers.addTwoNumbers(new int[]{3, 3}, 6);
+        assert Arrays.equals(ints, new int[]{0, 3});
+        assert Arrays.equals(ints1, new int[]{0, 1});
+    }
 
     @Test
     public void lengthOfLongestSubstringTest() {
@@ -117,5 +132,24 @@ public class LCTest {
         int[] colors = {0, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 2, 2};
         System.out.println(majorityElement.majorityElement(colors));
     }
+
+    @Test
+    public void isPalindromeTest() {
+        List<Integer> first = Arrays.asList(1, 2, 2, 1);
+        List<Integer> second = Arrays.asList(1, 2, 3, 2, 1);
+        List<Integer> third = Arrays.asList(1, 2, 3, 2);
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2LinkNode(first)));
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2LinkNode(second)));
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2LinkNode(third)));
+    }
+
+    @Test
+    public void reverseListTest() {
+        List<Integer> first = Arrays.asList(1, 2, 3, 4);
+        LC_ListNode.LinkNode linkNode = reverseList.reverseList(reverseList.list2LinkNode(first));
+        List<Integer> rlist = reverseList.linkNode2List(linkNode);
+        System.out.println(rlist);
+    }
+
 }
 

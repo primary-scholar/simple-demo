@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
+
 import java.util.Objects;
 
 /**
@@ -16,7 +18,7 @@ import java.util.Objects;
  * 给你一个单链表的头节点 head ，请你判断该链表是否为
  * 回文链表 如果是，返回 true ；否则，返回 false
  */
-public class LCTest_ListNode_234_IsPalindrome extends LC_ListNode {
+public class LC_ListNode_234_IsPalindrome extends LC_ListNode {
 
     /**
      * 链表回文
@@ -28,14 +30,14 @@ public class LCTest_ListNode_234_IsPalindrome extends LC_ListNode {
      * @param head
      * @return
      */
-    public boolean isPalindrome(ListNode head) {
+    public boolean isPalindrome(LinkNode head) {
         if (Objects.isNull(head)) {
             return Boolean.TRUE;
         }
-        ListNode midOrUpMid = midOrUpMidNode(head);
-        ListNode reversed = reverseList(midOrUpMid);
-        ListNode first = head;
-        ListNode second = reversed;
+        LinkNode midOrUpMid = midOrUpMidNode(head);
+        LinkNode reversed = reverseList(midOrUpMid);
+        LinkNode first = head;
+        LinkNode second = reversed;
         while (Objects.nonNull(first) && Objects.nonNull(second)) {
             if (first.val != second.val) {
                 return Boolean.FALSE;
@@ -47,14 +49,14 @@ public class LCTest_ListNode_234_IsPalindrome extends LC_ListNode {
         return Boolean.TRUE;
     }
 
-    public ListNode reverseList(ListNode head) {
+    public LinkNode reverseList(LinkNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {// 如果是空或者是单节点链表 直接返回；
             return head;
         }
-        ListNode pre = null;
-        ListNode current = head;
+        LinkNode pre = null;
+        LinkNode current = head;
         while (Objects.nonNull(current)) {
-            ListNode next = current.next;
+            LinkNode next = current.next;
             current.next = pre;
             pre = current;
             current = next;
@@ -62,12 +64,12 @@ public class LCTest_ListNode_234_IsPalindrome extends LC_ListNode {
         return pre;
     }
 
-    public ListNode midOrUpMidNode(ListNode head) {
+    public LinkNode midOrUpMidNode(LinkNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next) || Objects.isNull(head.next.next)) {
             return head;
         }
-        ListNode slow = head;
-        ListNode fast = head;
+        LinkNode slow = head;
+        LinkNode fast = head;
         while (Objects.nonNull(fast.next) && Objects.nonNull(fast.next.next)) {
             slow = slow.next;
             fast = fast.next.next;

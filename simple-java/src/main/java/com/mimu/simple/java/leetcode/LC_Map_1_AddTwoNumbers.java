@@ -1,8 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +18,7 @@ import java.util.Map;
  * 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
  * 你可以按任意顺序返回答案
  */
-public class LCTest_Map_1_AddTwoNumbers {
+public class LC_Map_1_AddTwoNumbers {
 
     /*
     把数组放到 map中遍历一遍数组，复杂度O(n)
@@ -33,23 +30,16 @@ public class LCTest_Map_1_AddTwoNumbers {
         }
         // 存放数组中当前元素的值和该值在数组中的下标
         Map<Integer, Integer> hash = new HashMap<>();
-        for (int start = 0; start < nums.length; start++) {
-            int other = target - nums[start];//计算当前元素和目标元素的差值
-            if (hash.get(other) != null && hash.get(other) != start) { // 如果差值在hashMap中并且不是当前下标则找到相关结果 可以返回
+        for (int idx = 0; idx < nums.length; idx++) {
+            int other = target - nums[idx];//计算当前元素和目标元素的差值
+            if (hash.get(other) != null && hash.get(other) != idx) { // 如果差值在hashMap中并且不是当前下标则找到相关结果 可以返回
                 result[0] = hash.get(other);
-                result[1] = start;
+                result[1] = idx;
             }
             // 这一行 应该在 上面的 判断之后 即先判断 差值是否在 hashMap 中 然后再把 当前值和下标放入 hashMap 类似于 缓存的操作
-            hash.put(nums[start], start);//把访问到元素值和该元素在数组中的下标存到到hashMap中
+            hash.put(nums[idx], idx);//把访问到元素值和该元素在数组中的下标存到到hashMap中
         }
         return result;
     }
 
-    @Test
-    public void deal() {
-        int[] ints = addTwoNumbers(new int[]{2, 7, 11, 12}, 14);
-        int[] ints1 = addTwoNumbers(new int[]{3, 3}, 6);
-        assert Arrays.equals(ints, new int[]{0, 3});
-        assert Arrays.equals(ints1, new int[]{0, 1});
-    }
 }
