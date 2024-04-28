@@ -25,7 +25,7 @@ import java.util.Objects;
  * 返回容器可以储存的最大水量。
  * 说明：你不能倾斜容器
  */
-public class LCTest__11_MaxArea {
+public class LC__11_MaxArea {
 
     /**
      * 这里 和下面的 双指针 思路是一致的

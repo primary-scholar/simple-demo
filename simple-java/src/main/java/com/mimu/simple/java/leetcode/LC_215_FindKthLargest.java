@@ -1,8 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
@@ -18,7 +15,7 @@ import java.util.PriorityQueue;
  * <p>
  * 寻找数组中第 k 大的元素
  */
-public class LCTest_215_FindKthLargest {
+public class LC_215_FindKthLargest {
 
     public int findKthLargest(int[] nums, int k) {
         int left = 0, right = nums.length - 1;
@@ -75,17 +72,10 @@ public class LCTest_215_FindKthLargest {
         if (Objects.isNull(array) || array.length <= 1) {
             return;
         }
-        Integer tmp = array[i];
+        int tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
     }
 
-    @Test
-    public void printResult() {
-        int[] element = new int[]{3, 2, 1, 5, 6, 4, 3, 4, 4};
-        for (int i = 1; i < element.length; i++) {
-            int[] copy = Arrays.copyOf(element, element.length);
-            assert findKthLargestAnother(copy, i) == findKthLargest(copy, i);
-        }
-    }
+
 }

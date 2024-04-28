@@ -1,7 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
 import java.util.HashSet;
 
 /**
@@ -12,7 +10,7 @@ import java.util.HashSet;
  * <p>
  * 无重复最长子串
  */
-public class LCTest__3_LengthOfLongestSubstring {
+public class LC__3_LengthOfLongestSubstring {
 
     /**
      * 使用滑动窗口 进行 数据的 存储判断
@@ -35,10 +33,4 @@ public class LCTest__3_LengthOfLongestSubstring {
         return result;
     }
 
-    @Test
-    public void printResult() {
-        LCTest__3_LengthOfLongestSubstring lc3Test = new LCTest__3_LengthOfLongestSubstring();
-        assert lc3Test.lengthOfLongestSubstring("abcabcbb") == 3;
-        assert lc3Test.lengthOfLongestSubstring("pwwkew") == 3;
-    }
 }
