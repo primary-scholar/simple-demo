@@ -23,14 +23,14 @@ public class LC_ListNode_206_ReverseList extends LC_ListNode {
      * @param head
      * @return
      */
-    public LinkNode reverseList(LinkNode head) {
+    public ListNode reverseList(ListNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {// 如果是空或者是单节点链表 直接返回；
             return head;
         }
-        LinkNode pre = null;
-        LinkNode current = head;
+        ListNode pre = null;
+        ListNode current = head;
         while (Objects.nonNull(current)) {
-            LinkNode next = current.next;
+            ListNode next = current.next;
             current.next = pre;
             pre = current;
             current = next;
@@ -38,14 +38,14 @@ public class LC_ListNode_206_ReverseList extends LC_ListNode {
         return pre;
     }
 
-    public LinkNode reverseList_another(LinkNode head) {
+    public ListNode reverseList_another(ListNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {// 如果是空或者是单节点链表 直接返回；
             return head;
         }
-        LinkNode pre = head;
-        LinkNode current = pre.next;
+        ListNode pre = head;
+        ListNode current = pre.next;
         head.next = null;  // 头结点的 next 先置空
-        LinkNode next = current.next;
+        ListNode next = current.next;
         while (Objects.nonNull(next)) {
             current.next = pre;
             pre = current;

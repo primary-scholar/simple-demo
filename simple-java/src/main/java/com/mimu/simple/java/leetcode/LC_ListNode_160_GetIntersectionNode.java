@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
+
 /**
  * Write a program to find the node at which the intersection of two singly linked lists begins.
  * <p>
@@ -38,7 +40,7 @@ package com.mimu.simple.java.leetcode;
  * 4.比较长的链表指针指向较短链表head时，长度差就消除了
  * 5.如此，只需要将最短链表遍历两次即可找到位置；
  */
-public class LCTest_ListNode_160_GetIntersectionNode extends LC_ListNode {
+public class LC_ListNode_160_GetIntersectionNode extends LC_ListNode {
 
     /**
      * * 1.指针 pA 指向 A 链表，指针 pB 指向 B 链表，依次往后遍历

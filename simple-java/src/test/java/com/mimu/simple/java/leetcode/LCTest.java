@@ -1,12 +1,9 @@
 package com.mimu.simple.java.leetcode;
 
 import com.mimu.simple.java.leetcode.base.LC_ListNode;
-import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
-import javax.swing.*;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -31,6 +28,7 @@ public class LCTest {
     private LC__136_SingleNumber singleNumber = new LC__136_SingleNumber();
     private LC_Map_146_LRUCache.LRUCache lruCache = new LC_Map_146_LRUCache.LRUCache(2);
     private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
+    private LC_ListNode_160_GetIntersectionNode getIntersectionNode = new LC_ListNode_160_GetIntersectionNode();
     private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
     private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
     private LC_ListNode_234_IsPalindrome isPalindrome = new LC_ListNode_234_IsPalindrome();
@@ -138,17 +136,26 @@ public class LCTest {
         List<Integer> first = Arrays.asList(1, 2, 2, 1);
         List<Integer> second = Arrays.asList(1, 2, 3, 2, 1);
         List<Integer> third = Arrays.asList(1, 2, 3, 2);
-        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2LinkNode(first)));
-        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2LinkNode(second)));
-        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2LinkNode(third)));
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(first)));
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(second)));
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(third)));
     }
 
     @Test
     public void reverseListTest() {
         List<Integer> first = Arrays.asList(1, 2, 3, 4);
-        LC_ListNode.LinkNode linkNode = reverseList.reverseList(reverseList.list2LinkNode(first));
-        List<Integer> rlist = reverseList.linkNode2List(linkNode);
+        LC_ListNode.ListNode linkNode = reverseList.reverseList(reverseList.list2Node(first));
+        List<Integer> rlist = reverseList.node2List(linkNode);
         System.out.println(rlist);
+    }
+
+
+    @Test
+    public void getIntersectionNodeTest() {
+        List<Integer> first = Arrays.asList(4, 1, 8, 4, 5);
+        List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5);
+        LC_ListNode.ListNode node = getIntersectionNode.getIntersectionNode(getIntersectionNode.list2Node(first), getIntersectionNode.list2Node(second));
+        System.out.println(node.val);
     }
 
 }

@@ -7,22 +7,22 @@ import java.util.Objects;
 
 public class LC_ListNode {
 
-    public LinkNode list2LinkNode(List<Integer> number) {
-        LinkNode head = new LinkNode(-1);
-        LinkNode curr = head;
+    public ListNode list2Node(List<Integer> number) {
+        ListNode head = new ListNode(-1);
+        ListNode curr = head;
         for (Integer i : number) {
-            curr.next = new LinkNode(i);
+            curr.next = new ListNode(i);
             curr = curr.next;
         }
         return head.next;
     }
 
-    public List<Integer> linkNode2List(LinkNode node) {
+    public List<Integer> node2List(ListNode node) {
         if (Objects.isNull(node)) {
             return Collections.emptyList();
         }
         ArrayList<Integer> result = new ArrayList<>();
-        LinkNode next = node;
+        ListNode next = node;
         while (Objects.nonNull(next)) {
             result.add(next.val);
             next = next.next;
@@ -30,18 +30,18 @@ public class LC_ListNode {
         return result;
     }
 
-    public class LinkNode {
+    public class ListNode {
         public int val;
-        public LinkNode next;
+        public ListNode next;
 
-        public LinkNode() {
+        public ListNode() {
         }
 
-        public LinkNode(int val) {
+        public ListNode(int val) {
             this.val = val;
         }
 
-        public LinkNode(int val, LinkNode next) {
+        public ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
         }

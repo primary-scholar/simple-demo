@@ -30,14 +30,14 @@ public class LC_ListNode_234_IsPalindrome extends LC_ListNode {
      * @param head
      * @return
      */
-    public boolean isPalindrome(LinkNode head) {
+    public boolean isPalindrome(ListNode head) {
         if (Objects.isNull(head)) {
             return Boolean.TRUE;
         }
-        LinkNode midOrUpMid = midOrUpMidNode(head);
-        LinkNode reversed = reverseList(midOrUpMid);
-        LinkNode first = head;
-        LinkNode second = reversed;
+        ListNode midOrUpMid = midOrUpMidNode(head);
+        ListNode reversed = reverseList(midOrUpMid);
+        ListNode first = head;
+        ListNode second = reversed;
         while (Objects.nonNull(first) && Objects.nonNull(second)) {
             if (first.val != second.val) {
                 return Boolean.FALSE;
@@ -49,14 +49,14 @@ public class LC_ListNode_234_IsPalindrome extends LC_ListNode {
         return Boolean.TRUE;
     }
 
-    public LinkNode reverseList(LinkNode head) {
+    public ListNode reverseList(ListNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {// 如果是空或者是单节点链表 直接返回；
             return head;
         }
-        LinkNode pre = null;
-        LinkNode current = head;
+        ListNode pre = null;
+        ListNode current = head;
         while (Objects.nonNull(current)) {
-            LinkNode next = current.next;
+            ListNode next = current.next;
             current.next = pre;
             pre = current;
             current = next;
@@ -64,12 +64,12 @@ public class LC_ListNode_234_IsPalindrome extends LC_ListNode {
         return pre;
     }
 
-    public LinkNode midOrUpMidNode(LinkNode head) {
+    public ListNode midOrUpMidNode(ListNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next) || Objects.isNull(head.next.next)) {
             return head;
         }
-        LinkNode slow = head;
-        LinkNode fast = head;
+        ListNode slow = head;
+        ListNode fast = head;
         while (Objects.nonNull(fast.next) && Objects.nonNull(fast.next.next)) {
             slow = slow.next;
             fast = fast.next.next;
