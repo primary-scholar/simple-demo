@@ -1,7 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +30,7 @@ import java.util.List;
  * 再次向左 访问 num[4][-1](10左边的元素) 因为越界 返回
  * 再次向上 访问 7 可以访问 这里访问到7后 会再次按照 右，下，左，上的规则 进行访问，所以这里就不符合螺旋访问的 顺序了；
  */
-public class LCTest__54_SpiralOrder {
+public class LC__54_SpiralOrder {
 
     public List<Integer> spiralOrder(int[][] matrix) {
         int row = matrix.length;
@@ -62,13 +60,6 @@ public class LCTest__54_SpiralOrder {
             j = y;
         }
         return result;
-    }
-
-
-    @Test
-    public void spiralOrderResult() {
-        List<Integer> integers1 = spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}});
-        System.out.println(integers1);
     }
 
 }

@@ -22,7 +22,7 @@ import java.util.Objects;
  * 你可以假设数组是非空的，并且给定的数组总是存在多数元素
  * 进阶：尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。
  */
-public class LCTest__169_MajorityElement {
+public class LC__169_MajorityElement {
 
     /**
      * 同归于尽 消杀法

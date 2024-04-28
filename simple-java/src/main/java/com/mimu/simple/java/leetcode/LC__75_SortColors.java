@@ -23,7 +23,7 @@ import java.util.Objects;
  * 必须在不使用库内置的 sort 函数的情况下解决这个问题。
  * 进阶：你能想出一个仅使用常数空间的一趟扫描算法吗？
  */
-public class LCTest__75_SortColors {
+public class LC__75_SortColors {
 
     /**
      * 单指针法 - 需要扫描两次数组
@@ -41,12 +41,12 @@ public class LCTest__75_SortColors {
         }
         int ptr = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 0) {
+            if (nums[i] == 0) { // 把数组为 0 的部分交换到 数组头部
                 swap(nums, ptr, i);
-                ptr++;
+                ptr++; // 同时记录 数组为 0 的数组下标
             }
         }
-        for (int i = ptr; i < nums.length; i++) {
+        for (int i = ptr; i < nums.length; i++) {  // 从数组为 0  的末尾下标开始，把数组为 1 的部分交换到 0 部分的后面
             if (nums[i] == 1) {
                 swap(nums, ptr, i);
                 ptr++;
@@ -88,7 +88,7 @@ public class LCTest__75_SortColors {
         if (Objects.isNull(array) || array.length <= 1) {
             return;
         }
-        Integer tmp = array[i];
+        int tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
     }

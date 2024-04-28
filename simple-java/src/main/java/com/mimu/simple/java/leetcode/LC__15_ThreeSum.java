@@ -1,7 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +30,7 @@ import java.util.List;
  * The distinct triplets are [-1,0,1] and [-1,-1,2].
  * Notice that the order of the output and the order of the triplets does not matter.
  */
-public class LCTest__15_ThreeSum {
+public class LC__15_ThreeSum {
 
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
@@ -70,13 +68,6 @@ public class LCTest__15_ThreeSum {
             }
         }
         return result;
-    }
-
-
-    @Test
-    public void threeSumResult() {
-        List<List<Integer>> lists = threeSum(new int[]{-1, 0, 1, 2, -1, -4});
-        System.out.println(lists);
     }
 
 }

@@ -3,6 +3,7 @@ package com.mimu.simple.java.leetcode;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -16,13 +17,40 @@ import java.util.Arrays;
  */
 public class LCTest {
 
-    private LC_Stack_42_Trap trapFunction = new LC_Stack_42_Trap();
-    private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
-    private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
     private LC__3_LengthOfLongestSubstring lengthOfLongestSubstring = new LC__3_LengthOfLongestSubstring();
+    private LC__15_ThreeSum threeSum = new LC__15_ThreeSum();
+    private LC_Stack_20_IsValid isValid = new LC_Stack_20_IsValid();
+    private LC_Stack_42_Trap trap = new LC_Stack_42_Trap();
+    private LC__54_SpiralOrder spiralOrder = new LC__54_SpiralOrder();
+    private LC__75_SortColors sortColors = new LC__75_SortColors();
+    private LC__136_SingleNumber singleNumber = new LC__136_SingleNumber();
+    private LC_Map_146_LRUCache.LRUCache lruCache = new LC_Map_146_LRUCache.LRUCache(2);
+    private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
+    private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
+    private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
+
 
     @Test
-    public void minStackResult() {
+    public void lengthOfLongestSubstringTest() {
+        assert lengthOfLongestSubstring.lengthOfLongestSubstring("abcabcbb") == 3;
+        assert lengthOfLongestSubstring.lengthOfLongestSubstring("pwwkew") == 3;
+    }
+
+    @Test
+    public void lruCacheTest() {
+        lruCache.put(1, 1); // 缓存是 {1=1}
+        lruCache.put(2, 2); // 缓存是 {1=1, 2=2}
+        System.out.println(lruCache.get(1));    // 返回 1
+        lruCache.put(3, 3); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
+        System.out.println(lruCache.get(2));    // 返回 -1 (未找到)
+        lruCache.put(4, 4); // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}
+        System.out.println(lruCache.get(1));    // 返回 -1 (未找到)
+        System.out.println(lruCache.get(3));    // 返回 3
+        System.out.println(lruCache.get(4));    // 返回 4
+    }
+
+    @Test
+    public void minStackTest() {
         minStack.push(3);
         minStack.push(1);
         minStack.push(5);
@@ -33,10 +61,10 @@ public class LCTest {
     }
 
     @Test
-    public void trapFunctionResult() {
+    public void trapTest() {
         int[] inputs = {4, 2, 0, 3, 2, 5, 1, 2};
-        System.out.println(trapFunction.trap(inputs));
-        System.out.println(trapFunction.trapAnother(inputs));
+        System.out.println(trap.trap(inputs));
+        System.out.println(trap.trapAnother(inputs));
     }
 
     @Test
@@ -48,9 +76,46 @@ public class LCTest {
         }
     }
 
+
     @Test
-    public void lengthOfLongestSubstringResult() {
-        assert lengthOfLongestSubstring.lengthOfLongestSubstring("abcabcbb") == 3;
-        assert lengthOfLongestSubstring.lengthOfLongestSubstring("pwwkew") == 3;
+    public void quotaValid() {
+        String quota = "()[]{}";
+        System.out.println(isValid.isValid(quota));
+        System.out.println(isValid.isValid("(}"));
+    }
+
+    @Test
+    public void threeSumResult() {
+        List<List<Integer>> lists = threeSum.threeSum(new int[]{-1, 0, 1, 2, -1, -4});
+        System.out.println(lists);
+    }
+
+
+    @Test
+    public void spiralOrderResult() {
+        List<Integer> integers1 = spiralOrder.spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}});
+        System.out.println(integers1);
+    }
+
+    @Test
+    public void sortColorsTest() {
+        int[] colors = {0, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1};
+        sortColors.sortColors(colors);
+        for (int color : colors) {
+            System.out.print(color);
+        }
+    }
+
+    @Test
+    public void singleNumberTest() {
+        int[] colors = {11, 11, 12, 12, 13};
+        System.out.println(singleNumber.singleNumber(colors));
+    }
+
+    @Test
+    public void majorityElementTest() {
+        int[] colors = {0, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 2, 2};
+        System.out.println(majorityElement.majorityElement(colors));
     }
 }
+
