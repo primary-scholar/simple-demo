@@ -21,9 +21,13 @@ public class LC_215_FindKthLargest {
         int left = 0, right = nums.length - 1;
         while (true) {
             int pos = partition1Idx(nums, left, right);
-            if (pos == nums.length - k) return nums[pos];
-            if (pos < nums.length - k) left = pos + 1;
-            else right = pos - 1;
+            if (pos == nums.length - k) {
+                return nums[pos];
+            } else if (pos < nums.length - k) {
+                left = pos + 1;
+            } else {
+                right = pos - 1;
+            }
         }
     }
 
@@ -64,7 +68,7 @@ public class LC_215_FindKthLargest {
             }
             idx++; // 当前 下标 ++
         }
-        swap(array, ++le, right); // 把 候选数 和 < 区域的右边界 的下一个 进行交换，
+        swap(array, ++le, right); // 把 候选数 和 <= 区域的右边界 的下一个 进行交换，
         return le;
     }
 
