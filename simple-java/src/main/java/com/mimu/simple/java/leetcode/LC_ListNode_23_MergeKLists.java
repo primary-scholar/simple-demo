@@ -1,6 +1,8 @@
 package com.mimu.simple.java.leetcode;
 
 
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
+
 import java.util.Objects;
 
 /**
@@ -33,7 +35,7 @@ import java.util.Objects;
  * 不过初始时 是 使用 空 链表和 数组中的 第一个进行合并，得到一个合并的结果，然后把该结果在和 后续的链表合并
  * 即不断地把合并后的结果，当做参数 继续后数组内的后续链表合并，直到数组全部合并完
  */
-public class LCTest_ListNode_23_MergeKLists extends LC_ListNode {
+public class LC_ListNode_23_MergeKLists extends LC_ListNode {
 
     public ListNode mergeKLists(ListNode[] lists) {
         ListNode element = null;
@@ -50,7 +52,7 @@ public class LCTest_ListNode_23_MergeKLists extends LC_ListNode {
      * @param second
      * @return
      */
-    public ListNode mergeListNode(ListNode first, ListNode second) {
+    private ListNode mergeListNode(ListNode first, ListNode second) {
         if (Objects.isNull(first) || Objects.isNull(second)) {
             return Objects.nonNull(first) ? first : second;
         }

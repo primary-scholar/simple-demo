@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
+
 import java.util.Objects;
 
 /**
@@ -22,7 +24,7 @@ import java.util.Objects;
  * <p>
  * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的
  */
-public class LCTest_ListNode_21_MergeTwoLists extends LC_ListNode {
+public class LC_ListNode_21_MergeTwoLists extends LC_ListNode {
 
     /**
      * 这里 没有要求原来的 链表 不变，所以此时可以 复用原来的 节点，而不需要重新构造 节点；

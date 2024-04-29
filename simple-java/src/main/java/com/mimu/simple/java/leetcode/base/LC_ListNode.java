@@ -1,9 +1,6 @@
 package com.mimu.simple.java.leetcode.base;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class LC_ListNode {
 
@@ -14,6 +11,21 @@ public class LC_ListNode {
             curr.next = new ListNode(i);
             curr = curr.next;
         }
+        return head.next;
+    }
+
+    public ListNode list2CycleNode(List<Integer> number) {
+        ListNode head = new ListNode(-1);
+        ListNode tail = head;
+        for (Integer i : number) {
+            tail.next = new ListNode(i);
+            tail = tail.next;
+        }
+        ListNode curr = head;
+        for (int i = 0; i < number.size() / 2; i++) {
+            curr = curr.next;
+        }
+        tail.next = curr;
         return head.next;
     }
 

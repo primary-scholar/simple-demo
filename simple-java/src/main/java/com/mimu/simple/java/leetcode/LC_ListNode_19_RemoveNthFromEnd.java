@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
+
 import java.util.Objects;
 
 /**
@@ -22,7 +24,7 @@ import java.util.Objects;
  * <p>
  * 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点
  */
-public class LCTest_ListNode_19_RemoveNthFromEnd extends LC_ListNode {
+public class LC_ListNode_19_RemoveNthFromEnd extends LC_ListNode {
 
     /**
      * 使用快慢指针 来找到 倒数第n个节点和 前一个节点

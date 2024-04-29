@@ -1,9 +1,11 @@
 package com.mimu.simple.java.leetcode;
 
 import com.mimu.simple.java.leetcode.base.LC_ListNode;
+import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -19,21 +21,27 @@ import java.util.List;
 public class LCTest {
 
     private LC_Map_1_AddTwoNumbers addTwoNumbers = new LC_Map_1_AddTwoNumbers();
+    private LC_ListNode_2_AddTwoNumbers listNode_2_addTwoNumbers = new LC_ListNode_2_AddTwoNumbers();
     private LC__3_LengthOfLongestSubstring lengthOfLongestSubstring = new LC__3_LengthOfLongestSubstring();
     private LC__15_ThreeSum threeSum = new LC__15_ThreeSum();
+    private LC_ListNode_19_RemoveNthFromEnd removeNthFromEnd = new LC_ListNode_19_RemoveNthFromEnd();
     private LC_Stack_20_IsValid isValid = new LC_Stack_20_IsValid();
+    private LC_ListNode_21_MergeTwoLists mergeTwoLists = new LC_ListNode_21_MergeTwoLists();
+    private LC_ListNode_23_MergeKLists mergeKLists = new LC_ListNode_23_MergeKLists();
     private LC_Stack_42_Trap trap = new LC_Stack_42_Trap();
     private LC__54_SpiralOrder spiralOrder = new LC__54_SpiralOrder();
     private LC__75_SortColors sortColors = new LC__75_SortColors();
     private LC__136_SingleNumber singleNumber = new LC__136_SingleNumber();
+    private LC_ListNode_141_HasCycle hasCycle = new LC_ListNode_141_HasCycle();
+    private LC_ListNode_142_DetectCycle detectCycle = new LC_ListNode_142_DetectCycle();
     private LC_Map_146_LRUCache.LRUCache lruCache = new LC_Map_146_LRUCache.LRUCache(2);
+    private LC_ListNode_148_SortList sortList = new LC_ListNode_148_SortList();
     private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
     private LC_ListNode_160_GetIntersectionNode getIntersectionNode = new LC_ListNode_160_GetIntersectionNode();
     private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
     private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
     private LC_ListNode_234_IsPalindrome isPalindrome = new LC_ListNode_234_IsPalindrome();
     private LC_ListNode_206_ReverseList reverseList = new LC_ListNode_206_ReverseList();
-
 
     @Test
     public void addTwoNumbersTest() {
@@ -43,10 +51,49 @@ public class LCTest {
         assert Arrays.equals(ints1, new int[]{0, 1});
     }
 
+
+    @Test
+    public void listNode_2_addTwoNumbersTest() {
+        LC_ListNode.ListNode aFR = listNode_2_addTwoNumbers.addTwoNumbers(listNode_2_addTwoNumbers.list2Node(Arrays.asList(2, 4, 3)), listNode_2_addTwoNumbers.list2Node(Arrays.asList(5, 6, 4)));
+        assert CollectionUtils.isEqualCollection(listNode_2_addTwoNumbers.node2List(aFR), Arrays.asList(7, 0, 8));
+        LC_ListNode.ListNode aSR = listNode_2_addTwoNumbers.addTwoNumbers(listNode_2_addTwoNumbers.list2Node(Arrays.asList(9, 9, 9, 9, 9, 9, 9)), listNode_2_addTwoNumbers.list2Node(Arrays.asList(9, 9, 9, 9)));
+        assert CollectionUtils.isEqualCollection(listNode_2_addTwoNumbers.node2List(aSR), Arrays.asList(8, 9, 9, 9, 0, 0, 0, 1));
+    }
+
     @Test
     public void lengthOfLongestSubstringTest() {
         assert lengthOfLongestSubstring.lengthOfLongestSubstring("abcabcbb") == 3;
         assert lengthOfLongestSubstring.lengthOfLongestSubstring("pwwkew") == 3;
+    }
+
+    @Test
+    public void threeSumTest() {
+        List<List<Integer>> lists = threeSum.threeSum(new int[]{-1, 0, 1, 2, -1, -4});
+        System.out.println(lists);
+    }
+
+    @Test
+    public void removeNthFromEndTest() {
+        List<Integer> second = Arrays.asList(9, 2, 4);
+        LC_ListNode.ListNode newNode = removeNthFromEnd.removeNthFromEnd(removeNthFromEnd.list2Node(second), 2);
+        System.out.println(removeNthFromEnd.node2List(newNode));
+    }
+
+    @Test
+    public void isValidTest() {
+        String quota = "()[]{}";
+        System.out.println(isValid.isValid(quota));
+        System.out.println(isValid.isValid("(}"));
+    }
+
+    @Test
+    public void mergeTwoListsTest() {
+        List<Integer> first = Arrays.asList(1, 8);
+        List<Integer> second = Arrays.asList(9, 2, 4);
+        LC_ListNode.ListNode firstNode = sortList.sortList(mergeTwoLists.list2Node(first));
+        LC_ListNode.ListNode secondNode = sortList.sortList(mergeTwoLists.list2Node(second));
+        LC_ListNode.ListNode merge = mergeTwoLists.mergeTwoLists(firstNode, secondNode);
+        System.out.println(mergeTwoLists.node2List(merge));
     }
 
     @Test
@@ -81,6 +128,18 @@ public class LCTest {
     }
 
     @Test
+    public void mergeKListsTest() {
+        List<Integer> first = Arrays.asList(1, 8);
+        List<Integer> second = Arrays.asList(9, 2, 4);
+        List<Integer> third = Arrays.asList(6, 3, 7, 5);
+        LC_ListNode.ListNode firstNode = sortList.sortList(mergeKLists.list2Node(first));
+        LC_ListNode.ListNode secondNode = sortList.sortList(mergeKLists.list2Node(second));
+        LC_ListNode.ListNode thirdNode = sortList.sortList(mergeKLists.list2Node(third));
+        LC_ListNode.ListNode merge = mergeKLists.mergeKLists((Arrays.asList(firstNode, secondNode, thirdNode).toArray(new LC_ListNode.ListNode[]{})));
+        System.out.println(mergeKLists.node2List(merge));
+    }
+
+    @Test
     public void findKthLargestResult() {
         int[] element = new int[]{3, 2, 1, 5, 6, 4, 3, 4, 4};
         for (int i = 1; i < element.length; i++) {
@@ -88,21 +147,6 @@ public class LCTest {
             assert findKthLargest.findKthLargestAnother(copy, i) == findKthLargest.findKthLargest(copy, i);
         }
     }
-
-
-    @Test
-    public void quotaValid() {
-        String quota = "()[]{}";
-        System.out.println(isValid.isValid(quota));
-        System.out.println(isValid.isValid("(}"));
-    }
-
-    @Test
-    public void threeSumResult() {
-        List<List<Integer>> lists = threeSum.threeSum(new int[]{-1, 0, 1, 2, -1, -4});
-        System.out.println(lists);
-    }
-
 
     @Test
     public void spiralOrderResult() {
@@ -149,13 +193,33 @@ public class LCTest {
         System.out.println(rlist);
     }
 
-
     @Test
     public void getIntersectionNodeTest() {
         List<Integer> first = Arrays.asList(4, 1, 8, 4, 5);
         List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5);
         LC_ListNode.ListNode node = getIntersectionNode.getIntersectionNode(getIntersectionNode.list2Node(first), getIntersectionNode.list2Node(second));
         System.out.println(node.val);
+    }
+
+    @Test
+    public void sortListTest() {
+        List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5);
+        LC_ListNode.ListNode listNode = sortList.sortList(sortList.list2Node(second));
+        System.out.println(sortList.node2List(listNode));
+    }
+
+    @Test
+    public void detectCycleTest() {
+        List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5, 7, 9, 2);
+        LC_ListNode.ListNode listNode = detectCycle.detectCycle(detectCycle.list2CycleNode(second));
+        System.out.println(listNode.val);
+    }
+
+    @Test
+    public void hasCycleTest() {
+        List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5, 7, 9, 2);
+        System.out.println(hasCycle.hasCycle(hasCycle.list2Node(second)));
+        System.out.println(hasCycle.hasCycle(hasCycle.list2CycleNode(second)));
     }
 
 }

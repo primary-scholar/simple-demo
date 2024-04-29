@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
+
 import java.util.Objects;
 
 /**
@@ -27,7 +29,7 @@ import java.util.Objects;
  * 使用快慢节点 策略进行判断
  * 两个节点都从head 出发，慢节点每次循环走一步 slow.next,快节点每次走两步 fast.next.next；如果快慢节点不相遇 则无环
  */
-public class LCTest_ListNode_141_HasCycle extends LC_ListNode {
+public class LC_ListNode_141_HasCycle extends LC_ListNode {
 
 
     /**

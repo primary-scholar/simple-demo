@@ -1,8 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -28,7 +27,7 @@ import java.util.Objects;
  * <p>
  * 单链表两数之和
  */
-public class LCTest_ListNode_2_AddTwoNumbers extends LC_ListNode {
+public class LC_ListNode_2_AddTwoNumbers extends LC_ListNode {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(-1);// 构建一个 哨兵头结点
@@ -46,16 +45,6 @@ public class LCTest_ListNode_2_AddTwoNumbers extends LC_ListNode {
         }
         if (carry == 1) cur.next = new ListNode(1);
         return head.next;// 返回头结点的下一个节点数据
-    }
-
-    @Test
-    public void printResult() {
-        ListNode node = addTwoNumbers(list2ListNode(Arrays.asList(2, 4, 3)), list2ListNode(Arrays.asList(5, 6, 4)));
-        ListNode convert = list2ListNode(Arrays.asList(7, 0, 8));
-        assert listNode2List(node).equals(listNode2List(convert));
-        ListNode node1 = addTwoNumbers(list2ListNode(Arrays.asList(9, 9, 9, 9, 9, 9, 9)), list2ListNode(Arrays.asList(9, 9, 9, 9)));
-        ListNode convert1 = list2ListNode(Arrays.asList(8, 9, 9, 9, 0, 0, 0, 1));
-        assert listNode2List(node1).equals(listNode2List(convert1));
     }
 
 }

@@ -1,9 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
-import net.sf.cglib.core.FieldTypeCustomizer;
+import com.mimu.simple.java.leetcode.base.LC_ListNode;
 
-import javax.print.attribute.standard.NumberOfInterveningJobs;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -18,7 +16,7 @@ import java.util.Objects;
  * 单链表 排序 要求O(nlogn)
  * 采用 归并排序 思想
  */
-public class LCTest_ListNode_148_SortList extends LC_ListNode {
+public class LC_ListNode_148_SortList extends LC_ListNode {
     public ListNode sortList(ListNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {
             return head;
@@ -29,7 +27,7 @@ public class LCTest_ListNode_148_SortList extends LC_ListNode {
         return merge(firstPart, secondPart);
     }
 
-    public ListNode split(ListNode head) {
+    private ListNode split(ListNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {
             return head;
         }
@@ -43,7 +41,7 @@ public class LCTest_ListNode_148_SortList extends LC_ListNode {
         return slow;
     }
 
-    public ListNode merge(ListNode first, ListNode second) {
+    private ListNode merge(ListNode first, ListNode second) {
         ListNode head = new ListNode(-1);
         ListNode current = head;
         while (Objects.nonNull(first) && Objects.nonNull(second)) {
