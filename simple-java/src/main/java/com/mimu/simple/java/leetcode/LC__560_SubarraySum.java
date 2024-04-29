@@ -25,7 +25,7 @@ import java.util.Objects;
  * 注意这里是连续子数组,以示例1来说k=2 的连续子数组为 [nums[0],nums[1]],[nums[1],nums[2]] 这两个
  * 对于 [nums[0],nums[2]] 这一组来说，虽然值=2但是不连续，所以不算；
  */
-public class LCTest__560_SubarraySum {
+public class LC__560_SubarraySum {
 
     /**
      * 这里 确实不知为何

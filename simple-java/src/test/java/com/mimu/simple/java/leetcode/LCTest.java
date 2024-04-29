@@ -28,6 +28,7 @@ public class LCTest {
     private LC_Stack_20_IsValid isValid = new LC_Stack_20_IsValid();
     private LC_ListNode_21_MergeTwoLists mergeTwoLists = new LC_ListNode_21_MergeTwoLists();
     private LC_ListNode_23_MergeKLists mergeKLists = new LC_ListNode_23_MergeKLists();
+    private LC_Array_31_NextPermutation nextPermutation = new LC_Array_31_NextPermutation();
     private LC_Stack_42_Trap trap = new LC_Stack_42_Trap();
     private LC__54_SpiralOrder spiralOrder = new LC__54_SpiralOrder();
     private LC__75_SortColors sortColors = new LC__75_SortColors();
@@ -47,6 +48,7 @@ public class LCTest {
     private LC__287_FindDuplicate findDuplicate = new LC__287_FindDuplicate();
     private LC__347_TopKFrequent topKFrequent = new LC__347_TopKFrequent();
     private LC__438_FindAnagrams findAnagrams = new LC__438_FindAnagrams();
+    private LC__560_SubarraySum subarraySum = new LC__560_SubarraySum();
 
     @Test
     public void addTwoNumbersTest() {
@@ -123,6 +125,15 @@ public class LCTest {
         System.out.println(minStack.top());
         minStack.pop();
         System.out.println(minStack.top());
+    }
+
+    @Test
+    public void nextPermutationTest() {
+        int[] origin = {1, 1, 5};
+        nextPermutation.nextPermutation(origin);
+        for (int i : origin) {
+            System.out.print(i);
+        }
     }
 
     @Test
@@ -257,6 +268,12 @@ public class LCTest {
     @Test
     public void findAnagramsTest() {
         System.out.println(findAnagrams.findAnagrams_force("baa", "aa"));
+    }
+
+    @Test
+    public void subarraySumTest() {
+        int i = subarraySum.subarraySum_force(new int[]{1, 5, 2, 4, 2, 2, 2}, 6);
+        System.out.println(i);
     }
 
 }

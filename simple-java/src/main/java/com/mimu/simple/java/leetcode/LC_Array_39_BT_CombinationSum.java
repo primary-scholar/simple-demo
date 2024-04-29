@@ -49,7 +49,7 @@ import java.util.Objects;
  * 注意：
  * 这里每次进行选择时，只能 从当前元素的 下一个元素开始选择(包含当前元素)
  */
-public class LCTest_Array_39_BT_CombinationSum {
+public class LC_Array_39_BT_CombinationSum {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         ArrayList<List<Integer>> res = new ArrayList<>();

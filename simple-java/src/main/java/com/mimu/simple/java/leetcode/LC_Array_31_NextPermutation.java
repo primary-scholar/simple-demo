@@ -37,7 +37,7 @@ import java.util.Objects;
  * *    首先按照上一步，交换 5 和 4，得到 123564；然后需要将 5 之后的数重置为升序，得到 123546。显然 123546 比 123564 更小，123546 就是 123465 的下一个排列
  * *  以上就是求 “下一个排列” 的分析过程
  */
-public class LCTest_Array_31_NextPermutation {
+public class LC_Array_31_NextPermutation {
 
     public void nextPermutation(int[] nums) {
         if (Objects.isNull(nums) || nums.length <= 1) {
