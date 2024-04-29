@@ -29,14 +29,18 @@ public class LCTest {
     private LC_ListNode_21_MergeTwoLists mergeTwoLists = new LC_ListNode_21_MergeTwoLists();
     private LC_ListNode_23_MergeKLists mergeKLists = new LC_ListNode_23_MergeKLists();
     private LC_Array_31_NextPermutation nextPermutation = new LC_Array_31_NextPermutation();
+    private LC_BinQry_33_Search search = new LC_BinQry_33_Search();
+    private LC_BinQry_35_SearchInsert searchInsert = new LC_BinQry_35_SearchInsert();
     private LC_Stack_42_Trap trap = new LC_Stack_42_Trap();
     private LC__54_SpiralOrder spiralOrder = new LC__54_SpiralOrder();
+    private LC_BinQry_74_SearchMatrix searchMatrix = new LC_BinQry_74_SearchMatrix();
     private LC__75_SortColors sortColors = new LC__75_SortColors();
     private LC__136_SingleNumber singleNumber = new LC__136_SingleNumber();
     private LC_ListNode_141_HasCycle hasCycle = new LC_ListNode_141_HasCycle();
     private LC_ListNode_142_DetectCycle detectCycle = new LC_ListNode_142_DetectCycle();
     private LC_Map_146_LRUCache.LRUCache lruCache = new LC_Map_146_LRUCache.LRUCache(2);
     private LC_ListNode_148_SortList sortList = new LC_ListNode_148_SortList();
+    private LC_BinQry_153_FindMin findMin = new LC_BinQry_153_FindMin();
     private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
     private LC_ListNode_160_GetIntersectionNode getIntersectionNode = new LC_ListNode_160_GetIntersectionNode();
     private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
@@ -117,6 +121,11 @@ public class LCTest {
     }
 
     @Test
+    public void findMinTest() {
+        System.out.println(findMin.findMin(new int[]{5, 6, 1, 2, 3, 4}));
+    }
+
+    @Test
     public void minStackTest() {
         minStack.push(3);
         minStack.push(1);
@@ -137,10 +146,35 @@ public class LCTest {
     }
 
     @Test
+    public void searchTest() {
+        System.out.println(search.search(new int[]{5, 6, 1, 2, 3, 4}, 1));
+    }
+
+    @Test
+    public void searchInsertTest() {
+        System.out.println(searchInsert.searchInsert(new int[]{1, 2, 3, 4}, 3));
+    }
+
+    @Test
     public void trapTest() {
         int[] inputs = {4, 2, 0, 3, 2, 5, 1, 2};
         System.out.println(trap.trap(inputs));
         System.out.println(trap.trapAnother(inputs));
+    }
+
+    @Test
+    public void searchMatrixTest() {
+        int[][] nums = new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
+        System.out.println(searchMatrix.searchMatrix(nums, 16));
+    }
+
+    @Test
+    public void sortColorsTest() {
+        int[] colors = {0, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1};
+        sortColors.sortColors(colors);
+        for (int color : colors) {
+            System.out.print(color);
+        }
     }
 
     @Test
@@ -168,15 +202,6 @@ public class LCTest {
     public void spiralOrderResult() {
         List<Integer> integers1 = spiralOrder.spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}});
         System.out.println(integers1);
-    }
-
-    @Test
-    public void sortColorsTest() {
-        int[] colors = {0, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1};
-        sortColors.sortColors(colors);
-        for (int color : colors) {
-            System.out.print(color);
-        }
     }
 
     @Test

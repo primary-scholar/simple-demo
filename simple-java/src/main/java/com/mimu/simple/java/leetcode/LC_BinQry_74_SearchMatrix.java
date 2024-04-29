@@ -24,7 +24,7 @@ package com.mimu.simple.java.leetcode;
  * 每行的第一个整数大于前一行的最后一个整数。
  * 给你一个整数 target ，如果 target 在矩阵中，返回 true ；否则，返回 false
  */
-public class LCTest_BinQry_74_SearchMatrix {
+public class LC_BinQry_74_SearchMatrix {
 
     /**
      * 矩阵的二维查找

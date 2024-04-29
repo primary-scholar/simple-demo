@@ -47,7 +47,7 @@ public class LC_Array_31_NextPermutation {
         while (i >= 0 && nums[i] >= nums[i + 1]) { // 从右向左寻找 第一个 正序的位置 即nums[i]<nums[i+1] 的位置
             i--;
         }
-        // 如果i>=0 说明 i的位置 并不是 第一个，这里需要再次寻找 右侧第一个大于 该位置的数，并进行交换
+        // 如果i>=0 说明 i的位置 并不是 数组第一个元素，这里需要再次寻找 右侧第一个大于 该位置的数，并进行交换
         if (i >= 0) {
             int j = nums.length - 1;
             while (j >= 0 && nums[i] >= nums[j]) { // 从右向左寻找 第一个 大于 nums[i] 位置的数

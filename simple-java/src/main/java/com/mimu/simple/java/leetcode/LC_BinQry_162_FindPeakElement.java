@@ -21,7 +21,7 @@ import java.util.Objects;
  * Output: 5 or 1
  * Explanation: Your function can return either index number 1 where the peak element i
  */
-public class LCTest_BinQry_162_FindPeakElement {
+public class LC_BinQry_162_FindPeakElement {
 
     public int findPeakElement(int[] nums) {
         if (nums.length == 1) return 0;
