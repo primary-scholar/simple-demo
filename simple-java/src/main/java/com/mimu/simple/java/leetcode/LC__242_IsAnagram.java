@@ -1,7 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -20,7 +18,7 @@ import java.util.Objects;
  * <p>
  * 对于排序方法，如果字符串长度较短，则性能较好，否则下面的那个性能较好
  */
-public class LCTest__242_IsAnagram {
+public class LC__242_IsAnagram {
 
     /**
      * 可以使用排序法
@@ -70,8 +68,4 @@ public class LCTest__242_IsAnagram {
         return Boolean.TRUE;
     }
 
-    @Test
-    public void isAnagramTest() {
-        System.out.println(isAnagram("eat", "tea"));
-    }
 }

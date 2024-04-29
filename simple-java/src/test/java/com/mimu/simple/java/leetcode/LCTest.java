@@ -39,9 +39,14 @@ public class LCTest {
     private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
     private LC_ListNode_160_GetIntersectionNode getIntersectionNode = new LC_ListNode_160_GetIntersectionNode();
     private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
+    private LC_ListNode_206_ReverseList reverseList = new LC_ListNode_206_ReverseList();
     private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
     private LC_ListNode_234_IsPalindrome isPalindrome = new LC_ListNode_234_IsPalindrome();
-    private LC_ListNode_206_ReverseList reverseList = new LC_ListNode_206_ReverseList();
+    private LC__242_IsAnagram isAnagram = new LC__242_IsAnagram();
+    private LC__283_MoveZeroes moveZeroes = new LC__283_MoveZeroes();
+    private LC__287_FindDuplicate findDuplicate = new LC__287_FindDuplicate();
+    private LC__347_TopKFrequent topKFrequent = new LC__347_TopKFrequent();
+    private LC__438_FindAnagrams findAnagrams = new LC__438_FindAnagrams();
 
     @Test
     public void addTwoNumbersTest() {
@@ -220,6 +225,38 @@ public class LCTest {
         List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5, 7, 9, 2);
         System.out.println(hasCycle.hasCycle(hasCycle.list2Node(second)));
         System.out.println(hasCycle.hasCycle(hasCycle.list2CycleNode(second)));
+    }
+
+    @Test
+    public void isAnagramTest() {
+        System.out.println(isAnagram.isAnagram("eat", "tea"));
+    }
+
+    @Test
+    public void moveZeroesTest() {
+        int[] origin = {1, 3, 5, 0, 3, 0, 5, 0, 0};
+        moveZeroes.moveZeroes(origin);
+        for (int i : origin) {
+            System.out.print(i);
+        }
+    }
+
+    @Test
+    public void findDuplicateTest() {
+        System.out.println(findDuplicate.findDuplicate(new int[]{1, 3, 2, 4, 2}));
+    }
+
+    @Test
+    public void topKFrequentTest() {
+        int[] origin = topKFrequent.topKFrequent(new int[]{1, 3, 5, 0, 3, 0, 5, 0, 0}, 3);
+        for (int i : origin) {
+            System.out.print(i);
+        }
+    }
+
+    @Test
+    public void findAnagramsTest() {
+        System.out.println(findAnagrams.findAnagrams_force("baa", "aa"));
     }
 
 }

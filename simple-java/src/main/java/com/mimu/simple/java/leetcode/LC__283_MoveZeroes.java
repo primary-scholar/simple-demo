@@ -13,7 +13,7 @@ import java.util.Objects;
  * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
  * 请注意 ，必须在不复制数组的情况下原地对数组进行操作
  */
-public class LCTest__283_MoveZeroes {
+public class LC__283_MoveZeroes {
 
     /**
      * 循环遍历数组，依次把不为零的数，从数组初始位置，向后放，然后把数组剩余的部分，置为零

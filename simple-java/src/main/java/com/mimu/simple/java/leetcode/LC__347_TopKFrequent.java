@@ -18,7 +18,7 @@ import java.util.*;
  * 前k个高频元素 要求 <= O(nlogn)
  * 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案
  */
-public class LCTest__347_TopKFrequent {
+public class LC__347_TopKFrequent {
 
     /**
      * 使用 map 记录 数组中 数字的频次，然后对 频次进行 逆序排列，取前k个即可

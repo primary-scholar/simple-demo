@@ -25,7 +25,7 @@ import java.util.Objects;
  * 假设 nums 只有 一个重复的整数 ，返回 这个重复的数 。
  * 你设计的解决方案必须 不修改 数组 nums 且只用常量级 O(1) 的额外空间。
  */
-public class LCTest__287_FindDuplicate {
+public class LC__287_FindDuplicate {
 
     /**
      * 循环链表 快慢指针 思路
