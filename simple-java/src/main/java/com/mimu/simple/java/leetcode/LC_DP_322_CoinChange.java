@@ -26,7 +26,7 @@ import java.util.Arrays;
  * 计算并返回可以凑成总金额所需的 最少的硬币个数 。如果没有任何一种硬币组合能组成总金额，返回 -1 。
  * 你可以认为每种硬币的数量是无限的
  */
-public class LCTest_DP_322_CoinChange {
+public class LC_DP_322_CoinChange {
 
     /**
      * 动态规划

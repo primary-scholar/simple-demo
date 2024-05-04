@@ -27,7 +27,7 @@ package com.mimu.simple.java.leetcode;
  * <p>
  * 斐波那契数字
  */
-public class LCTest_DP_509_Fib {
+public class LC_DP_509_Fib {
     /**
      * 递归算法
      * F(N) = F(N - 1) + F(N - 2)

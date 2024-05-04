@@ -22,6 +22,7 @@ public class LCTest {
     private LC_Map_1_AddTwoNumbers addTwoNumbers = new LC_Map_1_AddTwoNumbers();
     private LC_ListNode_2_AddTwoNumbers listNode_2_addTwoNumbers = new LC_ListNode_2_AddTwoNumbers();
     private LC__3_LengthOfLongestSubstring lengthOfLongestSubstring = new LC__3_LengthOfLongestSubstring();
+    private LC_DP_5_LongestPalindrome longestPalindrome = new LC_DP_5_LongestPalindrome();
     private LC__15_ThreeSum threeSum = new LC__15_ThreeSum();
     private LC_ListNode_19_RemoveNthFromEnd removeNthFromEnd = new LC_ListNode_19_RemoveNthFromEnd();
     private LC_Stack_20_IsValid isValid = new LC_Stack_20_IsValid();
@@ -36,6 +37,9 @@ public class LCTest {
     private LC_Array_49_GroupAnagrams groupAnagrams = new LC_Array_49_GroupAnagrams();
     private LC_Array_53_MaxSubArray maxSubArray = new LC_Array_53_MaxSubArray();
     private LC__54_SpiralOrder spiralOrder = new LC__54_SpiralOrder();
+    private LC_DP_62_UniquePaths uniquePaths = new LC_DP_62_UniquePaths();
+    private LC_DP_64_MinPathSum minPathSum = new LC_DP_64_MinPathSum();
+    private LC_DP_70_ClimbStairs climbStairs = new LC_DP_70_ClimbStairs();
     private LC_BinQry_74_SearchMatrix searchMatrix = new LC_BinQry_74_SearchMatrix();
     private LC__75_SortColors sortColors = new LC__75_SortColors();
     private LC_Array_77_BT_Combine combine = new LC_Array_77_BT_Combine();
@@ -49,6 +53,7 @@ public class LCTest {
     private LC_BinTreeNode_105_BuildTree buildTree = new LC_BinTreeNode_105_BuildTree();
     private LC_BinTreeNode_108_SortedArrayToBST sortedArrayToBST = new LC_BinTreeNode_108_SortedArrayToBST();
     private LC_BinTreeNode_114_Flatten flatten = new LC_BinTreeNode_114_Flatten();
+    private LC_DP_118_Generate generate = new LC_DP_118_Generate();
     private LC_Array_121_MaxProfit maxProfit = new LC_Array_121_MaxProfit();
     private LC_Array_128_LongestConsecutive longestConsecutive = new LC_Array_128_LongestConsecutive();
     private LC__136_SingleNumber singleNumber = new LC__136_SingleNumber();
@@ -60,7 +65,9 @@ public class LCTest {
     private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
     private LC_ListNode_160_GetIntersectionNode getIntersectionNode = new LC_ListNode_160_GetIntersectionNode();
     private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
+    private LC_DP_198_Rob rob = new LC_DP_198_Rob();
     private LC_BinTreeNode_199_RightSideView rightSideView = new LC_BinTreeNode_199_RightSideView();
+    private LC_DFS_200_NumIsLands numIsLands = new LC_DFS_200_NumIsLands();
     private LC_ListNode_206_ReverseList reverseList = new LC_ListNode_206_ReverseList();
     private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
     private LC_BinTreeNode_230_KthSmallest kthSmallest = new LC_BinTreeNode_230_KthSmallest();
@@ -68,13 +75,17 @@ public class LCTest {
     private LC_BinTreeNode_236_LowestCommonAncestor lowestCommonAncestor = new LC_BinTreeNode_236_LowestCommonAncestor();
     private LC__242_IsAnagram isAnagram = new LC__242_IsAnagram();
     private LC_BinTreeNode_266_InvertTree invertTree = new LC_BinTreeNode_266_InvertTree();
+    private LC_DP_279_NumSquares numSquares = new LC_DP_279_NumSquares();
     private LC__283_MoveZeroes moveZeroes = new LC__283_MoveZeroes();
     private LC__287_FindDuplicate findDuplicate = new LC__287_FindDuplicate();
     private LC_Array_300_LengthOfLIS lengthOfLIS = new LC_Array_300_LengthOfLIS();
+    private LC_DP_322_CoinChange coinChange = new LC_DP_322_CoinChange();
     private LC__347_TopKFrequent topKFrequent = new LC__347_TopKFrequent();
     private LC__438_FindAnagrams findAnagrams = new LC__438_FindAnagrams();
+    private LC_DP_509_Fib fib = new LC_DP_509_Fib();
     private LC_BinTreeNode_543_DiameterOfBinaryTree diameterOfBinaryTree = new LC_BinTreeNode_543_DiameterOfBinaryTree();
     private LC__560_SubarraySum subarraySum = new LC__560_SubarraySum();
+    private LC_DP_1143_LongestCommonSubsequence longestCommonSubsequence = new LC_DP_1143_LongestCommonSubsequence();
 
     @Test
     public void addTwoNumbersTest() {
@@ -96,6 +107,13 @@ public class LCTest {
     public void lengthOfLongestSubstringTest() {
         assert lengthOfLongestSubstring.lengthOfLongestSubstring("abcabcbb") == 3;
         assert lengthOfLongestSubstring.lengthOfLongestSubstring("pwwkew") == 3;
+    }
+
+
+    @Test
+    public void longestPalindromeTest() {
+        System.out.println(longestPalindrome.longestPalindrome("babad"));
+        System.out.println(longestPalindrome.longestPalindrome_Another("babad"));
     }
 
     @Test
@@ -212,6 +230,23 @@ public class LCTest {
     }
 
     @Test
+    public void uniquePathsTest() {
+        int i = uniquePaths.uniquePaths(4, 3);
+        System.out.println(i);
+    }
+
+    @Test
+    public void minPathSumTest() {
+        int[][] ints = new int[][]{{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
+        System.out.println(minPathSum.minPathSum(ints));
+    }
+
+    @Test
+    public void climbStairsTest() {
+        System.out.println(climbStairs.climbStairs(5));
+    }
+
+    @Test
     public void searchMatrixTest() {
         int[][] nums = new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
         System.out.println(searchMatrix.searchMatrix(nums, 16));
@@ -303,6 +338,12 @@ public class LCTest {
     }
 
     @Test
+    public void generateTest() {
+        List<List<Integer>> generate1 = generate.generate(5);
+        System.out.println(generate1);
+    }
+
+    @Test
     public void maxProfitTest() {
         assert 5 == maxProfit.maxProfit(new int[]{7, 1, 5, 3, 6, 4});
         assert 0 == maxProfit.maxProfit(new int[]{7, 6, 4, 3, 1});
@@ -354,9 +395,22 @@ public class LCTest {
     }
 
     @Test
+    public void robTest() {
+        System.out.println(rob.rob(new int[]{1, 2, 3, 1}));
+    }
+
+    @Test
     public void rightSideViewTest() {
         LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
         System.out.println(rightSideView.rightSideView(rightSideView.list2TreeByLevel(integers)));
+    }
+
+    @Test
+    public void numIsLandsTest() {
+        char[][] metrix = new char[][]{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}};
+        int i = numIsLands.numIslands(metrix);
+        System.out.println(i);
+
     }
 
     @Test
@@ -426,6 +480,11 @@ public class LCTest {
     }
 
     @Test
+    public void numSquaresTest() {
+        System.out.println(numSquares.numSquares(19));
+    }
+
+    @Test
     public void moveZeroesTest() {
         int[] origin = {1, 3, 5, 0, 3, 0, 5, 0, 0};
         moveZeroes.moveZeroes(origin);
@@ -445,6 +504,11 @@ public class LCTest {
     }
 
     @Test
+    public void coinChangeTest() {
+        System.out.println(coinChange.coinChange(new int[]{1, 2, 5}, 11));
+    }
+
+    @Test
     public void topKFrequentTest() {
         int[] origin = topKFrequent.topKFrequent(new int[]{1, 3, 5, 0, 3, 0, 5, 0, 0}, 3);
         for (int i : origin) {
@@ -458,6 +522,11 @@ public class LCTest {
     }
 
     @Test
+    public void fibTest() {
+        System.out.println(fib.fib(5));
+    }
+
+    @Test
     public void diameterOfBinaryTreeTest() {
         LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
         System.out.println(diameterOfBinaryTree.diameterOfBinaryTree(diameterOfBinaryTree.list2TreeByLevel(integers)));
@@ -467,6 +536,11 @@ public class LCTest {
     public void subarraySumTest() {
         int i = subarraySum.subarraySum_force(new int[]{1, 5, 2, 4, 2, 2, 2}, 6);
         System.out.println(i);
+    }
+
+    @Test
+    public void longestCommonSubsequenceTest() {
+        System.out.println(longestCommonSubsequence.longestCommonSubsequence("abcde", "ace"));
     }
 
 }

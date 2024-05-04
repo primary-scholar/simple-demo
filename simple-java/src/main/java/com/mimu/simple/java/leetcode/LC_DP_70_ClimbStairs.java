@@ -23,7 +23,7 @@ package com.mimu.simple.java.leetcode;
  * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
  * 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢
  */
-public class LCTest_DP_70_ClimbStairs {
+public class LC_DP_70_ClimbStairs {
 
     /**
      * F(N) = F(N - 1) + F(N - 2),

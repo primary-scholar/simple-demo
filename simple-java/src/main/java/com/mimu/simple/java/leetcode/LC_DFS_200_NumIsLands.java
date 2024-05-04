@@ -1,7 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
 /**
  * 岛屿数量
  * <p>
@@ -29,7 +27,7 @@ import org.junit.Test;
  * <p>
  * Output: 3
  */
-public class LCTest_DFS_200_NumIsLands {
+public class LC_DFS_200_NumIsLands {
 
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) {
@@ -54,7 +52,7 @@ public class LCTest_DFS_200_NumIsLands {
      * 的数据都执行了一遍相同的操作后 本次进入的方法才能退出；在进行当前节点的上下左右访问过程中，对于访问到的数据，依然是上下左右的规则进行访问，
      * 而不是当前节点的上下左右四个访问操作全部执行完再执行下一个节点的上下左右；
      * 深度优先遍历，和递归序 完全一致，所以深度递归可以使用 递归来实现；
-     *
+     * <p>
      * 如二叉树的先序，中序，后续访问，就是一种深度遍历规则，规则为，先(根，左，右),中(左，根，右),后(左，右，根) 即对每一个子树都是这个规则，
      * 这里并不是把当前树进行先(根，左，右),中(左，根，右),后(左，右，根) 三个操作(这里的三个操作是确定某个序中的三个操作)全部执行完毕，
      * 在执行 下一个子树的 先(根，左，右),中(左，根，右),后(左，右，根)，而是在 先(根，左，右),中(左，根，右),后(左，右，根)这个规则执行的过程中，
@@ -64,7 +62,7 @@ public class LCTest_DFS_200_NumIsLands {
      * @param r
      * @param c
      */
-    void dfs(char[][] grid, int r, int c) {
+    private void dfs(char[][] grid, int r, int c) {
         int nr = grid.length;
         int nc = grid[0].length;
         if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == '0') {
@@ -77,11 +75,4 @@ public class LCTest_DFS_200_NumIsLands {
         dfs(grid, r, c + 1); // 当前位置的 右一个节点位置(平面上右一个位置) 同样执行相同的操作
     }
 
-
-    @Test
-    public void numIslandResult() {
-        char[][] metrix = new char[][]{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}};
-        int i = numIslands(metrix);
-        System.out.println(i);
-    }
 }

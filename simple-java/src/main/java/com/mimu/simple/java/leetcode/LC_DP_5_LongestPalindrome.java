@@ -1,7 +1,5 @@
 package com.mimu.simple.java.leetcode;
 
-import org.junit.Test;
-
 import java.util.Objects;
 
 /**
@@ -24,7 +22,7 @@ import java.util.Objects;
  * 4.循环 递推
  * 5.明确输出返回结果
  */
-public class LCTest_DP_5_LongestPalindrome {
+public class LC_DP_5_LongestPalindrome {
 
     public String longestPalindrome(String s) {
         if (Objects.isNull(s) || s.length() <= 0)
@@ -140,12 +138,6 @@ public class LCTest_DP_5_LongestPalindrome {
             }
         }
         return s.substring(begin, begin + maxLen);
-    }
-
-    @Test
-    public void longestPalindromeResult() {
-        System.out.println(longestPalindrome("babad"));
-        System.out.println(longestPalindrome_Another("babad"));
     }
 
 }

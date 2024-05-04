@@ -17,7 +17,7 @@ import java.util.List;
  * *  [1,4,6,4,1]
  * * ]
  */
-public class LCTest_DP_118_Generate {
+public class LC_DP_118_Generate {
 
     /**
      * 杨辉三角
