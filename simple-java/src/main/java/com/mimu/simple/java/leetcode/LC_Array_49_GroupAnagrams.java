@@ -22,7 +22,7 @@ import java.util.*;
  * 2.把字母异位词 按照字母拆分，然后把字母iin行全排列，然后再 分别从数组里寻找；
  * 思路 2 这里 可以先放弃；
  */
-public class LCTest_Array_49_GroupAnagrams {
+public class LC_Array_49_GroupAnagrams {
 
     /**
      * 使用 hashMap 保存 按照 字典序排序后的 字母异位词

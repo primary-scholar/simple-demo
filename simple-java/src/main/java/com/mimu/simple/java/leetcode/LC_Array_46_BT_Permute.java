@@ -1,7 +1,6 @@
 package com.mimu.simple.java.leetcode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -50,7 +49,7 @@ import java.util.List;
  * *                     [1,2,3]  [1,3,2] [2,1,3] [2,3,1] [3,1,2]   [3,2,1]
  * 所以最终的结果 123；132；213；231；312；321；
  */
-public class LCTest_Array_46_BT_Permute {
+public class LC_Array_46_BT_Permute {
 
     /**
      * 回溯法

@@ -13,7 +13,7 @@ package com.mimu.simple.java.leetcode;
  * <p>
  * 合并两个有序数组
  */
-public class LCTest_Array_88_Merge {
+public class LC_Array_88_Merge {
 
     /**
      * 分别从两个数组的末尾 开始 进行比较，取较大值，并把较大值 放置在 [m+n-1]-- 的位置上

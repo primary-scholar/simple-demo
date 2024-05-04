@@ -16,7 +16,7 @@ import java.util.Set;
  * 最长连续序列
  * 要求 O(N)
  */
-public class LCTest_Array_128_LongestConsecutive {
+public class LC_Array_128_LongestConsecutive {
     public int longestConsecutive(int[] nums) {
         int result = 0;
         if (Objects.isNull(nums)) {

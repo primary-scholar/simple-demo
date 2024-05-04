@@ -54,7 +54,7 @@ import java.util.List;
  * *                     [1,2,3]  [1,3,2] [2,1,3] [2,3,1] [3,1,2]   [3,2,1]
  * 所以最终的结果 123；132；213；231；312；321；
  */
-public class LCTest_Array_47_BT_PermuteUnique {
+public class LC_Array_47_BT_PermuteUnique {
 
     /**
      * 重复数组全排列

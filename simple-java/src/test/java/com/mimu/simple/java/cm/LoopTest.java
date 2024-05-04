@@ -10,19 +10,28 @@ import org.junit.Test;
 
 
 public class LoopTest {
-    private Integer otLoop = 5, inLoop = 3,currentLoop = 0;
+    private Integer otLoop = 5, inLoop = 3, currentLoop = 0;
 
     @Test
-    public void currentTest(){
+    public void currentTest() {
         Integer integer = innerLoop(currentLoop);
         System.out.println(currentLoop);
         System.out.println(integer);
+        System.out.println();
+        loop(new int[]{1, 2, 3});
     }
 
-    public Integer innerLoop(int currentLoop){
+    public Integer innerLoop(int currentLoop) {
         for (Integer i = 0; i < inLoop; i++) {
             currentLoop++;
         }
         return currentLoop;
+    }
+
+    public void loop(int[] nums) {
+        int idx = 0;
+        while (idx < nums.length) {
+            System.out.println(nums[idx++]);
+        }
     }
 }

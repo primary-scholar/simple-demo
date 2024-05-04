@@ -36,7 +36,7 @@ import java.util.List;
  * *                  [1,2] [1,3] [1,4] [2,3]  [2,4]    [3,4]      [4]
  * *符合结果k=2 的返回 [1,2],[1,3],[1,4],[2,3],[2,4],[3,4]
  */
-public class LCTest_Array_77_BT_Combine {
+public class LC_Array_77_BT_Combine {
 
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> res = new ArrayList<>();
