@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.*;
 
 /**
@@ -24,7 +26,7 @@ import java.util.*;
  * 二叉树按层遍历
  * 使用队列让节点入队，
  */
-public class LCTest_BinTreeNode_102_LevelOrder extends LC_TreeNode {
+public class LC_BinTreeNode_102_LevelOrder extends LC_TreeNode {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         if (Objects.isNull(root)) {

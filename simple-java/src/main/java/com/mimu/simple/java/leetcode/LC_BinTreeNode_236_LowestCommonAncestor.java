@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 /**
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  * According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
@@ -25,7 +27,7 @@ package com.mimu.simple.java.leetcode;
  * 思路
  * 考虑通过递归对二叉树进行先序遍历，当遇到节点 p 或 q 时返回。从底至顶回溯，当节点 p,q 在节点 root 的异侧时，节点 root 即为最近公共祖先，则向上返回 root;
  */
-public class LCTest_BinTreeNode_236_LowestCommonAncestor extends LC_TreeNode {
+public class LC_BinTreeNode_236_LowestCommonAncestor extends LC_TreeNode {
 
     /**
      * 递归解析：

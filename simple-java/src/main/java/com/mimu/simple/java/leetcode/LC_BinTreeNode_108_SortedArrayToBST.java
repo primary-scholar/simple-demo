@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.Objects;
 
 /**
@@ -22,7 +24,7 @@ import java.util.Objects;
  * 注意：
  * 给定一棵二叉树，其中序遍历是唯一的，但是给定一个中序序列的二叉树，构建的二叉树不唯一；
  */
-public class LCTest_BinTreeNode_108_SortedArrayToBST extends LC_TreeNode {
+public class LC_BinTreeNode_108_SortedArrayToBST extends LC_TreeNode {
 
     public TreeNode sortedArrayToBST(int[] nums) {
         if (Objects.isNull(nums)) {
@@ -39,7 +41,7 @@ public class LCTest_BinTreeNode_108_SortedArrayToBST extends LC_TreeNode {
      * @param right
      * @return
      */
-    public TreeNode create(int[] data, int left, int right) {
+    private TreeNode create(int[] data, int left, int right) {
         if (left > right) {
             return null;
         }

@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.Objects;
 import java.util.Stack;
 
@@ -32,7 +34,7 @@ import java.util.Stack;
  * 二叉搜索树中第K小的元素
  * 给定一个二叉搜索树的根节点 root ，和一个整数 k ，请你设计一个算法查找其中第 k 个最小元素（从 1 开始计数）
  */
-public class LCTest_BinTreeNode_230_KthSmallest extends LC_TreeNode {
+public class LC_BinTreeNode_230_KthSmallest extends LC_TreeNode {
 
     /**
      * 使用 二叉树 中序遍历，是有序序列的 特点进行计算

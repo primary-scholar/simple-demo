@@ -1,6 +1,8 @@
 package com.mimu.simple.java.leetcode;
 
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +24,7 @@ import java.util.Stack;
  * <p>
  * 二叉树中序遍历
  */
-public class LCTest_BinTreeNode_94_InorderTraversal extends LC_TreeNode {
+public class LC_BinTreeNode_94_InorderTraversal extends LC_TreeNode {
     public List<Integer> inorderTraversal(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();
         if (Objects.isNull(root)) {
@@ -38,7 +40,7 @@ public class LCTest_BinTreeNode_94_InorderTraversal extends LC_TreeNode {
      * @param node
      * @param result
      */
-    public void inOrder(TreeNode node, List<Integer> result) {
+    private void inOrder(TreeNode node, List<Integer> result) {
         if (Objects.isNull(node)) {
             return;
         }

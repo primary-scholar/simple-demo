@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -28,7 +30,7 @@ import java.util.Queue;
  * 二叉树的 按层遍历 不过每层的遍历顺序要相反
  */
 
-public class LCTest_BinTreeNode_103_ZigzagLevelOrder extends LC_TreeNode {
+public class LC_BinTreeNode_103_ZigzagLevelOrder extends LC_TreeNode {
     /**
      * 使用一个队列和一个双端队列进行数据转化，一个用于访问二叉树的层级节点，另一个双端队列根据层的奇偶来
      * 前插和后插数据

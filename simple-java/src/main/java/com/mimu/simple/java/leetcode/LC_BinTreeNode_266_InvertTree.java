@@ -1,6 +1,6 @@
 package com.mimu.simple.java.leetcode;
 
-import com.sun.source.tree.Tree;
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
 
 import java.util.LinkedList;
 import java.util.Objects;
@@ -24,7 +24,7 @@ import java.util.Objects;
  * 反转二叉树
  * 给你一棵二叉树的根节点 root ，翻转这棵二叉树，并返回其根节点
  */
-public class LCTest_BinTreeNode_266_InvertTree extends LC_TreeNode {
+public class LC_BinTreeNode_266_InvertTree extends LC_TreeNode {
     /**
      * 递归调用即可
      *

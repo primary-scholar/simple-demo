@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.Objects;
 
 /**
@@ -30,7 +32,7 @@ import java.util.Objects;
  * 展开后的单链表应该同样使用 TreeNode ，其中 right 子指针指向链表中下一个结点，而左子指针始终为 null 。
  * 展开后的单链表应该与二叉树 先序遍历 顺序相同
  */
-public class LCTest_BinTreeNode_114_Flatten extends LC_TreeNode {
+public class LC_BinTreeNode_114_Flatten extends LC_TreeNode {
 
     /**
      * 非递归算法
@@ -41,7 +43,7 @@ public class LCTest_BinTreeNode_114_Flatten extends LC_TreeNode {
      *
      * @param root
      */
-    public void flatten(TreeNode root) {
+    public void flatten(LC_TreeNode.TreeNode root) {
         TreeNode current = root;
         while (Objects.nonNull(current)) {
             TreeNode leftRight = current.left;

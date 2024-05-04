@@ -1,6 +1,8 @@
 package com.mimu.simple.java.leetcode;
 
 import com.mimu.simple.java.algorithm.bintree.ClassicTreeSerializedOperation;
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.LinkedList;
 import java.util.Objects;
 
@@ -28,7 +30,7 @@ import java.util.Objects;
  *
  * @see ClassicTreeSerializedOperation 中序序列；
  */
-public class LCTEst_BinTreeNode_101_IsSymmetric extends LC_TreeNode {
+public class LC_BinTreeNode_101_IsSymmetric extends LC_TreeNode {
 
     /**
      * 递归算法

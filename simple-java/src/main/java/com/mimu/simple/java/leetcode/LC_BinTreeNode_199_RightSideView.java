@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +23,7 @@ import java.util.Objects;
  * <p>
  * 这里 同样按照 二叉树的 按层访问思路，只不过 在进行结果收集的时候 只收集每层的 最后一个元素即可；
  */
-public class LCTest_BinTreeNode_199_RightSideView extends LC_TreeNode {
+public class LC_BinTreeNode_199_RightSideView extends LC_TreeNode {
 
     public List<Integer> rightSideView(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();

@@ -1,12 +1,11 @@
 package com.mimu.simple.java.leetcode;
 
 import com.mimu.simple.java.leetcode.base.LC_ListNode;
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -41,6 +40,15 @@ public class LCTest {
     private LC__75_SortColors sortColors = new LC__75_SortColors();
     private LC_Array_77_BT_Combine combine = new LC_Array_77_BT_Combine();
     private LC_Array_88_Merge merge = new LC_Array_88_Merge();
+    private LC_BinTreeNode_94_InorderTraversal inorderTraversal = new LC_BinTreeNode_94_InorderTraversal();
+    private LC_BinTreeNode_98_IsValidBST isValidBST = new LC_BinTreeNode_98_IsValidBST();
+    private LC_BinTreeNode_101_IsSymmetric isSymmetric = new LC_BinTreeNode_101_IsSymmetric();
+    private LC_BinTreeNode_102_LevelOrder levelOrder = new LC_BinTreeNode_102_LevelOrder();
+    private LC_BinTreeNode_103_ZigzagLevelOrder zigzagLevelOrder = new LC_BinTreeNode_103_ZigzagLevelOrder();
+    private LC_BinTreeNode_104_MaxDepth maxDepth = new LC_BinTreeNode_104_MaxDepth();
+    private LC_BinTreeNode_105_BuildTree buildTree = new LC_BinTreeNode_105_BuildTree();
+    private LC_BinTreeNode_108_SortedArrayToBST sortedArrayToBST = new LC_BinTreeNode_108_SortedArrayToBST();
+    private LC_BinTreeNode_114_Flatten flatten = new LC_BinTreeNode_114_Flatten();
     private LC_Array_121_MaxProfit maxProfit = new LC_Array_121_MaxProfit();
     private LC_Array_128_LongestConsecutive longestConsecutive = new LC_Array_128_LongestConsecutive();
     private LC__136_SingleNumber singleNumber = new LC__136_SingleNumber();
@@ -52,15 +60,20 @@ public class LCTest {
     private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
     private LC_ListNode_160_GetIntersectionNode getIntersectionNode = new LC_ListNode_160_GetIntersectionNode();
     private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
+    private LC_BinTreeNode_199_RightSideView rightSideView = new LC_BinTreeNode_199_RightSideView();
     private LC_ListNode_206_ReverseList reverseList = new LC_ListNode_206_ReverseList();
     private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
+    private LC_BinTreeNode_230_KthSmallest kthSmallest = new LC_BinTreeNode_230_KthSmallest();
     private LC_ListNode_234_IsPalindrome isPalindrome = new LC_ListNode_234_IsPalindrome();
+    private LC_BinTreeNode_236_LowestCommonAncestor lowestCommonAncestor = new LC_BinTreeNode_236_LowestCommonAncestor();
     private LC__242_IsAnagram isAnagram = new LC__242_IsAnagram();
+    private LC_BinTreeNode_266_InvertTree invertTree = new LC_BinTreeNode_266_InvertTree();
     private LC__283_MoveZeroes moveZeroes = new LC__283_MoveZeroes();
     private LC__287_FindDuplicate findDuplicate = new LC__287_FindDuplicate();
     private LC_Array_300_LengthOfLIS lengthOfLIS = new LC_Array_300_LengthOfLIS();
     private LC__347_TopKFrequent topKFrequent = new LC__347_TopKFrequent();
     private LC__438_FindAnagrams findAnagrams = new LC__438_FindAnagrams();
+    private LC_BinTreeNode_543_DiameterOfBinaryTree diameterOfBinaryTree = new LC_BinTreeNode_543_DiameterOfBinaryTree();
     private LC__560_SubarraySum subarraySum = new LC__560_SubarraySum();
 
     @Test
@@ -193,6 +206,12 @@ public class LCTest {
     }
 
     @Test
+    public void spiralOrderResult() {
+        List<Integer> integers1 = spiralOrder.spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}});
+        System.out.println(integers1);
+    }
+
+    @Test
     public void searchMatrixTest() {
         int[][] nums = new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
         System.out.println(searchMatrix.searchMatrix(nums, 16));
@@ -219,6 +238,68 @@ public class LCTest {
         for (int i : target) {
             System.out.print(i);
         }
+    }
+
+    @Test
+    public void inorderTraversalTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        List<Integer> queue = inorderTraversal.inorderTraversal(inorderTraversal.list2TreeByLevel(integers));
+        for (Integer i : queue) {
+            System.out.print(i);
+        }
+    }
+
+    @Test
+    public void isValidBSTTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(5, 1, 4, null, null, 3, 6));
+        assert !isValidBST.isValidBST(isValidBST.list2TreeByLevel(integers));
+        assert isValidBST.isValidBST(isValidBST.list2TreeByLevel(new LinkedList<>(Arrays.asList(2, 1, 3))));
+    }
+
+    @Test
+    public void isSymmetricTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(1, 2, 2, 3, 4, 4, 3));
+        System.out.println(isSymmetric.isSymmetric(isValidBST.list2TreeByLevel(integers)));
+    }
+
+    @Test
+    public void levelOrderTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
+        System.out.println(levelOrder.levelOrder(levelOrder.list2TreeByLevel(integers)));
+    }
+
+    @Test
+    public void zigzagLevelOrderTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
+        System.out.println(zigzagLevelOrder.zigzagLevelOrder(zigzagLevelOrder.list2TreeByLevel(integers)));
+    }
+
+    @Test
+    public void maxDepthTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
+        System.out.println(maxDepth.maxDepth(maxDepth.list2TreeByLevel(integers)));
+    }
+
+    @Test
+    public void buildTreeTest() {
+        int[] preOrder = {3, 9, 20, 15, 7};
+        int[] inOrder = {9, 3, 15, 20, 7};
+        LC_TreeNode.TreeNode tree = buildTree.buildTree(preOrder, inOrder);
+        System.out.println(levelOrder.levelOrder(tree));
+    }
+
+    @Test
+    public void sortedArrayToBSTTest() {
+        LC_TreeNode.TreeNode treeNode = sortedArrayToBST.sortedArrayToBST(new int[]{-10, -3, 0, 5, 9});
+        System.out.println(levelOrder.levelOrder(treeNode));
+    }
+
+    @Test
+    public void flattenTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(1, 2, 5, 3, 4, 6));
+        LC_TreeNode.TreeNode treeNode = flatten.list2TreeByLevel(integers);
+        flatten.flatten(treeNode);
+        System.out.println(levelOrder.levelOrder(treeNode));
     }
 
     @Test
@@ -260,9 +341,10 @@ public class LCTest {
     }
 
     @Test
-    public void spiralOrderResult() {
-        List<Integer> integers1 = spiralOrder.spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}});
-        System.out.println(integers1);
+    public void kthSmallestTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(5, 1, 4, null, null, 3, 6));
+        LC_TreeNode.TreeNode treeNode = kthSmallest.list2TreeByLevel(integers);
+        System.out.println(kthSmallest.kthSmallest(treeNode, 3));
     }
 
     @Test
@@ -272,13 +354,9 @@ public class LCTest {
     }
 
     @Test
-    public void isPalindromeTest() {
-        List<Integer> first = Arrays.asList(1, 2, 2, 1);
-        List<Integer> second = Arrays.asList(1, 2, 3, 2, 1);
-        List<Integer> third = Arrays.asList(1, 2, 3, 2);
-        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(first)));
-        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(second)));
-        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(third)));
+    public void rightSideViewTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
+        System.out.println(rightSideView.rightSideView(rightSideView.list2TreeByLevel(integers)));
     }
 
     @Test
@@ -319,8 +397,32 @@ public class LCTest {
     }
 
     @Test
+    public void isPalindromeTest() {
+        List<Integer> first = Arrays.asList(1, 2, 2, 1);
+        List<Integer> second = Arrays.asList(1, 2, 3, 2, 1);
+        List<Integer> third = Arrays.asList(1, 2, 3, 2);
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(first)));
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(second)));
+        System.out.println(isPalindrome.isPalindrome(isPalindrome.list2Node(third)));
+    }
+
+    @Test
+    public void lowestCommonAncestorTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
+        LC_TreeNode.TreeNode treeNode = lowestCommonAncestor.list2TreeByLevel(integers);
+        //lowestCommonAncestor.lowestCommonAncestor()
+    }
+
+    @Test
     public void isAnagramTest() {
         System.out.println(isAnagram.isAnagram("eat", "tea"));
+    }
+
+    @Test
+    public void invertTreeTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
+        LC_TreeNode.TreeNode treeNode = invertTree.invertTree(invertTree.list2TreeByLevel(integers));
+        System.out.println(levelOrder.levelOrder(treeNode));
     }
 
     @Test
@@ -353,6 +455,12 @@ public class LCTest {
     @Test
     public void findAnagramsTest() {
         System.out.println(findAnagrams.findAnagrams_force("baa", "aa"));
+    }
+
+    @Test
+    public void diameterOfBinaryTreeTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
+        System.out.println(diameterOfBinaryTree.diameterOfBinaryTree(diameterOfBinaryTree.list2TreeByLevel(integers)));
     }
 
     @Test

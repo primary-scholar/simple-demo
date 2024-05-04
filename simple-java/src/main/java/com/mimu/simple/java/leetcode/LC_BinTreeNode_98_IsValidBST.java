@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.Objects;
 import java.util.Stack;
 
@@ -30,7 +32,7 @@ import java.util.Stack;
  * 节点的右子树只包含 大于 当前节点的数。
  * 所有左子树和右子树自身必须也是二叉搜索树
  */
-public class LCTest_BinTreeNode_98_IsValidBST extends LC_TreeNode {
+public class LC_BinTreeNode_98_IsValidBST extends LC_TreeNode {
 
     public boolean isValidBST(TreeNode root) {
         if (Objects.isNull(root)) {
@@ -48,7 +50,7 @@ public class LCTest_BinTreeNode_98_IsValidBST extends LC_TreeNode {
      * @param right
      * @return
      */
-    public boolean valid(TreeNode node, long left, long right) {
+    private boolean valid(TreeNode node, long left, long right) {
         if (Objects.isNull(node)) {
             return Boolean.TRUE;
         }

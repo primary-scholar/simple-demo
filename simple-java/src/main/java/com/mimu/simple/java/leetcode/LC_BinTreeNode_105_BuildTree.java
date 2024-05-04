@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +22,7 @@ import java.util.Objects;
  * <p>
  * 给定两个整数数组 preorder 和 inorder ，其中 preorder 是二叉树的先序遍历， inorder 是同一棵树的中序遍历，请构造二叉树并返回其根节点
  */
-public class LCTest_BinTreeNode_105_BuildTree extends LC_TreeNode {
+public class LC_BinTreeNode_105_BuildTree extends LC_TreeNode {
 
     /**
      * 对于任意一颗树而言

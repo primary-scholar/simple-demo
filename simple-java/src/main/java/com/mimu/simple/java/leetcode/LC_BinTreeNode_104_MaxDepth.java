@@ -1,5 +1,7 @@
 package com.mimu.simple.java.leetcode;
 
+import com.mimu.simple.java.leetcode.base.LC_TreeNode;
+
 import java.util.*;
 
 /**
@@ -19,7 +21,7 @@ import java.util.*;
  * <p>
  * 求二叉树 的最大深度
  */
-public class LCTest_BinTreeNode_104_MaxDepth extends LC_TreeNode {
+public class LC_BinTreeNode_104_MaxDepth extends LC_TreeNode {
 
     /**
      * 参照 二叉树的 按层 遍历 即树的广度优先遍历；
