@@ -54,11 +54,11 @@ public class LC_DP_1143_LongestCommonSubsequence {
             return 0;
         }
         int ftl = text1.length();
-        int stl = text2.length();
-        int[][] dp = new int[ftl + 1][stl + 1];
+        int ltl = text2.length();
+        int[][] dp = new int[ftl + 1][ltl + 1];
         for (int i = 1; i <= ftl; i++) {
             char fc = text1.charAt(i - 1);
-            for (int j = 1; j <= stl; j++) {
+            for (int j = 1; j <= ltl; j++) {
                 char sc = text2.charAt(j - 1);
                 if (fc == sc) {
                     dp[i][j] = dp[i - 1][j - 1] + 1;
@@ -67,6 +67,6 @@ public class LC_DP_1143_LongestCommonSubsequence {
                 }
             }
         }
-        return dp[ftl][stl];
+        return dp[ftl][ltl];
     }
 }

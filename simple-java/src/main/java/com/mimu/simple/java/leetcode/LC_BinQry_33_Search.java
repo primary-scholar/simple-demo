@@ -38,7 +38,7 @@ public class LC_BinQry_33_Search {
      * @return
      */
     public int search(int[] nums, int target) {
-        if (Objects.isNull(nums) || nums.length <= 0) { // 边界判断
+        if (Objects.isNull(nums) || nums.length == 0) { // 边界判断
             return -1;
         }
         int n = nums.length;

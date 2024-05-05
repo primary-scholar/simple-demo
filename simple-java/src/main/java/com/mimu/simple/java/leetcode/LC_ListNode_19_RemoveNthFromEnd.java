@@ -44,7 +44,7 @@ public class LC_ListNode_19_RemoveNthFromEnd extends LC_ListNode {
             n--;
             fast = fast.next;
         }
-        if (n > 0) { // 这里如果 n>0 说明 fast 指针已经为空，即倒数 n 个节点 已经超多 链表的长度
+        if (n > 0) { // 这里如果 n>0 说明 fast 指针已经为空，即倒数 n 个节点 已经超过 链表的长度
             return head;
         }
         if (Objects.isNull(fast) && n == 0) { // 这里如果 n=0 且 fast 为空，说明删除的是头结点

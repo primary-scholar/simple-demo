@@ -16,7 +16,7 @@ package com.mimu.simple.java.leetcode;
  * 子序列 是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的
  * 子序列
  */
-public class LC_Array_300_LengthOfLIS {
+public class LC_DP_300_LengthOfLIS {
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0) {
             return 0;

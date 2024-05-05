@@ -25,18 +25,18 @@ public class LC_Array_88_Merge {
      */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int fIdx = m - 1; // 第一个数组 末尾位置 m-1
-        int sIdx = n - 1; // 第二个数组 末尾位置  n-1
+        int lIdx = n - 1; // 第二个数组 末尾位置  n-1
         int rIdx = m + n - 1; // 结果数组 末尾位置 m+n-1
         int current;
-        while (fIdx >= 0 || sIdx >= 0) {
+        while (fIdx >= 0 || lIdx >= 0) {
             if (fIdx <= -1) { // 第一个数组 已经为 空，则直接取 第二个数组 当前位置数字，当前位置--；
-                current = nums2[sIdx--];
-            } else if (sIdx <= -1) {// 第二个数组 已经为 空，则直接取 第一个数组 当前位置数字，当前位置--；
+                current = nums2[lIdx--];
+            } else if (lIdx <= -1) {// 第二个数组 已经为 空，则直接取 第一个数组 当前位置数字，当前位置--；
                 current = nums1[fIdx--];
-            } else if (nums1[fIdx] > nums2[sIdx]) { // 两个数组 都非空 则比较 数组当前位置数组，取较大者 然后 较大位置数字的 数组 当前位置 --；
+            } else if (nums1[fIdx] > nums2[lIdx]) { // 两个数组 都非空 则比较 数组当前位置数组，取较大者 然后 较大位置数字的 数组 当前位置 --；
                 current = nums1[fIdx--];
             } else {
-                current = nums2[sIdx--];
+                current = nums2[lIdx--];
             }
             nums1[rIdx--] = current; // 为结果数组当前位置 赋值 当前位置 --；
         }

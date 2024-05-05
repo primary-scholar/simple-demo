@@ -71,7 +71,7 @@ public class LCTest {
     private LC_DP_279_NumSquares numSquares = new LC_DP_279_NumSquares();
     private LC__283_MoveZeroes moveZeroes = new LC__283_MoveZeroes();
     private LC__287_FindDuplicate findDuplicate = new LC__287_FindDuplicate();
-    private LC_Array_300_LengthOfLIS lengthOfLIS = new LC_Array_300_LengthOfLIS();
+    private LC_DP_300_LengthOfLIS lengthOfLIS = new LC_DP_300_LengthOfLIS();
     private LC_DP_322_CoinChange coinChange = new LC_DP_322_CoinChange();
     private LC__347_TopKFrequent topKFrequent = new LC__347_TopKFrequent();
     private LC__438_FindAnagrams findAnagrams = new LC__438_FindAnagrams();
