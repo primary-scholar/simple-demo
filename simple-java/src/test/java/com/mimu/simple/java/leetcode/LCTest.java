@@ -7,16 +7,6 @@ import org.junit.Test;
 
 import java.util.*;
 
-
-/**
- * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
- * push(x) -- Push element x onto stack.
- * pop() -- Removes the element on top of the stack.
- * top() -- Get the top element.
- * getMin() -- Retrieve the minimum element in the stack.
- * <p>
- * 最小栈 支持常数级获取 最小元素
- */
 public class LCTest {
 
     private LC_Map_1_AddTwoNumbers addTwoNumbers = new LC_Map_1_AddTwoNumbers();
