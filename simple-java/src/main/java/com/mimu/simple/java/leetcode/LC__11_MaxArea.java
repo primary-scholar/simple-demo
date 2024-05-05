@@ -62,10 +62,11 @@ public class LC__11_MaxArea {
         }
         int result = Integer.MIN_VALUE, f = 0, l = height.length - 1;
         while (f <= l) {
-            result = Math.max(result, Math.min(height[f], height[l]) * (l - f));
             if (height[f] < height[l]) {
+                result = Math.max(result, height[f] * (l - f));
                 f++;
             } else {
+                result = Math.max(result, height[l] * (l - f));
                 l--;
             }
         }

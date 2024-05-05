@@ -37,6 +37,12 @@ public class LC__347_TopKFrequent {
         }
         // 根据 value 进行逆序排序
         ArrayList<Map.Entry<Integer, Integer>> list = new ArrayList(numFreq.entrySet());
+        /*Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                return o2.getValue() - o1.getValue();
+            }
+        });*/
         Collections.sort(list, (a, b) -> b.getValue() - a.getValue());
         for (int i = 0; i < k; i++) {
             result[i] = list.get(i).getKey();
@@ -46,6 +52,7 @@ public class LC__347_TopKFrequent {
 
     /**
      * 使用 map 记录 数组中 数字的频次，然后对 频次进行 逆序排列，取前k个即可
+     *
      * @param nums
      * @param k
      * @return

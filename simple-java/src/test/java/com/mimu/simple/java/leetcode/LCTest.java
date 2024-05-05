@@ -27,6 +27,7 @@ public class LCTest {
     private LC_Array_49_GroupAnagrams groupAnagrams = new LC_Array_49_GroupAnagrams();
     private LC_Array_53_MaxSubArray maxSubArray = new LC_Array_53_MaxSubArray();
     private LC__54_SpiralOrder spiralOrder = new LC__54_SpiralOrder();
+    private LC_Array_56_Merge array56Merge = new LC_Array_56_Merge();
     private LC_DP_62_UniquePaths uniquePaths = new LC_DP_62_UniquePaths();
     private LC_DP_64_MinPathSum minPathSum = new LC_DP_64_MinPathSum();
     private LC_DP_70_ClimbStairs climbStairs = new LC_DP_70_ClimbStairs();
@@ -55,6 +56,7 @@ public class LCTest {
     private LC_Stack_155_MinStack minStack = new LC_Stack_155_MinStack();
     private LC_ListNode_160_GetIntersectionNode getIntersectionNode = new LC_ListNode_160_GetIntersectionNode();
     private LC__169_MajorityElement majorityElement = new LC__169_MajorityElement();
+    private LC_Array_189_Rotate rotate = new LC_Array_189_Rotate();
     private LC_DP_198_Rob rob = new LC_DP_198_Rob();
     private LC_BinTreeNode_199_RightSideView rightSideView = new LC_BinTreeNode_199_RightSideView();
     private LC_DFS_200_NumIsLands numIsLands = new LC_DFS_200_NumIsLands();
@@ -63,6 +65,7 @@ public class LCTest {
     private LC_BinTreeNode_230_KthSmallest kthSmallest = new LC_BinTreeNode_230_KthSmallest();
     private LC_ListNode_234_IsPalindrome isPalindrome = new LC_ListNode_234_IsPalindrome();
     private LC_BinTreeNode_236_LowestCommonAncestor lowestCommonAncestor = new LC_BinTreeNode_236_LowestCommonAncestor();
+    private LC_Array_238_ProductExceptSelf productExceptSelf = new LC_Array_238_ProductExceptSelf();
     private LC__242_IsAnagram isAnagram = new LC__242_IsAnagram();
     private LC_BinTreeNode_266_InvertTree invertTree = new LC_BinTreeNode_266_InvertTree();
     private LC_DP_279_NumSquares numSquares = new LC_DP_279_NumSquares();
@@ -217,6 +220,15 @@ public class LCTest {
     public void spiralOrderResult() {
         List<Integer> integers1 = spiralOrder.spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}});
         System.out.println(integers1);
+    }
+
+    @Test
+    public void array56MergeTest() {
+        int[][] merged = array56Merge.merge(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}});
+        for (int i = 0; i < merged.length; i++) {
+            System.out.print(merged[i][0]);
+            System.out.print(merged[i][1]);
+        }
     }
 
     @Test
@@ -385,6 +397,15 @@ public class LCTest {
     }
 
     @Test
+    public void rotateTest() {
+        int[] origin = {1, 2, 3, 4, 5, 6, 7};
+        rotate.rotate(origin, 3);
+        for (int i = 0; i < origin.length; i++) {
+            System.out.print(i);
+        }
+    }
+
+    @Test
     public void robTest() {
         System.out.println(rob.rob(new int[]{1, 2, 3, 1}));
     }
@@ -455,6 +476,14 @@ public class LCTest {
         LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
         LC_TreeNode.TreeNode treeNode = lowestCommonAncestor.list2TreeByLevel(integers);
         //lowestCommonAncestor.lowestCommonAncestor()
+    }
+
+    @Test
+    public void productExceptSelfTest() {
+        int[] result = productExceptSelf.productExceptSelf(new int[]{1, 2, 3, 4});
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i]);
+        }
     }
 
     @Test

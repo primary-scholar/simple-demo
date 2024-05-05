@@ -39,7 +39,7 @@ public class LC__15_ThreeSum {
             if (nums[i] > 0) {
                 break;
             }
-            if (i > 0 && nums[i] == nums[i - 1]) {
+            if (i > 0 && nums[i] == nums[i - 1]) { // 这里是过滤掉重复元素
                 continue;
             }
             int left = i + 1;// left 从 i+1出开始 向右移动
@@ -113,7 +113,7 @@ public class LC__15_ThreeSum {
             if (nums[i] > target) {
                 break;
             }
-            if (i > 0 && nums[i] == nums[i - 1]) {
+            if (i > 0 && nums[i] == nums[i - 1]) {// 这里是过滤掉重复元素
                 continue;
             }
             int left = i + 1;// left 从 i+1出开始 向右移动
