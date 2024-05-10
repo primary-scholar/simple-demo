@@ -67,8 +67,8 @@ public class LC__438_FindAnagrams {
             tmpResult[s.charAt(i) - 'a']++;
             tmpResult[t.charAt(i) - 'a']--;
         }
-        for (int i = 0; i < tmpResult.length; i++) {
-            if (tmpResult[i] != 0) {
+        for (int j : tmpResult) {
+            if (j != 0) {
                 return Boolean.FALSE;
             }
         }

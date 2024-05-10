@@ -43,7 +43,7 @@ public class LC_BinQry_162_FindPeakElement {
      * @return
      */
     public int findPeakElement_1(int[] nums) {
-        if (Objects.isNull(nums) || nums.length < 1) {
+        if (Objects.isNull(nums) || nums.length == 0) {
             return -1;
         }
         if (nums.length == 1 || nums[0] == nums[1]) {
