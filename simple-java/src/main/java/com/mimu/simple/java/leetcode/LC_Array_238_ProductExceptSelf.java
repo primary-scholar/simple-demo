@@ -18,8 +18,8 @@ public class LC_Array_238_ProductExceptSelf {
 
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
-        int[] left = new int[length];
-        int[] right = new int[length];
+        int[] left = new int[length]; // 数组当前位置 左侧全部元素的乘积
+        int[] right = new int[length]; // 数组当前位置 右侧全部元素的乘积
         left[0] = 1;
         for (int i = 1; i < length; i++) {
             left[i] = left[i - 1] * nums[i - 1];

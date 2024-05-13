@@ -30,8 +30,8 @@ public class LC__75_SortColors {
      * 三种颜色 分成三个区域 因此只需 遍历两次 数组 把其中 两种颜色 放在一起，剩余的那一个 自然就自成一个区域了
      * 在第一次遍历中，我们将数组中所有的 0 交换到数组的头部。
      * 在第二次遍历中，我们将数组中所有的 1 交换到头部的 0 之后。此时，所有的 2 都出现在数组的尾部，这样我们就完成了排序。
-     * 具体地，我们使用一个指针 ptr 表示「头部」的范围，ptr 中存储了一个整数，表示数组 nums 从位置 0 到位置 ptr−1 都属于「头部」。
-     * ptr 的初始值为 0，表示还没有数处于「头部」
+     * 具体地，我们使用一个指针 posi 表示「头部」的范围，posi 中存储了一个整数，表示数组 nums 从位置 0 到位置 posi−1 都属于「头部」。
+     * posi 的初始值为 0，表示还没有数处于「头部」
      *
      * @param nums
      */
@@ -39,17 +39,17 @@ public class LC__75_SortColors {
         if (Objects.isNull(nums) || nums.length <= 1) {
             return;
         }
-        int ptr = 0;
+        int posi = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 0) { // 把数组为 0 的部分交换到 数组头部
-                swap(nums, ptr, i);
-                ptr++; // 同时记录 数组为 0 的数组下标
+                swap(nums, posi, i);
+                posi++; // 同时记录 数组为 0 的数组下标
             }
         }
-        for (int i = ptr; i < nums.length; i++) {  // 从数组为 0  的末尾下标开始，把数组为 1 的部分交换到 0 部分的后面
+        for (int i = posi; i < nums.length; i++) {  // 从数组为 0  的末尾下标开始，把数组为 1 的部分交换到 0 部分的后面
             if (nums[i] == 1) {
-                swap(nums, ptr, i);
-                ptr++;
+                swap(nums, posi, i);
+                posi++;
             }
         }
     }

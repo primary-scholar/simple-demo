@@ -27,11 +27,11 @@ public class LC_DP_198_Rob {
      * @return
      */
     public int rob(int[] nums) {
-        if (Objects.isNull(nums) || nums.length <= 0) {
+        if (Objects.isNull(nums) || nums.length == 0) {
             return 0;
         }
         int roomNum = nums.length;
-        if (roomNum <= 1) {
+        if (roomNum == 1) {
             return nums[0];
         }
         int first = nums[0];
@@ -64,11 +64,11 @@ public class LC_DP_198_Rob {
      * @return
      */
     public int rob_another(int[] nums) {
-        if (Objects.isNull(nums) || nums.length <= 0) {
+        if (Objects.isNull(nums) || nums.length == 0) {
             return 0;
         }
         int roomNum = nums.length;
-        if (roomNum <= 1) {
+        if (roomNum == 1) {
             return nums[0];
         }
         int[] dp = new int[roomNum];

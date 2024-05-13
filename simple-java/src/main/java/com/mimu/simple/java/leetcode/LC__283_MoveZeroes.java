@@ -21,7 +21,7 @@ public class LC__283_MoveZeroes {
      * @param nums
      */
     public void moveZeroes(int[] nums) {
-        if (Objects.isNull(nums) || nums.length <= 0) {
+        if (Objects.isNull(nums) || nums.length == 0) {
             return;
         }
         int idx = 0; // 初始数组中不为0的下标
