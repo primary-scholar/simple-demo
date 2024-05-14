@@ -47,6 +47,7 @@ public class LCTest {
     private LC_DP_118_Generate generate = new LC_DP_118_Generate();
     private LC_Array_121_MaxProfit maxProfit = new LC_Array_121_MaxProfit();
     private LC_Array_128_LongestConsecutive longestConsecutive = new LC_Array_128_LongestConsecutive();
+    private LC_BinTreeNode_129_SumNumbers sumNumbers = new LC_BinTreeNode_129_SumNumbers();
     private LC__136_SingleNumber singleNumber = new LC__136_SingleNumber();
     private LC_ListNode_141_HasCycle hasCycle = new LC_ListNode_141_HasCycle();
     private LC_ListNode_142_DetectCycle detectCycle = new LC_ListNode_142_DetectCycle();
@@ -355,6 +356,14 @@ public class LCTest {
     @Test
     public void longestConsecutiveTest() {
         System.out.println(longestConsecutive.longestConsecutive(new int[]{100, 4, 200, 1, 3, 2}));
+    }
+
+    @Test
+    public void sumNumbersTest() {
+        LC_TreeNode.TreeNode treeNode = sumNumbers.list2TreeByLevel(new LinkedList<>(Arrays.asList(1, 2, 3)));
+        assert sumNumbers.sumNumbers(treeNode) == 25;
+        LC_TreeNode.TreeNode node = sumNumbers.list2TreeByLevel(new LinkedList<>(Arrays.asList(4, 9, 0, 5, 1)));
+        assert sumNumbers.sumNumbers(node) == 1026;
     }
 
     @Test
