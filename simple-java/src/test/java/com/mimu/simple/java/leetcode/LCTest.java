@@ -63,6 +63,7 @@ public class LCTest {
     private LC_ListNode_206_ReverseList reverseList = new LC_ListNode_206_ReverseList();
     private LC_215_FindKthLargest findKthLargest = new LC_215_FindKthLargest();
     private LC_BinTreeNode_230_KthSmallest kthSmallest = new LC_BinTreeNode_230_KthSmallest();
+    private LC_Stack_232_MyQueue myQueue = new LC_Stack_232_MyQueue();
     private LC_ListNode_234_IsPalindrome isPalindrome = new LC_ListNode_234_IsPalindrome();
     private LC_BinTreeNode_236_LowestCommonAncestor lowestCommonAncestor = new LC_BinTreeNode_236_LowestCommonAncestor();
     private LC_Array_238_ProductExceptSelf productExceptSelf = new LC_Array_238_ProductExceptSelf();
@@ -375,6 +376,27 @@ public class LCTest {
     }
 
     @Test
+    public void rightSideViewTest() {
+        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
+        System.out.println(rightSideView.rightSideView(rightSideView.list2TreeByLevel(integers)));
+    }
+
+    @Test
+    public void numIsLandsTest() {
+        char[][] metrix = new char[][]{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}};
+        int i = numIsLands.numIslands(metrix);
+        System.out.println(i);
+    }
+
+    @Test
+    public void reverseListTest() {
+        List<Integer> first = Arrays.asList(1, 2, 3, 4);
+        LC_ListNode.ListNode linkNode = reverseList.reverseList(reverseList.list2Node(first));
+        List<Integer> rlist = reverseList.node2List(linkNode);
+        System.out.println(rlist);
+    }
+
+    @Test
     public void findKthLargestResult() {
         int[] element = new int[]{3, 2, 1, 5, 6, 4, 3, 4, 4};
         for (int i = 1; i < element.length; i++) {
@@ -411,28 +433,6 @@ public class LCTest {
     }
 
     @Test
-    public void rightSideViewTest() {
-        LinkedList<Integer> integers = new LinkedList<>(Arrays.asList(3, 9, 20, null, null, 15, 7));
-        System.out.println(rightSideView.rightSideView(rightSideView.list2TreeByLevel(integers)));
-    }
-
-    @Test
-    public void numIsLandsTest() {
-        char[][] metrix = new char[][]{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}};
-        int i = numIsLands.numIslands(metrix);
-        System.out.println(i);
-
-    }
-
-    @Test
-    public void reverseListTest() {
-        List<Integer> first = Arrays.asList(1, 2, 3, 4);
-        LC_ListNode.ListNode linkNode = reverseList.reverseList(reverseList.list2Node(first));
-        List<Integer> rlist = reverseList.node2List(linkNode);
-        System.out.println(rlist);
-    }
-
-    @Test
     public void getIntersectionNodeTest() {
         List<Integer> first = Arrays.asList(4, 1, 8, 4, 5);
         List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5);
@@ -459,6 +459,15 @@ public class LCTest {
         List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5, 7, 9, 2);
         System.out.println(hasCycle.hasCycle(hasCycle.list2Node(second)));
         System.out.println(hasCycle.hasCycle(hasCycle.list2CycleNode(second)));
+    }
+
+    @Test
+    public void myQueueTest() {
+        myQueue.push(1); // queue is: [1]
+        myQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)
+        System.out.println(myQueue.peek()); // return 1
+        System.out.println(myQueue.pop()); // return 1, queue is [2]
+        System.out.println(myQueue.empty()); // return false
     }
 
     @Test
