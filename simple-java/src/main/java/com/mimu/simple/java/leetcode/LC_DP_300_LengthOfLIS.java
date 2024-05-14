@@ -23,7 +23,7 @@ public class LC_DP_300_LengthOfLIS {
         }
         int[] dp = new int[nums.length];
         dp[0] = 1;
-        int maxans = 1;
+        int result = 1;
         for (int i = 1; i < nums.length; i++) {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
@@ -31,8 +31,8 @@ public class LC_DP_300_LengthOfLIS {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            maxans = Math.max(maxans, dp[i]);
+            result = Math.max(result, dp[i]);
         }
-        return maxans;
+        return result;
     }
 }
