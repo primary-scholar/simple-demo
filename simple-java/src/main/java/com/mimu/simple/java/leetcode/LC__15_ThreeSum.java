@@ -109,7 +109,7 @@ public class LC__15_ThreeSum {
     public List<List<Integer>> threeSum_target(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);//调用api进行数组排序
-        for (int i = 0; i < nums.length - 2; i++) {// 从0，到length-1开始循环
+        for (int i = 0; i < nums.length - 2; i++) {// 从0，到length-2开始循环
             if (nums[i] > target) {
                 break;
             }

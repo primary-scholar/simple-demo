@@ -52,7 +52,7 @@ public class LC_Array_56_Merge {
             int l = intervals[i][0], r = intervals[i][1];
             if (result.isEmpty() || result.get(result.size() - 1)[1] < l) { // 如果合并后的数组为空 或者最后一个区间数组的右区间 < 当前区间数组的左区间
                 result.add(intervals[i]);
-            } else { // 如果合并后的数组为空 或者最后一个区间数组的右区间 > 当前区间数组的左区间, 则修改 合并后的最后一个屈原元素的 右区间值
+            } else { // 如果合并后的数组不为空 且最后一个区间数组的右区间 > 当前区间数组的左区间, 则修改 合并后的最后一个屈原元素的 右区间值
                 result.get(result.size() - 1)[1] = Math.max(result.get(result.size() - 1)[1], r);
             }
         }
