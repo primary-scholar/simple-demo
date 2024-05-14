@@ -59,14 +59,21 @@ import java.util.Objects;
  * 树的深度不超过 10
  */
 public class LC_BinTreeNode_129_SumNumbers extends LC_TreeNode {
+
+    /**
+     * 使用 二叉树的 深度优先遍历，即递归算法
+     *
+     * @param root
+     * @return
+     */
     public int sumNumbers(TreeNode root) {
         if (Objects.isNull(root)) {
             return 0;
         }
-        return dfs(root, 0);
+        return sumNode(root, 0);
     }
 
-    private int dfs(TreeNode node, int preNum) {
+    private int sumNode(TreeNode node, int preNum) {
         if (Objects.isNull(node)) {
             return 0;
         }
@@ -74,6 +81,6 @@ public class LC_BinTreeNode_129_SumNumbers extends LC_TreeNode {
         if (Objects.isNull(node.left) && Objects.isNull(node.right)) {
             return sum;
         }
-        return dfs(node.left, sum) + dfs(node.right, sum);
+        return sumNode(node.left, sum) + sumNode(node.right, sum);
     }
 }
