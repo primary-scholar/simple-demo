@@ -29,7 +29,7 @@ public class ClassicSortOfNSquare {
         }
         // 0~n-1 次循环
         for (int i = 0; i < array.length; i++) {
-            // 外层每循环一次 则就有一个元素排在了合适位置 所以这里需要 -i；-1 是防止内循环数组越界
+            // 外层每循环一次 则就有一个元素排在了合适位置 所以这里需要 -i-1 是防止内循环数组越界
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j] > array[j + 1]) { // 这里不要用 <= 因为 = 会破坏 元素排序的稳定性
                     //相邻两个元素比较交换
@@ -66,7 +66,7 @@ public class ClassicSortOfNSquare {
 
     /**
      * 插入排序 O(N^2)
-     * 共 共 i 次 循环; i in [1,n-1]
+     * 共 i 次 循环; i in [1,n-1]
      * 把待排序数组分成两个部分 前半部为有序，后半部为无序 每次循环时 取无序部分的第一个元素 然后和有序中的 每个元素进行比较排序直到新添加的这个元素在 愿有序数据中有序
      *
      * @param array

@@ -2,6 +2,7 @@ package com.mimu.simple.java.cm;
 
 import org.junit.Test;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
@@ -130,10 +131,39 @@ public class SimpleRex {
     }
 
     @Test
-    public void test(){
+    public void test() {
         String reg = "^https?://([\\w-]+.)+[\\w-]+(/[\\w-./?&=]*)?$";
-        System.out.println(Pattern.matches(reg,"https://domain.path.com?id=07701020028"));
-        System.out.println(Pattern.matches(reg,"http://domain.path.com?id=07701020028"));
+        System.out.println(Pattern.matches(reg, "https://domain.path.com?id=07701020028"));
+        System.out.println(Pattern.matches(reg, "http://domain.path.com?id=07701020028"));
+    }
+
+    public Boolean solution(String ip) {
+        if (Objects.isNull(ip)) {
+            return false;
+        }
+        String[] split = ip.split("\\.");
+        if (split.length != 4) {
+            return false;
+        }
+        for (String sub : split) {
+            if (sub.startsWith("0")) {
+                return false;
+            }
+            try {
+                int num = Integer.parseInt(sub);
+                if (num > 255 || num < 0) {
+                    return false;
+                }
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Test
+    public void solutionTest() {
+        Boolean solution = solution("192.168.3.1");
     }
 
 }
