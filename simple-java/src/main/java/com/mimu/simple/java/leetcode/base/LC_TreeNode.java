@@ -58,7 +58,7 @@ public class LC_TreeNode {
         return new TreeNode(data);
     }
 
-    public class TreeNode {
+    public static class TreeNode {
         public int val;
         public TreeNode left;
         public TreeNode right;

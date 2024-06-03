@@ -42,7 +42,7 @@ public class LC_ListNode {
         return result;
     }
 
-    public class ListNode {
+    public static class ListNode {
         public int val;
         public ListNode next;
 
