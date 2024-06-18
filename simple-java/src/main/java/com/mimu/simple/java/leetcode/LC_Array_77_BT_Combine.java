@@ -45,7 +45,7 @@ public class LC_Array_77_BT_Combine {
         }
         // 从 1 开始是题目的设定
         ArrayList<Integer> path = new ArrayList<>();
-        backTrace(n, k, 1, path, res);
+        backTrace(n, res, path, 1, k);
         return res;
     }
 
@@ -61,7 +61,7 @@ public class LC_Array_77_BT_Combine {
      * @param path
      * @param res
      */
-    public void backTrace(int n, int k, int begin, List<Integer> path, List<List<Integer>> res) {
+    public void backTrace(int n, List<List<Integer>> res, List<Integer> path, int begin, int k) {
         /**
          * 递归终止条件是：path 的长度等于 k
          * 它决定了 递归的深度
@@ -74,7 +74,7 @@ public class LC_Array_77_BT_Combine {
         for (int i = begin; i <= n; i++) {
             path.addLast(i); // 回溯模板 第一步
             // 下一轮递归，初始值只能从当前值的下一个开始 所以要加 1，因为组合数理不允许出现重复的元素
-            backTrace(n, k, i + 1, path, res);  // 回溯模板 第二步
+            backTrace(n, res, path, i + 1, k);  // 回溯模板 第二步
             path.removeLast(); // 回溯模板 第三步 回退
         }
     }

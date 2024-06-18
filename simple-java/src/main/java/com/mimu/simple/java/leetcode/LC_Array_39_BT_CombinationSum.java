@@ -58,6 +58,13 @@ public class LC_Array_39_BT_CombinationSum {
         return res;
     }
 
+    public List<List<Integer>> combinationSum_another(int[] candidates, int target) {
+        ArrayList<List<Integer>> res = new ArrayList<>();
+        ArrayList<Integer> path = new ArrayList<>();
+        backTraceAnother(candidates, res, path, 0, target);
+        return res;
+    }
+
     /**
      * 这里每次递归都从新计算和
      * 其实这里 可以进行优化
@@ -68,7 +75,7 @@ public class LC_Array_39_BT_CombinationSum {
      * @param begin
      * @param target
      */
-    public void backTrace(int[] candidates, List<List<Integer>> res, List<Integer> path, int begin, int target) {
+    private void backTrace(int[] candidates, List<List<Integer>> res, List<Integer> path, int begin, int target) {
         /**
          * 递归终止条件是：path 列表中的和 和 target 是否相等
          * 它决定了 递归的深度
@@ -98,7 +105,7 @@ public class LC_Array_39_BT_CombinationSum {
      * @param begin
      * @param target
      */
-    public void backTraceAnother(int[] candidates, List<List<Integer>> res, List<Integer> path, int begin, int target) {
+    private void backTraceAnother(int[] candidates, List<List<Integer>> res, List<Integer> path, int begin, int target) {
         /**
          * 递归终止条件是：path 列表中的和 和 target 是否相等
          * 它决定了 递归的深度
@@ -114,7 +121,7 @@ public class LC_Array_39_BT_CombinationSum {
             path.add(candidates[i]);// 回溯模板 第一步
             //这里递归 一定要从当前位置开始，到结束的位置
             backTraceAnother(candidates, res, path, i, target - candidates[i]);// 回溯模板 第二步
-            path.removeLast();
+            path.removeLast();// 回溯模板第3步，进行回退，即回溯，删除已经选择的数字，在上一层的回溯中可再次选择
         }
     }
 

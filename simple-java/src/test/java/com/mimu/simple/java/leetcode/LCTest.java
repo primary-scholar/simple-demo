@@ -21,6 +21,7 @@ public class LCTest {
     private LC_Array_31_NextPermutation nextPermutation = new LC_Array_31_NextPermutation();
     private LC_BinQry_33_Search search = new LC_BinQry_33_Search();
     private LC_BinQry_35_SearchInsert searchInsert = new LC_BinQry_35_SearchInsert();
+    private LC_Array_39_BT_CombinationSum combinationSum = new LC_Array_39_BT_CombinationSum();
     private LC_Stack_42_Trap trap = new LC_Stack_42_Trap();
     private LC_Array_46_BT_Permute permute = new LC_Array_46_BT_Permute();
     private LC_Array_47_BT_PermuteUnique permuteUnique = new LC_Array_47_BT_PermuteUnique();
@@ -183,12 +184,24 @@ public class LCTest {
 
     @Test
     public void searchTest() {
-        System.out.println(search.search(new int[]{5, 6, 1, 2, 3, 4}, 1));
+        System.out.println(search.search(new int[]{5, 6, 7, 1, 2, 3, 4}, 3));
+        System.out.println(search.search(new int[]{5, 6, 7, 1, 2, 3, 4}, 5));
+        System.out.println(search.search(new int[]{1, 0, 1, 1, 1}, 0));
     }
 
     @Test
     public void searchInsertTest() {
         System.out.println(searchInsert.searchInsert(new int[]{1, 2, 3, 4}, 3));
+    }
+
+    @Test
+    public void combinationSumTest() {
+        int[] ints = {2, 3, 6, 7};
+        System.out.println(combinationSum.combinationSum(ints, 7));
+        System.out.println();
+        System.out.println(combinationSum.combinationSum_another(ints, 7));
+        System.out.println();
+        System.out.println(combinationSum.combinationSum_another(new int[]{2, 3, 5}, 8));
     }
 
     @Test
@@ -215,7 +228,8 @@ public class LCTest {
 
     @Test
     public void maxSubArrayTest() {
-        System.out.println(maxSubArray.maxSubArray(new int[]{1, -3, -3, 7}));
+        System.out.println(maxSubArray.maxSubArray(new int[]{1, -5, -3, 7}));
+        System.out.println(maxSubArray.maxSubArray(new int[]{6, -3, -2, 1}));
     }
 
     @Test
@@ -555,7 +569,7 @@ public class LCTest {
 
     @Test
     public void findAnagramsTest() {
-        System.out.println(findAnagrams.findAnagrams_force("baa", "aa"));
+        System.out.println(findAnagrams.findAnagrams_force("baabaaaa", "aa"));
     }
 
     @Test

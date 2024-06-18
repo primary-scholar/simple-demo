@@ -67,10 +67,18 @@ public class LC__347_TopKFrequent {
         }
         // 遍历map，用最小堆保存频率最大的k个元素
         PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(numFreq::get));
+        /*PriorityQueue<Integer> pqNon = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return numFreq.get(o1) - numFreq.get(o2);
+            }
+        });*/
         for (Integer key : numFreq.keySet()) {
-            if (pq.size() < k) {
+            if (pq.size() < k) { // 如果小根队中的元素个数小于 k 个则 直接添加
                 pq.add(key);
             } else if (numFreq.get(key) > numFreq.get(pq.peek())) {
+                // 如果小根堆中元素个数 等于 k 个了，就需要比较 当前元素 numFreq.get(key)的频次 和 小根堆中 第一个元素的频次 大小关系了
+                // 这里 qp.peek() 就是使用了 小根堆 堆首元素为最小元素 的特性；
                 pq.remove();
                 pq.add(key);
             }

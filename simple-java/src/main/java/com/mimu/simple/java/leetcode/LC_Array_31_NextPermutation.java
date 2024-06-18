@@ -4,7 +4,6 @@ package com.mimu.simple.java.leetcode;
 import java.util.Objects;
 
 /**
- *
  * A permutation of an array of integers is an arrangement of its members into a sequence or linear order.
  * For example, for arr = [1,2,3], the following are all the permutations of arr: [1,2,3], [1,3,2], [2, 1, 3], [2, 3, 1], [3,1,2], [3,2,1].
  * The next permutation of an array of integers is the next lexicographically greater permutation of its integer. More formally, if all the permutations of the array are sorted in one container according to their lexicographical order, then the next permutation of that array is the permutation that follows it in the sorted container. If such arrangement is not possible, the array must be rearranged as the lowest possible order (i.e., sorted in ascending order).
@@ -27,7 +26,7 @@ import java.util.Objects;
  * 1 <= nums.length <= 100
  * 0 <= nums[i] <= 100
  * <p>
- 下一个排列
+ * 下一个排列
  * 分析：
  * *  1.我们希望下一个数 比当前数大，这样才满足 “下一个排列” 的定义。因此只需要 将后面的「大数」与前面的「小数」交换，就能得到一个更大的数。比如 123456，将 5 和 6 交换就能得到一个更大的数 123465。
  * *  2.我们还希望下一个数 增加的幅度尽可能的小，这样才满足“下一个排列与当前排列紧邻“的要求。为了满足这个要求，我们需要：
@@ -53,7 +52,7 @@ public class LC_Array_31_NextPermutation {
             while (j >= 0 && nums[i] >= nums[j]) { // 从右向左寻找 第一个 大于 nums[i] 位置的数
                 j--;
             }
-            swap(nums, i, j); // 并进行交换
+            swap(nums, i, j); // 把第一个正序位置的数和当前位置的数进行交换
         }
         reverse(nums, i + 1); // 把 i+1 后面的数 进行 翻转，即使得 i+1 后面的数 升序排列
     }

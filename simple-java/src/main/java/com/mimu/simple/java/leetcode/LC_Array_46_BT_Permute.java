@@ -21,7 +21,7 @@ import java.util.List;
  * All the integers of nums are unique.
  * <p>
  * 数组全排列 重复无重复数字 全排列
- * 1.重复无重复数字 全排列 的思想是一致的，只不过对于 对于重复数字的全排列 在 进行递归之前 把数组排下序 后续 对数字进行选择的时候
+ * 1.重复或无重复数字 全排列 的思想是一致的，只不过对于 对于重复数字的全排列 在 进行递归之前 把数组排下序 后续 对数字进行选择的时候
  * 进行判断即可(根据有序数组，和是否被访问过) 具体可参考 下面的实现
  * 以num=[1，2，3]为例
  * <p>
@@ -63,7 +63,7 @@ public class LC_Array_46_BT_Permute {
         List<List<Integer>> res = new ArrayList<>();
         boolean[] used = new boolean[len];
         List<Integer> path = new ArrayList<>();
-        backtrack(res, nums, 0, path, used);
+        backtrack(nums, res, path, 0, used);
         return res;
     }
 
@@ -71,18 +71,17 @@ public class LC_Array_46_BT_Permute {
      * 深度优先遍历算法
      *
      * @param res
-     * @param nums
-     * @param depth 递归的深度，也即每次可选地 数字的个数为 num.length - depth;
+     * @param candidate
+     * @param depth     递归的深度，也即每次可选地 数字的个数为 num.length - depth;
      * @param path
      * @param used
      */
-    private void backtrack(List<List<Integer>> res, int[] nums, int depth,
-                           List<Integer> path, boolean[] used) {
+    private void backtrack(int[] candidate, List<List<Integer>> res, List<Integer> path, int depth, boolean[] used) {
         /**
          * 递归终止条件，它决定了递归的深度
          * 当递归到 最底层时 即叶子节点时，就可以收集数据了
          */
-        if (depth == nums.length) {
+        if (depth == candidate.length) {
             res.add(new ArrayList<>(path));
             return;
         }
@@ -93,11 +92,11 @@ public class LC_Array_46_BT_Permute {
          * 2.递归
          * 3.回溯
          */
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < candidate.length; i++) {
             if (!used[i]) {
-                path.add(nums[i]); // 回溯模板 第1步，选择数字
+                path.add(candidate[i]); // 回溯模板 第1步，选择数字
                 used[i] = true; // 回溯模板 第1步，选择数字的同时，需要标记 当前数字已经被使用过，下次递归不可选择
-                backtrack(res, nums, depth + 1, path, used); // 回溯模板 第2步，进行递归
+                backtrack(candidate, res, path, depth + 1, used); // 回溯模板 第2步，进行递归
                 // 注意：下面这两行代码发生 「回溯」，回溯发生在从 深层结点 回到 浅层结点 的过程，代码在形式上和递归之前是对称的
                 used[i] = false; // 回溯模板第3步，进行回退，即回溯，撤销标记，在上一层的回溯中可再次选择
                 path.removeLast(); // 回溯模板第3步，进行回退，即回溯，删除已经选择的数字，在上一层的回溯中可再次选择
