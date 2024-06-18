@@ -20,6 +20,7 @@ public class LC_215_FindKthLargest {
     public int findKthLargest(int[] nums, int k) {
         int left = 0, right = nums.length - 1;
         while (true) {
+            // 这里 pos 的值就是 划分两个区域的 左侧区域的右边界，而 nums.length-k 就是 整个数组右边界 向左的第k个元素位置
             int pos = partition1Idx(nums, left, right);
             if (pos == nums.length - k) {
                 return nums[pos];
