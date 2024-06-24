@@ -17,6 +17,7 @@ package com.mimu.simple.java.leetcode;
  * 子序列
  */
 public class LC_DP_300_LengthOfLIS {
+
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0) {
             return 0;
@@ -35,4 +36,5 @@ public class LC_DP_300_LengthOfLIS {
         }
         return result;
     }
+
 }

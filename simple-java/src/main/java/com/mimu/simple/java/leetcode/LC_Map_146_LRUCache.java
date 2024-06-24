@@ -46,7 +46,7 @@ public class LC_Map_146_LRUCache {
             this.head.pre = null;
             this.tail.pre = head;
             this.tail.next = null;
-            this.data = new HashMap<>();
+            this.data = new HashMap<>(this.capacity);
         }
 
         public int get(int key) {
