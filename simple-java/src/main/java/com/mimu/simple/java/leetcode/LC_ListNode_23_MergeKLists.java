@@ -57,20 +57,20 @@ public class LC_ListNode_23_MergeKLists extends LC_ListNode {
             return Objects.nonNull(first) ? first : second;
         }
         ListNode head = new ListNode(-1); // 设置一个 哨兵 头结点
-        ListNode tail = head;
+        ListNode current = head;
         ListNode firstCurrent = first;
         ListNode secondCurrent = second;
         while (Objects.nonNull(firstCurrent) && Objects.nonNull(secondCurrent)) {
             if (firstCurrent.val <= secondCurrent.val) { // 取两个链表中 较小的 节点，同时 下一个节点 后移，并把选择的节点 设置在 tail 节点之后；
-                tail.next = firstCurrent;
+                current.next = firstCurrent;
                 firstCurrent = firstCurrent.next;
             } else {  // 取两个链表中 较小的 节点，同时 下一个节点 后移，并把选择的节点 设置在 tail 节点之后；
-                tail.next = secondCurrent;
+                current.next = secondCurrent;
                 secondCurrent = secondCurrent.next;
             }
-            tail = tail.next; // tail 节点不断后移
+            current = current.next; // tail 节点不断后移
         }
-        tail.next = Objects.nonNull(firstCurrent) ? firstCurrent : secondCurrent; // 对于没有结束的 剩余链表，直接挂载到 tail 节点之后即可
+        current.next = Objects.nonNull(firstCurrent) ? firstCurrent : secondCurrent; // 对于没有结束的 剩余链表，直接挂载到 tail 节点之后即可
         return head.next; // 返回哨兵节点 之后的节点链表；
     }
 

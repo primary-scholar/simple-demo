@@ -93,9 +93,9 @@ public class LC_BinQry_33_Search {
             if (nums[mid] == target) {
                 return Boolean.TRUE;
             }
-            /**
-             * 对于具有重复元素的 旋转数组 对于 nums[left] == nums[mid] && nums[mid] == nums[right] 这种情形，无法
-             * 判断那边是有序的，所以对于这种情况要 单独处理
+            /*
+              对于具有重复元素的 旋转数组 对于 nums[left] == nums[mid] && nums[mid] == nums[right] 这种情形，无法
+              判断那边是有序的，所以对于这种情况要 单独处理
              */
             if (nums[left] == nums[mid] && nums[mid] == nums[right]) {
                 left++;
