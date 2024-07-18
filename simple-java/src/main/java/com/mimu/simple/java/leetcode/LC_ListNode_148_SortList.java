@@ -17,6 +17,7 @@ import java.util.Objects;
  * 采用 归并排序 思想
  */
 public class LC_ListNode_148_SortList extends LC_ListNode {
+
     public ListNode sortList(ListNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {
             return head;

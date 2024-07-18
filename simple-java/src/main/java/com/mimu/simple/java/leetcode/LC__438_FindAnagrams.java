@@ -43,11 +43,9 @@ public class LC__438_FindAnagrams {
         }
         int sl = s.length();
         int pl = p.length();
-        int j;
         ArrayList<Integer> result = new ArrayList<>();
         for (int i = 0; i <= sl - pl; i++) {
-            j = i + pl;
-            String tmpStr = s.substring(i, j);
+            String tmpStr = s.substring(i, i + pl);
             if (isAnagramAnother(tmpStr, p)) {
                 result.add(i);
             }

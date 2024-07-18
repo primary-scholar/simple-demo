@@ -30,7 +30,18 @@ public class LC_DP_322_CoinChange {
 
     /**
      * 动态规划
-     * 1.定义dp数组：
+     * 1.定义dp数组：int[amount+1] dp，dp[i] 表示兑换的钱数为i时所需的最少硬币数；
+     * 2.明确递推公式 ：dp[i] = Math.min(dp[i], dp[i - coin] + 1); 这里 coin 要取遍数组 coins中的所有值；
+     * 3.初始化：dp[i] = int[]{amount+1}
+     * 4.循环递推：
+     * 5.确认结果：
+     * <p>
+     * <p>
+     * 以实例说明：coins 中有1，2，5三种硬币；dp[0]=0;dp[1]=1 使用一个1角的硬币即可；dp[2]=1 使用一个2角的硬币即可；dp[5]=1 使用一个5角的硬币即可；
+     * dp[3]=Math.min(dp[3-1],dp[3-2],dp[3-5])+1=2 这里dp[3-1],dp[3-2],dp[3-5]分别表示dp[3]可以使用1，2，5 这三种硬币来组合获得，同理
+     * dp[4]=Math.min(dp[4-1]，dp[4-2],dp[4-5])+1=2;
+     * dp[5]=Math.min(dp[5-1],dp[5-2],dp[5-5])+1=1;
+     * dp[i] = Math.main(dp[i-1],dp[i-2],dp[i-5])+1;
      *
      * @param coins
      * @param amount
@@ -41,10 +52,10 @@ public class LC_DP_322_CoinChange {
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, max);
         dp[0] = 0;
-        for (int i = 1; i <= amount; i++) {
-            for (int j = 0; j < coins.length; j++) {
-                if (coins[j] <= i) {
-                    dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+        for (int i = 1; i <= amount; i++) { // 这里1,2,3...amount 表示dp[1],dp[2],dp[3],dp[amount] 的组合结果
+            for (int coin : coins) { // 这里使用循环 就表示 dp[i - coin] 这部分值，整体dp[i]=
+                if (coin <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
             }
         }

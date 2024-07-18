@@ -17,6 +17,16 @@ package com.mimu.simple.java.leetcode;
  * 子序列
  */
 public class LC_DP_300_LengthOfLIS {
+
+    /**
+     * 动态规划
+     * 1.定义dp[] 数组；dp[i] 表示 以第 i 个数字结尾的最长上升子序列的长度
+     * 2.明确递推公式；
+     * * dp[i] = max(dp[j])+1,其中0≤j<i且num[j]<num[i]
+     * 3.初始化
+     * @param nums
+     * @return
+     */
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0) {
             return 0;
@@ -27,7 +37,7 @@ public class LC_DP_300_LengthOfLIS {
         for (int i = 1; i < nums.length; i++) {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
+                if (nums[i] > nums[j]) { // 这里 nums[i] > nums[j],因此只需要
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
@@ -35,4 +45,5 @@ public class LC_DP_300_LengthOfLIS {
         }
         return result;
     }
+
 }

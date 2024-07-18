@@ -35,15 +35,15 @@ public class LC__560_SubarraySum {
      * @return
      */
     public int subarraySum(int[] nums, int k) {
-        int result = 0, pre = 0;
+        int result = 0, preSum = 0;
         HashMap<Integer, Integer> hashMap = new HashMap<>();
-        hashMap.put(0, 1);
+        hashMap.put(0, 1); // 表示从下标-1，到当前idx位置的元素和的个数，初始时表示，从-1开始到-1结束的元素和0的个数=1
         for (int i = 0; i < nums.length; i++) {
-            pre += nums[i];
-            if (hashMap.containsKey(pre - k)) {
-                result += hashMap.get(pre - k);
+            preSum += nums[i];
+            if (hashMap.containsKey(preSum - k)) {
+                result += hashMap.get(preSum - k);
             }
-            hashMap.put(pre, hashMap.getOrDefault(pre, 0) + 1);
+            hashMap.put(preSum, hashMap.getOrDefault(preSum, 0) + 1);
         }
         return result;
     }

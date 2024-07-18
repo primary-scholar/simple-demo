@@ -27,7 +27,7 @@ import java.util.Objects;
 public class LC_ListNode_19_RemoveNthFromEnd extends LC_ListNode {
 
     /**
-     * 使用快慢指针 来找到 倒数第n个节点和 前一个节点
+     * 使用两个指针来进行操作，首先第一个指针先向前走 n 步，这时如果
      *
      * @param head
      * @param n
@@ -38,8 +38,6 @@ public class LC_ListNode_19_RemoveNthFromEnd extends LC_ListNode {
             return head;
         }
         ListNode fast = head;
-        ListNode slow = head;
-        ListNode pre = slow;
         while (Objects.nonNull(fast) && n > 0) { // 从头结点开始，先让 fast 指针 走n步，
             n--;
             fast = fast.next;
@@ -50,6 +48,8 @@ public class LC_ListNode_19_RemoveNthFromEnd extends LC_ListNode {
         if (Objects.isNull(fast) && n == 0) { // 这里如果 n=0 且 fast 为空，说明删除的是头结点
             return head.next;
         }
+        ListNode slow = head;
+        ListNode pre = slow;
         while (Objects.nonNull(fast)) { // 这里领先n步的fast指针和在头结点的slow指针同步走，直到fast为空，这时找到倒数第n个节点
             pre = slow;
             fast = fast.next;

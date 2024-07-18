@@ -203,6 +203,10 @@ public class CollectionQueueTest {
             heapQueue.offer(i);
         }
         System.out.println(heapQueue);
+        System.out.println();
+        while (!heapQueue.isEmpty()){
+            System.out.print(heapQueue.poll());
+        }
     }
 
 }
