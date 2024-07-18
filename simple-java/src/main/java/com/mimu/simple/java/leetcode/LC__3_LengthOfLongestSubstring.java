@@ -19,7 +19,7 @@ public class LC__3_LengthOfLongestSubstring {
      * @return
      */
     public int lengthOfLongestSubstring(String s) {
-        int result = 0, left = 0, idx = 0;
+        int result = 0, idx = 0, left = 0;
         // set 中保存字符串中当前元素
         HashSet<Character> hashSet = new HashSet<>();
         while (idx < s.length()) {
