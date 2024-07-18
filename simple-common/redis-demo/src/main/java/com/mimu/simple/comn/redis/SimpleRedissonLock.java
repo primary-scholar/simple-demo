@@ -53,6 +53,12 @@ public class SimpleRedissonLock {
         return lock;
     }
 
+    public static RLock lockFairLock(String lockKey) {
+        RLock lock = redissonClient.getFairLock(lockKey);
+        lock.lock();
+        return lock;
+    }
+
     /**
      * 释放锁
      *

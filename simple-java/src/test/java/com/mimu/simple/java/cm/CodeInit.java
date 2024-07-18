@@ -24,11 +24,20 @@ public class CodeInit {
     public void info() {
         BigDecimal divided = new BigDecimal(3);
         BigDecimal divisor = new BigDecimal(10);
-        System.out.println(divided.divide(divisor, 2, RoundingMode.HALF_DOWN).floatValue() * 100);
+        BigDecimal divide = divided.divide(divisor, 2, RoundingMode.HALF_DOWN);
+        System.out.println(divide);
+        System.out.println(divide.multiply(new BigDecimal(100)));
 
         BigDecimal divided1 = new BigDecimal(3 * 100);
         BigDecimal divisor1 = new BigDecimal(10);
-        System.out.println(divided1.divide(divisor1, 2, RoundingMode.HALF_DOWN).floatValue());
+        System.out.println(divided1.divide(divisor1, 2, RoundingMode.HALF_DOWN));
+
+        System.out.println(new BigDecimal(0.125));
+        System.out.println(new BigDecimal(0.125).multiply(new BigDecimal(0.008)));
+        System.out.println(new BigDecimal(0.125).divide(new BigDecimal(0.05),2,RoundingMode.HALF_UP));
+        System.out.println(new BigDecimal("0.125"));
+        System.out.println(new BigDecimal("0.125").multiply(new BigDecimal("0.008")));
+        System.out.println(new BigDecimal("0.125").divide(new BigDecimal("0.05")));
     }
 
     public int[] sortArray(int[] nums) {
@@ -87,7 +96,7 @@ public class CodeInit {
     @Test
     public void sortTest() {
         int[] ints = sortArray(new int[]{2});
-        int[] ints1 = sortArray(new int[]{5,2});
+        int[] ints1 = sortArray(new int[]{5, 2});
         int[] ints2 = sortArray(new int[]{2, 5, 3});
     }
 }

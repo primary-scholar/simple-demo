@@ -29,7 +29,7 @@ public class ClassicSortOfNSquare {
         }
         // 0~n-1 次循环
         for (int i = 0; i < array.length; i++) {
-            // 外层每循环一次 则就有一个元素排在了合适位置 所以这里需要 -i；-1 是防止内循环数组越界
+            // 外层每循环一次 则就有一个元素排在了合适位置 所以这里需要 -i；-1 是防止内循环if逻辑数组越界
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j] > array[j + 1]) { // 这里不要用 <= 因为 = 会破坏 元素排序的稳定性
                     //相邻两个元素比较交换
