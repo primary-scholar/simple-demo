@@ -38,7 +38,7 @@ public class LC__169_MajorityElement {
      * @return
      */
     public int majorityElement(int[] nums) {
-        if (Objects.isNull(nums) || nums.length <= 0) {
+        if (Objects.isNull(nums) || nums.length == 0) {
             return -1;
         }
         int winner = nums[0], count = 1; // 初始阵营为 数组第一个数字，且兵力为 1
