@@ -2,10 +2,24 @@ package com.mimu.simple.java.lock;
 
 
 /**
- author: mimu
- date: 2019/12/6
+ * author: mimu
+ * date: 2019/12/6
  */
 public class LockRelevantTest {
+
+    public void info3() {
+        LockRelevant.InnerLock3 innerLock3 = new LockRelevant.InnerLock3(false);
+        new Thread(() -> {
+            for (int i = 1; i < 100; i += 2) {
+                innerLock3.printOdd(i);
+            }
+        }).start();
+        new Thread(() -> {
+            for (int i = 2; i < 100; i += 2) {
+                innerLock3.printEvent(i);
+            }
+        }).start();
+    }
 
     /**
      * 在JUnit的@Test方法中启用多线程，新启动的线程会随着@Test主线程的结束而结束
@@ -16,21 +30,11 @@ public class LockRelevantTest {
         new Thread(() -> {
             while (true) {
                 innerLock2.printA();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }).start();
         new Thread(() -> {
             while (true) {
                 innerLock2.printB();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }).start();
     }
@@ -40,21 +44,11 @@ public class LockRelevantTest {
         new Thread(() -> {
             while (true) {
                 innerLock1.printA();
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }).start();
         new Thread(() -> {
             while (true) {
                 innerLock1.printA();
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }).start();
     }
@@ -62,6 +56,7 @@ public class LockRelevantTest {
     public static void main(String[] args) {
         LockRelevantTest test = new LockRelevantTest();
         test.info2();
+        //test.info3();
     }
 
 }

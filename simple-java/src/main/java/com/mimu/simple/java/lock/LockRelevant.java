@@ -4,8 +4,8 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- author: mimu
- date: 2019/12/6
+ * author: mimu
+ * date: 2019/12/6
  */
 public class LockRelevant {
 
@@ -26,6 +26,7 @@ public class LockRelevant {
             lock.lock();
             try {
                 System.out.println(Thread.currentThread() + " A");
+                Thread.sleep(1000);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -38,6 +39,7 @@ public class LockRelevant {
             lock.lock();
             try {
                 System.out.println(Thread.currentThread() + " B");
+                Thread.sleep(1000);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -71,6 +73,7 @@ public class LockRelevant {
                     conditionA.await();
                 }
                 System.out.println(Thread.currentThread() + " A");
+                Thread.sleep(1000);
                 alternate = true;
                 conditionB.signal();
             } catch (Exception e) {
@@ -88,7 +91,61 @@ public class LockRelevant {
                     conditionB.await();
                 }
                 System.out.println(Thread.currentThread() + " B");
+                Thread.sleep(1000);
                 alternate = false;
+                conditionA.signal();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
+            }
+        }
+    }
+
+    /**
+     * 交替打印 奇偶数字
+     */
+    static class InnerLock3 {
+        private final ReentrantLock lock;
+        private Condition conditionA;
+        private Condition conditionB;
+        private volatile boolean odd;
+
+        public InnerLock3(boolean fair) {
+            this.lock = new ReentrantLock(fair);
+            this.conditionA = this.lock.newCondition();
+            this.conditionB = this.lock.newCondition();
+            this.odd = true;
+        }
+
+        public void printOdd(Integer num) {
+            ReentrantLock lock = this.lock;
+            lock.lock();
+            try {
+                while (!odd) {
+                    conditionA.await();
+                }
+                System.out.println(Thread.currentThread() + "" + num);
+                Thread.sleep(1000);
+                odd = true;
+                conditionB.signal();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
+            }
+        }
+
+        public void printEvent(Integer num) {
+            ReentrantLock lock = this.lock;
+            lock.lock();
+            try {
+                while (odd) {
+                    conditionB.await();
+                }
+                System.out.println(Thread.currentThread() + "" + num);
+                Thread.sleep(1000);
+                odd = false;
                 conditionA.signal();
             } catch (Exception e) {
                 e.printStackTrace();
