@@ -37,16 +37,6 @@ public class BitSetTest {
         System.out.println(getPointIndex(ip, 5));
     }
 
-    @Test
-    public void testBigDecimal(){
-        BigDecimal first = new BigDecimal(5012345);
-        System.out.println(first.divide(new BigDecimal(1000),2,BigDecimal.ROUND_HALF_UP).doubleValue());
-        BigDecimal second = new BigDecimal(5012300);
-        System.out.println(second.divide(new BigDecimal(1000),2,BigDecimal.ROUND_HALF_UP).doubleValue());
-
-        System.out.println("C100504403158430043495".hashCode()%64);
-    }
-
     private int getPointIndex(String origin, int ordinal) {
         if (StringUtils.isEmpty(origin) || ordinal <= 0) {
             return 0;
