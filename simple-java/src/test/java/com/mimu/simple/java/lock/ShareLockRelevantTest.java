@@ -6,6 +6,11 @@ import java.util.concurrent.CountDownLatch;
 
 public class ShareLockRelevantTest {
 
+    /**
+     * CountDownLatch 可以使一个或多个线程等待其他线程各自执行完毕后再执行
+     *
+     * @throws InterruptedException
+     */
     @Test
     public void info() throws InterruptedException {
         int threadNum = 3;
