@@ -64,6 +64,24 @@ public class FutureRelevantTest {
         executorService.shutdown();
     }
 
+    @Test
+    public void performTest1() {
+        CompletableFuture.runAsync(() -> performTask("first stage"))
+                .thenRun(() -> performTask("second stage"))
+                .thenRun(() -> performTask("third stage"))
+                .join();
+        logger.info("main exiting");
+    }
+
+    @Test
+    public void performTest2() {
+        CompletableFuture.runAsync(() -> performTask("first stage"))
+                .thenRunAsync(() -> performTask("second stage"))
+                .thenRunAsync(() -> performTask("third stage"))
+                .join();
+        logger.info("main exiting");
+    }
+
     public void performTest3() {
         logger.info("performTest3 traceing Info");
         Thread lalal = new Thread(new Runnable() {
@@ -80,15 +98,6 @@ public class FutureRelevantTest {
             }
         });
         lalal.start();
-    }
-
-    @Test
-    public void performTest1() {
-        CompletableFuture.runAsync(() -> performTask("first stage"))
-                .thenRunAsync(() -> performTask("second stage"))
-                .thenRun(() -> performTask("third stage"))
-                .join();
-        logger.info("main exiting");
     }
 
     @Test

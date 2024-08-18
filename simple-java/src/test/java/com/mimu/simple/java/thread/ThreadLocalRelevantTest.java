@@ -1,18 +1,10 @@
 package com.mimu.simple.java.thread;
 
-import com.mimu.simple.java.abase.Person;
 import org.junit.Test;
 
-import javax.crypto.interfaces.PBEKey;
-import java.lang.reflect.AccessibleObject;
-import java.util.Calendar;
-import java.util.Locale;
-import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.IntBinaryOperator;
-import java.util.function.Supplier;
 
 
 public class ThreadLocalRelevantTest {
