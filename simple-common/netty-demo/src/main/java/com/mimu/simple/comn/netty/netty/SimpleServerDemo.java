@@ -2,6 +2,10 @@ package com.mimu.simple.comn.netty.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
+import io.netty.channel.epoll.EpollEventLoopGroup;
+import io.netty.channel.epoll.EpollServerSocketChannel;
+import io.netty.channel.kqueue.KQueueEventLoopGroup;
+import io.netty.channel.kqueue.KQueueServerSocketChannel;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -28,6 +32,48 @@ public class SimpleServerDemo {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(connectionGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
+                .option(ChannelOption.SO_BACKLOG, 1024)
+                .childHandler(new ChildHandler());
+        try {
+            ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
+            logger.info("SimpleServerDemo start... port={}", port);
+            channelFuture.channel().closeFuture().addListener((ChannelFutureListener) future -> {
+                connectionGroup.shutdownGracefully();
+                workerGroup.shutdownGracefully();
+            });
+        } catch (InterruptedException e) {
+            logger.error("SimpleServerDemo start error", e);
+        }
+
+    }
+
+    public void startServer1() {
+        EventLoopGroup connectionGroup = new EpollEventLoopGroup(1);
+        EventLoopGroup workerGroup = new EpollEventLoopGroup(2);
+        ServerBootstrap serverBootstrap = new ServerBootstrap();
+        serverBootstrap.group(connectionGroup, workerGroup)
+                .channel(EpollServerSocketChannel.class)
+                .option(ChannelOption.SO_BACKLOG, 1024)
+                .childHandler(new ChildHandler());
+        try {
+            ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
+            logger.info("SimpleServerDemo start... port={}", port);
+            channelFuture.channel().closeFuture().addListener((ChannelFutureListener) future -> {
+                connectionGroup.shutdownGracefully();
+                workerGroup.shutdownGracefully();
+            });
+        } catch (InterruptedException e) {
+            logger.error("SimpleServerDemo start error", e);
+        }
+
+    }
+
+    public void startServer2() {
+        EventLoopGroup connectionGroup = new KQueueEventLoopGroup(1);
+        EventLoopGroup workerGroup = new KQueueEventLoopGroup(2);
+        ServerBootstrap serverBootstrap = new ServerBootstrap();
+        serverBootstrap.group(connectionGroup, workerGroup)
+                .channel(KQueueServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 1024)
                 .childHandler(new ChildHandler());
         try {
