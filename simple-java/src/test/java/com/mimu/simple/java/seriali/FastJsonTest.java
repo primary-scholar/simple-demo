@@ -1,4 +1,4 @@
-package com.mimu.simple.java.fastjson;
+package com.mimu.simple.java.seriali;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mimu.simple.java.abase.Grade;

@@ -24,7 +24,7 @@ public class GenericClazz<T> {
      * @throws IllegalAccessException
      * @throws InstantiationException
      */
-    public <T> T getB(Class<T> clazz) throws IllegalAccessException, InstantiationException {
+    public static  <T> T getB(Class<T> clazz) throws IllegalAccessException, InstantiationException {
         return clazz.newInstance();
     }
 

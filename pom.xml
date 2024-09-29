@@ -72,6 +72,7 @@
         <redisson.version>3.12.2</redisson.version>
         <skywalking.version>8.0.1</skywalking.version>
         <elasticsearch.version>6.2.4</elasticsearch.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
 
         <dubbo.version>2.7.4.1</dubbo.version>
         <junit.version>4.12</junit.version>
@@ -364,6 +365,11 @@
                 <groupId>org.apache.skywalking</groupId>
                 <artifactId>apm-toolkit-trace</artifactId>
                 <version>${skywalking.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
             </dependency>
 
             <dependency>

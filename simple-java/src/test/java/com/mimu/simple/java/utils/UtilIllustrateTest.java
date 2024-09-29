@@ -5,6 +5,11 @@ package com.mimu.simple.java.utils;
  * date: 2019/11/1
  */
 
+import com.mimu.simple.java.abase.Student;
+import org.junit.Test;
+
+import java.util.ArrayList;
+
 /**
  * 在 java.util 包中提供两种类型的 数据存储结构：1 collection;2 Map
  * 1 collection 提供了保存一组元素的存储结构 旗下包含:
@@ -49,4 +54,10 @@ package com.mimu.simple.java.utils;
  * 2.3.1 ConcurrentHashMap()
  */
 public class UtilIllustrateTest {
+
+    @Test
+    public void test() {
+        ArrayList<Student> students = new ArrayList<>(10);
+        System.out.println(students.size());
+    }
 }

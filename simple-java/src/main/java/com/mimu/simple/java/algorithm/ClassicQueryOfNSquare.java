@@ -30,7 +30,7 @@ public class ClassicQueryOfNSquare extends ClassicSortOfNSquare {
         int left = 0, right = array.length - 1;
         while (left <= right) {
             // 这里 int mid = (l + r) / 2; 是一样的，只不过 使用 +[(差值)/2] 的方式可以在某种程度避免溢出
-            int mid = left + ((right - left) >>> 1);
+            int mid = left + ((right - left) >> 1);
             //如果当前索引的数组值 = 待要查询的 数字 则返回 该index
             if (array[mid].equals(searchIng)) {
                 return mid;
@@ -62,7 +62,7 @@ public class ClassicQueryOfNSquare extends ClassicSortOfNSquare {
         }
         int left = 0, right = array.length - 1, index = -1;
         while (left <= right) {
-            int mid = left + ((right - left) >>> 1);
+            int mid = left + ((right - left) >> 1);
             // 如果 当前索引的数组值 >= 待查询的值 则 可舍弃 > 当前索引值的 数组的那部分，在<的那部分无限逼近
             // 即 right=mid-1;
             if (array[mid] >= searchIng) {
@@ -91,7 +91,7 @@ public class ClassicQueryOfNSquare extends ClassicSortOfNSquare {
         }
         int left = 0, right = array.length - 1, index = -1;
         while (left <= right) {
-            int mid = left + ((right - left) >>> 1);
+            int mid = left + ((right - left) >> 1);
             // 如果 当前索引的数组值 <= 待查询的值 则 可舍弃 < 当前索引值的 数组的那部分，在> 的那部分无限逼近
             // 即 left = mid+1;
             if (array[mid] <= searchIng) {
@@ -129,7 +129,7 @@ public class ClassicQueryOfNSquare extends ClassicSortOfNSquare {
         }
         int left = 1, right = array.length - 2;
         while (left <= right) {
-            int mid = left + ((right - left) >>> 1);
+            int mid = left + ((right - left) >> 1);
             if (array[mid] > array[mid - 1]) { // 当前 mid 位置的数字 比左边的数字大 则说明 局部最小值 在该位置 左侧
                 right = mid - 1;
             } else if (array[mid] > array[mid + 1]) { // 当前 mid 位置的数字 比右边的数字大 则说明 局部最小值 在该位置 右侧
@@ -163,7 +163,7 @@ public class ClassicQueryOfNSquare extends ClassicSortOfNSquare {
         }
         int left = 1, right = array.length - 2;
         while (left <= right) {
-            int mid = left + ((right - left) >>> 1);
+            int mid = left + ((right - left) >> 1);
             if (array[mid] < array[mid - 1]) { // 当前 mid 位置的数字 比左边的数字小 则说明 局部最大值 在该位置 左侧
                 right = mid - 1;
             } else if (array[mid] < array[mid + 1]) { // 当前 mid 位置的数字 比右边的数字小 则说明 局部最大值 在该位置 右侧
