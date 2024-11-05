@@ -32,7 +32,7 @@ public class CollectionListTest {
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(null);
         arrayList.add(13);
-        arrayList.add(1, 13);
+        arrayList.add(1, 16);
         arrayList.add(10);
         arrayList.add(14);
         arrayList.set(3, 11);

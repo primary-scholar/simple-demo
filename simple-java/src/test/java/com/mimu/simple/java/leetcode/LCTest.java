@@ -67,7 +67,8 @@ public class LCTest {
     private LC_BinTreeNode_230_KthSmallest kthSmallest = new LC_BinTreeNode_230_KthSmallest();
     private LC_Stack_232_MyQueue myQueue = new LC_Stack_232_MyQueue();
     private LC_ListNode_234_IsPalindrome isPalindrome = new LC_ListNode_234_IsPalindrome();
-    private LC_BinTreeNode_236_LowestCommonAncestor lowestCommonAncestor = new LC_BinTreeNode_236_LowestCommonAncestor();
+    private LC_BinTreeNode_236_LowestCommonAncestor lowestCommonAncestor =
+            new LC_BinTreeNode_236_LowestCommonAncestor();
     private LC_Array_238_ProductExceptSelf productExceptSelf = new LC_Array_238_ProductExceptSelf();
     private LC__242_IsAnagram isAnagram = new LC__242_IsAnagram();
     private LC_BinTreeNode_266_InvertTree invertTree = new LC_BinTreeNode_266_InvertTree();
@@ -79,9 +80,11 @@ public class LCTest {
     private LC__347_TopKFrequent topKFrequent = new LC__347_TopKFrequent();
     private LC__438_FindAnagrams findAnagrams = new LC__438_FindAnagrams();
     private LC_DP_509_Fib fib = new LC_DP_509_Fib();
-    private LC_BinTreeNode_543_DiameterOfBinaryTree diameterOfBinaryTree = new LC_BinTreeNode_543_DiameterOfBinaryTree();
+    private LC_BinTreeNode_543_DiameterOfBinaryTree diameterOfBinaryTree =
+            new LC_BinTreeNode_543_DiameterOfBinaryTree();
     private LC__560_SubarraySum subarraySum = new LC__560_SubarraySum();
     private LC_DP_1143_LongestCommonSubsequence longestCommonSubsequence = new LC_DP_1143_LongestCommonSubsequence();
+    private LC_DP__LongestCommonString longestCommonString = new LC_DP__LongestCommonString();
 
     @Test
     public void addTwoNumbersTest() {
@@ -93,10 +96,15 @@ public class LCTest {
 
     @Test
     public void listNode_2_addTwoNumbersTest() {
-        LC_ListNode.ListNode aFR = listNode_2_addTwoNumbers.addTwoNumbers(listNode_2_addTwoNumbers.list2Node(Arrays.asList(2, 4, 3)), listNode_2_addTwoNumbers.list2Node(Arrays.asList(5, 6, 4)));
+        LC_ListNode.ListNode aFR =
+                listNode_2_addTwoNumbers.addTwoNumbers(listNode_2_addTwoNumbers.list2Node(Arrays.asList(2, 4, 3)),
+                        listNode_2_addTwoNumbers.list2Node(Arrays.asList(5, 6, 4)));
         assert CollectionUtils.isEqualCollection(listNode_2_addTwoNumbers.node2List(aFR), Arrays.asList(7, 0, 8));
-        LC_ListNode.ListNode aSR = listNode_2_addTwoNumbers.addTwoNumbers(listNode_2_addTwoNumbers.list2Node(Arrays.asList(9, 9, 9, 9, 9, 9, 9)), listNode_2_addTwoNumbers.list2Node(Arrays.asList(9, 9, 9, 9)));
-        assert CollectionUtils.isEqualCollection(listNode_2_addTwoNumbers.node2List(aSR), Arrays.asList(8, 9, 9, 9, 0, 0, 0, 1));
+        LC_ListNode.ListNode aSR =
+                listNode_2_addTwoNumbers.addTwoNumbers(listNode_2_addTwoNumbers.list2Node(Arrays.asList(9, 9, 9, 9, 9
+                        , 9, 9)), listNode_2_addTwoNumbers.list2Node(Arrays.asList(9, 9, 9, 9)));
+        assert CollectionUtils.isEqualCollection(listNode_2_addTwoNumbers.node2List(aSR), Arrays.asList(8, 9, 9, 9, 0
+                , 0, 0, 1));
     }
 
     @Test
@@ -234,7 +242,8 @@ public class LCTest {
 
     @Test
     public void spiralOrderResult() {
-        List<Integer> integers1 = spiralOrder.spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}});
+        List<Integer> integers1 = spiralOrder.spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12},
+                {13, 14, 15, 16}});
         System.out.println(integers1);
     }
 
@@ -394,7 +403,8 @@ public class LCTest {
         LC_ListNode.ListNode firstNode = sortList.sortList(mergeKLists.list2Node(first));
         LC_ListNode.ListNode secondNode = sortList.sortList(mergeKLists.list2Node(second));
         LC_ListNode.ListNode thirdNode = sortList.sortList(mergeKLists.list2Node(third));
-        LC_ListNode.ListNode merge = mergeKLists.mergeKLists((Arrays.asList(firstNode, secondNode, thirdNode).toArray(new LC_ListNode.ListNode[]{})));
+        LC_ListNode.ListNode merge =
+                mergeKLists.mergeKLists((Arrays.asList(firstNode, secondNode, thirdNode).toArray(new LC_ListNode.ListNode[]{})));
         System.out.println(mergeKLists.node2List(merge));
     }
 
@@ -406,7 +416,8 @@ public class LCTest {
 
     @Test
     public void numIsLandsTest() {
-        char[][] metrix = new char[][]{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}};
+        char[][] metrix = new char[][]{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0',
+                '0'}, {'0', '0', '0', '1', '1'}};
         int i = numIsLands.numIslands(metrix);
         System.out.println(i);
     }
@@ -459,7 +470,8 @@ public class LCTest {
     public void getIntersectionNodeTest() {
         List<Integer> first = Arrays.asList(4, 1, 8, 4, 5);
         List<Integer> second = Arrays.asList(5, 6, 1, 8, 4, 5);
-        LC_ListNode.ListNode node = getIntersectionNode.getIntersectionNode(getIntersectionNode.list2Node(first), getIntersectionNode.list2Node(second));
+        LC_ListNode.ListNode node = getIntersectionNode.getIntersectionNode(getIntersectionNode.list2Node(first),
+                getIntersectionNode.list2Node(second));
         System.out.println(node.val);
     }
 
@@ -592,6 +604,22 @@ public class LCTest {
     @Test
     public void longestCommonSubsequenceTest() {
         System.out.println(longestCommonSubsequence.longestCommonSubsequence("abcde", "ace"));
+    }
+
+    @Test
+    public void longestCommonStringTest() {
+        int threshold = 3;
+        String title = "1DABF2345CD";
+        String query = "12345DAB";
+        System.out.println(title.length());
+        System.out.println(title.substring(1, title.length()));
+        //System.out.println(title);
+        //System.out.println(longestCommonString.multiSubLcs(title, query, threshold));
+        long begin = System.currentTimeMillis();
+        System.out.println(begin);
+        System.out.println(longestCommonString.multiLongestCommonString("纸质火车票成为历史 火车票电子发票如何开",
+                "今起纸质火车票成为历史", threshold));
+        System.out.println(System.currentTimeMillis() - begin);
     }
 
 }
