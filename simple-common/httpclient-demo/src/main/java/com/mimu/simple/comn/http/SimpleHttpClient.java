@@ -106,7 +106,6 @@ public class SimpleHttpClient {
     }
 
     @SuppressWarnings("unchecked")
-
     private static void initHttpClient() {
         if (httpClient == null) {
             synchronized (lock) {
