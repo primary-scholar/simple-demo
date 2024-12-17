@@ -50,7 +50,7 @@
         <netty.version>4.1.112.Final</netty.version>
         <protobuf.version>4.28.0-RC2</protobuf.version>
         <grpc.version>1.17.0</grpc.version>
-        <httpclient.version>4.5.6</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <mysql.connector.version>8.0.20</mysql.connector.version>
         <druid.version>1.1.16</druid.version>
         <mybatis.version>3.5.1</mybatis.version>

@@ -115,4 +115,19 @@ public class CollectionListTest {
         }
 
     }
+
+    /**
+     * subList,subString 前包括后不包括
+     */
+    @Test
+    public void subListTest() {
+        ArrayList<Integer> integers = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            integers.add(i);
+        }
+        System.out.println(integers);
+        System.out.println(integers.subList(8, integers.size()));
+        System.out.println();
+        System.out.println(integers.subList(integers.size(), integers.size()));
+    }
 }

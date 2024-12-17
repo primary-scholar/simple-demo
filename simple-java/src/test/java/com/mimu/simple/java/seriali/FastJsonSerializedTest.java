@@ -2,7 +2,14 @@ package com.mimu.simple.java.seriali;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Getter;
+import lombok.Setter;
 import org.junit.Test;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * author: mimu
@@ -58,6 +65,22 @@ public class FastJsonSerializedTest {
         System.out.println(people2);
     }
 
+    @Test
+    public void studentTest() {
+        Integer length = 3;
+        ArrayList<Student> studentList = new ArrayList<>(length);
+        for (int i = 0; i < length; i++) {
+            Student student = new Student();
+            student.setName("name" + i);
+            if (i % 2 == 0) {
+                student.setAge(i);
+            }
+            studentList.add(student);
+        }
+        List<Integer> collect = studentList.stream().map(Student::getAge).filter(Objects::nonNull).toList();
+        collect.forEach(System.out::println);
+    }
+
     public static class People {
         private String name;
         private int age;
@@ -102,10 +125,7 @@ public class FastJsonSerializedTest {
 
         @Override
         public String toString() {
-            return "People{" +
-                    "name='" + name + '\'' +
-                    ", age=" + age +
-                    '}';
+            return "People{" + "name='" + name + '\'' + ", age=" + age + '}';
         }
     }
 
@@ -150,4 +170,12 @@ public class FastJsonSerializedTest {
             this.age = age;
         }
     }
+
+    @Setter
+    @Getter
+    public static class Student implements Serializable {
+        private String name;
+        private Integer age;
+    }
+
 }
