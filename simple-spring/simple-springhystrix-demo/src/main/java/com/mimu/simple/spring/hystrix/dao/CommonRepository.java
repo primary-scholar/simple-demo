@@ -11,6 +11,10 @@ import org.springframework.stereotype.Repository;
 /**
  * author: mimu
  * date: 2019/8/30
+ * <p>
+ * hystrix 线程池的初始化在
+ *
+ * @see com.netflix.hystrix.AbstractCommand 中
  */
 @Repository
 public class CommonRepository {
@@ -32,8 +36,10 @@ public class CommonRepository {
      */
     @HystrixCommand(fallbackMethod = "getRemoteInfoFallBack",
             commandProperties = {
-                    @HystrixProperty(name = HystrixPropertiesManager.EXECUTION_ISOLATION_THREAD_TIMEOUT_IN_MILLISECONDS, value = "50"),
-                    @HystrixProperty(name = HystrixPropertiesManager.FALLBACK_ISOLATION_SEMAPHORE_MAX_CONCURRENT_REQUESTS, value = "1")
+                    @HystrixProperty(name =
+                            HystrixPropertiesManager.EXECUTION_ISOLATION_THREAD_TIMEOUT_IN_MILLISECONDS, value = "50"),
+                    @HystrixProperty(name =
+                            HystrixPropertiesManager.FALLBACK_ISOLATION_SEMAPHORE_MAX_CONCURRENT_REQUESTS, value = "1")
             },
             threadPoolProperties = {
                     @HystrixProperty(name = HystrixPropertiesManager.CORE_SIZE, value = "10"),
