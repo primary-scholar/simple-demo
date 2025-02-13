@@ -1,5 +1,8 @@
 package com.mimu.simple.java.seriali;
 
+import com.mimu.simple.java.abase.Person;
+import com.mimu.simple.java.seriali.model.People;
+import com.mimu.simple.java.seriali.model.Student;
 import org.junit.Test;
 
 import java.io.*;
@@ -59,7 +62,7 @@ public class JavaApiSerializedTest {
     public void info1() throws IOException, ClassNotFoundException {
         File file = new File("out1.txt");
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
-        People1 people = new People1();
+        Person people = new Person();
         people.setAge(10);
         people.setName("name:lala");
         outputStream.writeObject(people);
@@ -70,122 +73,25 @@ public class JavaApiSerializedTest {
         file.delete();
     }
 
-
     /**
-     * 内部类不使用static修饰，序列化时会报错
+     * @throws IOException
+     * @throws ClassNotFoundException
+     * @see Student 中的说明
      */
-    static class People implements Serializable {
-        private static final long serialVersionUID = -6502068672348492882L;
-        private String name;
-        private int age;
+    @Test
+    public void info2() throws IOException, ClassNotFoundException {
+        File file = new File("out2.txt");
+        ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
+        Student student = new Student();
+        student.setName("name:lala");
+        student.setAge(10);
+        student.setClassNo(1);
+        outputStream.writeObject(student);
 
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-        public void setAge(int age) {
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return "People{" +
-                    "name='" + name + '\'' +
-                    ", age=" + age +
-                    '}';
-        }
+        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file));
+        Object object = objectInputStream.readObject();
+        System.out.println(object);
+        file.delete();
     }
 
-    /**
-     * 自定义 序列化 和反序列化
-     * <p>
-     * 还可以 实现 Externalizable
-     * 并复写 writeExternal() 和 readExternal() 方法 可达到同样的效果
-     */
-
-    /**
-     * 内部类 不使用 static 修饰 会报错
-     */
-    static class People1 implements Serializable {
-        private static final long serialVersionUID = -6622649391820958727L;
-        private String name;
-        private int age;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-        public void setAge(int age) {
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return "People{" +
-                    "name='" + name + '\'' +
-                    ", age=" + age +
-                    '}';
-        }
-
-        /**
-         * 重写 writeObject 方法 1
-         *
-         * @param objectOutputStream
-         * @throws IOException
-         */
-        private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-            objectOutputStream.defaultWriteObject();
-            objectOutputStream.writeObject(this.getName() + "writeObject");
-
-        }
-
-        /**
-         * 重写 writeObject 方法 2
-         * @param
-         * @throws IOException
-         */
-        /*private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-            objectOutputStream.writeObject(this.getName() + "writeObject");
-            objectOutputStream.writeObject(this.getAge() + 1);
-        }*/
-
-        /**
-         * 重写 readObject 方法 1
-         *
-         * @param objectInputStream
-         * @throws IOException
-         * @throws ClassNotFoundException
-         */
-        private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
-            objectInputStream.defaultReadObject();
-            this.setName(objectInputStream.readObject() + "readObject");
-        }
-
-        /**
-         * 重写 readObject 方法 2
-         * @param objectInputStream
-         * @throws IOException
-         * @throws ClassNotFoundException
-         */
-        /*private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
-            this.setName((String) objectInputStream.readObject());
-            this.setAge((Integer) objectInputStream.readObject());
-        }*/
-    }
 }

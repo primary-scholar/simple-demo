@@ -3,6 +3,7 @@ package com.mimu.simple.java.cm;
 import org.junit.Test;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -135,6 +136,29 @@ public class SimpleRex {
         String reg = "^https?://([\\w-]+.)+[\\w-]+(/[\\w-./?&=]*)?$";
         System.out.println(Pattern.matches(reg, "https://domain.path.com?id=07701020028"));
         System.out.println(Pattern.matches(reg, "http://domain.path.com?id=07701020028"));
+    }
+
+    @Test
+    public void test3() {
+        String reg = "^https?://([\\w-]+.)+[\\w-]+(/[\\w-./?&=]*)?$";
+        System.out.println(Pattern.matches(reg, "https://domain.path.com?id=07701020028"));
+        System.out.println(Pattern.matches(reg, "http://domain.path.com?id=07701020028"));
+
+    }
+
+    @Test
+    public void test2() {
+        String reg="(^\\d{2,4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d+)";
+        Pattern pattern = Pattern.compile(reg);
+        String timeF = "25-01-22 15:07:50.449";
+        Matcher matcher = pattern.matcher(timeF);
+        System.out.println(matcher.find());
+        System.out.println(Pattern.matches(reg, timeF));
+        String timeS = "2025-01-22 15:07:50.449";
+        Matcher matcher1 = pattern.matcher(timeS);
+        System.out.println(matcher1.find());
+        System.out.println(matcher1.matches());
+        System.out.println(Pattern.matches(reg, timeS));
     }
 
     public Boolean solution(String ip) {
