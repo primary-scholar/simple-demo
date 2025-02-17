@@ -1,13 +1,13 @@
 package com.mimu.simple.java.seriali;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.annotation.JSONField;
-import lombok.Getter;
-import lombok.Setter;
+import com.mimu.simple.java.seriali.model.FastJsonFeaturePeople;
+import com.mimu.simple.java.seriali.model.Student;
+import com.mimu.simple.java.seriali.model.TempModel;
 import org.junit.Test;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,29 +40,29 @@ public class FastJsonSerializedTest {
 
     @Test
     public void info() {
-        People people = new People();
+        FastJsonFeaturePeople people = new FastJsonFeaturePeople();
         people.setName("name");
         people.setAge(10);
         System.out.println(JSONObject.toJSONString(people));
         JSONObject jsonObject = JSONObject.parseObject(JSONObject.toJSONString(people));
-        People people1 = JSONObject.toJavaObject(jsonObject, People.class);
-        System.out.println(people1);
+        FastJsonFeaturePeople javaObject = JSONObject.toJavaObject(jsonObject, FastJsonFeaturePeople.class);
+        System.out.println(javaObject);
     }
 
     @Test
     public void info1() {
-        People people = new People();
+        FastJsonFeaturePeople people = new FastJsonFeaturePeople();
         people.setName("nameA");
         people.setAge(11);
         System.out.println(JSONObject.toJSONString(people));
 
         String peos = "{\"aName\":\"anamela\",\"age\":11}";
-        People people1 = JSONObject.toJavaObject(JSONObject.parseObject(peos), People.class);
-        System.out.println(people1);
+        FastJsonFeaturePeople javaObject = JSONObject.toJavaObject(JSONObject.parseObject(peos), FastJsonFeaturePeople.class);
+        System.out.println(javaObject);
 
         String peos1 = "{\"bName\":\"bnamela\",\"age\":12}";
-        People people2 = JSONObject.toJavaObject(JSONObject.parseObject(peos1), People.class);
-        System.out.println(people2);
+        FastJsonFeaturePeople object = JSONObject.toJavaObject(JSONObject.parseObject(peos1), FastJsonFeaturePeople.class);
+        System.out.println(object);
     }
 
     @Test
@@ -81,101 +81,13 @@ public class FastJsonSerializedTest {
         collect.forEach(System.out::println);
     }
 
-    public static class People {
-        private String name;
-        private int age;
-
-        public People() {
-        }
-
-        public People(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        /**
-         * 序列化时 把该对象的name属性序列化为 key:aName 属性
-         * 可从 info1() 中进行验证
-         *
-         * @return
-         */
-        @JSONField(name = "aName")
-        public String getName() {
-            return name;
-        }
-
-        /**
-         * 反序列化时 从key=bName 中获取数据填充到对象中
-         * 可从 info1() 中进行验证
-         *
-         * @param name
-         */
-        @JSONField(name = "bName")
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-        public void setAge(int age) {
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return "People{" + "name='" + name + '\'' + ", age=" + age + '}';
-        }
-    }
-
     @Test
-    public void info2() {
-        Person person = new Person("person", 11);
-        String s = JSONObject.toJSONString(person);
-        System.out.println(s);
-        JSONObject jsonObject = JSONObject.parseObject(s);
-        System.out.println(JSONObject.toJavaObject(JSONObject.parseObject(s), Person.class));
-    }
-
-    /**
-     * FastJson 是根据 getXXX() isXXX() 方法来获取key的 因此被序列化的 对象必须有 getXXX() 方法 或 isXXX() 方法
-     */
-    public static class Person {
-        private String name;
-        private int age;
-
-        public Person() {
-        }
-
-        public Person(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        @JSONField(name = "bbb")
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-        public void setAge(int age) {
-            this.age = age;
-        }
-    }
-
-    @Setter
-    @Getter
-    public static class Student implements Serializable {
-        private String name;
-        private Integer age;
+    public void tempModelTest(){
+        TempModel model = new TempModel();
+        model.setFlag(Boolean.TRUE);
+        model.setQuery("abc");
+        model.setFeedIdList(Collections.singletonList("feed_id"));
+        System.out.println(JSONObject.toJSONString(model));
     }
 
 }
