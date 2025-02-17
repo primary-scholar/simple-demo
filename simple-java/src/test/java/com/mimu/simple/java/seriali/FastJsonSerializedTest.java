@@ -86,7 +86,7 @@ public class FastJsonSerializedTest {
         TempModel model = new TempModel();
         model.setFlag(Boolean.TRUE);
         model.setQuery("abc");
-        model.setFeedIdList(Collections.singletonList("feed_id"));
+        model.setUIdList(Collections.singletonList("uid"));
         System.out.println(JSONObject.toJSONString(model));
     }
 
