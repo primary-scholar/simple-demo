@@ -130,4 +130,35 @@ public class CollectionListTest {
         System.out.println();
         System.out.println(integers.subList(integers.size(), integers.size()));
     }
+
+    @Test
+    public void changeListTest() {
+        ArrayList<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(2);
+        System.out.println(integers);
+        // 可对比 addListElement 和 anotherAddListElement 发现差异
+        addListElement(integers);
+        System.out.println(integers);
+        anotherAddListElement(integers);
+        System.out.println(integers);
+    }
+
+    public void addListElement(ArrayList<Integer> integers) {
+        integers.add(10);
+    }
+
+    /**
+     * 在方法体 中对参数进行 负值操作
+     * 并不会影响参数的 变化；
+     *
+     * @param integers
+     */
+    public void anotherAddListElement(ArrayList<Integer> integers) {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(10);
+        arrayList.add(20);
+        integers = arrayList;
+    }
+
 }

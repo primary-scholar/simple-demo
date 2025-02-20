@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * author: mimu
@@ -48,5 +50,14 @@ public class FastJsonTest {
         System.out.println(String.format("%03d",1));
         OperatingSystemMXBean systemMXBean = ManagementFactory.getOperatingSystemMXBean();
         System.out.println(systemMXBean.getName());
+    }
+
+    @Test
+    public void test1(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",1);
+        List<Integer> list = Arrays.asList(1, 2);
+        jsonObject.put("list",list);
+        System.out.println(jsonObject.toJSONString());
     }
 }

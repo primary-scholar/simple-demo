@@ -40,6 +40,11 @@ public class GenericClazzTest {
         } catch (IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }*/
+        clazz.print(Person.class);
+        /**
+         * 该方法 编译报错
+         */
+        /*clazz.print(Fruit.class);*/
     }
 
     @Test

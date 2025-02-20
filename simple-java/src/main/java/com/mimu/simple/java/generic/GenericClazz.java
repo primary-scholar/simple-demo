@@ -16,7 +16,8 @@ package com.mimu.simple.java.generic;
 public class GenericClazz<T> {
 
     /**
-     * 该方法是一个 泛型方法 该方法中的 <T> 的类型 和泛型类中的 <T> 是毫无关系的 类型(可相同，可不同)
+     *  泛型方法 这里的返回值 T 和 参数中的类型 T 一致，但和范型类中的 参数类型 无关；
+     *  该方法中的 T 的类型 和泛型类中的 <T> 是毫无关系的 类型(可相同，可不同)
      *
      * @param clazz
      * @param <T>
@@ -24,12 +25,13 @@ public class GenericClazz<T> {
      * @throws IllegalAccessException
      * @throws InstantiationException
      */
-    public static  <T> T getB(Class<T> clazz) throws IllegalAccessException, InstantiationException {
+    public static <T> T getB(Class<T> clazz) throws IllegalAccessException, InstantiationException {
         return clazz.newInstance();
     }
 
     /**
-     * 该方法 不是 泛型方法 此处的 T 和泛型类中的 T 必须相同
+     * 普通方法 该方法返回值 必须和范型类的 类型一致
+     * 此处的 T 和泛型类中的 T 必须相同
      *
      * @param tClass
      * @return
@@ -40,7 +42,13 @@ public class GenericClazz<T> {
         return tClass.newInstance();
     }
 
-    public T getFruitName(T aFruit) throws IllegalAccessException, InstantiationException {
-        return aFruit;
+    /**
+     * 普通方法  此处的 T 和泛型类中的 T 必须相同
+     *
+     * @param t
+     */
+    public void print(Class<T> t) {
+        System.out.println(t.getCanonicalName());
     }
+
 }
