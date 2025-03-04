@@ -1,5 +1,6 @@
 package com.mimu.simple.java.seriali;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mimu.simple.java.abase.Grade;
 import com.mimu.simple.java.abase.Student;
@@ -7,8 +8,6 @@ import org.junit.Test;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * author: mimu
@@ -54,10 +53,14 @@ public class FastJsonTest {
 
     @Test
     public void test1(){
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id",1);
-        List<Integer> list = Arrays.asList(1, 2);
-        jsonObject.put("list",list);
-        System.out.println(jsonObject.toJSONString());
+        JSONObject json = new JSONObject();
+        json.put("id",1);
+        JSONArray list = new JSONArray();
+        json.put("list",list);
+        System.out.println(json.toJSONString());
+
+        json.getJSONArray("list").add(1,1);
+
+
     }
 }

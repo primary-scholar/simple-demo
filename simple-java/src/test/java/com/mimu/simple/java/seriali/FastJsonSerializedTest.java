@@ -1,15 +1,13 @@
 package com.mimu.simple.java.seriali;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mimu.simple.java.seriali.model.FastJsonFeaturePeople;
 import com.mimu.simple.java.seriali.model.Student;
 import com.mimu.simple.java.seriali.model.TempModel;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * author: mimu
@@ -88,6 +86,11 @@ public class FastJsonSerializedTest {
         model.setQuery("abc");
         model.setUIdList(Collections.singletonList("uid"));
         System.out.println(JSONObject.toJSONString(model));
+    }
+
+    @Test
+    public void tempModel2Test() {
+        new JSONArray();
     }
 
 }
