@@ -2,13 +2,11 @@ package com.mimu.simple.java.cm;
 
 
 import com.mimu.simple.java.abase.Student;
+import org.apache.commons.lang3.RandomUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -46,6 +44,9 @@ public class NetworkTest {
 
     @Test
     public void equalTest() {
-
+        List<Integer> list = Arrays.asList(1, 2, 3);
+        System.out.println(RandomUtils.nextLong(0, list.size()));
+        System.out.println(RandomUtils.nextLong());
+        System.out.println(RandomUtils.nextLong());
     }
 }
