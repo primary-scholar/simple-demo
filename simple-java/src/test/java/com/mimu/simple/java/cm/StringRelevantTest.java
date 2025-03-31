@@ -3,6 +3,8 @@ package com.mimu.simple.java.cm;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class StringRelevantTest {
 
     @Test
@@ -14,5 +16,8 @@ public class StringRelevantTest {
         System.out.println(replace);
         StringBuilder replaced = new StringBuilder(replace).replace(s3, s4 + 1, StringUtils.repeat("&", s34Len));
         System.out.println(replaced);
+
+        String bcd = "";
+        System.out.println(Arrays.asList(bcd.split(",")));
     }
 }
