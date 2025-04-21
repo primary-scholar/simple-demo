@@ -1,11 +1,15 @@
 package com.mimu.simple.java.cm;
 
+import com.mimu.simple.java.SimpleLoggerTest;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
 public class StringRelevantTest {
+    private static final Logger log = LoggerFactory.getLogger(StringRelevantTest.class);
 
     @Test
     public void test() {
@@ -19,5 +23,11 @@ public class StringRelevantTest {
 
         String bcd = "";
         System.out.println(Arrays.asList(bcd.split(",")));
+    }
+
+    @Test
+    public void test2() {
+        SimpleLoggerTest simpleLoggerTest = new SimpleLoggerTest();
+        simpleLoggerTest.info();
     }
 }

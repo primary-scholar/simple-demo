@@ -2,11 +2,14 @@ package com.mimu.simple.java.seriali;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.mimu.simple.java.seriali.model.FastJsonFeaturePeople;
+import com.mimu.simple.java.seriali.model.ModelIntegerString;
 import com.mimu.simple.java.seriali.model.Student;
 import com.mimu.simple.java.seriali.model.TempModel;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -80,7 +83,7 @@ public class FastJsonSerializedTest {
     }
 
     @Test
-    public void tempModelTest(){
+    public void tempModelTest() {
         TempModel model = new TempModel();
         model.setFlag(Boolean.TRUE);
         model.setQuery("abc");
@@ -90,7 +93,22 @@ public class FastJsonSerializedTest {
 
     @Test
     public void tempModel2Test() {
-        new JSONArray();
+        String url = "http://test.s.ad.sohuno.com/as?itemspaceid=%d&videoInterest=%s&articleInterest=%s";
+
+        ArrayList<ModelIntegerString> video = new ArrayList<>();
+        video.add(new ModelIntegerString("48", new BigDecimal("-0.000082916795538539")));
+        video.add(new ModelIntegerString("232", new BigDecimal("-0.000082916795538539")));
+        video.add(new ModelIntegerString("500", new BigDecimal("-0.000082916795538539")));
+        video.add(new ModelIntegerString("238", new BigDecimal("-0.000082916795538539")));
+        video.add(new ModelIntegerString("83", new BigDecimal("-0.000082916795538539")));
+
+        ArrayList<ModelIntegerString> article = new ArrayList<>();
+        article.add(new ModelIntegerString("18", new BigDecimal("-0.000074916795538539")));
+        article.add(new ModelIntegerString("562", new BigDecimal("-0.000072786795538539")));
+        article.add(new ModelIntegerString("80", new BigDecimal("-0.000082913795338539")));
+        article.add(new ModelIntegerString("838", new BigDecimal("-0.000082456785538539")));
+        System.out.println(String.format(url, 843528, JSONObject.toJSONString(video, SerializerFeature.WriteBigDecimalAsPlain),
+                JSONObject.toJSONString(article, SerializerFeature.WriteBigDecimalAsPlain)));
     }
 
 }
