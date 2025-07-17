@@ -24,7 +24,8 @@ public class SimpleKafkaClientConfig {
         props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "1000");
         props.put(ConsumerConfig.FETCH_MIN_BYTES_CONFIG, "1");
         props.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, "3000");
-        props.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG, "1048576");
+        props.put(ConsumerConfig.DEFAULT_FETCH_MAX_BYTES, ConsumerConfig.DEFAULT_FETCH_MAX_BYTES);
+        props.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG, ConsumerConfig.DEFAULT_MAX_PARTITION_FETCH_BYTES);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");

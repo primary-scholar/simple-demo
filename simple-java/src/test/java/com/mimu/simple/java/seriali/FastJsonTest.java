@@ -8,6 +8,8 @@ import org.junit.Test;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
+import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * author: mimu
@@ -61,6 +63,33 @@ public class FastJsonTest {
 
         json.getJSONArray("list").add(1,1);
 
+
+    }
+
+    @Test
+    public void test2() throws InterruptedException {
+        CompletableFuture<Void> voidCompletableFuture = CompletableFuture.runAsync(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("current "+Thread.currentThread().getName());
+            }
+        });
+        CompletableFuture<Void> future =CompletableFuture.completedFuture(null);
+
+        CompletableFuture.allOf(voidCompletableFuture,future).join();
+
+        String cids = "7323092223519042666,7230678383846706986,6868743954981389900, 7208188122226961210, " +
+                "6569242706932314121, 6486201201087393904";
+
+        String[] split = cids.split(",");
+        ArrayList<Long> cidList = new ArrayList<>();
+        for (String s : split) {
+            cidList.add(Long.parseLong(s.trim()));
+        }
+
+        for (Long l : cidList) {
+            System.out.println(l%32);
+        }
 
     }
 }

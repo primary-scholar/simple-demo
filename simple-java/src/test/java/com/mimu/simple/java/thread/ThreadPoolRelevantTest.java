@@ -1,6 +1,8 @@
 package com.mimu.simple.java.thread;
 
 
+import org.junit.Test;
+
 import java.util.concurrent.*;
 
 public class ThreadPoolRelevantTest {
@@ -33,6 +35,11 @@ public class ThreadPoolRelevantTest {
         System.out.println(Thread.currentThread());
         if (num % 2 == 0)
             throw new RuntimeException(Thread.currentThread() + " 异常 ");
+
+    }
+
+    @Test
+    public void test() throws ExecutionException, InterruptedException {
 
     }
 
