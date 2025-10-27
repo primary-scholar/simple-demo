@@ -1,0 +1,1 @@
+### 当前工程 model 依赖路径；serverb-->commona 和 commona-core 在 servera中虽然指定了 包扫描路径 com.mimu.simple.spring.multimodel 世界结果也只会在模块 servera和模块 commona 以及 commona-core 中同名的报名下的类才会被加载到；其他模块下的 不会被加载；
