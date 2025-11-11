@@ -30,7 +30,11 @@
         <commons-lang3.version>3.18.0</commons-lang3.version>
         <rocketmq.version>5.3.3</rocketmq.version>
         <jackson-databind.version>2.18.2</jackson-databind.version>
-
+        <mybatis.version>3.5.19</mybatis.version>
+        <mybatis-spring.version>3.0.5</mybatis-spring.version>
+        <mybatis-generator.version>1.4.2</mybatis-generator.version>
+        <dubbo.version>3.3.2</dubbo.version>
+        <dubbo-registry-zookeeper.version>3.3.5</dubbo-registry-zookeeper.version>
         <junit.version>4.13.2</junit.version>
     </properties>
 
@@ -131,7 +135,31 @@
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson-databind.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator</artifactId>
+                <version>${mybatis-generator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-registry-zookeeper</artifactId>
+                <version>${dubbo-registry-zookeeper.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>

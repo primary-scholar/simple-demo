@@ -21,6 +21,13 @@
         <module>simple-spring-multimodel-demo/simple-spring-multimodel-common-core-demo</module>
         <module>simple-spring-annotation-demo</module>
         <module>simple-spring-annotation-lifecycle-demo</module>
+        <module>simple-spring-file-demo</module>
+        <module>simple-spring-file-lifecycle-demo</module>
+        <module>simple-spring-mybatis-demo</module>
+        <module>simple-spring-dubbo</module>
+        <module>simple-spring-dubbo/simple-spring-dubbo-api</module>
+        <module>simple-spring-dubbo/simple-spring-dubbo-provider</module>
+        <module>simple-spring-dubbo/simple-spring-dubbo-consumer</module>
     </modules>
 
     <properties>
@@ -51,6 +58,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

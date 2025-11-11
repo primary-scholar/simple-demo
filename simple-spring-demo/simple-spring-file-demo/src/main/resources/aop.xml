@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- repository -->
+    <bean id="base" class="com.mimu.simple.spring.file.repository.BaseRepository"/>
+    <bean id="commonRepository" class="com.mimu.simple.spring.file.repository.CommonRepository"/>
+    <bean id="externalRepository" class="com.mimu.simple.spring.file.repository.external.ExternalRepository"/>
+    <bean id="innerRepository" class="com.mimu.simple.spring.file.repository.inner.InnerRepository"/>
+
+    <!-- service -->
+    <bean id="commonService" class="com.mimu.simple.spring.file.service.CommonService">
+        <property name="commonRepository" ref="commonRepository"/>
+        <property name="externalRepository" ref="externalRepository"/>
+        <property name="innerRepository" ref="innerRepository"/>
+    </bean>
+    <bean id="externalService" class="com.mimu.simple.spring.file.service.external.ExternalService">
+        <property name="externalRepository" ref="externalRepository"/>
+        <property name="innerRepository" ref="innerRepository"/>
+    </bean>
+    <bean id="innerService" class="com.mimu.simple.spring.file.service.inner.InnerService">
+        <property name="innerRepository" ref="innerRepository"/>
+    </bean>
+
+    <!-- controller -->
+    <bean id="commonController" class="com.mimu.simple.spring.file.controller.CommonController">
+        <property name="commonService" ref="commonService"/>
+        <property name="externalService" ref="externalService"/>
+        <property name="innerService" ref="innerService"/>
+    </bean>
+    <bean id="externalController" class="com.mimu.simple.spring.file.controller.external.ExternalController">
+        <property name="externalService" ref="externalService"/>
+        <property name="innerService" ref="innerService"/>
+    </bean>
+    <bean id="innerController" class="com.mimu.simple.spring.file.controller.inner.InnerController">
+        <property name="innerService" ref="innerService"/>
+    </bean>
+
+    <!-- aop -->
+    <bean id="loggerAroundAspectBean" class="com.mimu.simple.spring.file.core.SimpleLoggerAroundAspectBean"/>
+    <bean id="simpleLoggerAspectBean" class="com.mimu.simple.spring.file.core.SimpleLoggerAspectBean"/>
+    <aop:config>
+        <aop:pointcut id="loggerBeforeInfo"
+                      expression="execution( public * com.mimu.simple.spring.file.service.inner.InnerService.info())"/>
+        <aop:pointcut id="loggerAfterInfo"
+                      expression="execution( public * com.mimu.simple.spring.file.service.inner.InnerService.message())"/>
+
+        <aop:aspect id="loggerAroundAspect" ref="loggerAroundAspectBean">
+            <aop:pointcut id="loggerAroundInfo"
+                          expression="execution( public * com.mimu.simple.spring.file.service..detail(..)) )"/>
+            <aop:around method="execute" pointcut-ref="loggerAroundInfo"/>
+        </aop:aspect>
+
+        <aop:aspect id="loggerAspect" ref="simpleLoggerAspectBean">
+            <aop:before method="executeInfo" pointcut-ref="loggerBeforeInfo"/>
+            <aop:after method="executeInfo" pointcut-ref="loggerAfterInfo"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!-- 添加 context:property-placeholder后 spring 会自动添加 PropertySourcesPlaceholderConfigurer 进行属性的替换   -->
+    <context:property-placeholder location="source.properties"/>
+    <bean id="sourceModelA" class="com.mimu.simple.spring.file.model.SourceModelA">
+        <property name="domain" value="${source.field}"/>
+    </bean>
+</beans>
