@@ -13,6 +13,11 @@
 
     <name>simple-spring-dubbo</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>simple-spring-dubbo-api</module>
+        <module>simple-spring-dubbo-consumer</module>
+        <module>simple-spring-dubbo-provider</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

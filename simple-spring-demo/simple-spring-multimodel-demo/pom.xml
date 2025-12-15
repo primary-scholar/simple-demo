@@ -12,6 +12,12 @@
 
     <name>simple-spring-multimodel-demo</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>simple-spring-multimodel-common-core-demo</module>
+        <module>simple-spring-multimodel-commona-demo</module>
+        <module>simple-spring-multimodel-servera-demo</module>
+        <module>simple-spring-multimodel-serverb-demo</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

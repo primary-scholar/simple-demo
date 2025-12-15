@@ -11,6 +11,8 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>simple-spring-demo</module>
+        <module>simple-common</module>
+        <module>simple-java</module>
     </modules>
 
     <properties>
@@ -28,6 +30,8 @@
         <spring.data.version>3.5.5</spring.data.version>
         <aspectjweaver.version>1.9.22</aspectjweaver.version>
         <commons-lang3.version>3.18.0</commons-lang3.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-beanutils.version>1.11.0</commons-beanutils.version>
         <rocketmq.version>5.3.3</rocketmq.version>
         <jackson-databind.version>2.18.2</jackson-databind.version>
         <mybatis.version>3.5.19</mybatis.version>
@@ -35,6 +39,8 @@
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
         <dubbo.version>3.3.2</dubbo.version>
         <dubbo-registry-zookeeper.version>3.3.5</dubbo-registry-zookeeper.version>
+
+        <cglib.version>3.3.0</cglib.version>
         <junit.version>4.13.2</junit.version>
     </properties>
 
@@ -126,6 +132,16 @@
                 <version>${commons-lang3.version}</version>
             </dependency>
             <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-client</artifactId>
                 <version>${rocketmq.version}</version>
@@ -167,6 +183,11 @@
             </dependency>
 
 
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
