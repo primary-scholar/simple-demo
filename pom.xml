@@ -38,6 +38,7 @@
         <mybatis.version>3.5.19</mybatis.version>
         <mybatis-spring.version>3.0.5</mybatis-spring.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
+        <mysql.connector.version>8.0.33</mysql.connector.version>
         <dubbo.version>3.3.2</dubbo.version>
         <dubbo-registry-zookeeper.version>3.3.5</dubbo-registry-zookeeper.version>
 
@@ -164,8 +165,13 @@
             </dependency>
             <dependency>
                 <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator</artifactId>
+                <artifactId>mybatis-generator-core</artifactId>
                 <version>${mybatis-generator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
