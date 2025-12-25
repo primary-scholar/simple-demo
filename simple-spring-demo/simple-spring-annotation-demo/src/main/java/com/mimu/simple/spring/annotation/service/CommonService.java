@@ -5,6 +5,7 @@ import com.mimu.simple.spring.annotation.core.SimpleLogger;
 import com.mimu.simple.spring.annotation.event.AsyncTranEvent;
 import com.mimu.simple.spring.annotation.model.PersonData;
 import com.mimu.simple.spring.annotation.model.TermData;
+import com.mimu.simple.spring.annotation.repository.CommonRepository;
 import com.mimu.simple.spring.annotation.repository.PeopleRepository;
 import com.mimu.simple.spring.annotation.repository.TermRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +33,12 @@ public class CommonService {
     private PeopleRepository peopleRepository;
     private TermRepository termRepository;
     private ApplicationContext applicationContext;
+    private CommonRepository commonRepository;
+
+    @Autowired
+    public void setCommonRepository(CommonRepository commonRepository) {
+        this.commonRepository = commonRepository;
+    }
 
     @Autowired
     public void setPeopleRepository(PeopleRepository peopleRepository) {
@@ -51,6 +58,10 @@ public class CommonService {
     @Autowired
     public void setApplicationContext(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
+    }
+
+    public String getInfo(String s) {
+        return commonRepository.getRemoteInfo(s);
     }
 
     @Transactional

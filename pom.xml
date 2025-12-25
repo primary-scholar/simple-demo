@@ -41,6 +41,7 @@
         <mysql.connector.version>8.0.33</mysql.connector.version>
         <dubbo.version>3.3.2</dubbo.version>
         <dubbo-registry-zookeeper.version>3.3.5</dubbo-registry-zookeeper.version>
+        <hystrix-java.version>1.5.12</hystrix-java.version>
 
         <cglib.version>3.3.0</cglib.version>
         <junit.version>4.13.2</junit.version>
@@ -187,6 +188,11 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-javanica</artifactId>
+                <version>${hystrix-java.version}</version>
             </dependency>
 
 
