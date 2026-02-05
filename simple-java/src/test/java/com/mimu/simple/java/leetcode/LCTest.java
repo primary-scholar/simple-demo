@@ -618,7 +618,7 @@ public class LCTest {
         long begin = System.currentTimeMillis();
         System.out.println(begin);
         System.out.println(longestCommonString.multiLongestCommonString("纸质火车票成为历史 火车票电子发票如何开",
-                "今起纸质火车票成为历史", threshold));
+                "今起纸质火车票成为历史啦", threshold));
         System.out.println(System.currentTimeMillis() - begin);
     }
 
