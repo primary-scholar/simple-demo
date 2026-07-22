@@ -3,7 +3,9 @@ package com.mimu.simple.java.seriali;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mimu.simple.java.abase.Grade;
+import com.mimu.simple.java.abase.Person;
 import com.mimu.simple.java.abase.Student;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.lang.management.ManagementFactory;
@@ -91,5 +93,12 @@ public class FastJsonTest {
             System.out.println(l%32);
         }
 
+    }
+
+    @Test
+    public void test3(){
+        System.out.println(JSONObject.parseArray("", Person.class));
+        System.out.println(JSONObject.parseArray(" ", Person.class));
+        System.out.println(StringUtils.isEmpty(" "));
     }
 }

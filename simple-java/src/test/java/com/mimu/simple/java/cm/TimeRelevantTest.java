@@ -5,9 +5,12 @@ import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class TimeRelevantTest {
+
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Test
     public void test() {
@@ -20,6 +23,7 @@ public class TimeRelevantTest {
                         1), 0, 0).plusDays(9))) {
             System.out.println(true);
         }
+        System.out.println(FORMATTER.format(LocalDateTime.now()));
     }
 
 

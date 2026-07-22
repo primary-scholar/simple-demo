@@ -47,7 +47,7 @@
         <spring.version>5.2.7.RELEASE</spring.version>
         <aspectj.version>1.8.13</aspectj.version>
         <cglib.version>3.2.6</cglib.version>
-        <netty.version>4.1.112.Final</netty.version>
+        <netty.version>4.2.2.Final</netty.version>
         <protobuf.version>4.28.0-RC2</protobuf.version>
         <grpc.version>1.71.0</grpc.version>
         <httpclient.version>4.5.13</httpclient.version>
@@ -58,7 +58,7 @@
         <kafka.version>2.2.0</kafka.version>
         <rocketmq.clent.version>5.1.0</rocketmq.clent.version>
         <hystrix.java.version>1.5.12</hystrix.java.version>
-        <lombok.version>1.18.30</lombok.version>
+        <lombok.version>1.18.34</lombok.version>
         <tomcat.embed.core>9.0.36</tomcat.embed.core>
         <jetty.version>9.4.33.v20201020</jetty.version>
         <curator.version>4.1.0</curator.version>
