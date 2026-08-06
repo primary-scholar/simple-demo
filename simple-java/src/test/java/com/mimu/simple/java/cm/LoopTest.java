@@ -2,6 +2,8 @@ package com.mimu.simple.java.cm;
 
 import org.junit.Test;
 
+import java.util.Random;
+
 /**
  * @author luyahui
  * @date 2023/8/30
@@ -33,5 +35,17 @@ public class LoopTest {
         while (idx < nums.length) {
             System.out.println(nums[idx++]);
         }
+    }
+
+    @Test
+    public void loopTest() {
+        int length = 3;
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            System.out.println(random.nextInt(length));
+        }
+        System.out.println();
+        length = 0;
+        System.out.println(random.nextInt(length));
     }
 }
